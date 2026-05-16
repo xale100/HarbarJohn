@@ -165,8 +165,8 @@ export default function Home() {
             <Image src={p.src} alt={p.name} fill className="object-cover object-top brightness-60" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-1.5 md:p-3">
-              <p className="text-[#DDD8CC] font-bold text-[8px] md:text-xs leading-tight">{p.name}</p>
-              <p className="text-[#BFA060] text-[7px] md:text-[10px] tracking-wide">{p.title}</p>
+              <p className="text-[#DDD8CC] font-bold text-[10px] md:text-xs leading-tight truncate">{p.name}</p>
+              <p className="text-[#BFA060] text-[9px] md:text-[10px] tracking-wide truncate">{p.title}</p>
             </div>
           </div>
         ))}
