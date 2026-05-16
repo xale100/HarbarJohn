@@ -117,7 +117,7 @@ export default function Home() {
       <section className="grid grid-cols-3 md:grid-cols-5 h-52 md:h-72 overflow-hidden">
         {[
           "/images/venue-1.jpg",
-          "/images/harbor-1.jpg",
+          "/images/venue-2.jpg",
           "/images/venue-3.jpg",
           "/images/harbor-2.jpg",
           "/images/venue-5.jpg",
