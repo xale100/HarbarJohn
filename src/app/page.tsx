@@ -40,20 +40,20 @@ export default function Home() {
             HAR<span className="text-[#DDD8CC]/40">·</span>BAR
           </h1>
 
-          <p className="text-[#DDD8CC]/50 text-sm tracking-[0.4em] uppercase mb-7 sm:mb-10">
+          <p className="text-[#DDD8CC]/50 text-xs tracking-[0.4em] uppercase mb-7 sm:mb-10">
             201 Citizens Dock Rd &nbsp;·&nbsp; Crescent City, CA
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/events"
-              className="px-7 py-3 border border-[#BFA060]/60 hover:border-[#BFA060] text-[#BFA060] font-bold text-base tracking-widest uppercase transition-colors"
+              className="px-7 py-3 border border-[#BFA060]/60 hover:border-[#BFA060] text-[#BFA060] font-bold text-sm tracking-widest uppercase transition-colors"
             >
               See Events
             </Link>
             <Link
               href="/visit"
-              className="px-7 py-3 border border-[#DDD8CC]/20 hover:border-[#DDD8CC]/50 text-[#DDD8CC]/70 font-bold text-base tracking-widest uppercase transition-colors"
+              className="px-7 py-3 border border-[#DDD8CC]/20 hover:border-[#DDD8CC]/50 text-[#DDD8CC]/70 font-bold text-sm tracking-widest uppercase transition-colors"
             >
               Find Us
             </Link>
@@ -109,7 +109,7 @@ export default function Home() {
       <section className="grain py-20 px-4 bg-[#0f170f]">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-baseline justify-between mb-10">
-            <h2 className="text-3xl font-black text-[#DDD8CC] tracking-wide uppercase">
+            <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase">
               This Week&apos;s Shows
             </h2>
             <Link href="/events" className="text-[#BFA060]/70 hover:text-[#BFA060] text-xs tracking-widest uppercase transition-colors">
@@ -136,10 +136,10 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <div className="flex items-start justify-between gap-4 mb-10">
             <div>
-              <h2 className="text-3xl font-black text-[#DDD8CC] tracking-wide uppercase mb-1">
+              <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-1">
                 On Tap
               </h2>
-              <p className="text-[#DDD8CC]/40 text-base">Hand-crafted in Crescent City by Devin Beach</p>
+              <p className="text-[#DDD8CC]/40 text-sm">Hand-crafted in Crescent City by Devin Beach</p>
             </div>
             <Image
               src="/images/award.png"
@@ -176,9 +176,8 @@ export default function Home() {
       <section className="bg-[#080d08] pt-0 pb-0">
         <div className="grid grid-cols-2 md:grid-cols-3">
           {[
-            { name: "Ax Throwing", photo: null, note: "18+" },
-            { name: "Darts", photo: "/images/harbor-1.jpg", note: null },
-            { name: "Pool", photo: "/images/pool.jpg", note: "18+" },
+            { name: "Axe Throwing", photo: null, note: "18+" },
+            { name: "Pool & Darts", photo: "/images/pool.jpg", note: "18+" },
             { name: "Arcade", photo: null, note: null },
             { name: "Shuffleboard", photo: null, note: null },
             { name: "Foosball", photo: null, note: null },
@@ -216,7 +215,7 @@ export default function Home() {
 
         <div className="max-w-4xl mx-auto px-4 py-5">
           <p className="text-[#DDD8CC]/30 text-xs tracking-widest uppercase">
-            Ax throwing &amp; pool 18+ &nbsp;·&nbsp; Reservations: 707-460-1154
+            Axe throwing &amp; pool / darts 18+ &nbsp;·&nbsp; Reservations: 707-460-1154
           </p>
         </div>
       </section>
