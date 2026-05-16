@@ -79,7 +79,7 @@ export default function Home() {
           </div>
           {[
             { label: "On the Harbor", sub: "201 Citizens Dock Rd" },
-            { label: "Open Daily", sub: "Mon–Thu 3pm · Fri–Sun 12pm" },
+            { label: "Open Wed–Sun", sub: "Wed–Thu 3pm · Fri–Sun 12pm" },
           ].map((item) => (
             <div key={item.label} className="px-2 sm:px-6 py-1 text-center shrink-0">
               <p className="text-[#DDD8CC] text-[10px] sm:text-sm font-semibold whitespace-nowrap">{item.label}</p>

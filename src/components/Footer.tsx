@@ -21,7 +21,8 @@ export default function Footer() {
           {/* Hours + Directions */}
           <div>
             <p className="text-[#DDD8CC]/20 text-xs tracking-widest uppercase mb-2">Hours</p>
-            <p className="text-[#DDD8CC]/50 mb-0.5">Mon – Thu &nbsp; 3pm – 10pm</p>
+            <p className="text-[#DDD8CC]/25 mb-0.5">Mon – Tue &nbsp;&nbsp;&nbsp; Closed</p>
+            <p className="text-[#DDD8CC]/50 mb-0.5">Wed – Thu &nbsp; 3pm – 10pm</p>
             <p className="text-[#DDD8CC]/50 mb-0.5">Fri – Sat &nbsp;&nbsp;&nbsp; 12pm – 12am</p>
             <p className="text-[#DDD8CC]/50 mb-4">Sun &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12pm – 10pm</p>
             <a
