@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Activities",
   description:
-    "Ax throwing, darts, arcade, pool and more at Har-Bar in Crescent City. Walk-in or reserve a lane for your group.",
+    "Ax throwing, darts, pool, arcade, shuffleboard and foosball at Har-Bar in Crescent City. Walk-in or reserve.",
 };
 
 const activities = [
@@ -12,82 +12,97 @@ const activities = [
     icon: "🪓",
     name: "Ax Throwing",
     tagline: "Throw. Score. Repeat.",
-    desc: "Our ax throwing lanes are open walk-in or by reservation. Perfect for date nights, birthdays, team outings, or just a Tuesday. Safety briefing provided, no experience needed.",
+    desc: "Two ax throwing lanes — walk-in or reserve. No experience needed, instruction is included. Perfect for groups, date nights, or birthdays. 18+ only.",
     details: [
-      "4 throwing lanes",
+      "2 throwing lanes",
+      "18+ only",
       "Walk-ins welcome",
-      "Group reservations available",
-      "Certified instructors on staff",
-      "Ages 13+ (under 18 requires guardian)",
+      "Group reservations available — call 707-460-1154",
+      "Instruction included, no experience needed",
     ],
-    cta: "Reserve a Lane",
     bg: "bg-[#1E3A2F]",
-    accent: "#E8900A",
   },
   {
     icon: "🎯",
     name: "Darts",
-    tagline: "Steel tip. Electronic. Your call.",
-    desc: "Multiple dart boards including both electronic and steel tip. We run a weekly dart league every Wednesday — all skill levels welcome. Show up solo or bring a crew.",
+    tagline: "Your board is waiting.",
+    desc: "Multiple dart boards available throughout the venue. Great for casual play or league nights. 18+ area.",
     details: [
-      "8 boards (4 electronic, 4 steel tip)",
-      "Free to play with drink purchase",
-      "Wednesday league nights",
-      "Monthly tournaments",
+      "Multiple boards",
+      "18+ area",
+      "League nights — check the schedule",
       "House darts available",
+      "Free to play with drink purchase",
     ],
-    cta: "Join the League",
     bg: "bg-[#0D1B2A]",
-    accent: "#E8900A",
-  },
-  {
-    icon: "🎮",
-    name: "Arcade",
-    tagline: "Classic games, no quarters needed.",
-    desc: "A hand-picked selection of arcade classics and modern machines. Token system keeps it simple. All-ages until 9pm, 21+ after.",
-    details: [
-      "15+ machines",
-      "Token system",
-      "All-ages before 9pm",
-      "Prize redemption counter",
-      "Pinball included",
-    ],
-    cta: "See the Machines",
-    bg: "bg-[#1A3040]",
-    accent: "#E8900A",
   },
   {
     icon: "🎱",
     name: "Pool",
-    tagline: "Regulation tables. Cold drinks.",
-    desc: "Full-size regulation pool tables in a dedicated room. Hourly table rentals, Thursday tournament nights, and a house cue rack if you didn't bring your own stick.",
+    tagline: "Rack 'em up.",
+    desc: "Pool tables available for open play. 18+ only. Great for competitive play or a casual round with friends.",
     details: [
-      "4 full-size regulation tables",
+      "Full-size pool tables",
+      "18+ only",
       "Hourly rental",
-      "Thursday tournament nights",
-      "House cues and chalk available",
-      "Private room available for events",
+      "House cues available",
+      "Tournament nights — check schedule",
     ],
-    cta: "Reserve a Table",
+    bg: "bg-[#1A3040]",
+  },
+  {
+    icon: "🎮",
+    name: "Arcade",
+    tagline: "Classic games, all night.",
+    desc: "A hand-picked selection of classic arcade games and pinball machines. All-ages welcome during family hours.",
+    details: [
+      "Classic arcade games",
+      "Pinball included",
+      "All-ages during family hours",
+      "Token system",
+    ],
     bg: "bg-[#1E3A2F]",
-    accent: "#E8900A",
+  },
+  {
+    icon: "🏒",
+    name: "Shuffleboard",
+    tagline: "Full-size. No waiting.",
+    desc: "Full-size shuffleboard table — one of the best ways to spend an afternoon at the harbor.",
+    details: [
+      "Full-size table",
+      "All-ages welcome",
+      "Great for groups",
+    ],
+    bg: "bg-[#0D1B2A]",
+  },
+  {
+    icon: "⚽",
+    name: "Foosball",
+    tagline: "Fast. Fun. Free play.",
+    desc: "Classic foosball — competitive or casual. Always available, always free to play.",
+    details: [
+      "Classic foosball table",
+      "All-ages welcome",
+      "Free to play",
+    ],
+    bg: "bg-[#1A3040]",
   },
 ];
 
 const groupPackages = [
   {
     name: "Harbor Night Out",
-    desc: "2 hours of ax throwing + pool table + drink credits for up to 8 people.",
+    desc: "Ax throwing + pool + drinks for your group. Call to build a custom package.",
     price: "Call for pricing",
   },
   {
     name: "Birthday Package",
-    desc: "Reserved section, arcade tokens, darts, and a birthday round of drinks.",
+    desc: "Reserved section, arcade tokens, darts, foosball, and a birthday round of drinks.",
     price: "Call for pricing",
   },
   {
     name: "Team Outing",
-    desc: "Full venue buy-out or partial reservation. Custom activity combo for your group.",
+    desc: "Partial or full venue reservation. Custom activity combo built around your group.",
     price: "Custom quote",
   },
 ];
@@ -99,81 +114,69 @@ export default function ActivitiesPage() {
       {/* HERO */}
       <section className="bg-[#0D1B2A] py-24 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-[#E8900A] text-xs font-bold tracking-[0.4em] uppercase mb-4">
-            Not Just a Bar
-          </p>
-          <h1 className="text-5xl sm:text-7xl font-black text-[#F5F0E8] mb-6 tracking-wide">
-            Activities
-          </h1>
+          <p className="text-[#E8900A] text-xs font-bold tracking-[0.4em] uppercase mb-4">Not Just a Bar</p>
+          <h1 className="text-5xl sm:text-7xl font-black text-[#F5F0E8] mb-6 tracking-wide">Activities</h1>
           <p className="text-[#F5F0E8]/60 text-xl max-w-2xl mx-auto leading-relaxed">
-            Ax throwing, darts, arcade, pool — all under one roof, all night long.
-            Bring a group or fly solo.
+            Ax throwing · darts · pool · arcade · shuffleboard · foosball.
+            All on the harbor, all night long.
           </p>
         </div>
       </section>
 
-      {/* ACTIVITIES GRID */}
+      {/* ACTIVITIES */}
       <section className="py-16 px-4">
-        <div className="max-w-6xl mx-auto space-y-6">
-          {activities.map((act, i) => (
-            <div
-              key={act.name}
-              className={`${act.bg} rounded-2xl p-8 md:p-12 flex flex-col md:flex-row gap-8 items-start`}
-            >
-              {/* Icon + name */}
-              <div className="md:w-48 shrink-0 text-center md:text-left">
-                <div className="text-6xl mb-4">{act.icon}</div>
-                <h2 className="text-[#F5F0E8] font-black text-3xl leading-tight">
-                  {act.name}
-                </h2>
-                <p className="text-[#E8900A] text-sm font-medium mt-1">{act.tagline}</p>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+          {activities.map((act) => (
+            <div key={act.name} className={`${act.bg} rounded-2xl p-8 flex flex-col gap-4`}>
+              <div className="flex items-start gap-5">
+                <div className="text-5xl shrink-0">{act.icon}</div>
+                <div>
+                  <h2 className="text-[#F5F0E8] font-black text-2xl leading-tight">{act.name}</h2>
+                  <p className="text-[#E8900A] text-sm font-medium mt-0.5">{act.tagline}</p>
+                </div>
               </div>
-
-              {/* Details */}
-              <div className="flex-1">
-                <p className="text-[#F5F0E8]/70 leading-relaxed mb-6 text-lg">{act.desc}</p>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-8">
-                  {act.details.map((d) => (
-                    <li key={d} className="text-[#F5F0E8]/60 text-sm flex items-start gap-2">
-                      <span className="text-[#E8900A] mt-0.5">·</span>
-                      {d}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/visit"
-                  className="inline-block px-6 py-3 border-2 border-[#E8900A] text-[#E8900A] hover:bg-[#E8900A] hover:text-[#071219] font-bold rounded tracking-widest uppercase transition-all text-sm"
-                >
-                  {act.cta}
-                </Link>
-              </div>
+              <p className="text-[#F5F0E8]/70 leading-relaxed">{act.desc}</p>
+              <ul className="space-y-1.5">
+                {act.details.map((d) => (
+                  <li key={d} className="text-[#F5F0E8]/60 text-sm flex items-start gap-2">
+                    <span className="text-[#E8900A] mt-0.5">·</span>{d}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
       </section>
 
+      {/* RESERVE CTA */}
+      <section className="bg-[#0D1B2A] py-12 px-4 text-center">
+        <div className="max-w-xl mx-auto">
+          <p className="text-[#F5F0E8]/60 text-sm mb-2">Ax throwing reservations &amp; group bookings</p>
+          <a
+            href="tel:7074601154"
+            className="text-5xl font-black text-[#E8900A] hover:text-[#F5A623] transition-colors"
+          >
+            707-460-1154
+          </a>
+          <p className="text-[#F5F0E8]/40 text-xs mt-2">Walk-ins always welcome · Call ahead for large groups</p>
+        </div>
+      </section>
+
       {/* GROUP PACKAGES */}
-      <section className="bg-[#F5F0E8] py-16 px-4 border-t border-[#E8DFD0]">
+      <section className="py-16 px-4 bg-[#F5F0E8]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-[#E8900A] text-xs font-bold tracking-[0.3em] uppercase mb-2">
-              Bring the Crew
-            </p>
-            <h2 className="text-4xl font-black text-[#0D1B2A] mb-4">
-              Group Packages
-            </h2>
+            <p className="text-[#E8900A] text-xs font-bold tracking-[0.3em] uppercase mb-2">Bring the Crew</p>
+            <h2 className="text-4xl font-black text-[#0D1B2A] mb-4">Group Packages</h2>
             <p className="text-[#6B7280] max-w-xl mx-auto">
-              Har-Bar is made for groups. Birthday parties, team outings, company
-              events — we&apos;ll put together a package that works.
+              Har-Bar is built for groups. Birthdays, team outings, company events —
+              call us and we&apos;ll put together something that works.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {groupPackages.map((pkg) => (
-              <div
-                key={pkg.name}
-                className="bg-white rounded-xl border border-[#E8DFD0] p-6 shadow-sm card-hover"
-              >
+              <div key={pkg.name} className="bg-white rounded-xl border border-[#E8DFD0] p-6 shadow-sm card-hover">
                 <h3 className="text-[#0D1B2A] font-black text-xl mb-3">{pkg.name}</h3>
                 <p className="text-[#6B7280] text-sm leading-relaxed mb-4">{pkg.desc}</p>
                 <p className="text-[#E8900A] font-bold text-sm">{pkg.price}</p>
