@@ -27,7 +27,7 @@ export default function Home() {
 
           <div className="mb-8 flex justify-center">
             <Image
-              src="/images/logo.png"
+              src="/images/logo-2.png"
               alt="Port O'Pints"
               width={120}
               height={120}

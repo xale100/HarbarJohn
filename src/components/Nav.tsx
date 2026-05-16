@@ -19,7 +19,7 @@ export default function Nav() {
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
           <Image
-            src="/images/logo.png"
+            src="/images/logo-2.png"
             alt="Har-Bar"
             width={36}
             height={36}
