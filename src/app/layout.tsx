@@ -13,13 +13,13 @@ export const metadata: Metadata = {
     template: "%s | Har-Bar",
   },
   description:
-    "Har-Bar is Crescent City's premier harbor-side entertainment venue. Live music, ax throwing, darts, arcade, pool, and outdoor stages with a harbor view.",
+    "Har-Bar is Crescent City's premier harbor-side entertainment venue. Live music, axe throwing, darts, arcade, pool, and outdoor stages with a harbor view.",
   keywords: [
     "Har-Bar",
     "Crescent City bar",
     "live music Crescent City",
     "harbor bar",
-    "ax throwing Crescent City",
+    "axe throwing Crescent City",
     "entertainment venue",
   ],
   openGraph: {
