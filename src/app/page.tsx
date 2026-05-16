@@ -150,7 +150,7 @@ export default function Home() {
                   src={act.photo}
                   alt={act.name}
                   fill
-                  className="object-cover brightness-50"
+                  className="object-cover brightness-50 blur-[1.5px] scale-105"
                 />
               ) : (
                 <div className="absolute inset-0 bg-[#1a3a1a]" />
