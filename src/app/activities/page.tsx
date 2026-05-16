@@ -70,14 +70,14 @@ export default function ActivitiesPage() {
       </section>
 
       {/* RESERVE CTA */}
-      <section className="grain py-12 px-4 bg-[#0f170f]">
+      <section className="grain py-6 px-4 bg-[#0f170f]">
         <div className="max-w-4xl mx-auto">
-          <p className="text-[#DDD8CC]/40 text-xs tracking-widest uppercase mb-3">
+          <p className="text-[#DDD8CC]/40 text-xs tracking-widest uppercase mb-2">
             Axe throwing reservations &amp; group bookings
           </p>
           <a
             href="tel:7074601154"
-            className="block text-3xl sm:text-5xl font-black text-[#BFA060] hover:text-[#DDD8CC] transition-colors mb-2"
+            className="block text-xl sm:text-3xl font-black text-[#BFA060] hover:text-[#DDD8CC] transition-colors mb-1"
           >
             707-460-1154
           </a>

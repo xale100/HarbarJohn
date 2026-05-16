@@ -1,48 +1,28 @@
-import Link from "next/link";
-
 export default function Footer() {
   return (
     <footer className="bg-[#080d08] text-[#DDD8CC]/30 border-t border-[#BFA060]/10">
-      <div className="max-w-6xl mx-auto px-4 py-10">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8 text-sm">
+      <div className="max-w-6xl mx-auto px-4 py-6">
 
-          {/* Brand + Contact */}
-          <div>
-            <p className="text-[#BFA060] font-black tracking-widest text-base mb-3">
-              HAR<span className="text-[#DDD8CC]/20">·</span>BAR
-            </p>
-            <p className="text-[#DDD8CC]/50 leading-relaxed mb-1">201 Citizens Dock Road</p>
-            <p className="text-[#DDD8CC]/50 mb-3">Crescent City, CA 95531</p>
-            <a href="tel:7074601154" className="block text-[#DDD8CC]/50 hover:text-[#BFA060] transition-colors mb-4">
-              707-460-1154
-            </a>
-            <p className="text-[#DDD8CC]/20 text-xs tracking-widest uppercase">Formerly PortoPints South Beach</p>
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-4 text-sm">
 
-          {/* Hours + Directions */}
-          <div>
-            <p className="text-[#DDD8CC]/20 text-xs tracking-widest uppercase mb-3">Hours</p>
-            <p className="text-[#DDD8CC]/50 mb-0.5">Mon – Thu &nbsp; 3pm – 10pm</p>
-            <p className="text-[#DDD8CC]/50 mb-0.5">Fri – Sat &nbsp;&nbsp;&nbsp; 12pm – 12am</p>
-            <p className="text-[#DDD8CC]/50 mb-6">Sun &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12pm – 10pm</p>
-            <a
-              href="https://maps.app.goo.gl/GCqSBeWD7dmrHuNL6"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-5 py-2.5 border border-[#BFA060]/50 hover:border-[#BFA060] text-[#BFA060] text-xs font-bold tracking-widest uppercase transition-colors"
-            >
-              Get Directions →
-            </a>
-          </div>
-
-          {/* Google Map — full color */}
-          <div>
-            <p className="text-[#DDD8CC]/20 text-xs tracking-widest uppercase mb-3">Location</p>
-            <div className="overflow-hidden rounded-sm border border-[#BFA060]/15">
+          {/* Brand + Map */}
+          <div className="flex gap-4 items-start">
+            <div className="flex-1 min-w-0">
+              <p className="text-[#BFA060] font-black tracking-widest text-base mb-2">
+                HAR<span className="text-[#DDD8CC]/20">·</span>BAR
+              </p>
+              <p className="text-[#DDD8CC]/50 mb-0.5 leading-snug">201 Citizens Dock Road</p>
+              <p className="text-[#DDD8CC]/50 mb-2">Crescent City, CA 95531</p>
+              <a href="tel:7074601154" className="block text-[#DDD8CC]/50 hover:text-[#BFA060] transition-colors mb-3">
+                707-460-1154
+              </a>
+              <p className="text-[#DDD8CC]/20 text-xs tracking-widest uppercase">Formerly PortoPints South Beach</p>
+            </div>
+            <div className="overflow-hidden rounded-sm border border-[#BFA060]/15 shrink-0 w-32 sm:w-40">
               <iframe
                 src="https://maps.google.com/maps?q=201+Citizens+Dock+Road,+Crescent+City,+CA+95531&z=16&output=embed"
                 width="100%"
-                height="180"
+                height="120"
                 style={{ border: 0, display: "block" }}
                 allowFullScreen
                 loading="lazy"
@@ -52,9 +32,25 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Hours + Directions */}
+          <div>
+            <p className="text-[#DDD8CC]/20 text-xs tracking-widest uppercase mb-2">Hours</p>
+            <p className="text-[#DDD8CC]/50 mb-0.5">Mon – Thu &nbsp; 3pm – 10pm</p>
+            <p className="text-[#DDD8CC]/50 mb-0.5">Fri – Sat &nbsp;&nbsp;&nbsp; 12pm – 12am</p>
+            <p className="text-[#DDD8CC]/50 mb-4">Sun &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12pm – 10pm</p>
+            <a
+              href="https://maps.app.goo.gl/GCqSBeWD7dmrHuNL6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-5 py-2 border border-[#BFA060]/50 hover:border-[#BFA060] text-[#BFA060] text-xs font-bold tracking-widest uppercase transition-colors"
+            >
+              Get Directions →
+            </a>
+          </div>
+
         </div>
 
-        <div className="border-t border-[#BFA060]/10 pt-6 flex flex-col sm:flex-row justify-between gap-2 text-xs">
+        <div className="border-t border-[#BFA060]/10 pt-4 flex flex-col sm:flex-row justify-between gap-1 text-xs">
           <span>© {new Date().getFullYear()} Har-Bar · Crescent City, CA</span>
           <span className="text-[#DDD8CC]/15">Formerly PortoPints South Beach</span>
         </div>
