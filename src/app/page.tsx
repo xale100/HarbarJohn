@@ -40,20 +40,20 @@ export default function Home() {
             HAR<span className="text-[#DDD8CC]/40">·</span>BAR
           </h1>
 
-          <p className="text-[#DDD8CC]/50 text-xs tracking-[0.4em] uppercase mb-7 sm:mb-10">
+          <p className="text-[#DDD8CC]/50 text-sm tracking-[0.4em] uppercase mb-7 sm:mb-10">
             201 Citizens Dock Rd &nbsp;·&nbsp; Crescent City, CA
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/events"
-              className="px-7 py-3 border border-[#BFA060]/60 hover:border-[#BFA060] text-[#BFA060] font-bold text-sm tracking-widest uppercase transition-colors"
+              className="px-7 py-3 border border-[#BFA060]/60 hover:border-[#BFA060] text-[#BFA060] font-bold text-base tracking-widest uppercase transition-colors"
             >
               See Events
             </Link>
             <Link
               href="/visit"
-              className="px-7 py-3 border border-[#DDD8CC]/20 hover:border-[#DDD8CC]/50 text-[#DDD8CC]/70 font-bold text-sm tracking-widest uppercase transition-colors"
+              className="px-7 py-3 border border-[#DDD8CC]/20 hover:border-[#DDD8CC]/50 text-[#DDD8CC]/70 font-bold text-base tracking-widest uppercase transition-colors"
             >
               Find Us
             </Link>
@@ -67,8 +67,8 @@ export default function Home() {
           <div className="px-6 py-1 flex items-center gap-3">
             <Image src="/images/award.png" alt="Award-winning" width={44} height={44} className="object-contain" />
             <div>
-              <p className="text-[#DDD8CC] text-sm font-semibold">Award-Winning</p>
-              <p className="text-[#DDD8CC]/55 text-xs">Craft Beer &amp; Root Beer</p>
+              <p className="text-[#DDD8CC] text-base font-semibold">Award-Winning</p>
+              <p className="text-[#DDD8CC]/55 text-sm">Craft Beer &amp; Root Beer</p>
             </div>
           </div>
           {[
@@ -77,8 +77,8 @@ export default function Home() {
             { label: "707-460-1154", sub: "Call or walk in" },
           ].map((item) => (
             <div key={item.label} className="px-6 py-1 text-center">
-              <p className="text-[#DDD8CC] text-sm font-semibold">{item.label}</p>
-              <p className="text-[#DDD8CC]/55 text-xs">{item.sub}</p>
+              <p className="text-[#DDD8CC] text-base font-semibold">{item.label}</p>
+              <p className="text-[#DDD8CC]/55 text-sm">{item.sub}</p>
             </div>
           ))}
         </div>
@@ -109,10 +109,10 @@ export default function Home() {
       <section className="grain py-20 px-4 bg-[#0f170f]">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-baseline justify-between mb-10">
-            <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase">
+            <h2 className="text-3xl font-black text-[#DDD8CC] tracking-wide uppercase">
               This Week&apos;s Shows
             </h2>
-            <Link href="/events" className="text-[#BFA060]/70 hover:text-[#BFA060] text-xs tracking-widest uppercase transition-colors">
+            <Link href="/events" className="text-[#BFA060]/70 hover:text-[#BFA060] text-sm tracking-widest uppercase transition-colors">
               Full Schedule →
             </Link>
           </div>
@@ -120,9 +120,9 @@ export default function Home() {
           <div className="divide-y divide-[#BFA060]/10">
             {shows.map((show, i) => (
               <div key={i} className="flex items-baseline justify-between py-4 gap-4">
-                <p className="text-[#BFA060] text-xs tracking-widest uppercase w-28 shrink-0">{show.date}</p>
-                <p className="text-[#DDD8CC] font-semibold flex-1">{show.artist}</p>
-                <p className="text-[#DDD8CC]/40 text-xs tracking-wide text-right shrink-0">
+                <p className="text-[#BFA060] text-sm tracking-widest uppercase w-28 shrink-0">{show.date}</p>
+                <p className="text-[#DDD8CC] font-semibold flex-1 text-base">{show.artist}</p>
+                <p className="text-[#DDD8CC]/40 text-sm tracking-wide text-right shrink-0">
                   {show.time} &nbsp;·&nbsp; {show.stage}
                 </p>
               </div>
@@ -136,10 +136,10 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <div className="flex items-start justify-between gap-4 mb-10">
             <div>
-              <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-1">
+              <h2 className="text-3xl font-black text-[#DDD8CC] tracking-wide uppercase mb-1">
                 On Tap
               </h2>
-              <p className="text-[#DDD8CC]/40 text-sm">Hand-crafted in Crescent City by Devin Beach</p>
+              <p className="text-[#DDD8CC]/40 text-base">Hand-crafted in Crescent City by Devin Beach</p>
             </div>
             <Image
               src="/images/award.png"
