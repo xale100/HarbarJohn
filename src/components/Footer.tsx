@@ -26,7 +26,7 @@ export default function Footer() {
             <p className="text-[#DDD8CC]/50 mb-0.5">Fri – Sat &nbsp;&nbsp;&nbsp; 12pm – 12am</p>
             <p className="text-[#DDD8CC]/50 mb-6">Sun &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12pm – 10pm</p>
             <a
-              href="https://maps.app.goo.gl/96fX4m4NKiLqtip4A"
+              href="https://maps.app.goo.gl/GCqSBeWD7dmrHuNL6"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-5 py-2.5 border border-[#BFA060]/50 hover:border-[#BFA060] text-[#BFA060] text-xs font-bold tracking-widest uppercase transition-colors"
