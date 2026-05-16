@@ -135,12 +135,6 @@ export default function Home() {
 
       {/* ACTIVITIES */}
       <section className="bg-[#080d08] pt-20 pb-0">
-        <div className="max-w-4xl mx-auto px-4 mb-6">
-          <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase">
-            Activities
-          </h2>
-        </div>
-
         <div className="grid grid-cols-2 md:grid-cols-3">
           {[
             { name: "Ax Throwing", photo: null, note: "18+" },
