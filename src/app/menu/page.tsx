@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Beer & Food Menu",
@@ -50,8 +51,8 @@ const beers = [
 const food = [
   { category: "Starters", items: [
     { name: "Celtic Garlic Knots (8)", price: "$12", desc: "Fresh dough twisted into knots with garlic, parmesan, and parsley." },
-    { name: "Hot Pretzel", price: "–", desc: "Oven-baked, coated in garlic butter and sea salt. Served with stone ground mustard or house beer cheese." },
-    { name: "Dino Nuggets (8)", price: "$8", desc: "A classic." },
+    { name: "Hot Pretzel", price: "", desc: "Oven-baked, coated in garlic butter and sea salt. Served with stone ground mustard or house beer cheese." },
+    { name: "Dino Nuggets (8)", price: "$8", desc: "" },
     { name: "Hot Dog", price: "$6", desc: "" },
     { name: "Irish Nachos", price: "$8 / $15", desc: "Half or full order." },
     { name: "Meatball Sliders (3)", price: "$13", desc: "" },
@@ -60,14 +61,14 @@ const food = [
   { category: "Salads", items: [
     { name: "Pub Salad", price: "$13", desc: "" },
     { name: "Greek Salad", price: "$17", desc: "Spring mix, feta, kalamata olives, red onion, bell pepper, tomato, cucumber, Greek dressing." },
-    { name: "Garden Salad", price: "–", desc: "Spring mix, onion, tomato. Choice of dressing. Add meat or cheese +$2 each." },
-    { name: "Simple Salad", price: "–", desc: "Spring mix, onion, tomato, pepperoncini, olives. Choice of dressing." },
+    { name: "Garden Salad", price: "", desc: "Spring mix, onion, tomato. Choice of dressing. Add meat or cheese +$2 each." },
+    { name: "Simple Salad", price: "", desc: "Spring mix, onion, tomato, pepperoncini, olives. Choice of dressing." },
   ]},
   { category: "Pizza & Calzones", items: [
     { name: "Cheese Pizza", price: "$15", desc: "" },
-    { name: "Margherita", price: "–", desc: "" },
-    { name: "Irish Pizza", price: "–", desc: "Garlic butter base, spinach, mozzarella, onion, goat cheese, hot honey." },
-    { name: "Meatball Stuffed Crust", price: "–", desc: "" },
+    { name: "Margherita", price: "", desc: "" },
+    { name: "Irish Pizza", price: "", desc: "Garlic butter base, spinach, mozzarella, onion, goat cheese, hot honey." },
+    { name: "Meatball Stuffed Crust", price: "", desc: "" },
     { name: "Cheese Bread", price: "$11", desc: "" },
   ]},
   { category: "Subs & Sandwiches", items: [
@@ -86,57 +87,63 @@ const sauces = [
 
 export default function MenuPage() {
   return (
-    <div className="bg-[#F5F0E8]">
+    <div className="bg-[#080d08] text-[#DDD8CC]">
 
       {/* HERO */}
-      <section className="bg-[#0D1B2A] py-24 px-4">
+      <section className="grain py-24 px-4 bg-[#080d08]">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-[#E8900A] text-xs font-bold tracking-[0.4em] uppercase mb-4">Brewed On-Site</p>
-          <h1 className="text-5xl sm:text-7xl font-black text-[#F5F0E8] mb-6 tracking-wide">Beer &amp; Food</h1>
-          <p className="text-[#F5F0E8]/60 text-xl max-w-2xl mx-auto leading-relaxed">
-            Award-winning craft beer brewed in Crescent City by Devin Beach.
-            Full pub food menu. Something for every palate.
+          <h1 className="text-5xl sm:text-7xl font-black text-[#DDD8CC] mb-4 tracking-wide uppercase">
+            Beer &amp; Food
+          </h1>
+          <p className="text-[#DDD8CC]/40 text-sm tracking-widest uppercase">
+            Hand-crafted in Crescent City &nbsp;·&nbsp; Brewed on-site by Devin Beach
           </p>
         </div>
       </section>
 
-      {/* BEER MENU */}
-      <section className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-4 mb-10">
+      {/* ON TAP */}
+      <section className="grain py-20 px-4 bg-[#0a100a]">
+        <div className="max-w-4xl mx-auto">
+
+          <div className="flex items-start justify-between gap-4 mb-12">
             <div>
-              <p className="text-[#E8900A] text-xs font-bold tracking-[0.3em] uppercase mb-1">Handcrafted</p>
-              <h2 className="text-3xl font-black text-[#0D1B2A]">On Tap</h2>
+              <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-1">On Tap</h2>
+              <p className="text-[#DDD8CC]/40 text-sm">Seasonal availability may vary</p>
             </div>
-            <div className="flex-1 h-px bg-[#E8DFD0]" />
-            <p className="text-[#6B7280] text-sm">Seasonal availability may vary</p>
+            <Image
+              src="/images/award.png"
+              alt="Award-winning"
+              width={52}
+              height={52}
+              className="object-contain shrink-0 opacity-80"
+            />
           </div>
 
-          <div className="space-y-10">
+          <div className="space-y-12">
             {beers.map((section) => (
               <div key={section.category}>
-                <h3 className="text-[#0D1B2A] font-black text-lg uppercase tracking-widest border-b border-[#E8DFD0] pb-2 mb-4">
+                <p className="text-[#BFA060] text-xs tracking-[0.3em] uppercase mb-3 border-b border-[#BFA060]/15 pb-2">
                   {section.category}
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                </p>
+                <div className="divide-y divide-[#BFA060]/10">
                   {section.items.map((beer) => (
-                    <div key={beer.name} className="bg-white rounded-xl border border-[#E8DFD0] p-5 shadow-sm flex gap-4">
-                      <div className="flex-1">
-                        <div className="flex items-start justify-between gap-2 mb-1">
-                          <p className="text-[#0D1B2A] font-bold text-base">{beer.name}</p>
+                    <div key={beer.name} className="py-4 flex items-baseline justify-between gap-4">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-baseline gap-3 flex-wrap">
+                          <p className="text-[#DDD8CC] font-semibold">{beer.name}</p>
                           {"badge" in beer && beer.badge && (
-                            <span className="shrink-0 text-xs bg-[#E8900A]/15 text-[#C2651A] px-2 py-0.5 rounded-full font-bold">
-                              {beer.badge}
-                            </span>
+                            <span className="text-[#BFA060] text-[10px] tracking-widest uppercase">{beer.badge}</span>
                           )}
                         </div>
-                        {(beer.abv || beer.ibu) && (
-                          <p className="text-[#E8900A] text-xs font-medium mb-2">
-                            {beer.abv && `ABV ${beer.abv}`}{beer.abv && beer.ibu && " · "}{beer.ibu && `IBU ${beer.ibu}`}
-                          </p>
+                        {beer.desc && (
+                          <p className="text-[#DDD8CC]/35 text-xs leading-relaxed mt-0.5">{beer.desc}</p>
                         )}
-                        <p className="text-[#6B7280] text-sm leading-relaxed">{beer.desc}</p>
                       </div>
+                      {(beer.abv || beer.ibu) && (
+                        <p className="text-[#DDD8CC]/40 text-xs text-right shrink-0 whitespace-nowrap">
+                          {beer.abv && `${beer.abv}`}{beer.abv && beer.ibu && " · "}{beer.ibu && `IBU ${beer.ibu}`}
+                        </p>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -144,39 +151,39 @@ export default function MenuPage() {
             ))}
           </div>
 
-          <p className="text-center text-[#6B7280] text-xs mt-8">
+          <p className="text-[#DDD8CC]/20 text-xs mt-10 tracking-wide">
             We reserve the right to alter the tap list at any time. Wine and hard seltzer also available.
           </p>
         </div>
       </section>
 
       {/* FOOD MENU */}
-      <section className="bg-[#0D1B2A] py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-4 mb-10">
-            <div>
-              <p className="text-[#E8900A] text-xs font-bold tracking-[0.3em] uppercase mb-1">Pub Kitchen</p>
-              <h2 className="text-3xl font-black text-[#F5F0E8]">Food Menu</h2>
-            </div>
-            <div className="flex-1 h-px bg-[#F5F0E8]/10" />
+      <section className="grain py-20 px-4 bg-[#0f170f]">
+        <div className="max-w-4xl mx-auto">
+
+          <div className="mb-12">
+            <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-1">Food Menu</h2>
+            <p className="text-[#DDD8CC]/40 text-sm">Pub kitchen · Add meat +$2 · Add cheese +$2</p>
           </div>
 
-          <div className="space-y-10">
+          <div className="space-y-12">
             {food.map((section) => (
               <div key={section.category}>
-                <h3 className="text-[#E8900A] font-black text-base uppercase tracking-widest border-b border-[#F5F0E8]/10 pb-2 mb-4">
+                <p className="text-[#BFA060] text-xs tracking-[0.3em] uppercase mb-3 border-b border-[#BFA060]/15 pb-2">
                   {section.category}
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                </p>
+                <div className="divide-y divide-[#BFA060]/10">
                   {section.items.map((item) => (
-                    <div key={item.name} className="bg-[#1A3040] rounded-lg border border-[#F5F0E8]/10 p-4">
-                      <div className="flex justify-between items-start gap-2 mb-1">
-                        <p className="text-[#F5F0E8] font-bold text-sm">{item.name}</p>
-                        {item.price && item.price !== "–" && (
-                          <span className="text-[#E8900A] font-bold text-sm shrink-0">{item.price}</span>
+                    <div key={item.name} className="py-4 flex items-baseline justify-between gap-4">
+                      <div className="flex-1 min-w-0">
+                        <p className="text-[#DDD8CC] font-semibold">{item.name}</p>
+                        {item.desc && (
+                          <p className="text-[#DDD8CC]/35 text-xs leading-relaxed mt-0.5">{item.desc}</p>
                         )}
                       </div>
-                      {item.desc && <p className="text-[#F5F0E8]/50 text-xs leading-relaxed">{item.desc}</p>}
+                      {item.price && (
+                        <p className="text-[#DDD8CC]/40 text-xs text-right shrink-0">{item.price}</p>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -185,44 +192,39 @@ export default function MenuPage() {
           </div>
 
           {/* Sauces */}
-          <div className="mt-10">
-            <h3 className="text-[#E8900A] font-black text-base uppercase tracking-widest border-b border-[#F5F0E8]/10 pb-2 mb-4">
+          <div className="mt-12">
+            <p className="text-[#BFA060] text-xs tracking-[0.3em] uppercase mb-4 border-b border-[#BFA060]/15 pb-2">
               Dipping Sauces
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {sauces.map((s) => (
-                <span key={s} className="px-3 py-1 bg-[#1A3040] border border-[#F5F0E8]/10 rounded-full text-[#F5F0E8]/60 text-xs">
-                  {s}
-                </span>
-              ))}
-            </div>
+            </p>
+            <p className="text-[#DDD8CC]/40 text-sm leading-relaxed">
+              {sauces.join(" · ")}
+            </p>
           </div>
 
-          <p className="text-[#F5F0E8]/30 text-xs mt-8 text-center">
-            Menu subject to change. Add meat +$2 · Add cheese +$2.
+          <p className="text-[#DDD8CC]/20 text-xs mt-10 tracking-wide">
+            Menu subject to change. Ask your server about daily specials.
           </p>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-4 bg-[#F5F0E8] text-center">
+      <section className="border-t border-[#BFA060]/20 py-16 px-4 bg-[#080d08] text-center">
         <div className="max-w-xl mx-auto">
-          <h2 className="text-3xl font-black text-[#0D1B2A] mb-4">Come Hungry</h2>
-          <p className="text-[#6B7280] mb-8">
-            201 Citizens Dock Road · Crescent City, CA 95531
+          <p className="text-[#DDD8CC]/40 text-xs tracking-widest uppercase mb-6">
+            201 Citizens Dock Road &nbsp;·&nbsp; Crescent City, CA
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/visit"
-              className="px-8 py-3 bg-[#E8900A] hover:bg-[#F5A623] text-[#071219] font-bold rounded tracking-widest uppercase transition-colors text-sm"
+              className="px-7 py-3 border border-[#BFA060]/60 hover:border-[#BFA060] text-[#BFA060] font-bold text-sm tracking-widest uppercase transition-colors"
             >
               Hours &amp; Directions
             </Link>
             <Link
               href="/events"
-              className="px-8 py-3 border-2 border-[#0D1B2A] hover:bg-[#0D1B2A] text-[#0D1B2A] hover:text-[#F5F0E8] font-bold rounded tracking-widest uppercase transition-colors text-sm"
+              className="px-7 py-3 border border-[#DDD8CC]/20 hover:border-[#DDD8CC]/50 text-[#DDD8CC]/70 font-bold text-sm tracking-widest uppercase transition-colors"
             >
-              See Tonight&apos;s Events
+              See Events
             </Link>
           </div>
         </div>
