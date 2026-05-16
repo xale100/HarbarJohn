@@ -5,24 +5,11 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-
-  /* Har-Bar brand palette */
-  --color-harbor-navy:   #0D1B2A;
-  --color-harbor-deep:   #071219;
-  --color-amber:         #E8900A;
-  --color-amber-light:   #F5A623;
-  --color-copper:        #C2651A;
-  --color-cream:         #F5F0E8;
-  --color-cream-dark:    #E8DFD0;
-  --color-harbor-teal:   #1A4A5C;
-  --color-stage-green:   #1E3A2F;
-  --color-text-dark:     #1A1A1A;
-  --color-text-muted:    #6B7280;
 }
 
 :root {
-  --background: #F5F0E8;
-  --foreground: #1A1A1A;
+  --background: #080d08;
+  --foreground: #DDD8CC;
 }
 
 body {
@@ -35,28 +22,25 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #0D1B2A; }
-::-webkit-scrollbar-thumb { background: #E8900A; border-radius: 3px; }
+::-webkit-scrollbar-track { background: #080d08; }
+::-webkit-scrollbar-thumb { background: #BFA060; border-radius: 3px; }
 
-/* Utility classes */
-.text-amber-glow {
-  text-shadow: 0 0 30px rgba(232, 144, 10, 0.4);
+/* Grain texture overlay */
+.grain {
+  position: relative;
+}
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+  opacity: 0.5;
 }
 
-.harbor-gradient {
-  background: linear-gradient(135deg, #0D1B2A 0%, #1A4A5C 50%, #0D1B2A 100%);
-}
-
-.sunset-gradient {
-  background: linear-gradient(180deg, #0D1B2A 0%, #1A3040 30%, #3D2010 70%, #0D1B2A 100%);
-}
-
-.card-hover {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.card-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+.gold-rule {
+  border-color: #BFA060;
+  opacity: 0.25;
 }
