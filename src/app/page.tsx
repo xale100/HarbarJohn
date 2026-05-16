@@ -64,15 +64,16 @@ export default function Home() {
 
       {/* QUICK FACTS */}
       <section className="border-t border-[#BFA060]/15 border-b border-[#BFA060]/15 py-5 px-4 bg-[#0a100a]">
-        <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-x-10 gap-y-2 text-center">
+        <div className="max-w-5xl mx-auto flex flex-wrap justify-center divide-x divide-[#BFA060]/15">
           {[
-            { label: "Award-Winning Craft Beer", sub: "Brewed on-site" },
+            { label: "Award-Winning", sub: "Craft Beer & Root Beer" },
+            { label: "On the Harbor", sub: "201 Citizens Dock Rd, Crescent City" },
+            { label: "Open Daily", sub: "Mon–Thu 3pm · Fri–Sun 12pm" },
             { label: "707-460-1154", sub: "Call or walk in" },
-            { label: "Mon–Thu 3pm · Fri–Sat 12pm · Sun 12pm", sub: "Hours" },
           ].map((item) => (
-            <div key={item.label}>
-              <p className="text-[#DDD8CC]/80 text-sm font-medium">{item.label}</p>
-              <p className="text-[#DDD8CC]/30 text-xs tracking-widest uppercase">{item.sub}</p>
+            <div key={item.label} className="px-6 py-1 text-center">
+              <p className="text-[#DDD8CC]/80 text-sm font-semibold">{item.label}</p>
+              <p className="text-[#DDD8CC]/35 text-xs">{item.sub}</p>
             </div>
           ))}
         </div>
