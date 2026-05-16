@@ -63,17 +63,25 @@ export default function Home() {
       </section>
 
       {/* QUICK FACTS */}
-      <section className="border-t border-[#BFA060]/15 border-b border-[#BFA060]/15 py-5 px-4 bg-[#0a100a]">
-        <div className="max-w-5xl mx-auto flex flex-wrap justify-center divide-x divide-[#BFA060]/15">
+      <section className="border-t border-[#BFA060]/30 border-b border-[#BFA060]/30 py-5 px-4 bg-[#1a3a1a]">
+        <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-center divide-x divide-[#BFA060]/25">
+          {/* Award — with graphic */}
+          <div className="px-6 py-1 flex items-center gap-3">
+            <Image src="/images/award.png" alt="Award-winning" width={44} height={44} className="object-contain" />
+            <div>
+              <p className="text-[#DDD8CC] text-sm font-semibold">Award-Winning</p>
+              <p className="text-[#DDD8CC]/55 text-xs">Craft Beer &amp; Root Beer</p>
+            </div>
+          </div>
+          {/* Remaining items */}
           {[
-            { label: "Award-Winning", sub: "Craft Beer & Root Beer" },
             { label: "On the Harbor", sub: "201 Citizens Dock Rd, Crescent City" },
             { label: "Open Daily", sub: "Mon–Thu 3pm · Fri–Sun 12pm" },
             { label: "707-460-1154", sub: "Call or walk in" },
           ].map((item) => (
             <div key={item.label} className="px-6 py-1 text-center">
-              <p className="text-[#DDD8CC]/80 text-sm font-semibold">{item.label}</p>
-              <p className="text-[#DDD8CC]/35 text-xs">{item.sub}</p>
+              <p className="text-[#DDD8CC] text-sm font-semibold">{item.label}</p>
+              <p className="text-[#DDD8CC]/55 text-xs">{item.sub}</p>
             </div>
           ))}
         </div>
