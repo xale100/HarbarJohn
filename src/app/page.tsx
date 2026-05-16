@@ -36,11 +36,11 @@ export default function Home() {
             />
           </div>
 
-          <h1 className="text-7xl sm:text-[10rem] font-black tracking-widest text-[#BFA060] leading-none mb-3">
+          <h1 className="text-7xl sm:text-[10rem] font-black tracking-widest text-[#BFA060] leading-none mb-2 sm:mb-3">
             HAR<span className="text-[#DDD8CC]/40">·</span>BAR
           </h1>
 
-          <p className="text-[#DDD8CC]/50 text-xs tracking-[0.4em] uppercase mb-10">
+          <p className="text-[#DDD8CC]/50 text-xs tracking-[0.4em] uppercase mb-7 sm:mb-10">
             201 Citizens Dock Rd &nbsp;·&nbsp; Crescent City, CA
           </p>
 
