@@ -110,6 +110,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* BEER */}
+      <section className="grain py-20 px-4 bg-[#0a100a]">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-start justify-between gap-4 mb-10">
+            <div>
+              <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-1">
+                On Tap
+              </h2>
+              <p className="text-[#DDD8CC]/40 text-sm">Hand-crafted in Crescent City by Devin Beach</p>
+            </div>
+            <Image
+              src="/images/award.png"
+              alt="Award-winning"
+              width={52}
+              height={52}
+              className="object-contain shrink-0 opacity-80"
+            />
+          </div>
+
+          <div className="divide-y divide-[#BFA060]/10">
+            {beers.map((beer) => (
+              <div key={beer.name} className="flex items-baseline justify-between py-4 gap-4">
+                <p className="text-[#DDD8CC] font-semibold">{beer.name}</p>
+                <p className="text-[#DDD8CC]/40 text-sm text-right">
+                  {beer.style} &nbsp;·&nbsp; {beer.abv}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8">
+            <Link
+              href="/menu"
+              className="text-[#BFA060]/70 hover:text-[#BFA060] text-xs tracking-widest uppercase transition-colors"
+            >
+              Full Beer &amp; Food Menu →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* PHOTO STRIP */}
       <section className="grid grid-cols-3 md:grid-cols-5 h-52 md:h-72 overflow-hidden">
         {[
@@ -174,48 +215,6 @@ export default function Home() {
         </div>
       </section>
 
-      <hr className="border-[#BFA060]/10 max-w-4xl mx-auto" />
-
-      {/* BEER */}
-      <section className="grain py-20 px-4 bg-[#0a100a]">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-start justify-between gap-4 mb-10">
-            <div>
-              <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-1">
-                On Tap
-              </h2>
-              <p className="text-[#DDD8CC]/40 text-sm">Hand-crafted in Crescent City by Devin Beach</p>
-            </div>
-            <Image
-              src="/images/award.png"
-              alt="Award-winning"
-              width={52}
-              height={52}
-              className="object-contain shrink-0 opacity-80"
-            />
-          </div>
-
-          <div className="divide-y divide-[#BFA060]/10">
-            {beers.map((beer) => (
-              <div key={beer.name} className="flex items-baseline justify-between py-4 gap-4">
-                <p className="text-[#DDD8CC] font-semibold">{beer.name}</p>
-                <p className="text-[#DDD8CC]/40 text-sm text-right">
-                  {beer.style} &nbsp;·&nbsp; {beer.abv}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8">
-            <Link
-              href="/menu"
-              className="text-[#BFA060]/70 hover:text-[#BFA060] text-xs tracking-widest uppercase transition-colors"
-            >
-              Full Beer &amp; Food Menu →
-            </Link>
-          </div>
-        </div>
-      </section>
 
     </div>
   );
