@@ -22,39 +22,38 @@ export default function Home() {
     <div className="bg-[#080d08] text-[#DDD8CC]">
 
       {/* HERO */}
-      <section className="grain relative min-h-[75vh] flex flex-col items-center justify-center px-4 bg-[#080d08]">
+      <section className="grain relative min-h-[85vh] flex flex-col items-center justify-center px-6 bg-[#080d08]">
         <div className="relative z-10 text-center max-w-3xl mx-auto">
 
-          <div className="mb-8 flex justify-center">
+          <div className="mb-10 flex justify-center">
             <Image
               src="/images/logo-2.png"
               alt="Port O'Pints"
-              width={120}
-              height={120}
+              width={160}
+              height={160}
               className="object-contain"
               priority
-              style={{ imageRendering: "crisp-edges" }}
             />
           </div>
 
-          <h1 className="text-7xl sm:text-[10rem] font-black tracking-widest text-[#BFA060] leading-none mb-3">
+          <h1 className="text-8xl sm:text-[10rem] font-black tracking-widest text-[#BFA060] leading-none mb-4">
             HAR<span className="text-[#DDD8CC]/40">·</span>BAR
           </h1>
 
-          <p className="text-[#DDD8CC]/50 text-xs tracking-[0.4em] uppercase mb-10">
+          <p className="text-[#DDD8CC]/50 text-sm tracking-[0.4em] uppercase mb-12">
             201 Citizens Dock Rd &nbsp;·&nbsp; Crescent City, CA
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/events"
-              className="px-7 py-3 border border-[#BFA060]/60 hover:border-[#BFA060] text-[#BFA060] font-bold text-sm tracking-widest uppercase transition-colors"
+              className="px-8 py-4 border border-[#BFA060]/60 hover:border-[#BFA060] text-[#BFA060] font-bold tracking-widest uppercase transition-colors"
             >
               See Events
             </Link>
             <Link
               href="/visit"
-              className="px-7 py-3 border border-[#DDD8CC]/20 hover:border-[#DDD8CC]/50 text-[#DDD8CC]/70 font-bold text-sm tracking-widest uppercase transition-colors"
+              className="px-8 py-4 border border-[#DDD8CC]/20 hover:border-[#DDD8CC]/50 text-[#DDD8CC]/70 font-bold tracking-widest uppercase transition-colors"
             >
               Find Us
             </Link>
@@ -63,48 +62,46 @@ export default function Home() {
       </section>
 
       {/* QUICK FACTS */}
-      <section className="border-t border-[#BFA060]/30 border-b border-[#BFA060]/30 py-5 px-4 bg-[#1a3a1a]">
+      <section className="border-t border-[#BFA060]/30 border-b border-[#BFA060]/30 py-6 px-4 bg-[#1a3a1a]">
         <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-center divide-x divide-[#BFA060]/25">
-          {/* Award — with graphic */}
-          <div className="px-6 py-1 flex items-center gap-3">
-            <Image src="/images/award.png" alt="Award-winning" width={44} height={44} className="object-contain" />
+          <div className="px-6 py-2 flex items-center gap-3">
+            <Image src="/images/award.png" alt="Award-winning" width={48} height={48} className="object-contain" />
             <div>
-              <p className="text-[#DDD8CC] text-sm font-semibold">Award-Winning</p>
-              <p className="text-[#DDD8CC]/55 text-xs">Craft Beer &amp; Root Beer</p>
+              <p className="text-[#DDD8CC] font-semibold">Award-Winning</p>
+              <p className="text-[#DDD8CC]/55 text-sm">Craft Beer &amp; Root Beer</p>
             </div>
           </div>
-          {/* Remaining items */}
           {[
             { label: "On the Harbor", sub: "201 Citizens Dock Rd, Crescent City" },
             { label: "Open Daily", sub: "Mon–Thu 3pm · Fri–Sun 12pm" },
             { label: "707-460-1154", sub: "Call or walk in" },
           ].map((item) => (
-            <div key={item.label} className="px-6 py-1 text-center">
-              <p className="text-[#DDD8CC] text-sm font-semibold">{item.label}</p>
-              <p className="text-[#DDD8CC]/55 text-xs">{item.sub}</p>
+            <div key={item.label} className="px-6 py-2 text-center">
+              <p className="text-[#DDD8CC] font-semibold">{item.label}</p>
+              <p className="text-[#DDD8CC]/55 text-sm">{item.sub}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* UPCOMING SHOWS */}
-      <section className="grain py-20 px-4 bg-[#0f170f]">
+      <section className="grain py-24 px-6 bg-[#0f170f]">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-baseline justify-between mb-10">
-            <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase">
+          <div className="flex items-baseline justify-between mb-12">
+            <h2 className="text-3xl font-black text-[#DDD8CC] tracking-wide uppercase">
               This Week&apos;s Shows
             </h2>
-            <Link href="/events" className="text-[#BFA060]/70 hover:text-[#BFA060] text-xs tracking-widest uppercase transition-colors">
+            <Link href="/events" className="text-[#BFA060]/70 hover:text-[#BFA060] text-sm tracking-widest uppercase transition-colors">
               Full Schedule →
             </Link>
           </div>
 
           <div className="divide-y divide-[#BFA060]/10">
             {shows.map((show, i) => (
-              <div key={i} className="flex items-baseline justify-between py-4 gap-4">
-                <p className="text-[#BFA060] text-xs tracking-widest uppercase w-28 shrink-0">{show.date}</p>
-                <p className="text-[#DDD8CC] font-semibold flex-1">{show.artist}</p>
-                <p className="text-[#DDD8CC]/40 text-xs tracking-wide text-right shrink-0">
+              <div key={i} className="flex items-baseline justify-between py-5 gap-4">
+                <p className="text-[#BFA060] text-sm tracking-widest uppercase w-32 shrink-0">{show.date}</p>
+                <p className="text-[#DDD8CC] font-semibold text-lg flex-1">{show.artist}</p>
+                <p className="text-[#DDD8CC]/40 text-sm tracking-wide text-right shrink-0">
                   {show.time} &nbsp;·&nbsp; {show.stage}
                 </p>
               </div>
@@ -114,7 +111,7 @@ export default function Home() {
       </section>
 
       {/* PHOTO STRIP */}
-      <section className="grid grid-cols-3 md:grid-cols-5 h-52 md:h-72 overflow-hidden">
+      <section className="grid grid-cols-3 md:grid-cols-5 h-64 md:h-80 overflow-hidden">
         {[
           "/images/venue-1.jpg",
           "/images/venue-2.jpg",
@@ -123,18 +120,13 @@ export default function Home() {
           "/images/venue-5.jpg",
         ].map((src, i) => (
           <div key={i} className="relative overflow-hidden">
-            <Image
-              src={src}
-              alt="Har-Bar"
-              fill
-              className="object-cover brightness-75"
-            />
+            <Image src={src} alt="Har-Bar" fill className="object-cover brightness-75" />
           </div>
         ))}
       </section>
 
       {/* ACTIVITIES */}
-      <section className="bg-[#080d08] pt-20 pb-0">
+      <section className="bg-[#080d08] pt-0 pb-0">
         <div className="grid grid-cols-2 md:grid-cols-3">
           {[
             { name: "Ax Throwing", photo: null, note: "18+" },
@@ -155,7 +147,6 @@ export default function Home() {
               ) : (
                 <div className="absolute inset-0 bg-[#1a3a1a]" />
               )}
-              {/* grain overlay */}
               <div
                 className="absolute inset-0 z-10 opacity-40"
                 style={{
@@ -163,11 +154,11 @@ export default function Home() {
                 }}
               />
               <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center p-4">
-                <p className="text-[#DDD8CC] font-black text-xl sm:text-2xl tracking-widest uppercase">
+                <p className="text-[#DDD8CC] font-black text-2xl sm:text-3xl tracking-widest uppercase">
                   {act.name}
                 </p>
                 {act.note && (
-                  <p className="text-[#BFA060] text-xs tracking-widest uppercase mt-1">
+                  <p className="text-[#BFA060] text-sm tracking-widest uppercase mt-2">
                     {act.note}
                   </p>
                 )}
@@ -176,49 +167,49 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="max-w-4xl mx-auto px-4 py-5">
-          <p className="text-[#DDD8CC]/30 text-xs tracking-widest uppercase">
+        <div className="max-w-4xl mx-auto px-6 py-6">
+          <p className="text-[#DDD8CC]/30 text-sm tracking-widest uppercase">
             Ax throwing &amp; pool 18+ &nbsp;·&nbsp; Reservations: 707-460-1154
           </p>
         </div>
       </section>
 
-      <hr className="border-[#BFA060]/10 max-w-4xl mx-auto" />
+      <hr className="border-[#BFA060]/10" />
 
       {/* BEER */}
-      <section className="grain py-20 px-4 bg-[#0a100a]">
+      <section className="grain py-24 px-6 bg-[#0a100a]">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-start justify-between gap-4 mb-10">
+          <div className="flex items-start justify-between gap-4 mb-12">
             <div>
-              <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-1">
+              <h2 className="text-3xl font-black text-[#DDD8CC] tracking-wide uppercase mb-2">
                 On Tap
               </h2>
-              <p className="text-[#DDD8CC]/40 text-sm">Hand-crafted in Crescent City by Devin Beach</p>
+              <p className="text-[#DDD8CC]/40">Hand-crafted in Crescent City by Devin Beach</p>
             </div>
             <Image
               src="/images/award.png"
               alt="Award-winning"
-              width={52}
-              height={52}
+              width={56}
+              height={56}
               className="object-contain shrink-0 opacity-80"
             />
           </div>
 
           <div className="divide-y divide-[#BFA060]/10">
             {beers.map((beer) => (
-              <div key={beer.name} className="flex items-baseline justify-between py-4 gap-4">
-                <p className="text-[#DDD8CC] font-semibold">{beer.name}</p>
-                <p className="text-[#DDD8CC]/40 text-sm text-right">
+              <div key={beer.name} className="flex items-baseline justify-between py-5 gap-4">
+                <p className="text-[#DDD8CC] font-semibold text-lg">{beer.name}</p>
+                <p className="text-[#DDD8CC]/40 text-right">
                   {beer.style} &nbsp;·&nbsp; {beer.abv}
                 </p>
               </div>
             ))}
           </div>
 
-          <div className="mt-8">
+          <div className="mt-10">
             <Link
               href="/menu"
-              className="text-[#BFA060]/70 hover:text-[#BFA060] text-xs tracking-widest uppercase transition-colors"
+              className="text-[#BFA060]/70 hover:text-[#BFA060] text-sm tracking-widest uppercase transition-colors"
             >
               Full Beer &amp; Food Menu →
             </Link>
