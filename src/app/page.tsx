@@ -40,7 +40,7 @@ export default function Home() {
             HAR<span className="text-[#DDD8CC]/40">·</span>BAR
           </h1>
 
-          <p className="text-[#DDD8CC]/50 text-[10px] tracking-[0.4em] uppercase mb-7 sm:mb-10">
+          <p className="text-[#DDD8CC]/50 text-[10px] tracking-[0.2em] sm:tracking-[0.4em] uppercase mb-7 sm:mb-10 whitespace-nowrap">
             201 Citizens Dock Rd &nbsp;·&nbsp; Crescent City, CA
           </p>
 
@@ -63,22 +63,22 @@ export default function Home() {
 
       {/* QUICK FACTS */}
       <section className="border-t border-[#BFA060]/30 border-b border-[#BFA060]/30 py-5 px-4 bg-[#1a3a1a]">
-        <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-center divide-x divide-[#BFA060]/25">
-          <div className="px-6 py-1 flex items-center gap-3">
-            <Image src="/images/award.png" alt="Award-winning" width={44} height={44} className="object-contain" />
+        <div className="max-w-5xl mx-auto flex overflow-x-auto items-center justify-center divide-x divide-[#BFA060]/25 scrollbar-none">
+          <div className="px-2 sm:px-6 py-1 flex items-center gap-2 shrink-0">
+            <Image src="/images/award.png" alt="Award-winning" width={44} height={44} className="object-contain hidden sm:block" />
             <div>
-              <p className="text-[#DDD8CC] text-[10px] sm:text-sm font-semibold">Award-Winning</p>
-              <p className="text-[#DDD8CC]/55 text-[9px] sm:text-xs">Craft Beer &amp; Root Beer</p>
+              <p className="text-[#DDD8CC] text-[10px] sm:text-sm font-semibold whitespace-nowrap">Award-Winning</p>
+              <p className="text-[#DDD8CC]/55 text-[9px] sm:text-xs whitespace-nowrap">Craft Beer &amp; Root Beer</p>
             </div>
           </div>
           {[
-            { label: "On the Harbor", sub: "201 Citizens Dock Rd, Crescent City" },
+            { label: "On the Harbor", sub: "201 Citizens Dock Rd" },
             { label: "Open Daily", sub: "Mon–Thu 3pm · Fri–Sun 12pm" },
             { label: "707-460-1154", sub: "Call or walk in" },
           ].map((item) => (
-            <div key={item.label} className="px-6 py-1 text-center">
-              <p className="text-[#DDD8CC] text-[10px] sm:text-sm font-semibold">{item.label}</p>
-              <p className="text-[#DDD8CC]/55 text-[9px] sm:text-xs">{item.sub}</p>
+            <div key={item.label} className="px-2 sm:px-6 py-1 text-center shrink-0">
+              <p className="text-[#DDD8CC] text-[10px] sm:text-sm font-semibold whitespace-nowrap">{item.label}</p>
+              <p className="text-[#DDD8CC]/55 text-[9px] sm:text-xs whitespace-nowrap">{item.sub}</p>
             </div>
           ))}
         </div>
