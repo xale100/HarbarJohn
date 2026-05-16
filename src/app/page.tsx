@@ -226,43 +226,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* VISIT */}
-      <section className="grain py-20 px-4 bg-[#1a3a1a]">
-        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-10 items-end">
-          <div>
-            <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-6">
-              Come Down
-            </h2>
-            <p className="text-[#DDD8CC]/80 mb-1">201 Citizens Dock Road</p>
-            <p className="text-[#DDD8CC]/80 mb-6">Crescent City, CA 95531</p>
-            <p className="text-[#DDD8CC]/50 text-sm mb-1">Mon – Thu &nbsp; 3pm – 10pm</p>
-            <p className="text-[#DDD8CC]/50 text-sm mb-1">Fri – Sat &nbsp;&nbsp;&nbsp; 12pm – 12am</p>
-            <p className="text-[#DDD8CC]/50 text-sm">Sun &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12pm – 10pm</p>
-          </div>
-
-          <div className="flex flex-col gap-3 sm:items-end">
-            <a
-              href="tel:7074601154"
-              className="text-[#BFA060] font-black text-2xl hover:text-[#DDD8CC] transition-colors"
-            >
-              707-460-1154
-            </a>
-            <Link
-              href="/visit"
-              className="inline-block px-7 py-3 border border-[#BFA060]/60 hover:border-[#BFA060] text-[#BFA060] font-bold text-sm tracking-widest uppercase transition-colors"
-            >
-              Directions &amp; Info
-            </Link>
-            <Link
-              href="/events"
-              className="inline-block px-7 py-3 border border-[#DDD8CC]/20 hover:border-[#DDD8CC]/40 text-[#DDD8CC]/60 font-bold text-sm tracking-widest uppercase transition-colors"
-            >
-              Tonight&apos;s Events
-            </Link>
-          </div>
-        </div>
-      </section>
-
     </div>
   );
 }
