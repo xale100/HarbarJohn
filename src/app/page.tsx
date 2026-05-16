@@ -126,16 +126,56 @@ export default function Home() {
       </section>
 
       {/* ACTIVITIES */}
-      <section className="py-20 px-4 bg-[#080d08]">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-6">
+      <section className="bg-[#080d08] pt-20 pb-0">
+        <div className="max-w-4xl mx-auto px-4 mb-6">
+          <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase">
             Activities
           </h2>
-          <p className="text-[#DDD8CC]/50 text-lg sm:text-xl font-light tracking-wide leading-relaxed">
-            Ax Throwing &nbsp;·&nbsp; Darts &nbsp;·&nbsp; Pool &nbsp;·&nbsp;
-            Arcade &nbsp;·&nbsp; Shuffleboard &nbsp;·&nbsp; Foosball
-          </p>
-          <p className="text-[#DDD8CC]/30 text-xs tracking-widest uppercase mt-4">
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3">
+          {[
+            { name: "Ax Throwing", photo: null, note: "18+" },
+            { name: "Darts", photo: "/images/harbor-1.jpg", note: null },
+            { name: "Pool", photo: "/images/harbor-3.jpg", note: "18+" },
+            { name: "Arcade", photo: null, note: null },
+            { name: "Shuffleboard", photo: null, note: null },
+            { name: "Foosball", photo: null, note: null },
+          ].map((act) => (
+            <div key={act.name} className="relative aspect-square overflow-hidden">
+              {act.photo ? (
+                <Image
+                  src={act.photo}
+                  alt={act.name}
+                  fill
+                  className="object-cover brightness-50"
+                />
+              ) : (
+                <div className="absolute inset-0 bg-[#1a3a1a]" />
+              )}
+              {/* grain overlay */}
+              <div
+                className="absolute inset-0 z-10 opacity-40"
+                style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E")`,
+                }}
+              />
+              <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center p-4">
+                <p className="text-[#DDD8CC] font-black text-xl sm:text-2xl tracking-widest uppercase">
+                  {act.name}
+                </p>
+                {act.note && (
+                  <p className="text-[#BFA060] text-xs tracking-widest uppercase mt-1">
+                    {act.note}
+                  </p>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="max-w-4xl mx-auto px-4 py-5">
+          <p className="text-[#DDD8CC]/30 text-xs tracking-widest uppercase">
             Ax throwing &amp; pool 18+ &nbsp;·&nbsp; Reservations: 707-460-1154
           </p>
         </div>
