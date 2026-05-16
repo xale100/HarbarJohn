@@ -3,33 +3,19 @@ export default function Footer() {
     <footer className="bg-[#080d08] text-[#DDD8CC]/30 border-t border-[#BFA060]/10">
       <div className="max-w-6xl mx-auto px-4 py-6">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-4 text-sm">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-4 text-sm">
 
-          {/* Brand + Map */}
-          <div className="flex gap-4 items-start">
-            <div className="flex-1 min-w-0">
-              <p className="text-[#BFA060] font-black tracking-widest text-base mb-2">
-                HAR<span className="text-[#DDD8CC]/20">·</span>BAR
-              </p>
-              <p className="text-[#DDD8CC]/50 mb-0.5 leading-snug">201 Citizens Dock Road</p>
-              <p className="text-[#DDD8CC]/50 mb-2">Crescent City, CA 95531</p>
-              <a href="tel:7074601154" className="block text-[#DDD8CC]/50 hover:text-[#BFA060] transition-colors mb-3">
-                707-460-1154
-              </a>
-              <p className="text-[#DDD8CC]/20 text-xs tracking-widest uppercase">Formerly PortoPints South Beach</p>
-            </div>
-            <div className="overflow-hidden rounded-sm border border-[#BFA060]/15 shrink-0 w-32 sm:w-40">
-              <iframe
-                src="https://maps.google.com/maps?q=201+Citizens+Dock+Road,+Crescent+City,+CA+95531&z=16&output=embed"
-                width="100%"
-                height="120"
-                style={{ border: 0, display: "block" }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Har-Bar location"
-              />
-            </div>
+          {/* Brand + Contact */}
+          <div>
+            <p className="text-[#BFA060] font-black tracking-widest text-base mb-2">
+              HAR<span className="text-[#DDD8CC]/20">·</span>BAR
+            </p>
+            <p className="text-[#DDD8CC]/50 leading-snug mb-0.5">201 Citizens Dock Road</p>
+            <p className="text-[#DDD8CC]/50 mb-2">Crescent City, CA 95531</p>
+            <a href="tel:7074601154" className="block text-[#DDD8CC]/50 hover:text-[#BFA060] transition-colors mb-3">
+              707-460-1154
+            </a>
+            <p className="text-[#DDD8CC]/20 text-xs tracking-widest uppercase">Formerly PortoPints South Beach</p>
           </div>
 
           {/* Hours + Directions */}
@@ -46,6 +32,22 @@ export default function Footer() {
             >
               Get Directions →
             </a>
+          </div>
+
+          {/* Google Map */}
+          <div>
+            <div className="overflow-hidden rounded-sm border border-[#BFA060]/15">
+              <iframe
+                src="https://maps.google.com/maps?q=201+Citizens+Dock+Road,+Crescent+City,+CA+95531&z=16&output=embed"
+                width="100%"
+                height="160"
+                style={{ border: 0, display: "block" }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Har-Bar location"
+              />
+            </div>
           </div>
 
         </div>

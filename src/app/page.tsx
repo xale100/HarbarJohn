@@ -146,13 +146,21 @@ export default function Home() {
               </h2>
               <p className="text-[#DDD8CC]/40 text-[10px] sm:text-sm">Hand-crafted in Crescent City by Devin Beach</p>
             </div>
-            <Image
-              src="/images/award.png"
-              alt="Award-winning"
-              width={52}
-              height={52}
-              className="object-contain shrink-0 opacity-80"
-            />
+            <div className="flex flex-col items-end gap-2 shrink-0">
+              <Image
+                src="/images/award.png"
+                alt="Award-winning"
+                width={52}
+                height={52}
+                className="object-contain opacity-80"
+              />
+              <Link
+                href="/menu"
+                className="text-[#BFA060]/70 hover:text-[#BFA060] text-[10px] sm:text-xs tracking-widest uppercase transition-colors"
+              >
+                Full Menu →
+              </Link>
+            </div>
           </div>
 
           <div className="divide-y divide-[#BFA060]/10">
@@ -164,15 +172,6 @@ export default function Home() {
                 </p>
               </div>
             ))}
-          </div>
-
-          <div className="mt-8">
-            <Link
-              href="/menu"
-              className="text-[#BFA060]/70 hover:text-[#BFA060] text-xs tracking-widest uppercase transition-colors"
-            >
-              Full Beer &amp; Food Menu →
-            </Link>
           </div>
         </div>
       </section>
@@ -219,10 +218,13 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="max-w-4xl mx-auto px-4 py-5">
-          <p className="text-[#DDD8CC]/30 text-xs tracking-widest uppercase">
-            Axe throwing, pool, darts 18+ &nbsp;·&nbsp; Reservations: 707-460-1154
-          </p>
+        <div className="max-w-4xl mx-auto px-4 py-5 flex justify-end">
+          <Link
+            href="/activities"
+            className="text-[#BFA060]/70 hover:text-[#BFA060] text-[10px] sm:text-xs tracking-widest uppercase transition-colors"
+          >
+            Axe throwing, pool, darts 18+ &nbsp;·&nbsp; Reservations: 707-460-1154 →
+          </Link>
         </div>
       </section>
 
