@@ -131,7 +131,7 @@ export default function Home() {
           {[
             { name: "Ax Throwing", photo: null, note: "18+" },
             { name: "Darts", photo: "/images/harbor-1.jpg", note: null },
-            { name: "Pool", photo: "/images/harbor-3.jpg", note: "18+" },
+            { name: "Pool", photo: "/images/pool.jpg", note: "18+" },
             { name: "Arcade", photo: null, note: null },
             { name: "Shuffleboard", photo: null, note: null },
             { name: "Foosball", photo: null, note: null },
