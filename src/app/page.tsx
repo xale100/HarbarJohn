@@ -84,6 +84,27 @@ export default function Home() {
         </div>
       </section>
 
+      {/* TEAM */}
+      <section className="grid grid-cols-3 md:grid-cols-6">
+        {[
+          { src: "/images/team-devin.jpg",   name: "Devin Beach",       title: "Owner / Brewmaster" },
+          { src: "/images/team-spinner.jpg",  name: "Spinner Spencer",   title: "General Manager" },
+          { src: "/images/team-john.jpg",     name: "John Kirk",         title: "Owner" },
+          { src: "/images/team-cynthia.jpg",  name: "Cynthia Parenteau", title: "Owner" },
+          { src: "/images/team-cameron.jpg",  name: "Cameron Cook",      title: "Production" },
+          { src: "/images/team-russell.jpg",  name: "Russell Smithson",  title: "Marketing" },
+        ].map((p) => (
+          <div key={p.name} className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
+            <Image src={p.src} alt={p.name} fill className="object-cover object-top brightness-60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-1.5 md:p-3">
+              <p className="text-[#DDD8CC] font-bold text-[10px] md:text-xs leading-tight truncate">{p.name}</p>
+              <p className="text-[#BFA060] text-[9px] md:text-[10px] tracking-wide truncate">{p.title}</p>
+            </div>
+          </div>
+        ))}
+      </section>
+
       {/* UPCOMING SHOWS */}
       <section className="grain py-20 px-4 bg-[#0f170f]">
         <div className="max-w-4xl mx-auto">
@@ -149,27 +170,6 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
-
-      {/* TEAM */}
-      <section className="grid grid-cols-3 md:grid-cols-6">
-        {[
-          { src: "/images/team-devin.jpg",   name: "Devin Beach",       title: "Owner / Brewmaster" },
-          { src: "/images/team-spinner.jpg",  name: "Spinner Spencer",   title: "General Manager" },
-          { src: "/images/team-john.jpg",     name: "John Kirk",         title: "Owner" },
-          { src: "/images/team-cynthia.jpg",  name: "Cynthia Parenteau", title: "Owner" },
-          { src: "/images/team-cameron.jpg",  name: "Cameron Cook",      title: "Production" },
-          { src: "/images/team-russell.jpg",  name: "Russell Smithson",  title: "Marketing" },
-        ].map((p) => (
-          <div key={p.name} className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
-            <Image src={p.src} alt={p.name} fill className="object-cover object-top brightness-60" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-1.5 md:p-3">
-              <p className="text-[#DDD8CC] font-bold text-[10px] md:text-xs leading-tight truncate">{p.name}</p>
-              <p className="text-[#BFA060] text-[9px] md:text-[10px] tracking-wide truncate">{p.title}</p>
-            </div>
-          </div>
-        ))}
       </section>
 
       {/* ACTIVITIES */}
