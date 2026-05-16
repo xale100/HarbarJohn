@@ -151,17 +151,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PHOTO STRIP */}
-      <section className="grid grid-cols-3 md:grid-cols-5 h-52 md:h-72 overflow-hidden">
+      {/* TEAM */}
+      <section className="grid grid-cols-3 md:grid-cols-6">
         {[
-          "/images/venue-1.jpg",
-          "/images/venue-2.jpg",
-          "/images/venue-3.jpg",
-          "/images/harbor-2.jpg",
-          "/images/venue-5.jpg",
-        ].map((src, i) => (
-          <div key={i} className="relative overflow-hidden">
-            <Image src={src} alt="Har-Bar" fill className="object-cover brightness-75" />
+          { src: "/images/team-devin.jpg",   name: "Devin Beach",       title: "Owner / Brewmaster" },
+          { src: "/images/team-spinner.jpg",  name: "Spinner Spencer",   title: "General Manager" },
+          { src: "/images/team-john.jpg",     name: "John Kirk",         title: "Owner" },
+          { src: "/images/team-cynthia.jpg",  name: "Cynthia Parenteau", title: "Owner" },
+          { src: "/images/team-cameron.jpg",  name: "Cameron Cook",      title: "Production" },
+          { src: "/images/team-russell.jpg",  name: "Russell Smithson",  title: "Marketing" },
+        ].map((p) => (
+          <div key={p.name} className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
+            <Image src={p.src} alt={p.name} fill className="object-cover object-top brightness-60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-3">
+              <p className="text-[#DDD8CC] font-bold text-xs leading-tight">{p.name}</p>
+              <p className="text-[#BFA060] text-[10px] tracking-wide">{p.title}</p>
+            </div>
           </div>
         ))}
       </section>
