@@ -22,7 +22,7 @@ export default function Home() {
     <div className="bg-[#080d08] text-[#DDD8CC]">
 
       {/* HERO */}
-      <section className="grain relative min-h-screen flex flex-col items-center justify-center px-4 bg-[#080d08]">
+      <section className="grain relative min-h-[75vh] flex flex-col items-center justify-center px-4 bg-[#080d08]">
         <div className="relative z-10 text-center max-w-3xl mx-auto">
 
           <div className="mb-8 flex justify-center">
