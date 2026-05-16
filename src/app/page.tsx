@@ -47,13 +47,13 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/events"
-              className="px-7 py-3 border border-[#BFA060]/60 hover:border-[#BFA060] text-[#BFA060] font-bold text-sm tracking-widest uppercase transition-colors"
+              className="px-7 py-3 border border-[#BFA060]/60 hover:border-[#BFA060] text-[#BFA060] font-bold text-[11px] tracking-widest uppercase transition-colors"
             >
               See Events
             </Link>
             <Link
               href="/visit"
-              className="px-7 py-3 border border-[#DDD8CC]/20 hover:border-[#DDD8CC]/50 text-[#DDD8CC]/70 font-bold text-sm tracking-widest uppercase transition-colors"
+              className="px-7 py-3 border border-[#DDD8CC]/20 hover:border-[#DDD8CC]/50 text-[#DDD8CC]/70 font-bold text-[11px] tracking-widest uppercase transition-colors"
             >
               Find Us
             </Link>
@@ -67,8 +67,8 @@ export default function Home() {
           <div className="px-6 py-1 flex items-center gap-3">
             <Image src="/images/award.png" alt="Award-winning" width={44} height={44} className="object-contain" />
             <div>
-              <p className="text-[#DDD8CC] text-sm font-semibold">Award-Winning</p>
-              <p className="text-[#DDD8CC]/55 text-xs">Craft Beer &amp; Root Beer</p>
+              <p className="text-[#DDD8CC] text-xs font-semibold">Award-Winning</p>
+              <p className="text-[#DDD8CC]/55 text-[10px]">Craft Beer &amp; Root Beer</p>
             </div>
           </div>
           {[
@@ -77,8 +77,8 @@ export default function Home() {
             { label: "707-460-1154", sub: "Call or walk in" },
           ].map((item) => (
             <div key={item.label} className="px-6 py-1 text-center">
-              <p className="text-[#DDD8CC] text-sm font-semibold">{item.label}</p>
-              <p className="text-[#DDD8CC]/55 text-xs">{item.sub}</p>
+              <p className="text-[#DDD8CC] text-xs font-semibold">{item.label}</p>
+              <p className="text-[#DDD8CC]/55 text-[10px]">{item.sub}</p>
             </div>
           ))}
         </div>
@@ -109,7 +109,7 @@ export default function Home() {
       <section className="grain py-20 px-4 bg-[#0f170f]">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-baseline justify-between mb-10">
-            <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase">
+            <h2 className="text-lg font-black text-[#DDD8CC] tracking-wide uppercase">
               This Week&apos;s Shows
             </h2>
             <Link href="/events" className="text-[#BFA060]/70 hover:text-[#BFA060] text-xs tracking-widest uppercase transition-colors">
@@ -121,7 +121,7 @@ export default function Home() {
             {shows.map((show, i) => (
               <div key={i} className="flex items-baseline justify-between py-4 gap-4">
                 <p className="text-[#BFA060] text-xs tracking-widest uppercase w-28 shrink-0">{show.date}</p>
-                <p className="text-[#DDD8CC] font-semibold flex-1">{show.artist}</p>
+                <p className="text-[#DDD8CC] font-semibold flex-1 text-sm">{show.artist}</p>
                 <p className="text-[#DDD8CC]/40 text-xs tracking-wide text-right shrink-0">
                   {show.time} &nbsp;·&nbsp; {show.stage}
                 </p>
@@ -136,10 +136,10 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <div className="flex items-start justify-between gap-4 mb-10">
             <div>
-              <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-1">
+              <h2 className="text-lg font-black text-[#DDD8CC] tracking-wide uppercase mb-1">
                 On Tap
               </h2>
-              <p className="text-[#DDD8CC]/40 text-sm">Hand-crafted in Crescent City by Devin Beach</p>
+              <p className="text-[#DDD8CC]/40 text-xs">Hand-crafted in Crescent City by Devin Beach</p>
             </div>
             <Image
               src="/images/award.png"
@@ -153,8 +153,8 @@ export default function Home() {
           <div className="divide-y divide-[#BFA060]/10">
             {beers.map((beer) => (
               <div key={beer.name} className="flex items-baseline justify-between py-4 gap-4">
-                <p className="text-[#DDD8CC] font-semibold">{beer.name}</p>
-                <p className="text-[#DDD8CC]/40 text-sm text-right">
+                <p className="text-[#DDD8CC] font-semibold text-sm">{beer.name}</p>
+                <p className="text-[#DDD8CC]/40 text-xs text-right">
                   {beer.style} &nbsp;·&nbsp; {beer.abv}
                 </p>
               </div>
@@ -177,7 +177,8 @@ export default function Home() {
         <div className="grid grid-cols-2 md:grid-cols-3">
           {[
             { name: "Axe Throwing", photo: null, note: "18+" },
-            { name: "Pool & Darts", photo: "/images/pool.jpg", note: "18+" },
+            { name: "Darts", photo: "/images/harbor-1.jpg", note: "18+" },
+            { name: "Pool", photo: "/images/pool.jpg", note: "18+" },
             { name: "Arcade", photo: null, note: null },
             { name: "Shuffleboard", photo: null, note: null },
             { name: "Foosball", photo: null, note: null },
@@ -200,7 +201,7 @@ export default function Home() {
                 }}
               />
               <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center p-4">
-                <p className="text-[#DDD8CC] font-black text-xl sm:text-2xl tracking-widest uppercase">
+                <p className="text-[#DDD8CC] font-black text-base sm:text-2xl tracking-widest uppercase">
                   {act.name}
                 </p>
                 {act.note && (
@@ -215,7 +216,7 @@ export default function Home() {
 
         <div className="max-w-4xl mx-auto px-4 py-5">
           <p className="text-[#DDD8CC]/30 text-xs tracking-widest uppercase">
-            Axe throwing &amp; pool / darts 18+ &nbsp;·&nbsp; Reservations: 707-460-1154
+            Axe throwing, pool, darts 18+ &nbsp;·&nbsp; Reservations: 707-460-1154
           </p>
         </div>
       </section>
