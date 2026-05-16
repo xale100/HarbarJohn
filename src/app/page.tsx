@@ -218,12 +218,15 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="max-w-4xl mx-auto px-4 py-5 flex justify-end">
+        <div className="max-w-4xl mx-auto px-4 py-5 flex items-baseline justify-between gap-4">
+          <p className="text-[#DDD8CC]/30 text-[10px] sm:text-xs tracking-widest uppercase">
+            Axe throwing, pool, darts 18+ &nbsp;·&nbsp; Reservations: 707-460-1154
+          </p>
           <Link
             href="/activities"
-            className="text-[#BFA060]/70 hover:text-[#BFA060] text-[10px] sm:text-xs tracking-widest uppercase transition-colors"
+            className="text-[#BFA060]/70 hover:text-[#BFA060] text-[10px] sm:text-xs tracking-widest uppercase transition-colors shrink-0"
           >
-            Axe throwing, pool, darts 18+ &nbsp;·&nbsp; Reservations: 707-460-1154 →
+            Activities →
           </Link>
         </div>
       </section>
