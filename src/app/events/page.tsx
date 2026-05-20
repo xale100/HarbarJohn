@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getShows } from "@/lib/calendar";
 
 export const metadata: Metadata = {
   title: "Live Music & Events",
@@ -7,55 +8,11 @@ export const metadata: Metadata = {
     "Check out the live music schedule at Har-Bar in Crescent City. Two stages, local artists, and harbor views every week.",
 };
 
-const shows = [
-  {
-    date: "Fri, May 23",
-    artist: "The Coastal Drifters",
-    genre: "Blues / Rock",
-    time: "8pm – 11pm",
-    stage: "Indoor Stage",
-    cover: "Free",
-  },
-  {
-    date: "Sat, May 24",
-    artist: "Marina Sound Collective",
-    genre: "Indie / Folk",
-    time: "7pm – 10pm",
-    stage: "Harbor Stage",
-    cover: "Free",
-  },
-  {
-    date: "Thu, May 29",
-    artist: "Thursday League Night",
-    genre: "Open Stage / Jam",
-    time: "7pm – Close",
-    stage: "Indoor Stage",
-    cover: "Free",
-  },
-  {
-    date: "Fri, May 30",
-    artist: "Low Tide Revival",
-    genre: "Americana",
-    time: "9pm – 12am",
-    stage: "Indoor Stage",
-    cover: "$5",
-  },
-  {
-    date: "Sat, May 31",
-    artist: "Del Norte All-Stars",
-    genre: "Classic Rock",
-    time: "8pm – 11:30pm",
-    stage: "Harbor Stage",
-    cover: "Free",
-  },
-  {
-    date: "Fri, Jun 6",
-    artist: "TBA – Local Spotlight",
-    genre: "Varies",
-    time: "8pm",
-    stage: "Indoor Stage",
-    cover: "TBA",
-  },
+const fallbackShows = [
+  { date: "Fri, May 23", artist: "Open Mic Night", genre: "", time: "7pm", stage: "Indoor Stage", cover: "Free" },
+  { date: "Sat, May 24", artist: "Live Band — TBA", genre: "", time: "8pm", stage: "Harbor Stage", cover: "Free" },
+  { date: "Fri, May 30", artist: "Live Music — TBA", genre: "", time: "8pm", stage: "Indoor Stage", cover: "Free" },
+  { date: "Sat, May 31", artist: "Live Music — TBA", genre: "", time: "8pm", stage: "Harbor Stage", cover: "Free" },
 ];
 
 const stages = [
@@ -71,7 +28,9 @@ const stages = [
   },
 ];
 
-export default function EventsPage() {
+export default async function EventsPage() {
+  const liveShows = await getShows(20);
+  const shows = liveShows.length > 0 ? liveShows : fallbackShows;
   return (
     <div className="bg-[#080d08] text-[#DDD8CC]">
 

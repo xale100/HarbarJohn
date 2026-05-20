@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
+import { getShows } from "@/lib/calendar";
 
-const shows = [
+const fallbackShows = [
   { date: "Fri May 23", artist: "Open Mic Night", time: "7pm", stage: "Indoor" },
   { date: "Sat May 24", artist: "Live Band — TBA", time: "8pm", stage: "Harbor Stage" },
   { date: "Fri May 30", artist: "Live Music — TBA", time: "8pm", stage: "Indoor" },
@@ -17,7 +18,11 @@ const beers = [
   { name: "Belgian Tripel", style: "Belgian", abv: "9.1%" },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const liveShows = await getShows(4);
+  const shows = liveShows.length > 0
+    ? liveShows.map(s => ({ date: s.date, artist: s.artist, time: s.time, stage: s.stage }))
+    : fallbackShows;
   return (
     <div className="bg-[#080d08] text-[#DDD8CC]">
 
