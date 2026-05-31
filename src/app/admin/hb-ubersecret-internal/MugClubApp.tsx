@@ -155,6 +155,7 @@ export default function MugClubApp({ token }: { token: string }) {
   const [view, setView] = useState<View>("scanner");
   const [member, setMember] = useState<Member | null>(null);
   const [members, setMembers] = useState<Member[]>([]);
+  const [photoUrl, setPhotoUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState<{ text: string; ok: boolean } | null>(null);
   const [form, setForm] = useState<Partial<Member>>({});
@@ -171,6 +172,20 @@ export default function MugClubApp({ token }: { token: string }) {
     const sep = path.includes("?") ? "&" : "?";
     return fetch(`/api/mugclub/${path}${sep}token=${token}`, options);
   }
+
+  // Fetch signed photo URL whenever member changes
+  useEffect(() => {
+    setPhotoUrl(null);
+    if (!member?.photo_url) return;
+    // Extract R2 key from stored path
+    const key = member.photo_url.startsWith("members/")
+      ? member.photo_url
+      : member.photo_url.split("/").slice(-2).join("/");
+    fetch(`/api/mugclub/photo?key=${encodeURIComponent(key)}&token=${token}`)
+      .then((r) => r.json())
+      .then((d) => setPhotoUrl(d.url))
+      .catch(() => {});
+  }, [member?.photo_url, token]);
 
   const handleScan = useCallback(
     async (cardToken: string) => {
@@ -340,9 +355,9 @@ export default function MugClubApp({ token }: { token: string }) {
 
         <div className="max-w-sm mx-auto px-4 py-8">
           {/* Photo */}
-          {member.photo_url && (
+          {photoUrl && (
             <div className="relative w-full aspect-square mb-6 overflow-hidden">
-              <Image src={member.photo_url} alt={member.first_name} fill className="object-cover object-top" />
+              <Image src={photoUrl} alt={member.first_name} fill className="object-cover object-top" unoptimized />
             </div>
           )}
 
