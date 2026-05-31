@@ -163,6 +163,7 @@ export default function MugClubApp({ token }: { token: string }) {
   const [search, setSearch] = useState("");
   const [showQR, setShowQR] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [photoPreview, setPhotoPreview] = useState<string | null>(null);
 
   function flash(text: string, ok = true) {
     setMsg({ text, ok });
@@ -269,6 +270,7 @@ export default function MugClubApp({ token }: { token: string }) {
     const filename = `members/${member?.member_id ?? `new-${Date.now()}`}-photo.${ext}`;
     const urlRes = await api(`upload-url?filename=${encodeURIComponent(filename)}`);
     if (!urlRes.ok) { flash("Upload failed", false); setUploading(false); return; }
+    const blobUrl = URL.createObjectURL(file);
     const { uploadUrl, photoKey } = await urlRes.json();
     const uploadRes = await fetch(uploadUrl, {
       method: "PUT",
@@ -278,8 +280,10 @@ export default function MugClubApp({ token }: { token: string }) {
     setUploading(false);
     if (uploadRes.ok) {
       setForm((p) => ({ ...p, photo_url: photoKey }));
+      setPhotoPreview(blobUrl);
       flash("Photo uploaded");
     } else {
+      URL.revokeObjectURL(blobUrl);
       flash("Upload failed", false);
     }
   }
@@ -304,7 +308,7 @@ export default function MugClubApp({ token }: { token: string }) {
               Members
             </button>
             <button
-              onClick={() => { setForm({}); setView("add"); }}
+              onClick={() => { setForm({}); setPhotoPreview(null); setView("add"); }}
               className="text-[#BFA060]/60 hover:text-[#BFA060] text-[10px] tracking-widest uppercase transition-colors"
             >
               + Add
@@ -343,7 +347,7 @@ export default function MugClubApp({ token }: { token: string }) {
             ← Scan
           </button>
           <button
-            onClick={() => { setForm({ ...member }); setView("edit"); }}
+            onClick={() => { setForm({ ...member }); setPhotoPreview(null); setView("edit"); }}
             className="text-[#BFA060]/60 hover:text-[#BFA060] text-[10px] tracking-widest uppercase transition-colors"
           >
             Edit
@@ -536,9 +540,9 @@ export default function MugClubApp({ token }: { token: string }) {
               <label className="text-[#DDD8CC]/30 text-[10px] tracking-widest uppercase block mb-1">
                 Photo
               </label>
-              {form.photo_url && (
+              {(photoPreview || (form.photo_url && photoUrl)) && (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={form.photo_url} alt="Preview" className="w-full aspect-square object-cover object-top mb-2" />
+                <img src={photoPreview ?? photoUrl ?? ""} alt="Preview" className="w-full aspect-square object-cover object-top mb-2" />
               )}
               <label className={`block w-full py-3 text-center border cursor-pointer transition-colors text-xs tracking-widest uppercase ${
                 uploading
