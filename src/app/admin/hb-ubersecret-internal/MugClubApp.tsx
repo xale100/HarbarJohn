@@ -20,7 +20,7 @@ interface Member {
   notes: string | null;
 }
 
-type View = "scanner" | "member" | "edit" | "add" | "list";
+type View = "scanner" | "member" | "edit" | "add" | "photo" | "list";
 
 // ── QR Scanner ───────────────────────────────────────────────────────────────
 
@@ -240,8 +240,13 @@ export default function MugClubApp({ token }: { token: string }) {
     setLoading(false);
     if (res.ok) {
       setMember(await res.json());
-      setView("member");
-      flash("Saved");
+      if (isAdd) {
+        setPhotoPreview(null);
+        setView("photo");
+      } else {
+        setView("member");
+        flash("Saved");
+      }
     }
   }
 
@@ -285,6 +290,36 @@ export default function MugClubApp({ token }: { token: string }) {
     } else {
       URL.revokeObjectURL(blobUrl);
       flash("Upload failed", false);
+    }
+  }
+
+  async function handlePhotoStepCapture(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file || !member) return;
+    setUploading(true);
+    const ext = file.type.includes("png") ? "png" : "jpg";
+    const filename = `members/${member.member_id}-photo.${ext}`;
+    const urlRes = await api(`upload-url?filename=${encodeURIComponent(filename)}`);
+    if (!urlRes.ok) { flash("Upload failed", false); setUploading(false); return; }
+    const { uploadUrl, photoKey } = await urlRes.json();
+    const uploadRes = await fetch(uploadUrl, {
+      method: "PUT",
+      body: file,
+      headers: { "Content-Type": file.type },
+    });
+    if (!uploadRes.ok) { flash("Upload failed", false); setUploading(false); return; }
+    const updateRes = await api(`members/${member.member_id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...member, photo_url: photoKey }),
+    });
+    setUploading(false);
+    if (updateRes.ok) {
+      setMember(await updateRes.json());
+      setPhotoPreview(URL.createObjectURL(file));
+      flash("Photo saved");
+    } else {
+      flash("Failed to save photo", false);
     }
   }
 
@@ -535,31 +570,33 @@ export default function MugClubApp({ token }: { token: string }) {
               />
             </div>
 
-            {/* Photo capture */}
-            <div>
-              <label className="text-[#DDD8CC]/30 text-[10px] tracking-widest uppercase block mb-1">
-                Photo
-              </label>
-              {(photoPreview || (form.photo_url && photoUrl)) && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={photoPreview ?? photoUrl ?? ""} alt="Preview" className="w-full aspect-square object-cover object-top mb-2" />
-              )}
-              <label className={`block w-full py-3 text-center border cursor-pointer transition-colors text-xs tracking-widest uppercase ${
-                uploading
-                  ? "border-[#BFA060]/10 text-[#DDD8CC]/20 cursor-not-allowed"
-                  : "border-[#BFA060]/30 hover:border-[#BFA060] text-[#BFA060]/60 hover:text-[#BFA060]"
-              }`}>
-                {uploading ? "Uploading..." : form.photo_url ? "Retake Photo" : "Take Photo"}
-                <input
-                  type="file"
-                  accept="image/*"
-                  capture="environment"
-                  className="hidden"
-                  onChange={handlePhotoCapture}
-                  disabled={uploading}
-                />
-              </label>
-            </div>
+            {/* Photo capture — edit only, add uses dedicated photo step */}
+            {view === "edit" && (
+              <div>
+                <label className="text-[#DDD8CC]/30 text-[10px] tracking-widest uppercase block mb-1">
+                  Photo
+                </label>
+                {(photoPreview || (form.photo_url && photoUrl)) && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={photoPreview ?? photoUrl ?? ""} alt="Preview" className="w-full aspect-square object-cover object-top mb-2" />
+                )}
+                <label className={`block w-full py-3 text-center border cursor-pointer transition-colors text-xs tracking-widest uppercase ${
+                  uploading
+                    ? "border-[#BFA060]/10 text-[#DDD8CC]/20 cursor-not-allowed"
+                    : "border-[#BFA060]/30 hover:border-[#BFA060] text-[#BFA060]/60 hover:text-[#BFA060]"
+                }`}>
+                  {uploading ? "Uploading..." : form.photo_url ? "Retake Photo" : "Take Photo"}
+                  <input
+                    type="file"
+                    accept="image/*"
+                    capture="environment"
+                    className="hidden"
+                    onChange={handlePhotoCapture}
+                    disabled={uploading}
+                  />
+                </label>
+              </div>
+            )}
 
             {view === "edit" && (
               <button
@@ -573,6 +610,73 @@ export default function MugClubApp({ token }: { token: string }) {
 
           {msg && (
             <p className={`text-xs tracking-widest uppercase text-center mt-6 ${msg.ok ? "text-[#BFA060]" : "text-red-400/70"}`}>
+              {msg.text}
+            </p>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  // ── Photo Step ──────────────────────────────────────────────────────────────
+
+  if (view === "photo" && member) {
+    return (
+      <div className="min-h-screen bg-[#080d08] text-[#DDD8CC]">
+        <header className="flex items-center justify-between px-4 py-3 border-b border-[#BFA060]/15">
+          <span className="text-[#BFA060] text-[10px] tracking-widest uppercase">
+            Step 2 of 2 — Photo
+          </span>
+          <button
+            onClick={() => { setPhotoPreview(null); setView("member"); }}
+            className="text-[#DDD8CC]/40 hover:text-[#DDD8CC] text-[10px] tracking-widest uppercase transition-colors"
+          >
+            Skip →
+          </button>
+        </header>
+
+        <div className="max-w-sm mx-auto px-4 py-8 flex flex-col items-center gap-6">
+          <div className="text-center">
+            <p className="text-[#BFA060] text-xs tracking-widests uppercase">{member.member_id} created ✓</p>
+            <h2 className="text-2xl font-black mt-1">{member.first_name} {member.last_name}</h2>
+          </div>
+
+          {photoPreview ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={photoPreview} alt="Preview" className="w-full aspect-square object-cover object-top" />
+          ) : (
+            <div className="w-full aspect-square bg-[#1a3a1a] flex items-center justify-center">
+              <p className="text-[#DDD8CC]/20 text-xs tracking-widest uppercase">No photo yet</p>
+            </div>
+          )}
+
+          <label className={`w-full py-4 text-center border cursor-pointer font-black text-sm tracking-widest uppercase transition-colors ${
+            uploading
+              ? "border-[#BFA060]/10 text-[#DDD8CC]/20 cursor-not-allowed"
+              : "border-[#BFA060]/60 hover:border-[#BFA060] text-[#BFA060]"
+          }`}>
+            {uploading ? "Uploading..." : photoPreview ? "Retake Photo" : "Take Photo"}
+            <input
+              type="file"
+              accept="image/*"
+              capture="environment"
+              className="hidden"
+              onChange={handlePhotoStepCapture}
+              disabled={uploading}
+            />
+          </label>
+
+          {photoPreview && (
+            <button
+              onClick={() => { setPhotoPreview(null); setView("member"); }}
+              className="w-full py-3 border border-green-500/40 hover:border-green-500/60 text-green-400 font-black text-sm tracking-widest uppercase transition-colors"
+            >
+              Done →
+            </button>
+          )}
+
+          {msg && (
+            <p className={`text-xs tracking-widest uppercase ${msg.ok ? "text-[#BFA060]" : "text-red-400/70"}`}>
               {msg.text}
             </p>
           )}
