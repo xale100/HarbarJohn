@@ -29,7 +29,7 @@ export async function GET(request: Request) {
   });
 
   const uploadUrl = await getSignedUrl(s3, command, { expiresIn: 300 });
-  const publicUrl = `${process.env.R2_PUBLIC_URL}/${filename}`;
 
-  return Response.json({ uploadUrl, publicUrl });
+  // Return the R2 key as the stored value — photos are private, served via /api/mugclub/photo
+  return Response.json({ uploadUrl, photoKey: filename });
 }

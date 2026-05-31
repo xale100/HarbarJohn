@@ -178,11 +178,7 @@ export default function MugClubApp({ token }: { token: string }) {
   useEffect(() => {
     setPhotoUrl(null);
     if (!member?.photo_url) return;
-    // Extract R2 key from stored path
-    const key = member.photo_url.startsWith("members/")
-      ? member.photo_url
-      : member.photo_url.split("/").slice(-2).join("/");
-    fetch(`/api/mugclub/photo?key=${encodeURIComponent(key)}&token=${token}`)
+    fetch(`/api/mugclub/photo?key=${encodeURIComponent(member.photo_url)}&token=${token}`)
       .then((r) => r.json())
       .then((d) => setPhotoUrl(d.url))
       .catch(() => {});
@@ -270,10 +266,10 @@ export default function MugClubApp({ token }: { token: string }) {
     if (!file) return;
     setUploading(true);
     const ext = file.type.includes("png") ? "png" : "jpg";
-    const filename = `members/${member?.member_id ?? "new"}-${Date.now()}.${ext}`;
+    const filename = `members/${member?.member_id ?? `new-${Date.now()}`}-photo.${ext}`;
     const urlRes = await api(`upload-url?filename=${encodeURIComponent(filename)}`);
     if (!urlRes.ok) { flash("Upload failed", false); setUploading(false); return; }
-    const { uploadUrl, publicUrl } = await urlRes.json();
+    const { uploadUrl, photoKey } = await urlRes.json();
     const uploadRes = await fetch(uploadUrl, {
       method: "PUT",
       body: file,
@@ -281,7 +277,7 @@ export default function MugClubApp({ token }: { token: string }) {
     });
     setUploading(false);
     if (uploadRes.ok) {
-      setForm((p) => ({ ...p, photo_url: publicUrl }));
+      setForm((p) => ({ ...p, photo_url: photoKey }));
       flash("Photo uploaded");
     } else {
       flash("Upload failed", false);
