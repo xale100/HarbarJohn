@@ -152,6 +152,23 @@ function expiringSoon(m: Member) {
   return new Date(m.renewal_due_date) < new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
 }
 
+function compressImage(file: File, maxPx = 1200, quality = 0.9): Promise<Blob> {
+  return new Promise((resolve) => {
+    const img = new window.Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      const scale = Math.min(1, maxPx / Math.max(img.width, img.height));
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.round(img.width * scale);
+      canvas.height = Math.round(img.height * scale);
+      canvas.getContext("2d")!.drawImage(img, 0, 0, canvas.width, canvas.height);
+      canvas.toBlob((blob) => resolve(blob ?? file), "image/jpeg", quality);
+    };
+    img.src = url;
+  });
+}
+
 export default function MugClubApp({ token }: { token: string }) {
   const [view, setView] = useState<View>("scanner");
   const [member, setMember] = useState<Member | null>(null);
@@ -268,11 +285,11 @@ export default function MugClubApp({ token }: { token: string }) {
   }
 
   async function handlePhotoCapture(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    if (!file) return;
+    const raw = e.target.files?.[0];
+    if (!raw) return;
     setUploading(true);
-    const ext = file.type.includes("png") ? "png" : "jpg";
-    const filename = `members/${member?.member_id ?? `new-${Date.now()}`}-photo.${ext}`;
+    const file = await compressImage(raw);
+    const filename = `members/${member?.member_id ?? `new-${Date.now()}`}-photo.jpg`;
     const urlRes = await api(`upload-url?filename=${encodeURIComponent(filename)}`);
     if (!urlRes.ok) { flash("Upload failed", false); setUploading(false); return; }
     const blobUrl = URL.createObjectURL(file);
@@ -280,7 +297,7 @@ export default function MugClubApp({ token }: { token: string }) {
     const uploadRes = await fetch(uploadUrl, {
       method: "PUT",
       body: file,
-      headers: { "Content-Type": file.type },
+      headers: { "Content-Type": "image/jpeg" },
     });
     setUploading(false);
     if (uploadRes.ok) {
@@ -294,18 +311,18 @@ export default function MugClubApp({ token }: { token: string }) {
   }
 
   async function handlePhotoStepCapture(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    if (!file || !member) return;
+    const raw = e.target.files?.[0];
+    if (!raw || !member) return;
     setUploading(true);
-    const ext = file.type.includes("png") ? "png" : "jpg";
-    const filename = `members/${member.member_id}-photo.${ext}`;
+    const file = await compressImage(raw);
+    const filename = `members/${member.member_id}-photo.jpg`;
     const urlRes = await api(`upload-url?filename=${encodeURIComponent(filename)}`);
     if (!urlRes.ok) { flash("Upload failed", false); setUploading(false); return; }
     const { uploadUrl, photoKey } = await urlRes.json();
     const uploadRes = await fetch(uploadUrl, {
       method: "PUT",
       body: file,
-      headers: { "Content-Type": file.type },
+      headers: { "Content-Type": "image/jpeg" },
     });
     if (!uploadRes.ok) { flash("Upload failed", false); setUploading(false); return; }
     const updateRes = await api(`members/${member.member_id}`, {
