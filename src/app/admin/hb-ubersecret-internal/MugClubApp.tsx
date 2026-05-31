@@ -552,6 +552,7 @@ export default function MugClubApp({ token }: { token: string }) {
                 <input
                   type="file"
                   accept="image/*"
+                  capture="environment"
                   className="hidden"
                   onChange={handlePhotoCapture}
                   disabled={uploading}
