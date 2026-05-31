@@ -160,6 +160,7 @@ export default function MugClubApp({ token }: { token: string }) {
   const [form, setForm] = useState<Partial<Member>>({});
   const [search, setSearch] = useState("");
   const [showQR, setShowQR] = useState(false);
+  const [uploading, setUploading] = useState(false);
 
   function flash(text: string, ok = true) {
     setMsg({ text, ok });
@@ -245,6 +246,29 @@ export default function MugClubApp({ token }: { token: string }) {
       setMember((p) => (p ? { ...p, card_token: data.card_token } : null));
       setShowQR(true);
       flash("New card generated — print QR below");
+    }
+  }
+
+  async function handlePhotoCapture(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploading(true);
+    const ext = file.type.includes("png") ? "png" : "jpg";
+    const filename = `members/${member?.member_id ?? "new"}-${Date.now()}.${ext}`;
+    const urlRes = await api(`upload-url?filename=${encodeURIComponent(filename)}`);
+    if (!urlRes.ok) { flash("Upload failed", false); setUploading(false); return; }
+    const { uploadUrl, publicUrl } = await urlRes.json();
+    const uploadRes = await fetch(uploadUrl, {
+      method: "PUT",
+      body: file,
+      headers: { "Content-Type": file.type },
+    });
+    setUploading(false);
+    if (uploadRes.ok) {
+      setForm((p) => ({ ...p, photo_url: publicUrl }));
+      flash("Photo uploaded");
+    } else {
+      flash("Upload failed", false);
     }
   }
 
@@ -441,7 +465,6 @@ export default function MugClubApp({ token }: { token: string }) {
               { label: "Last Name *", key: "last_name", type: "text" },
               { label: "Phone", key: "phone", type: "tel" },
               { label: "Email", key: "email", type: "email" },
-              { label: "Photo URL", key: "photo_url", type: "url" },
             ].map(({ label, key, type }) => (
               <div key={key}>
                 <label className="text-[#DDD8CC]/30 text-[10px] tracking-widest uppercase block mb-1">
@@ -494,6 +517,31 @@ export default function MugClubApp({ token }: { token: string }) {
                 rows={3}
                 className="w-full bg-[#1a3a1a] border border-[#BFA060]/20 text-[#DDD8CC] px-3 py-2 text-sm focus:outline-none focus:border-[#BFA060]/50 resize-none"
               />
+            </div>
+
+            {/* Photo capture */}
+            <div>
+              <label className="text-[#DDD8CC]/30 text-[10px] tracking-widest uppercase block mb-1">
+                Photo
+              </label>
+              {form.photo_url && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={form.photo_url} alt="Preview" className="w-full aspect-square object-cover object-top mb-2" />
+              )}
+              <label className={`block w-full py-3 text-center border cursor-pointer transition-colors text-xs tracking-widest uppercase ${
+                uploading
+                  ? "border-[#BFA060]/10 text-[#DDD8CC]/20 cursor-not-allowed"
+                  : "border-[#BFA060]/30 hover:border-[#BFA060] text-[#BFA060]/60 hover:text-[#BFA060]"
+              }`}>
+                {uploading ? "Uploading..." : form.photo_url ? "Retake Photo" : "Take Photo"}
+                <input
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={handlePhotoCapture}
+                  disabled={uploading}
+                />
+              </label>
             </div>
 
             {view === "edit" && (
