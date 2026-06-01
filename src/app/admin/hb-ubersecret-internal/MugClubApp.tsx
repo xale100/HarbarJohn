@@ -169,6 +169,38 @@ function compressImage(file: File, maxPx = 1200, quality = 0.9): Promise<Blob> {
   });
 }
 
+function photoCacheKey(memberId: string) {
+  return `hb_photo_${memberId}`;
+}
+
+function cachePhoto(memberId: string, blob: Blob): Promise<void> {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      try { localStorage.setItem(photoCacheKey(memberId), reader.result as string); } catch {}
+      resolve();
+    };
+    reader.readAsDataURL(blob);
+  });
+}
+
+function getCachedPhoto(memberId: string): string | null {
+  try { return localStorage.getItem(photoCacheKey(memberId)); } catch { return null; }
+}
+
+function clearPhotoCache(memberId: string) {
+  try { localStorage.removeItem(photoCacheKey(memberId)); } catch {}
+}
+
+function base64ToBlob(dataUrl: string): Blob {
+  const [header, data] = dataUrl.split(",");
+  const mime = header.match(/:(.*?);/)?.[1] ?? "image/jpeg";
+  const bytes = atob(data);
+  const arr = new Uint8Array(bytes.length);
+  for (let i = 0; i < bytes.length; i++) arr[i] = bytes.charCodeAt(i);
+  return new Blob([arr], { type: mime });
+}
+
 export default function MugClubApp({ token }: { token: string }) {
   const [view, setView] = useState<View>("scanner");
   const [member, setMember] = useState<Member | null>(null);
@@ -181,6 +213,7 @@ export default function MugClubApp({ token }: { token: string }) {
   const [showQR, setShowQR] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [photoPreview, setPhotoPreview] = useState<string | null>(null);
+  const [uploadFailed, setUploadFailed] = useState(false);
 
   function flash(text: string, ok = true) {
     setMsg({ text, ok });
@@ -191,6 +224,17 @@ export default function MugClubApp({ token }: { token: string }) {
     const sep = path.includes("?") ? "&" : "?";
     return fetch(`/api/mugclub/${path}${sep}token=${token}`, options);
   }
+
+  // Restore cached photo if upload previously failed
+  useEffect(() => {
+    if (view !== "photo" || !member) return;
+    const cached = getCachedPhoto(member.member_id);
+    if (cached && !photoPreview) {
+      setPhotoPreview(cached);
+      setUploadFailed(true);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [view, member?.member_id]);
 
   // Fetch signed photo URL whenever member changes
   useEffect(() => {
@@ -259,6 +303,7 @@ export default function MugClubApp({ token }: { token: string }) {
       setMember(await res.json());
       if (isAdd) {
         setPhotoPreview(null);
+        setUploadFailed(false);
         setView("photo");
       } else {
         setView("member");
@@ -294,50 +339,94 @@ export default function MugClubApp({ token }: { token: string }) {
     if (!urlRes.ok) { flash("Upload failed", false); setUploading(false); return; }
     const blobUrl = URL.createObjectURL(file);
     const { uploadUrl, photoKey } = await urlRes.json();
-    const uploadRes = await fetch(uploadUrl, {
-      method: "PUT",
-      body: file,
-      headers: { "Content-Type": "image/jpeg" },
-    });
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
+    let uploadOk = false;
+    try {
+      const uploadRes = await fetch(uploadUrl, {
+        method: "PUT",
+        body: file,
+        headers: { "Content-Type": "image/jpeg" },
+        signal: controller.signal,
+      });
+      clearTimeout(timeout);
+      uploadOk = uploadRes.ok;
+    } catch {
+      clearTimeout(timeout);
+    }
     setUploading(false);
-    if (uploadRes.ok) {
+    if (uploadOk) {
       setForm((p) => ({ ...p, photo_url: photoKey }));
       setPhotoPreview(blobUrl);
       flash("Photo uploaded");
     } else {
       URL.revokeObjectURL(blobUrl);
-      flash("Upload failed", false);
+      flash("Upload failed — try again", false);
     }
   }
 
   async function handlePhotoStepCapture(e: React.ChangeEvent<HTMLInputElement>) {
     const raw = e.target.files?.[0];
     if (!raw || !member) return;
+    setUploadFailed(false);
     setUploading(true);
     const file = await compressImage(raw);
-    const filename = `members/${member.member_id}-photo.jpg`;
+    setPhotoPreview(URL.createObjectURL(file));
+    await cachePhoto(member.member_id, file);
+    await doPhotoUpload(member, file);
+  }
+
+  async function doPhotoUpload(m: Member, file: Blob) {
+    const filename = `members/${m.member_id}-photo.jpg`;
     const urlRes = await api(`upload-url?filename=${encodeURIComponent(filename)}`);
-    if (!urlRes.ok) { flash("Upload failed", false); setUploading(false); return; }
+    if (!urlRes.ok) {
+      flash("Upload failed — photo cached, tap Retry", false);
+      setUploadFailed(true);
+      setUploading(false);
+      return;
+    }
     const { uploadUrl, photoKey } = await urlRes.json();
-    const uploadRes = await fetch(uploadUrl, {
-      method: "PUT",
-      body: file,
-      headers: { "Content-Type": "image/jpeg" },
-    });
-    if (!uploadRes.ok) { flash("Upload failed", false); setUploading(false); return; }
-    const updateRes = await api(`members/${member.member_id}`, {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
+    try {
+      const uploadRes = await fetch(uploadUrl, {
+        method: "PUT",
+        body: file,
+        headers: { "Content-Type": "image/jpeg" },
+        signal: controller.signal,
+      });
+      clearTimeout(timeout);
+      if (!uploadRes.ok) throw new Error("bad status");
+    } catch {
+      clearTimeout(timeout);
+      flash("Upload timed out — photo cached, tap Retry", false);
+      setUploadFailed(true);
+      setUploading(false);
+      return;
+    }
+    const updateRes = await api(`members/${m.member_id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...member, photo_url: photoKey }),
+      body: JSON.stringify({ ...m, photo_url: photoKey }),
     });
     setUploading(false);
     if (updateRes.ok) {
+      clearPhotoCache(m.member_id);
       setMember(await updateRes.json());
-      setPhotoPreview(URL.createObjectURL(file));
       flash("Photo saved");
     } else {
-      flash("Failed to save photo", false);
+      flash("Failed to save — photo cached, tap Retry", false);
+      setUploadFailed(true);
     }
+  }
+
+  async function handlePhotoStepRetry() {
+    if (!member) return;
+    const cached = getCachedPhoto(member.member_id);
+    if (!cached) { flash("No cached photo found", false); return; }
+    setUploadFailed(false);
+    setUploading(true);
+    await doPhotoUpload(member, base64ToBlob(cached));
   }
 
   // ── Scanner View ────────────────────────────────────────────────────────────
@@ -683,9 +772,18 @@ export default function MugClubApp({ token }: { token: string }) {
             />
           </label>
 
-          {photoPreview && (
+          {uploadFailed && !uploading && (
             <button
-              onClick={() => { setPhotoPreview(null); setView("member"); }}
+              onClick={handlePhotoStepRetry}
+              className="w-full py-4 border border-yellow-500/50 hover:border-yellow-500 text-yellow-400 font-black text-sm tracking-widest uppercase transition-colors"
+            >
+              Retry Upload
+            </button>
+          )}
+
+          {member.photo_url && (
+            <button
+              onClick={() => { setPhotoPreview(null); setUploadFailed(false); setView("member"); }}
               className="w-full py-3 border border-green-500/40 hover:border-green-500/60 text-green-400 font-black text-sm tracking-widest uppercase transition-colors"
             >
               Done →
