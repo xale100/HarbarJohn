@@ -213,7 +213,8 @@ export default function MugClubApp({ token }: { token: string }) {
   const [showQR, setShowQR] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [photoPreview, setPhotoPreview] = useState<string | null>(null);
-  const [uploadFailed, setUploadFailed] = useState(false);
+  const retryTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const retryActiveRef = useRef(false);
 
   function flash(text: string, ok = true) {
     setMsg({ text, ok });
@@ -225,16 +226,21 @@ export default function MugClubApp({ token }: { token: string }) {
     return fetch(`/api/mugclub/${path}${sep}token=${token}`, options);
   }
 
-  // Restore cached photo if upload previously failed
+  // On photo step mount, restore cached photo and start background retry if needed
   useEffect(() => {
     if (view !== "photo" || !member) return;
     const cached = getCachedPhoto(member.member_id);
     if (cached && !photoPreview) {
       setPhotoPreview(cached);
-      setUploadFailed(true);
+      startPhotoRetryLoop(member.member_id);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [view, member?.member_id]);
+
+  // Clean up retry timer on unmount
+  useEffect(() => () => {
+    if (retryTimerRef.current) clearTimeout(retryTimerRef.current);
+  }, []);
 
   // Fetch signed photo URL whenever member changes
   useEffect(() => {
@@ -303,7 +309,6 @@ export default function MugClubApp({ token }: { token: string }) {
       setMember(await res.json());
       if (isAdd) {
         setPhotoPreview(null);
-        setUploadFailed(false);
         setView("photo");
       } else {
         setView("member");
@@ -368,65 +373,93 @@ export default function MugClubApp({ token }: { token: string }) {
   async function handlePhotoStepCapture(e: React.ChangeEvent<HTMLInputElement>) {
     const raw = e.target.files?.[0];
     if (!raw || !member) return;
-    setUploadFailed(false);
     setUploading(true);
     const file = await compressImage(raw);
     setPhotoPreview(URL.createObjectURL(file));
     await cachePhoto(member.member_id, file);
-    await doPhotoUpload(member, file);
+
+    // First attempt — show immediate feedback
+    const succeeded = await attemptPhotoUpload(member.member_id);
+    setUploading(false);
+    if (succeeded) {
+      flash("Photo saved");
+    } else {
+      flash("Connectivity issue — retrying in background", false);
+      startPhotoRetryLoop(member.member_id);
+    }
   }
 
-  async function doPhotoUpload(m: Member, file: Blob) {
-    const filename = `members/${m.member_id}-photo.jpg`;
-    const urlRes = await api(`upload-url?filename=${encodeURIComponent(filename)}`);
-    if (!urlRes.ok) {
-      flash("Upload failed — photo cached, tap Retry", false);
-      setUploadFailed(true);
-      setUploading(false);
-      return;
+  // Returns true if upload + DB save both succeeded
+  async function attemptPhotoUpload(memberId: string): Promise<boolean> {
+    // Check DB first — upload may have already landed (e.g. response was dropped)
+    const checkRes = await api(`members/${memberId}`);
+    if (checkRes.ok) {
+      const data = await checkRes.json();
+      if (data.photo_url) {
+        clearPhotoCache(memberId);
+        setMember((m) => m?.member_id === memberId ? data : m);
+        return true;
+      }
     }
+
+    const cached = getCachedPhoto(memberId);
+    if (!cached) return false;
+
+    const filename = `members/${memberId}-photo.jpg`;
+    const urlRes = await api(`upload-url?filename=${encodeURIComponent(filename)}`);
+    if (!urlRes.ok) return false;
+
     const { uploadUrl, photoKey } = await urlRes.json();
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 15000);
+    let uploadOk = false;
     try {
-      const uploadRes = await fetch(uploadUrl, {
+      const r = await fetch(uploadUrl, {
         method: "PUT",
-        body: file,
+        body: base64ToBlob(cached),
         headers: { "Content-Type": "image/jpeg" },
         signal: controller.signal,
       });
       clearTimeout(timeout);
-      if (!uploadRes.ok) throw new Error("bad status");
-    } catch {
-      clearTimeout(timeout);
-      flash("Upload timed out — photo cached, tap Retry", false);
-      setUploadFailed(true);
-      setUploading(false);
-      return;
-    }
-    const updateRes = await api(`members/${m.member_id}`, {
+      uploadOk = r.ok;
+    } catch { clearTimeout(timeout); }
+
+    if (!uploadOk) return false;
+
+    // Fetch fresh member data for the PUT so we don't clobber other fields
+    const memberRes = await api(`members/${memberId}`);
+    if (!memberRes.ok) return false;
+    const memberData = await memberRes.json();
+
+    const updateRes = await api(`members/${memberId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...m, photo_url: photoKey }),
+      body: JSON.stringify({ ...memberData, photo_url: photoKey }),
     });
-    setUploading(false);
-    if (updateRes.ok) {
-      clearPhotoCache(m.member_id);
-      setMember(await updateRes.json());
-      flash("Photo saved");
-    } else {
-      flash("Failed to save — photo cached, tap Retry", false);
-      setUploadFailed(true);
-    }
+    if (!updateRes.ok) return false;
+
+    clearPhotoCache(memberId);
+    setMember((m) => m?.member_id === memberId ? { ...m!, photo_url: photoKey } : m);
+    return true;
   }
 
-  async function handlePhotoStepRetry() {
-    if (!member) return;
-    const cached = getCachedPhoto(member.member_id);
-    if (!cached) { flash("No cached photo found", false); return; }
-    setUploadFailed(false);
-    setUploading(true);
-    await doPhotoUpload(member, base64ToBlob(cached));
+  function startPhotoRetryLoop(memberId: string) {
+    if (retryActiveRef.current) return;
+    retryActiveRef.current = true;
+    scheduleRetry(memberId, 0);
+  }
+
+  function scheduleRetry(memberId: string, attempt: number) {
+    const delays = [2000, 4000, 8000, 16000, 30000, 60000];
+    const delay = delays[Math.min(attempt, delays.length - 1)];
+    retryTimerRef.current = setTimeout(async () => {
+      const ok = await attemptPhotoUpload(memberId);
+      if (ok) {
+        retryActiveRef.current = false;
+      } else {
+        scheduleRetry(memberId, attempt + 1);
+      }
+    }, delay);
   }
 
   // ── Scanner View ────────────────────────────────────────────────────────────
@@ -772,18 +805,9 @@ export default function MugClubApp({ token }: { token: string }) {
             />
           </label>
 
-          {uploadFailed && !uploading && (
-            <button
-              onClick={handlePhotoStepRetry}
-              className="w-full py-4 border border-yellow-500/50 hover:border-yellow-500 text-yellow-400 font-black text-sm tracking-widest uppercase transition-colors"
-            >
-              Retry Upload
-            </button>
-          )}
-
           {member.photo_url && (
             <button
-              onClick={() => { setPhotoPreview(null); setUploadFailed(false); setView("member"); }}
+              onClick={() => { setPhotoPreview(null); setView("member"); }}
               className="w-full py-3 border border-green-500/40 hover:border-green-500/60 text-green-400 font-black text-sm tracking-widest uppercase transition-colors"
             >
               Done →
