@@ -59,6 +59,7 @@ export default function ActivityGrid() {
         return (
           <button
             key={act.name}
+            id={act.name.toLowerCase().replace(/ /g, "-")}
             onClick={() => setSelected(isOpen ? null : act.name)}
             className="relative overflow-hidden text-left focus:outline-none"
             style={{ aspectRatio: "3/4" }}

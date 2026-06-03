@@ -116,7 +116,7 @@ export default async function Home() {
       </section>
 
       {/* BREWMASTER QUOTE */}
-      <section className="relative px-6 sm:px-16 py-8 bg-[#080d08] overflow-hidden">
+      <section className="relative px-6 sm:px-16 py-8 bg-[#080d08] overflow-hidden border-t border-[#BFA060]/30">
 
         {/* Medallion blown up as background */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none" aria-hidden="true">
@@ -155,10 +155,10 @@ export default async function Home() {
       </section>
 
       {/* UPCOMING SHOWS */}
-      <section className="grain py-20 px-4 bg-[#0f170f]">
+      <section className="grain py-10 sm:py-14 px-4 bg-[#0f170f]">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-baseline justify-between mb-10">
-            <h2 className="text-sm sm:text-2xl font-black text-[#DDD8CC] tracking-wide uppercase">
+          <div className="mb-8">
+            <h2 className="text-sm sm:text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-2">
               This Week&apos;s Shows
             </h2>
             <Link href="/events" className="text-[#BFA060]/70 hover:text-[#BFA060] text-[10px] sm:text-xs tracking-widest uppercase transition-colors">
@@ -181,23 +181,14 @@ export default async function Home() {
       </section>
 
       {/* BEER */}
-      <section className="grain py-20 px-4 bg-[#0a100a]">
+      <section className="grain py-10 sm:py-14 px-4 bg-[#0a100a]">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-start justify-between gap-4 mb-10">
+          <div className="flex items-center justify-between gap-4 mb-8">
             <div>
               <h2 className="text-sm sm:text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-1">
                 On Tap
               </h2>
-              <p className="text-[#DDD8CC]/40 text-[10px] sm:text-sm">Hand-crafted in Crescent City by Devin Beach</p>
-            </div>
-            <div className="flex flex-col items-end gap-2 shrink-0">
-              <Image
-                src="/images/award.png"
-                alt="Award-winning"
-                width={52}
-                height={52}
-                className="object-contain opacity-80"
-              />
+              <p className="text-[#DDD8CC]/40 text-[10px] sm:text-sm mb-2">Hand-crafted in Crescent City by Devin Beach</p>
               <Link
                 href="/menu"
                 className="text-[#BFA060]/70 hover:text-[#BFA060] text-[10px] sm:text-xs tracking-widest uppercase transition-colors"
@@ -205,6 +196,13 @@ export default async function Home() {
                 Full Menu →
               </Link>
             </div>
+            <Image
+              src="/images/award.png"
+              alt="Award-winning"
+              width={52}
+              height={52}
+              className="object-contain opacity-80 shrink-0"
+            />
           </div>
 
           <div className="divide-y divide-[#BFA060]/10">
@@ -282,7 +280,7 @@ export default async function Home() {
             { name: "Shuffleboard", photo: null, note: null },
             { name: "Foosball", photo: null, note: null },
           ].map((act) => (
-            <div key={act.name} className="relative aspect-square overflow-hidden">
+            <Link key={act.name} href={`/activities#${act.name.toLowerCase().replace(/ /g, "-")}`} className="relative aspect-square overflow-hidden block">
               {act.photo ? (
                 <Image
                   src={act.photo}
@@ -309,20 +307,8 @@ export default async function Home() {
                   </p>
                 )}
               </div>
-            </div>
+            </Link>
           ))}
-        </div>
-
-        <div className="max-w-4xl mx-auto px-4 py-5 flex items-baseline justify-between gap-4">
-          <p className="text-[#DDD8CC]/30 text-[10px] sm:text-xs tracking-widest uppercase">
-            Axe throwing, pool, darts 18+ &nbsp;·&nbsp; Reservations: 707-460-1154
-          </p>
-          <Link
-            href="/activities"
-            className="text-[#BFA060]/70 hover:text-[#BFA060] text-[10px] sm:text-xs tracking-widest uppercase transition-colors shrink-0"
-          >
-            Activities →
-          </Link>
         </div>
       </section>
 
