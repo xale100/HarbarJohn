@@ -116,43 +116,42 @@ export default async function Home() {
       </section>
 
       {/* BREWMASTER QUOTE */}
-      <section className="px-6 sm:px-16 py-12 sm:py-16 bg-[#080d08]">
-        <div className="max-w-2xl mx-auto flex flex-col items-center">
+      <section className="relative px-6 sm:px-16 py-8 bg-[#080d08] overflow-hidden">
 
-          {/* Lattice medallion ornament */}
-          <svg viewBox="0 0 56 56" className="w-11 h-11 mb-5" fill="none" aria-hidden="true">
-            <circle cx="28" cy="28" r="26" stroke="#BFA060" strokeWidth="0.75" opacity="0.55"/>
-            <circle cx="28" cy="28" r="18" stroke="#BFA060" strokeWidth="0.75" opacity="0.45"/>
-            <line x1="2" y1="28" x2="54" y2="28" stroke="#BFA060" strokeWidth="0.7" opacity="0.45"/>
-            <line x1="28" y1="2" x2="28" y2="54" stroke="#BFA060" strokeWidth="0.7" opacity="0.45"/>
-            <line x1="9.8" y1="9.8" x2="46.2" y2="46.2" stroke="#BFA060" strokeWidth="0.55" opacity="0.35"/>
-            <line x1="46.2" y1="9.8" x2="9.8" y2="46.2" stroke="#BFA060" strokeWidth="0.55" opacity="0.35"/>
-            <polygon points="28,13 43,28 28,43 13,28" stroke="#BFA060" strokeWidth="0.75" opacity="0.55" fill="none"/>
-            <polygon points="28,21 35,28 28,35 21,28" stroke="#BFA060" strokeWidth="0.75" opacity="0.5" fill="none"/>
-            <circle cx="28" cy="28" r="2.5" fill="#BFA060" opacity="0.85"/>
-            <circle cx="2"  cy="28" r="1.5" fill="#BFA060" opacity="0.55"/>
-            <circle cx="54" cy="28" r="1.5" fill="#BFA060" opacity="0.55"/>
-            <circle cx="28" cy="2"  r="1.5" fill="#BFA060" opacity="0.55"/>
-            <circle cx="28" cy="54" r="1.5" fill="#BFA060" opacity="0.55"/>
+        {/* Medallion blown up as background */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none" aria-hidden="true">
+          <svg viewBox="0 0 56 56" className="w-[680px] h-[680px]" fill="none" opacity="0.06">
+            <circle cx="28" cy="28" r="26" stroke="#BFA060" strokeWidth="0.75"/>
+            <circle cx="28" cy="28" r="18" stroke="#BFA060" strokeWidth="0.75"/>
+            <line x1="2"   y1="28"  x2="54"  y2="28"  stroke="#BFA060" strokeWidth="0.7"/>
+            <line x1="28"  y1="2"   x2="28"  y2="54"  stroke="#BFA060" strokeWidth="0.7"/>
+            <line x1="9.8" y1="9.8" x2="46.2" y2="46.2" stroke="#BFA060" strokeWidth="0.55"/>
+            <line x1="46.2" y1="9.8" x2="9.8" y2="46.2" stroke="#BFA060" strokeWidth="0.55"/>
+            <polygon points="28,13 43,28 28,43 13,28" stroke="#BFA060" strokeWidth="0.75" fill="none"/>
+            <polygon points="28,21 35,28 28,35 21,28" stroke="#BFA060" strokeWidth="0.75" fill="none"/>
+            <circle cx="28" cy="28" r="2.5" fill="#BFA060"/>
+            <circle cx="2"  cy="28" r="1.5" fill="#BFA060"/>
+            <circle cx="54" cy="28" r="1.5" fill="#BFA060"/>
+            <circle cx="28" cy="2"  r="1.5" fill="#BFA060"/>
+            <circle cx="28" cy="54" r="1.5" fill="#BFA060"/>
           </svg>
+        </div>
 
-          <div className="flex items-center gap-4 w-full mb-8">
-            <div className="h-px flex-1 bg-[#BFA060]/20" />
-            <div className="h-px flex-1 bg-[#BFA060]/20" />
-          </div>
-
-          <p className="text-[#DDD8CC]/75 italic leading-relaxed text-base sm:text-xl text-center max-w-lg">
+        {/* Content */}
+        <div className="relative z-10 max-w-2xl mx-auto">
+          <div className="h-px bg-[#BFA060]/25 mb-6" />
+          <p className="text-[#DDD8CC]/75 italic leading-relaxed text-base sm:text-xl">
             <span className="text-[#BFA060] text-6xl sm:text-7xl font-black not-italic leading-[0.75] float-left mr-3 mt-1">P</span>
             laceholder for we make beer
           </p>
-          <div className="clear-both w-full" />
-
-          <div className="mt-10 flex items-center gap-4 w-full">
-            <div className="h-px flex-1 bg-[#BFA060]/20" />
+          <div className="clear-both" />
+          <div className="mt-6 flex items-center gap-4">
+            <div className="h-px flex-1 bg-[#BFA060]/25" />
             <p className="text-[#BFA060] text-[10px] tracking-[0.35em] uppercase shrink-0">Devin Beach · Brewmaster</p>
-            <div className="h-px flex-1 bg-[#BFA060]/20" />
+            <div className="h-px flex-1 bg-[#BFA060]/25" />
           </div>
         </div>
+
       </section>
 
       {/* UPCOMING SHOWS */}

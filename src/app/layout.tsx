@@ -37,8 +37,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="antialiased">
-        <div className="fixed top-0 left-0 bottom-0 w-[3px] bg-[#BFA060]/50 z-40 pointer-events-none" />
-        <div className="fixed top-0 right-0 bottom-0 w-[3px] bg-[#BFA060]/50 z-40 pointer-events-none" />
+        <div className="fixed top-0 left-0 bottom-0 w-1 bg-[#BFA060] z-40 pointer-events-none" />
+        <div className="fixed top-0 right-0 bottom-0 w-1 bg-[#BFA060] z-40 pointer-events-none" />
         <Nav />
         <main className="min-h-screen pt-[57px]">{children}</main>
         <Footer />
