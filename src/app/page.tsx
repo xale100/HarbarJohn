@@ -116,39 +116,41 @@ export default async function Home() {
       </section>
 
       {/* BREWMASTER QUOTE */}
-      <section className="px-6 sm:px-16 py-0 bg-[#080d08]">
-        <div className="max-w-2xl mx-auto py-12 sm:py-16">
-          <div className="relative border border-[#BFA060]/25 px-8 sm:px-14 py-10 sm:py-14">
+      <section className="px-6 sm:px-16 py-12 sm:py-16 bg-[#080d08]">
+        <div className="max-w-2xl mx-auto flex flex-col items-center">
 
-            {/* Corner ornaments */}
-            <span className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 text-[#BFA060] text-2xl leading-none select-none">✦</span>
-            <span className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 text-[#BFA060] text-2xl leading-none select-none">✦</span>
-            <span className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 text-[#BFA060] text-2xl leading-none select-none">✦</span>
-            <span className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 text-[#BFA060] text-2xl leading-none select-none">✦</span>
+          {/* Lattice medallion ornament */}
+          <svg viewBox="0 0 56 56" className="w-11 h-11 mb-5" fill="none" aria-hidden="true">
+            <circle cx="28" cy="28" r="26" stroke="#BFA060" strokeWidth="0.75" opacity="0.55"/>
+            <circle cx="28" cy="28" r="18" stroke="#BFA060" strokeWidth="0.75" opacity="0.45"/>
+            <line x1="2" y1="28" x2="54" y2="28" stroke="#BFA060" strokeWidth="0.7" opacity="0.45"/>
+            <line x1="28" y1="2" x2="28" y2="54" stroke="#BFA060" strokeWidth="0.7" opacity="0.45"/>
+            <line x1="9.8" y1="9.8" x2="46.2" y2="46.2" stroke="#BFA060" strokeWidth="0.55" opacity="0.35"/>
+            <line x1="46.2" y1="9.8" x2="9.8" y2="46.2" stroke="#BFA060" strokeWidth="0.55" opacity="0.35"/>
+            <polygon points="28,13 43,28 28,43 13,28" stroke="#BFA060" strokeWidth="0.75" opacity="0.55" fill="none"/>
+            <polygon points="28,21 35,28 28,35 21,28" stroke="#BFA060" strokeWidth="0.75" opacity="0.5" fill="none"/>
+            <circle cx="28" cy="28" r="2.5" fill="#BFA060" opacity="0.85"/>
+            <circle cx="2"  cy="28" r="1.5" fill="#BFA060" opacity="0.55"/>
+            <circle cx="54" cy="28" r="1.5" fill="#BFA060" opacity="0.55"/>
+            <circle cx="28" cy="2"  r="1.5" fill="#BFA060" opacity="0.55"/>
+            <circle cx="28" cy="54" r="1.5" fill="#BFA060" opacity="0.55"/>
+          </svg>
 
-            {/* Opening quote draped top-left */}
-            <span className="absolute -top-5 left-6 sm:left-10 text-[#BFA060] text-[5rem] sm:text-[7rem] leading-none font-serif select-none pointer-events-none opacity-70">
-              &ldquo;
-            </span>
+          <div className="flex items-center gap-4 w-full mb-8">
+            <div className="h-px flex-1 bg-[#BFA060]/20" />
+            <div className="h-px flex-1 bg-[#BFA060]/20" />
+          </div>
 
-            <div className="pt-6 sm:pt-8">
-              <p className="text-[#DDD8CC]/75 italic leading-relaxed text-base sm:text-xl">
-                <span className="text-[#BFA060] text-6xl sm:text-7xl font-black not-italic leading-[0.75] float-left mr-3 mt-1">P</span>
-                laceholder for we make beer
-              </p>
-              <div className="clear-both" />
-            </div>
+          <p className="text-[#DDD8CC]/75 italic leading-relaxed text-base sm:text-xl text-center max-w-lg">
+            <span className="text-[#BFA060] text-6xl sm:text-7xl font-black not-italic leading-[0.75] float-left mr-3 mt-1">P</span>
+            laceholder for we make beer
+          </p>
+          <div className="clear-both w-full" />
 
-            {/* Closing quote draped bottom-right */}
-            <span className="absolute -bottom-10 right-6 sm:right-10 text-[#BFA060] text-[5rem] sm:text-[7rem] leading-none font-serif select-none pointer-events-none opacity-70">
-              &rdquo;
-            </span>
-
-            <div className="mt-10 sm:mt-12 flex items-center gap-4">
-              <div className="h-px flex-1 bg-[#BFA060]/20" />
-              <p className="text-[#BFA060] text-[10px] tracking-[0.35em] uppercase shrink-0">Devin Beach · Brewmaster</p>
-              <div className="h-px flex-1 bg-[#BFA060]/20" />
-            </div>
+          <div className="mt-10 flex items-center gap-4 w-full">
+            <div className="h-px flex-1 bg-[#BFA060]/20" />
+            <p className="text-[#BFA060] text-[10px] tracking-[0.35em] uppercase shrink-0">Devin Beach · Brewmaster</p>
+            <div className="h-px flex-1 bg-[#BFA060]/20" />
           </div>
         </div>
       </section>
@@ -220,54 +222,53 @@ export default async function Home() {
       </section>
 
       {/* MERCH */}
-      <section className="grain py-20 bg-[#0f170f]">
-        <div className="max-w-none">
-          <div className="flex items-baseline justify-between mb-8 px-4 sm:px-8">
-            <div>
-              <h2 className="text-sm sm:text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-1">Har-Bar Merch</h2>
-              <p className="text-[#DDD8CC]/40 text-[10px] sm:text-sm">Wear the bar home</p>
-            </div>
-            <span className="text-[#BFA060]/50 text-[10px] tracking-widest uppercase border border-[#BFA060]/20 px-3 py-1">Coming Soon</span>
-          </div>
-
-          <div className="overflow-x-auto scrollbar-none px-4 sm:px-8">
-            <div className="flex gap-4 w-max pb-2">
-              {[
-                { name: "Har-Bar Tee",   anim: null },
-                { name: "Sweatshirt",    anim: "breathe 3s ease-in-out infinite" },
-                { name: "Snapback",      anim: null },
-                { name: "Pint Glass",    anim: null },
-                { name: "Growler",       anim: "pour 3.5s ease-in-out infinite" },
-                { name: "Koozie",        anim: null },
-                { name: "Sticker Pack",  anim: null },
-                { name: "Tote Bag",      anim: null },
-                { name: "Button-Down",   anim: null },
-                { name: "Work Hat",      anim: null },
-              ].map(({ name, anim }) => (
-                <div
-                  key={name}
-                  className="group cursor-pointer border border-[#BFA060]/10 hover:border-[#BFA060]/60 bg-[#080d08] hover:bg-[#1a3a1a] transition-all duration-300 p-5 flex flex-col items-center gap-4 w-40 sm:w-48 shrink-0"
-                >
-                  <div className="w-full aspect-square flex items-center justify-center overflow-hidden">
-                    <Image
-                      src="/images/logo-2.png"
-                      alt={name}
-                      width={72}
-                      height={72}
-                      className="opacity-20 group-hover:opacity-60 transition-opacity duration-300 object-contain"
-                      style={anim ? { animation: anim } : {}}
-                    />
-                  </div>
-                  <p className="text-[#DDD8CC]/40 group-hover:text-[#DDD8CC]/80 text-[9px] sm:text-[10px] tracking-widest uppercase font-bold transition-colors text-center">
-                    {name}
-                  </p>
-                  <div className="w-full py-2 border border-[#BFA060]/15 group-hover:border-[#BFA060]/50 text-center text-[#BFA060]/30 group-hover:text-[#BFA060]/80 text-[9px] tracking-widest uppercase transition-all">
-                    Coming Soon
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+      <section className="grain py-6 bg-[#0f170f] overflow-hidden">
+        <div
+          className="flex gap-4"
+          style={{ animation: "marquee 32s linear infinite", width: "max-content", willChange: "transform" }}
+        >
+          {[
+            { name: "Har-Bar Tee",   anim: null },
+            { name: "Sweatshirt",    anim: "breathe 3s ease-in-out infinite" },
+            { name: "Snapback",      anim: null },
+            { name: "Pint Glass",    anim: null },
+            { name: "Growler",       anim: "pour 3.5s ease-in-out infinite" },
+            { name: "Koozie",        anim: null },
+            { name: "Sticker Pack",  anim: null },
+            { name: "Tote Bag",      anim: null },
+            { name: "Button-Down",   anim: null },
+            { name: "Work Hat",      anim: null },
+            { name: "Har-Bar Tee",   anim: null },
+            { name: "Sweatshirt",    anim: "breathe 3s ease-in-out infinite" },
+            { name: "Snapback",      anim: null },
+            { name: "Pint Glass",    anim: null },
+            { name: "Growler",       anim: "pour 3.5s ease-in-out infinite" },
+            { name: "Koozie",        anim: null },
+            { name: "Sticker Pack",  anim: null },
+            { name: "Tote Bag",      anim: null },
+            { name: "Button-Down",   anim: null },
+            { name: "Work Hat",      anim: null },
+          ].map(({ name, anim }, i) => (
+            <Link
+              key={`${name}-${i}`}
+              href="/merch"
+              className="group border border-[#BFA060]/10 hover:border-[#BFA060]/60 bg-[#080d08] hover:bg-[#1a3a1a] transition-all duration-300 p-5 flex flex-col items-center gap-4 w-36 sm:w-44 shrink-0"
+            >
+              <div className="w-full aspect-square flex items-center justify-center overflow-hidden">
+                <Image
+                  src="/images/logo-2.png"
+                  alt={name}
+                  width={64}
+                  height={64}
+                  className="opacity-20 group-hover:opacity-60 transition-opacity duration-300 object-contain"
+                  style={anim ? { animation: anim } : {}}
+                />
+              </div>
+              <p className="text-[#DDD8CC]/40 group-hover:text-[#DDD8CC]/80 text-[9px] tracking-widest uppercase font-bold transition-colors text-center">
+                {name}
+              </p>
+            </Link>
+          ))}
         </div>
       </section>
 
