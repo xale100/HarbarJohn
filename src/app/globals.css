@@ -44,3 +44,19 @@ html {
   border-color: #BFA060;
   opacity: 0.25;
 }
+
+@keyframes pour {
+  0%, 100% { transform: rotate(0deg); }
+  60%       { transform: rotate(45deg); }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.18); }
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar { display: none; }
