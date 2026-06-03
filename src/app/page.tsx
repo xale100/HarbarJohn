@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getShows } from "@/lib/calendar";
+import ActivityShowcase from "@/components/ActivityShowcase";
 
 const fallbackShows = [
   { date: "Fri May 23", artist: "Open Mic Night", time: "7pm", stage: "Indoor" },
@@ -270,46 +271,8 @@ export default async function Home() {
       </section>
 
       {/* ACTIVITIES */}
-      <section className="bg-[#080d08] pt-0 pb-0">
-        <div className="grid grid-cols-2 md:grid-cols-3">
-          {[
-            { name: "Axe Throwing", photo: null, note: "18+" },
-            { name: "Darts", photo: "/images/harbor-1.jpg", note: "18+" },
-            { name: "Pool", photo: "/images/pool.jpg", note: "18+" },
-            { name: "Arcade", photo: null, note: null },
-            { name: "Shuffleboard", photo: null, note: null },
-            { name: "Foosball", photo: null, note: null },
-          ].map((act) => (
-            <Link key={act.name} href={`/activities#${act.name.toLowerCase().replace(/ /g, "-")}`} className="relative aspect-square overflow-hidden block">
-              {act.photo ? (
-                <Image
-                  src={act.photo}
-                  alt={act.name}
-                  fill
-                  className="object-cover brightness-50 blur-[1.5px] scale-105"
-                />
-              ) : (
-                <div className="absolute inset-0 bg-[#1a3a1a]" />
-              )}
-              <div
-                className="absolute inset-0 z-10 opacity-40"
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E")`,
-                }}
-              />
-              <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center p-4">
-                <p className="text-[#DDD8CC] font-black text-xs sm:text-2xl tracking-widest uppercase">
-                  {act.name}
-                </p>
-                {act.note && (
-                  <p className="text-[#BFA060] text-xs tracking-widest uppercase mt-1">
-                    {act.note}
-                  </p>
-                )}
-              </div>
-            </Link>
-          ))}
-        </div>
+      <section className="bg-[#080d08]">
+        <ActivityShowcase />
       </section>
 
 
