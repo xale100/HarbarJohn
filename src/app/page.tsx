@@ -115,6 +115,21 @@ export default async function Home() {
         ))}
       </section>
 
+      {/* BREWMASTER QUOTE */}
+      <section className="px-8 sm:px-16 py-0 bg-[#080d08]">
+        <div className="max-w-2xl mx-auto border-t border-b border-[#BFA060]/20 py-12 sm:py-16">
+          <p className="text-[#DDD8CC]/70 italic leading-relaxed text-base sm:text-xl">
+            <span className="text-[#BFA060] text-6xl sm:text-7xl font-black not-italic leading-[0.75] float-left mr-3 mt-1">P</span>
+            laceholder for we make beer
+          </p>
+          <div className="clear-both mt-8 flex items-center gap-4">
+            <div className="h-px flex-1 bg-[#BFA060]/20" />
+            <p className="text-[#BFA060] text-[10px] tracking-[0.35em] uppercase shrink-0">Devin Beach · Brewmaster</p>
+            <div className="h-px flex-1 bg-[#BFA060]/20" />
+          </div>
+        </div>
+      </section>
+
       {/* UPCOMING SHOWS */}
       <section className="grain py-20 px-4 bg-[#0f170f]">
         <div className="max-w-4xl mx-auto">
@@ -175,6 +190,44 @@ export default async function Home() {
                 <p className="text-[#DDD8CC]/40 text-[10px] sm:text-sm text-right">
                   {beer.style} &nbsp;·&nbsp; {beer.abv}
                 </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* MERCH */}
+      <section className="grain py-20 px-4 bg-[#0f170f]">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-baseline justify-between mb-10">
+            <div>
+              <h2 className="text-sm sm:text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-1">Har-Bar Merch</h2>
+              <p className="text-[#DDD8CC]/40 text-[10px] sm:text-sm">Wear the bar home</p>
+            </div>
+            <span className="text-[#BFA060]/50 text-[10px] tracking-widest uppercase border border-[#BFA060]/20 px-3 py-1">Coming Soon</span>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+            {["Har-Bar Tee", "Pint Glass", "Snapback", "Growler"].map((name) => (
+              <div
+                key={name}
+                className="group cursor-pointer border border-[#BFA060]/10 hover:border-[#BFA060]/60 bg-[#080d08] hover:bg-[#1a3a1a] transition-all duration-300 p-5 sm:p-6 flex flex-col items-center gap-4"
+              >
+                <div className="w-full aspect-square flex items-center justify-center">
+                  <Image
+                    src="/images/logo-2.png"
+                    alt={name}
+                    width={72}
+                    height={72}
+                    className="opacity-20 group-hover:opacity-60 transition-opacity duration-300 object-contain"
+                  />
+                </div>
+                <p className="text-[#DDD8CC]/40 group-hover:text-[#DDD8CC]/80 text-[9px] sm:text-[10px] tracking-widest uppercase font-bold transition-colors text-center">
+                  {name}
+                </p>
+                <div className="w-full py-2 border border-[#BFA060]/15 group-hover:border-[#BFA060]/50 text-center text-[#BFA060]/30 group-hover:text-[#BFA060]/80 text-[9px] tracking-widest uppercase transition-all">
+                  Coming Soon
+                </div>
               </div>
             ))}
           </div>
