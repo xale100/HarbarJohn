@@ -27,7 +27,7 @@ const values = [
   { title: "Local Music First", desc: "We book Del Norte County artists first, every time. Our stage exists to amplify local talent." },
   { title: "Community Over Everything", desc: "Port O&apos; Pints promotes and partners with Crescent City businesses. A stronger community means a better night out for everyone." },
   { title: "Award-Winning Beer", desc: "Hand-crafted on-site by Brewmaster Devin Beach since 2014. From easy-drinking cream ales to bold Belgian Tripels." },
-  { title: "Harbor Roots", desc: "201 Citizens Dock Road. Our location on the harbor isn't scenery — it's our identity." },
+  { title: "Harbor Roots", desc: "1215 Northcrest Dr. Our spot in Crescent City isn't just scenery — it's our identity." },
 ];
 
 export default function AboutPage() {
@@ -67,7 +67,7 @@ export default function AboutPage() {
               that made this place worth keeping and doubling down on it.
             </p>
             <p>
-              Award-winning beer. Local music first. Harbor views. 201 Citizens Dock Road,
+              Award-winning beer. Local music first. 1215 Northcrest Dr,
               Crescent City, CA. Same as it ever was.
             </p>
           </div>
@@ -165,7 +165,7 @@ export default function AboutPage() {
       <section className="border-t border-[#BFA060]/20 py-16 px-4 bg-[#080d08] text-center">
         <div className="max-w-xl mx-auto">
           <p className="text-[#DDD8CC]/40 text-xs tracking-widest uppercase mb-6">
-            201 Citizens Dock Road &nbsp;·&nbsp; Crescent City, CA
+            1215 Northcrest Dr &nbsp;·&nbsp; Crescent City, CA
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link

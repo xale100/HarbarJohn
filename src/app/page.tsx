@@ -47,7 +47,7 @@ export default async function Home() {
           </h1>
 
           <p className="text-[#DDD8CC]/50 text-[10px] tracking-[0.2em] sm:tracking-[0.4em] uppercase mb-2 whitespace-nowrap">
-            201 Citizens Dock Rd &nbsp;·&nbsp; Crescent City, CA
+            1215 Northcrest Dr &nbsp;·&nbsp; Crescent City, CA
           </p>
           <a
             href="tel:7074601154"
@@ -84,7 +84,7 @@ export default async function Home() {
             </div>
           </div>
           {[
-            { label: "On the Harbor", sub: "201 Citizens Dock Rd" },
+            { label: "On the Harbor", sub: "1215 Northcrest Dr" },
             { label: "Open Wed–Sun", sub: "Wed–Thu 3pm · Fri–Sun 12pm" },
           ].map((item) => (
             <div key={item.label} className="px-2 sm:px-6 py-1 text-center shrink-0">

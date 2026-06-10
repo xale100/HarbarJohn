@@ -8,14 +8,14 @@ export default function Footer() {
           {/* Brand + Contact */}
           <div>
             <p className="text-[#BFA060] font-black tracking-widest text-base mb-2">
-              HAR<span className="text-[#DDD8CC]/20">·</span>BAR
+              PORT<span className="text-[#DDD8CC]/20"> O&apos; </span>PINTS
             </p>
-            <p className="text-[#DDD8CC]/50 leading-snug mb-0.5">201 Citizens Dock Road</p>
+            <p className="text-[#DDD8CC]/50 leading-snug mb-0.5">1215 Northcrest Dr</p>
             <p className="text-[#DDD8CC]/50 mb-2">Crescent City, CA 95531</p>
             <a href="tel:7074601154" className="block text-[#DDD8CC]/50 hover:text-[#BFA060] transition-colors mb-3">
-              707-460-1154
+              (707) 460-1154
             </a>
-            <p className="text-[#DDD8CC]/20 text-xs tracking-widest uppercase">Formerly PortoPints South Beach</p>
+            <p className="text-[#DDD8CC]/20 text-xs tracking-widest uppercase">Est. 2014</p>
           </div>
 
           {/* Hours + Directions */}
@@ -39,7 +39,7 @@ export default function Footer() {
           <div>
             <div className="overflow-hidden rounded-sm border border-[#BFA060]/15">
               <iframe
-                src="https://maps.google.com/maps?q=201+Citizens+Dock+Road,+Crescent+City,+CA+95531&z=16&output=embed"
+                src="https://maps.google.com/maps?q=1215+Northcrest+Dr,+Crescent+City,+CA+95531&z=16&output=embed"
                 width="100%"
                 height="160"
                 style={{ border: 0, display: "block" }}

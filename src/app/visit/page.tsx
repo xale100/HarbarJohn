@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Visit Us",
   description:
-    "Hours, location, and directions to Port O' Pints — 201 Citizens Dock Road, Crescent City, CA 95531. On the harbor.",
+    "Hours, location, and directions to Port O' Pints — 1215 Northcrest Dr, Crescent City, CA 95531.",
 };
 
 const hours = [
@@ -59,7 +59,7 @@ export default function VisitPage() {
             Visit Port O' Pints
           </h1>
           <p className="text-[#DDD8CC]/40 text-sm tracking-widest uppercase">
-            201 Citizens Dock Road &nbsp;·&nbsp; Crescent City, CA 95531
+            1215 Northcrest Dr &nbsp;·&nbsp; Crescent City, CA 95531
           </p>
           <a
             href="tel:7074601154"
@@ -107,7 +107,7 @@ export default function VisitPage() {
                 <div className="py-4 flex justify-between">
                   <p className="text-[#DDD8CC]/40 text-sm">Address</p>
                   <div className="text-right">
-                    <p className="text-[#DDD8CC] text-sm">201 Citizens Dock Road</p>
+                    <p className="text-[#DDD8CC] text-sm">1215 Northcrest Dr</p>
                     <p className="text-[#DDD8CC] text-sm">Crescent City, CA 95531</p>
                   </div>
                 </div>
@@ -132,7 +132,7 @@ export default function VisitPage() {
 
             <div className="overflow-hidden rounded-sm border border-[#BFA060]/15">
               <iframe
-                src="https://maps.google.com/maps?q=201+Citizens+Dock+Road,+Crescent+City,+CA+95531&z=16&output=embed"
+                src="https://maps.google.com/maps?q=1215+Northcrest+Dr,+Crescent+City,+CA+95531&z=16&output=embed"
                 width="100%"
                 height="260"
                 style={{ border: 0, display: "block" }}

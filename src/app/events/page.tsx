@@ -124,7 +124,7 @@ export default async function EventsPage() {
       <section className="border-t border-[#BFA060]/20 py-16 px-4 bg-[#080d08] text-center">
         <div className="max-w-xl mx-auto">
           <p className="text-[#DDD8CC]/40 text-xs tracking-widest uppercase mb-6">
-            201 Citizens Dock Road &nbsp;·&nbsp; Crescent City, CA
+            1215 Northcrest Dr &nbsp;·&nbsp; Crescent City, CA
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
