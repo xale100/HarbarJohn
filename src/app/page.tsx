@@ -74,22 +74,22 @@ export default async function Home() {
       </section>
 
       {/* QUICK FACTS */}
-      <section className="border-t border-[#BFA060]/30 border-b border-[#BFA060]/30 py-5 px-4 bg-[#1a3a1a]">
-        <div className="max-w-5xl mx-auto flex overflow-x-auto items-center justify-center divide-x divide-[#BFA060]/25 scrollbar-none">
-          <div className="px-2 sm:px-6 py-1 flex items-center gap-2 shrink-0">
-            <Image src="/images/award.png" alt="Award-winning" width={44} height={44} className="object-contain w-7 h-7 sm:w-11 sm:h-11" />
+      <section className="border-t border-[#BFA060]/50 border-b border-[#BFA060]/50 py-5 px-4 bg-[#0c1008]">
+        <div className="max-w-5xl mx-auto flex overflow-x-auto items-center justify-center divide-x divide-[#BFA060]/20 scrollbar-none">
+          <div className="px-2 sm:px-8 py-1 flex items-center gap-3 shrink-0">
+            <Image src="/images/award.png" alt="Award-winning" width={56} height={56} className="object-contain w-9 h-9 sm:w-14 sm:h-14" />
             <div>
-              <p className="text-[#DDD8CC] text-[10px] sm:text-sm font-semibold whitespace-nowrap">Award-Winning</p>
-              <p className="text-[#DDD8CC]/55 text-[9px] sm:text-xs whitespace-nowrap">Craft Beer &amp; Root Beer</p>
+              <p className="text-[#BFA060] text-[11px] sm:text-sm font-black tracking-widest uppercase whitespace-nowrap">Award-Winning</p>
+              <p className="text-[#DDD8CC]/40 text-[9px] sm:text-xs whitespace-nowrap">Craft Beer &amp; Root Beer</p>
             </div>
           </div>
           {[
-            { label: "On the Harbor", sub: "1215 Northcrest Dr" },
+            { label: "1215 Northcrest Dr", sub: "Crescent City, CA" },
             { label: "Open Wed–Sun", sub: "Wed–Thu 3pm · Fri–Sun 12pm" },
           ].map((item) => (
-            <div key={item.label} className="px-2 sm:px-6 py-1 text-center shrink-0">
-              <p className="text-[#DDD8CC] text-[10px] sm:text-sm font-semibold whitespace-nowrap">{item.label}</p>
-              <p className="text-[#DDD8CC]/55 text-[9px] sm:text-xs whitespace-nowrap">{item.sub}</p>
+            <div key={item.label} className="px-2 sm:px-8 py-1 text-center shrink-0">
+              <p className="text-[#DDD8CC]/70 text-[10px] sm:text-sm font-semibold whitespace-nowrap">{item.label}</p>
+              <p className="text-[#DDD8CC]/30 text-[9px] sm:text-xs whitespace-nowrap">{item.sub}</p>
             </div>
           ))}
         </div>
