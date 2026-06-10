@@ -74,7 +74,7 @@ export default async function Home() {
       </section>
 
       {/* QUICK FACTS */}
-      <section className="border-t border-[#BFA060]/50 border-b border-[#BFA060]/50 py-5 px-4" style={{ background: "radial-gradient(ellipse 60% 100% at center, #1a3a1a 0%, #1a3a1a 55%, #080d08 100%)" }}>
+      <section className="border-t border-[#BFA060]/70 border-b border-[#BFA060]/70 py-5 px-4" style={{ background: "radial-gradient(ellipse 60% 100% at center, #1a3a1a 0%, #1a3a1a 55%, #080d08 100%)" }}>
         <div className="max-w-5xl mx-auto flex overflow-x-auto items-center justify-center divide-x divide-[#BFA060]/20 scrollbar-none">
           <div className="px-2 sm:px-8 py-1 flex items-center gap-3 shrink-0">
             <Image src="/images/award.png" alt="Award-winning" width={56} height={56} className="object-contain w-9 h-9 sm:w-14 sm:h-14" />
@@ -96,10 +96,9 @@ export default async function Home() {
       </section>
 
       {/* TEAM */}
-      <section className="grid grid-cols-3 md:grid-cols-6">
+      <section className="grid grid-cols-5">
         {[
           { src: "/images/team-devin.jpg",   name: "Devin Beach",       title: "Owner / Brewmaster" },
-          { src: "/images/team-spinner.jpg",  name: "Spinner Spencer",   title: "General Manager" },
           { src: "/images/team-john.jpg",     name: "John Kirk",         title: "Owner" },
           { src: "/images/team-cynthia.jpg",  name: "Cynthia Parenteau", title: "Owner" },
           { src: "/images/team-cameron.jpg",  name: "Cameron Cook",      title: "Production" },
