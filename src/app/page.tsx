@@ -116,11 +116,11 @@ export default async function Home() {
       </section>
 
       {/* BREWMASTER QUOTE */}
-      <section className="relative px-6 sm:px-16 py-8 overflow-hidden border-t border-[#BFA060]/30" style={{ background: "radial-gradient(ellipse 60% 100% at center, #080d08 0%, #080d08 50%, #1a3a1a 100%)" }}>
+      <section className="relative px-6 sm:px-16 py-8 bg-[#080d08] overflow-hidden border-t border-[#BFA060]/30">
 
         {/* Medallion blown up as background */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none" aria-hidden="true">
-          <svg viewBox="0 0 56 56" className="w-[680px] h-[680px]" fill="none" opacity="0.10">
+          <svg viewBox="0 0 56 56" className="w-[680px] h-[680px]" fill="none" opacity="0.06">
             <circle cx="28" cy="28" r="26" stroke="#BFA060" strokeWidth="0.75"/>
             <circle cx="28" cy="28" r="18" stroke="#BFA060" strokeWidth="0.75"/>
             <line x1="2"   y1="28"  x2="54"  y2="28"  stroke="#BFA060" strokeWidth="0.7"/>
@@ -140,7 +140,7 @@ export default async function Home() {
         {/* Content */}
         <div className="relative z-10 max-w-2xl mx-auto">
           <div className="h-px bg-[#BFA060]/25 mb-6" />
-          <p className="text-[#DDD8CC]/90 italic leading-relaxed text-base sm:text-xl">
+          <p className="text-[#DDD8CC]/75 italic leading-relaxed text-base sm:text-xl">
             <span className="text-[#BFA060] text-6xl sm:text-7xl font-black not-italic leading-[0.75] float-left mr-3 mt-1">P</span>
             laceholder for we make beer
           </p>
