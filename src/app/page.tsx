@@ -42,8 +42,8 @@ export default async function Home() {
             />
           </div>
 
-          <h1 className="text-7xl sm:text-[10rem] font-black tracking-widest text-[#BFA060] leading-none mb-2 sm:mb-3">
-            HAR<span className="text-[#DDD8CC]/40">·</span>BAR
+          <h1 className="text-5xl sm:text-8xl font-black tracking-widest text-[#BFA060] leading-none mb-2 sm:mb-3">
+            PORT<span className="text-[#DDD8CC]/40"> O&apos; </span>PINTS
           </h1>
 
           <p className="text-[#DDD8CC]/50 text-[10px] tracking-[0.2em] sm:tracking-[0.4em] uppercase mb-2 whitespace-nowrap">
@@ -226,7 +226,7 @@ export default async function Home() {
           style={{ animation: "marquee 32s linear infinite", width: "max-content", willChange: "transform" }}
         >
           {[
-            { name: "Har-Bar Tee",   anim: null },
+            { name: "Port O&apos; Pints Tee",   anim: null },
             { name: "Sweatshirt",    anim: "breathe 3s ease-in-out infinite" },
             { name: "Snapback",      anim: null },
             { name: "Pint Glass",    anim: null },
@@ -236,7 +236,7 @@ export default async function Home() {
             { name: "Tote Bag",      anim: null },
             { name: "Button-Down",   anim: null },
             { name: "Work Hat",      anim: null },
-            { name: "Har-Bar Tee",   anim: null },
+            { name: "Port O&apos; Pints Tee",   anim: null },
             { name: "Sweatshirt",    anim: "breathe 3s ease-in-out infinite" },
             { name: "Snapback",      anim: null },
             { name: "Pint Glass",    anim: null },

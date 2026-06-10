@@ -5,7 +5,7 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "Beer & Food Menu",
   description:
-    "Award-winning craft beer brewed on-site and a full pub food menu at Har-Bar in Crescent City, CA.",
+    "Award-winning craft beer brewed on-site and a full pub food menu at Port O' Pints in Crescent City, CA.",
 };
 
 const beers = [
@@ -44,7 +44,7 @@ const beers = [
     { name: "Sneaker Wave", abv: "", ibu: "", desc: "Fruited wheat beer — Paddy Wheat Series." },
   ]},
   { category: "Non-Alcoholic", items: [
-    { name: "House-Brewed Root Beer", abv: "0%", ibu: "", desc: "Award-winning. Made in-house. A Har-Bar staple.", badge: "Award-Winning" },
+    { name: "House-Brewed Root Beer", abv: "0%", ibu: "", desc: "Award-winning. Made in-house. A Port O' Pints staple.", badge: "Award-Winning" },
   ]},
 ];
 

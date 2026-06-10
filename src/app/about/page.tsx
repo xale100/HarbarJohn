@@ -5,7 +5,7 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Har-Bar — formerly PortoPints South Beach — is Crescent City's harbor-side BrewCade. Founded 2014, reborn on the harbor.",
+    "Port O' Pints is Crescent City's original harbor-side BrewCade. Award-winning craft beer, live music, and good people since 2014.",
 };
 
 const team = [
@@ -25,7 +25,7 @@ const team = [
 
 const values = [
   { title: "Local Music First", desc: "We book Del Norte County artists first, every time. Our stage exists to amplify local talent." },
-  { title: "Community Over Everything", desc: "Har-Bar promotes and partners with Crescent City businesses. A stronger community means a better night out for everyone." },
+  { title: "Community Over Everything", desc: "Port O&apos; Pints promotes and partners with Crescent City businesses. A stronger community means a better night out for everyone." },
   { title: "Award-Winning Beer", desc: "Hand-crafted on-site by Brewmaster Devin Beach since 2014. From easy-drinking cream ales to bold Belgian Tripels." },
   { title: "Harbor Roots", desc: "201 Citizens Dock Road. Our location on the harbor isn't scenery — it's our identity." },
 ];
@@ -38,7 +38,7 @@ export default function AboutPage() {
       <section className="grain py-24 px-4 bg-[#080d08]">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl sm:text-7xl font-black text-[#DDD8CC] mb-4 tracking-wide uppercase">
-            About Har-Bar
+            About Port O&apos; Pints
           </h1>
           <p className="text-[#DDD8CC]/40 text-sm tracking-widest uppercase">
             Built on the harbor &nbsp;·&nbsp; Built for the community &nbsp;·&nbsp; Built to stay
@@ -51,25 +51,24 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto">
 
           <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-8">
-            From PortoPints to Har-Bar
+            Our Story
           </h2>
 
           <div className="space-y-4 text-[#DDD8CC]/55 leading-relaxed mb-10">
             <p>
-              Port O&apos;Pints Brewing Co. was founded in 2014 — one of the first craft
+              Port O&apos; Pints Brewing Co. was founded in 2014 — one of the first craft
               breweries to plant a flag in Crescent City. The South Beach location became
               something special: a BrewCade, an entertainment venue, a live music spot,
               all wrapped into one harbor-side address.
             </p>
             <p>
               In 2023, Cynthia Parenteau, Dr. John Kirk, and Brewmaster Devin Beach
-              took ownership and set out to build on that foundation. The result is
-              Har-Bar — a rebrand that puts the harbor front and center and doubles
-              down on everything that made this place worth keeping.
+              took ownership and set out to build on that foundation — keeping everything
+              that made this place worth keeping and doubling down on it.
             </p>
             <p>
-              Same award-winning beer. Same commitment to local music. New name,
-              new energy, same address: 201 Citizens Dock Road, Crescent City, CA.
+              Award-winning beer. Local music first. Harbor views. 201 Citizens Dock Road,
+              Crescent City, CA. Same as it ever was.
             </p>
           </div>
 

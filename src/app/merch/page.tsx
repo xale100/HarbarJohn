@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Merch",
-  description: "Har-Bar merchandise — coming soon.",
+  description: "Port O' Pints merchandise — coming soon.",
 };
 
 export default function MerchPage() {
@@ -11,7 +11,7 @@ export default function MerchPage() {
     <div className="min-h-screen bg-[#080d08] text-[#DDD8CC] flex flex-col items-center justify-center px-4 gap-6">
       <Image
         src="/images/logo-2.png"
-        alt="Har-Bar"
+        alt="Port O' Pints"
         width={72}
         height={72}
         className="opacity-30"

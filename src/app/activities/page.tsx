@@ -5,7 +5,7 @@ import ActivityGrid from "./ActivityGrid";
 export const metadata: Metadata = {
   title: "Activities",
   description:
-    "Axe throwing, darts, pool, arcade, shuffleboard and foosball at Har-Bar in Crescent City. Walk-in or reserve.",
+    "Axe throwing, darts, pool, arcade, shuffleboard and foosball at Port O' Pints in Crescent City. Walk-in or reserve.",
 };
 
 const packages = [

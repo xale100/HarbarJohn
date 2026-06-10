@@ -46,7 +46,7 @@ export default function Footer() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Har-Bar location"
+                title="Port O&apos; Pints location"
               />
             </div>
           </div>
@@ -54,8 +54,8 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-[#BFA060]/10 pt-4 flex flex-col sm:flex-row justify-between gap-1 text-xs">
-          <span>© {new Date().getFullYear()} Har-Bar · Crescent City, CA</span>
-          <span className="text-[#DDD8CC]/15">Formerly PortoPints South Beach</span>
+          <span>© {new Date().getFullYear()} Port O&apos; Pints · Crescent City, CA</span>
+          <span className="text-[#DDD8CC]/15">Est. 2014 · Crescent City, CA</span>
         </div>
       </div>
     </footer>

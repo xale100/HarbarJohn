@@ -19,13 +19,13 @@ export default function Nav() {
         <Link href="/" className="flex items-center gap-3 group">
           <Image
             src="/images/logo-2.png"
-            alt="Har-Bar"
+            alt="Port O' Pints"
             width={36}
             height={36}
             className="object-contain"
           />
           <span className="text-xl font-black tracking-widest text-[#BFA060] group-hover:text-[#DDD8CC] transition-colors">
-            HAR<span className="text-[#DDD8CC]/30">·</span>BAR
+            PORT<span className="text-[#DDD8CC]/30"> O&apos; </span>PINTS
           </span>
         </Link>
 

@@ -14,13 +14,14 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Har-Bar | Live Music & Entertainment · Crescent City, CA",
-    template: "%s | Har-Bar",
+    default: "Port O' Pints | Live Music & Entertainment · Crescent City, CA",
+    template: "%s | Port O' Pints",
   },
   description:
-    "Har-Bar is Crescent City's premier harbor-side entertainment venue. Live music, axe throwing, darts, arcade, pool, and outdoor stages with a harbor view.",
+    "Port O' Pints is Crescent City's harbor-side BrewCade. Award-winning craft beer, live music, axe throwing, darts, arcade, pool, and outdoor stages with a harbor view.",
   keywords: [
-    "Har-Bar",
+    "Port O' Pints",
+    "PortoPints",
     "Crescent City bar",
     "live music Crescent City",
     "harbor bar",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     "entertainment venue",
   ],
   openGraph: {
-    title: "Har-Bar | Live Music & Entertainment · Crescent City, CA",
+    title: "Port O' Pints | Live Music & Entertainment · Crescent City, CA",
     description:
       "Live music, harbor views, and good people — right in the heart of Crescent City.",
     type: "website",

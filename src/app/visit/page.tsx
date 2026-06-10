@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Visit Us",
   description:
-    "Hours, location, and directions to Har-Bar — 201 Citizens Dock Road, Crescent City, CA 95531. On the harbor.",
+    "Hours, location, and directions to Port O' Pints — 201 Citizens Dock Road, Crescent City, CA 95531. On the harbor.",
 };
 
 const hours = [
@@ -56,7 +56,7 @@ export default function VisitPage() {
       <section className="grain py-24 px-4 bg-[#080d08]">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl sm:text-7xl font-black text-[#DDD8CC] mb-4 tracking-wide uppercase">
-            Visit Har-Bar
+            Visit Port O' Pints
           </h1>
           <p className="text-[#DDD8CC]/40 text-sm tracking-widest uppercase">
             201 Citizens Dock Road &nbsp;·&nbsp; Crescent City, CA 95531
@@ -139,7 +139,7 @@ export default function VisitPage() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Har-Bar location"
+                title="Port O' Pints location"
               />
             </div>
           </div>

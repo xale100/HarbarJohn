@@ -471,7 +471,7 @@ export default function MugClubApp({ token }: { token: string }) {
           <div className="flex items-center gap-2">
             <Image src="/images/logo-2.png" alt="" width={24} height={24} className="opacity-40" />
             <span className="text-[#BFA060] text-[10px] tracking-[0.3em] uppercase font-black">
-              Har-Bar Mug Club
+              Port O&apos; Pints Mug Club
             </span>
           </div>
           <div className="flex gap-3">

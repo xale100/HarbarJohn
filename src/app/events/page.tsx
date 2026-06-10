@@ -5,7 +5,7 @@ import { getShows } from "@/lib/calendar";
 export const metadata: Metadata = {
   title: "Live Music & Events",
   description:
-    "Check out the live music schedule at Har-Bar in Crescent City. Two stages, local artists, and harbor views every week.",
+    "Check out the live music schedule at Port O&apos; Pints in Crescent City. Two stages, local artists, and harbor views every week.",
 };
 
 const fallbackShows = [
@@ -106,7 +106,7 @@ export default async function EventsPage() {
       <section className="grain py-20 px-4 bg-[#0f170f]">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-3">
-            Play Har-Bar
+            Play Port O&apos; Pints
           </h2>
           <p className="text-[#DDD8CC]/40 text-sm leading-relaxed max-w-xl mb-8">
             We book local first. If you or your band is based in Del Norte County or the surrounding area, we want to hear from you.
