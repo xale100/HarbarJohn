@@ -76,21 +76,19 @@ export default async function Home() {
       {/* QUICK FACTS */}
       <section className="border-t border-[#BFA060]/70 border-b border-[#BFA060]/70 py-5 px-4" style={{ background: "radial-gradient(ellipse 60% 100% at center, #1a3a1a 0%, #1a3a1a 55%, #080d08 100%)" }}>
         <div className="max-w-5xl mx-auto flex items-center justify-center divide-x divide-[#BFA060]/20">
-          <div className="px-2 sm:px-8 py-1 flex items-center gap-1.5 sm:gap-3 shrink-0">
-            <Image src="/images/award.png" alt="Award-winning" width={56} height={56} className="object-contain w-7 h-7 sm:w-14 sm:h-14" />
+          <div className="px-2 sm:px-8 py-1 flex items-center gap-2 sm:gap-3 shrink-0">
+            <Image src="/images/award.png" alt="Award-winning" width={56} height={56} className="object-contain w-8 h-8 sm:w-14 sm:h-14" />
             <div>
-              <p className="text-[#BFA060] text-[10px] sm:text-sm font-black tracking-widest uppercase">Award-Winning</p>
-              <p className="text-[#DDD8CC]/40 text-[9px] sm:text-xs">Craft Beer &amp; Root Beer</p>
+              <p className="text-[#BFA060] text-[11px] sm:text-sm font-black tracking-widest uppercase">Award-Winning</p>
+              <p className="text-[#DDD8CC]/40 text-[10px] sm:text-xs">Craft Beer &amp; Root Beer</p>
             </div>
           </div>
           <div className="px-2 sm:px-8 py-1 text-center shrink-0">
-            <p className="text-[#DDD8CC]/70 text-[10px] sm:text-sm font-semibold">1215 Northcrest Dr</p>
-            <p className="text-[#DDD8CC]/30 text-[9px] sm:text-xs">Crescent City, CA</p>
+            <p className="text-[#DDD8CC]/70 text-[11px] sm:text-sm font-semibold">1215 Northcrest Dr</p>
+            <p className="text-[#DDD8CC]/30 text-[10px] sm:text-xs">Crescent City, CA</p>
           </div>
           <div className="px-2 sm:px-8 py-1 text-center shrink-0">
-            <p className="text-[#DDD8CC]/70 text-[10px] sm:text-sm font-semibold">Open Wed–Sun</p>
-            <p className="text-[#DDD8CC]/30 text-[9px] sm:text-xs">Wed–Thu &nbsp;3pm</p>
-            <p className="text-[#DDD8CC]/30 text-[9px] sm:text-xs">Fri–Sun &nbsp;&nbsp;12pm</p>
+            <p className="text-[#DDD8CC]/70 text-[11px] sm:text-sm font-semibold">Mon–Sun · 12–9pm</p>
           </div>
         </div>
       </section>

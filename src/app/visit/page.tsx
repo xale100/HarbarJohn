@@ -8,13 +8,13 @@ export const metadata: Metadata = {
 };
 
 const hours = [
-  { day: "Monday",    hours: "Closed" },
-  { day: "Tuesday",   hours: "Closed" },
-  { day: "Wednesday", hours: "3pm – 10pm" },
-  { day: "Thursday",  hours: "3pm – 10pm" },
-  { day: "Friday",    hours: "12pm – 12am" },
-  { day: "Saturday",  hours: "12pm – 12am" },
-  { day: "Sunday",    hours: "12pm – 10pm" },
+  { day: "Monday",    hours: "12pm – 9pm" },
+  { day: "Tuesday",   hours: "12pm – 9pm" },
+  { day: "Wednesday", hours: "12pm – 9pm" },
+  { day: "Thursday",  hours: "12pm – 9pm" },
+  { day: "Friday",    hours: "12pm – 9pm" },
+  { day: "Saturday",  hours: "12pm – 9pm" },
+  { day: "Sunday",    hours: "12pm – 9pm" },
 ];
 
 const faqs = [
