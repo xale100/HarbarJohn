@@ -88,7 +88,8 @@ export default async function Home() {
             <p className="text-[#DDD8CC]/30 text-[10px] sm:text-xs">Crescent City, CA</p>
           </div>
           <div className="px-2 sm:px-8 py-1 text-center shrink-0">
-            <p className="text-[#DDD8CC]/70 text-[11px] sm:text-sm font-semibold">Mon–Sun · 12–9pm</p>
+            <p className="text-[#DDD8CC]/70 text-[11px] sm:text-sm font-semibold">Mon–Sun</p>
+            <p className="text-[#DDD8CC]/30 text-[10px] sm:text-xs">12–9pm</p>
           </div>
         </div>
       </section>
