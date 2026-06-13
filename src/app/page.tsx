@@ -154,7 +154,7 @@ export default async function Home() {
       </section>
 
       {/* UPCOMING SHOWS */}
-      <section className="grain py-10 sm:py-14 px-4 bg-[#0f170f] border-t border-[#BFA060]/20">
+      <section className="grain py-10 sm:py-14 px-4 bg-[#0f170f] border-t-2 border-[#BFA060]/50">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <h2 className="text-xl sm:text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-2">
@@ -169,12 +169,15 @@ export default async function Home() {
             {shows.map((show, i) => (
               <div
                 key={i}
-                className={`flex items-center justify-between py-4 gap-4 ${
-                  i === 0 ? "border-l-2 border-[#BFA060] pl-3 -ml-3" : ""
-                }`}
+                className="flex items-center justify-between gap-4 relative"
+                style={i === 0 ? {
+                  padding: "20px 16px",
+                  margin: "0 -16px",
+                  background: "radial-gradient(ellipse 70% 100% at center, rgba(26,58,26,0.9) 0%, rgba(26,58,26,0.9) 40%, transparent 100%)",
+                } : { padding: "16px 0" }}
               >
                 <div className="flex items-center gap-2 w-36 shrink-0">
-                  <p className={`text-[10px] sm:text-xs tracking-widest uppercase ${i === 0 ? "text-[#BFA060]" : "text-[#BFA060]/60"}`}>
+                  <p className={`text-[10px] sm:text-xs tracking-widest uppercase ${i === 0 ? "text-[#BFA060]" : "text-[#BFA060]/50"}`}>
                     {show.date}
                   </p>
                   {i === 0 && (
@@ -183,10 +186,10 @@ export default async function Home() {
                     </span>
                   )}
                 </div>
-                <p className={`font-semibold flex-1 text-xs sm:text-base ${i === 0 ? "text-[#DDD8CC]" : "text-[#DDD8CC]/60"}`}>
+                <p className={`font-semibold flex-1 ${i === 0 ? "text-[#DDD8CC] text-sm sm:text-xl" : "text-[#DDD8CC]/50 text-xs sm:text-base"}`}>
                   {show.artist}
                 </p>
-                <p className={`text-[10px] sm:text-xs tracking-wide text-right shrink-0 ${i === 0 ? "text-[#DDD8CC]/60" : "text-[#DDD8CC]/30"}`}>
+                <p className={`text-[10px] sm:text-xs tracking-wide text-right shrink-0 ${i === 0 ? "text-[#DDD8CC]/70" : "text-[#DDD8CC]/25"}`}>
                   {show.time} &nbsp;·&nbsp; {show.stage}
                 </p>
               </div>
