@@ -121,7 +121,7 @@ export default function VisitPage() {
                 </div>
               </div>
               <a
-                href="https://maps.app.goo.gl/GCqSBeWD7dmrHuNL6"
+                href="https://www.google.com/maps/dir/?api=1&destination=Port+O+Pints,+1215+Northcrest+Dr,+Crescent+City,+CA+95531"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mt-6 px-7 py-3 border border-[#BFA060]/60 hover:border-[#BFA060] text-[#BFA060] font-bold text-sm tracking-widest uppercase transition-colors"
@@ -132,7 +132,7 @@ export default function VisitPage() {
 
             <div className="overflow-hidden rounded-sm border border-[#BFA060]/15">
               <iframe
-                src="https://maps.google.com/maps?q=1215+Northcrest+Dr,+Crescent+City,+CA+95531&z=16&output=embed"
+                src="https://maps.google.com/maps?q=Port+O+Pints,+1215+Northcrest+Dr,+Crescent+City,+CA+95531&z=17&output=embed&t=k"
                 width="100%"
                 height="260"
                 style={{ border: 0, display: "block" }}

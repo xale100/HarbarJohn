@@ -23,7 +23,7 @@ export default function Footer() {
             <p className="text-[#DDD8CC]/20 text-xs tracking-widest uppercase mb-2">Hours</p>
             <p className="text-[#DDD8CC]/50 mb-4">Mon – Sun &nbsp;&nbsp; 12pm – 9pm</p>
             <a
-              href="https://maps.app.goo.gl/GCqSBeWD7dmrHuNL6"
+              href="https://www.google.com/maps/dir/?api=1&destination=Port+O+Pints,+1215+Northcrest+Dr,+Crescent+City,+CA+95531"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-5 py-2 border border-[#BFA060]/50 hover:border-[#BFA060] text-[#BFA060] text-xs font-bold tracking-widest uppercase transition-colors"
@@ -36,7 +36,7 @@ export default function Footer() {
           <div>
             <div className="overflow-hidden rounded-sm border border-[#BFA060]/15">
               <iframe
-                src="https://maps.google.com/maps?q=1215+Northcrest+Dr,+Crescent+City,+CA+95531&z=16&output=embed"
+                src="https://maps.google.com/maps?q=Port+O+Pints,+1215+Northcrest+Dr,+Crescent+City,+CA+95531&z=17&output=embed&t=k"
                 width="100%"
                 height="160"
                 style={{ border: 0, display: "block" }}
