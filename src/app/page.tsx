@@ -95,7 +95,7 @@ export default async function Home() {
       </section>
 
       {/* TEAM */}
-      <section className="grid grid-cols-5">
+      <section className="grid grid-cols-5 h-[50vh]">
         {[
           { src: "/images/team-devin.jpg",   name: "Devin Beach",       title: "Owner / Brewmaster" },
           { src: "/images/team-john.jpg",     name: "John Kirk",         title: "Owner" },
@@ -103,7 +103,7 @@ export default async function Home() {
           { src: "/images/team-cameron.jpg",  name: "Cameron Cook",      title: "Production" },
           { src: "/images/team-russell.jpg",  name: "Russell Smithson",  title: "Marketing" },
         ].map((p) => (
-          <div key={p.name} className="relative overflow-hidden" style={{ aspectRatio: "1/1" }}>
+          <div key={p.name} className="relative overflow-hidden">
             <Image src={p.src} alt={p.name} fill className="object-cover object-top brightness-75" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-1.5 md:p-3">
