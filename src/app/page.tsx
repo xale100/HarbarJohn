@@ -158,7 +158,7 @@ export default async function Home() {
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <h2 className="text-xl sm:text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-2">
-              This Week&apos;s Shows
+              This Week&apos;s Events
             </h2>
             <Link href="/events" className="text-[#BFA060]/70 hover:text-[#BFA060] text-[10px] sm:text-xs tracking-widest uppercase transition-colors">
               Full Schedule →
