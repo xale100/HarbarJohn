@@ -154,7 +154,7 @@ export default async function Home() {
       </section>
 
       {/* UPCOMING SHOWS */}
-      <section className="grain py-10 sm:py-14 px-4 border-t-2 border-[#BFA060]/50" style={{ background: "linear-gradient(to bottom, #080d08 0%, #0b120b 15%, #0f170f 35%, #0f170f 100%)" }}>
+      <section className="grain py-10 sm:py-14 px-4 border-t-2 border-[#BFA060]/50" style={{ background: "radial-gradient(ellipse 60% 50% at 50% 18%, rgba(191,160,96,0.10) 0%, transparent 100%), #0f170f" }}>
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <h2 className="text-xl sm:text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-2">
