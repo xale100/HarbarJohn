@@ -115,7 +115,7 @@ export default async function Home() {
       </section>
 
       {/* BREWMASTER QUOTE */}
-      <section className="relative px-6 sm:px-16 py-8 bg-[#080d08] overflow-hidden border-t border-[#BFA060]/30">
+      <section className="relative px-6 sm:px-16 py-4 sm:py-5 bg-[#080d08] overflow-hidden border-t border-[#BFA060]/30">
 
         {/* Medallion blown up as background */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none" aria-hidden="true">
