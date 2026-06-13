@@ -95,7 +95,7 @@ export default async function Home() {
       </section>
 
       {/* TEAM */}
-      <section className="grid grid-cols-5 h-[20vw]">
+      <section className="grid grid-cols-5 h-[40vw]">
         {[
           { src: "/images/team-devin.jpg",   name: "Devin Beach",       title: "Owner / Brewmaster" },
           { src: "/images/team-john.jpg",     name: "John Kirk",         title: "Owner" },
