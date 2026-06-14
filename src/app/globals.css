@@ -66,25 +66,7 @@ html {
 }
 .scrollbar-none::-webkit-scrollbar { display: none; }
 
-@keyframes gold-fleck {
-  from { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0; }
-  to   { background-position: 30px 20px, -20px 30px, 25px -15px, -30px 25px, 20px 35px, 0 0; }
-}
-
 .gold-fleck {
-  background-image:
-    radial-gradient(circle 0.75px at center, rgba(191,160,96,1.0) 0%, transparent 100%),
-    radial-gradient(circle 0.75px at center, rgba(191,160,96,0.8) 0%, transparent 100%),
-    radial-gradient(circle 1px   at center, rgba(191,160,96,0.9) 0%, transparent 100%),
-    radial-gradient(circle 0.75px at center, rgba(191,160,96,1.0) 0%, transparent 100%),
-    radial-gradient(circle 1px   at center, rgba(191,160,96,0.7) 0%, transparent 100%),
-    linear-gradient(#DDD8CC, #DDD8CC);
-  background-size: 4px 4px, 5px 4px, 4px 6px, 6px 5px, 5px 6px, 100% 100%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+  color: #DDD8CC;
   -webkit-text-stroke: 0.6px rgba(191, 160, 96, 0.75);
-  paint-order: stroke fill;
-  animation: gold-fleck 12s linear infinite alternate;
 }
