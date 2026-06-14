@@ -201,11 +201,6 @@ export default async function Home() {
       {/* BEER */}
       <section className="grain relative py-10 sm:py-14 px-4 border-t-2 border-[#BFA060]/30 overflow-hidden" style={{ background: "#130e06" }}>
 
-        {/* ON TAP watermark */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none" aria-hidden="true">
-          <p className="text-[#BFA060] font-black tracking-widest uppercase leading-none opacity-[0.05]" style={{ fontSize: "18vw" }}>ON TAP</p>
-        </div>
-
         <div className="relative z-10 max-w-4xl mx-auto">
           <div className="flex items-center justify-between gap-4 mb-8">
             <div>
@@ -232,9 +227,9 @@ export default async function Home() {
           <div className="divide-y divide-[#BFA060]/15">
             {beers.map((beer) => (
               <div key={beer.name} className="flex items-center justify-between py-4 gap-4">
-                <p className="text-[#DDD8CC] font-semibold text-xs sm:text-base">{beer.name}</p>
+                <p className="text-[#DDD8CC] font-black text-sm sm:text-lg tracking-wide">{beer.name}</p>
                 <div className="flex items-center gap-3 shrink-0">
-                  <p className="text-[#DDD8CC]/40 text-[10px] sm:text-sm hidden sm:block">{beer.style}</p>
+                  <p className="text-[#DDD8CC]/35 text-[10px] sm:text-sm hidden sm:block">{beer.style}</p>
                   <span className="border border-[#BFA060]/50 text-[#BFA060] text-[9px] sm:text-[10px] font-black tracking-widest px-1.5 py-0.5 leading-none">{beer.abv}</span>
                 </div>
               </div>
