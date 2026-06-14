@@ -203,8 +203,8 @@ export default async function Home() {
         <div className="relative z-10 max-w-4xl mx-auto">
           <div className="mb-8">
             <h2
-              className="text-5xl sm:text-7xl font-black text-[#BFA060] tracking-wider uppercase leading-none mb-3"
-              style={{ textShadow: "0 0 60px rgba(191,160,96,0.30), 0 0 20px rgba(191,160,96,0.15)" }}
+              className="text-xl sm:text-2xl font-black text-[#BFA060] tracking-wide uppercase leading-none mb-3"
+              style={{ textShadow: "0 0 40px rgba(191,160,96,0.35), 0 0 12px rgba(191,160,96,0.20)" }}
             >
               On Tap
             </h2>
