@@ -209,7 +209,7 @@ export default function MerchStore({ products, squareAppId, squareLocationId, sq
     <>
       <Script src={squareScriptSrc} strategy="lazyOnload" />
 
-      <div className="bg-[#080d08] text-[#DDD8CC]">
+      <div className="bg-[#080d08] text-[#DDD8CC]" aria-live="polite" aria-atomic="false">
 
         {/* HERO */}
         <section className="grain py-20 px-4 bg-[#080d08] text-center border-b border-[#BFA060]/10">
@@ -293,7 +293,7 @@ export default function MerchStore({ products, squareAppId, squareLocationId, sq
                           const match = enabledVariants.find(v => parseVariant(v.name).size === size);
                           if (match) setVariant(match);
                         }}
-                        className={`px-3 py-1.5 text-xs font-bold tracking-widest uppercase border transition-colors ${
+                        className={`px-3 py-1.5 text-xs font-bold tracking-widest uppercase border transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#BFA060] focus-visible:outline-offset-2 ${
                           selectedSize === size
                             ? "border-[#BFA060] text-[#BFA060]"
                             : "border-[#DDD8CC]/20 text-[#DDD8CC]/40 hover:border-[#DDD8CC]/40"
@@ -320,7 +320,7 @@ export default function MerchStore({ products, squareAppId, squareLocationId, sq
                                 });
                                 if (match) setVariant(match);
                               }}
-                              className={`px-3 py-1.5 text-xs font-bold tracking-widest uppercase border transition-colors ${
+                              className={`px-3 py-1.5 text-xs font-bold tracking-widest uppercase border transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#BFA060] focus-visible:outline-offset-2 ${
                                 isSelected
                                   ? "border-[#BFA060] text-[#BFA060]"
                                   : "border-[#DDD8CC]/20 text-[#DDD8CC]/40 hover:border-[#DDD8CC]/40"
@@ -363,8 +363,9 @@ export default function MerchStore({ products, squareAppId, squareLocationId, sq
                   ["zip", "ZIP Code", "text"],
                 ] as [keyof Address, string, string][]).map(([key, label, type]) => (
                   <div key={key}>
-                    <label className={labelCls}>{label}</label>
+                    <label htmlFor={key} className={labelCls}>{label}</label>
                     <input
+                      id={key}
                       type={type}
                       value={address[key]}
                       onChange={e => setAddress(a => ({ ...a, [key]: e.target.value }))}

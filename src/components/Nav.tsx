@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const links = [
   { href: "/events", label: "Live Music & Events" },
@@ -12,11 +13,12 @@ const links = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#080d08]/95 backdrop-blur-sm border-b border-[#BFA060]/15">
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 group">
+        <Link href="/" className="flex items-center gap-3 group focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#BFA060] focus-visible:outline-offset-2 rounded-sm">
           <Image
             src="/images/logo-2.png"
             alt="Port O' Pints"
@@ -30,23 +32,31 @@ export default function Nav() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-6">
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="text-xs font-medium text-[#DDD8CC]/50 hover:text-[#DDD8CC] transition-colors tracking-widest uppercase"
-            >
-              {l.label}
-            </Link>
-          ))}
+        <nav aria-label="Main navigation" className="hidden md:flex items-center gap-6">
+          {links.map((l) => {
+            const active = pathname === l.href;
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                aria-current={active ? "page" : undefined}
+                className={`text-xs font-medium transition-colors tracking-widest uppercase focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#BFA060] focus-visible:outline-offset-2 rounded-sm ${
+                  active ? "text-[#DDD8CC]" : "text-[#DDD8CC]/50 hover:text-[#DDD8CC]"
+                }`}
+              >
+                {l.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-[#DDD8CC]/60 p-2"
+          className="md:hidden text-[#DDD8CC]/60 p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#BFA060] focus-visible:outline-offset-2 rounded-sm"
           onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
         >
           <span className="block w-5 h-px bg-current mb-1.5" />
           <span className="block w-5 h-px bg-current mb-1.5" />
@@ -55,18 +65,24 @@ export default function Nav() {
       </div>
 
       {open && (
-        <div className="md:hidden bg-[#080d08] border-t border-[#BFA060]/10 px-4 py-4 flex flex-col gap-4">
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className="text-xs font-medium text-[#DDD8CC]/50 hover:text-[#DDD8CC] transition-colors tracking-widest uppercase"
-            >
-              {l.label}
-            </Link>
-          ))}
-        </div>
+        <nav id="mobile-nav" aria-label="Mobile navigation" className="md:hidden bg-[#080d08] border-t border-[#BFA060]/10 px-4 py-4 flex flex-col gap-4">
+          {links.map((l) => {
+            const active = pathname === l.href;
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                aria-current={active ? "page" : undefined}
+                onClick={() => setOpen(false)}
+                className={`text-xs font-medium transition-colors tracking-widest uppercase focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#BFA060] focus-visible:outline-offset-2 rounded-sm ${
+                  active ? "text-[#DDD8CC]" : "text-[#DDD8CC]/50 hover:text-[#DDD8CC]"
+                }`}
+              >
+                {l.label}
+              </Link>
+            );
+          })}
+        </nav>
       )}
     </header>
   );

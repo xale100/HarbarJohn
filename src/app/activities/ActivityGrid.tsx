@@ -61,7 +61,9 @@ export default function ActivityGrid() {
             key={act.name}
             id={act.name.toLowerCase().replace(/ /g, "-")}
             onClick={() => setSelected(isOpen ? null : act.name)}
-            className="relative overflow-hidden text-left focus:outline-none"
+            aria-expanded={isOpen}
+          aria-label={`${act.name}${act.age ? `, ${act.age}` : ""} — tap for details`}
+          className="relative overflow-hidden text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#BFA060] focus-visible:outline-offset-[-2px]"
             style={{ aspectRatio: "3/4" }}
           >
             {/* Background */}
