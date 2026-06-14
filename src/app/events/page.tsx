@@ -68,43 +68,30 @@ export default async function EventsPage() {
         </div>
       </section>
 
-      {/* BOOKING */}
-      <section className="grain py-24 px-4 overflow-hidden border-t-2 border-[#BFA060]/30" style={{ background: "radial-gradient(ellipse 80% 100% at center, #1a3a1a 0%, #1a3a1a 35%, #080d08 100%)" }}>
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-[#BFA060]/50 text-xs tracking-[0.35em] uppercase mb-4">Booking</p>
+      {/* BOOKING + CTA */}
+      <section className="grain py-20 px-4 overflow-hidden border-t-2 border-[#BFA060]/30 text-center" style={{ background: "radial-gradient(ellipse 80% 100% at center, #1a3a1a 0%, #1a3a1a 35%, #080d08 100%)" }}>
+        <div className="max-w-xl mx-auto">
           <h2 className="text-4xl sm:text-6xl font-black text-[#DDD8CC] tracking-wide uppercase mb-4">
             Play Port O&apos; Pints
           </h2>
           <div className="h-px bg-[#BFA060]/30 max-w-xs mx-auto mb-6" />
-          <p className="text-[#DDD8CC]/45 text-sm leading-relaxed max-w-xl mx-auto mb-10">
+          <p className="text-[#DDD8CC]/45 text-sm leading-relaxed mb-8">
             We book local first. If you or your band is based in Del Norte County or the surrounding area, we want to hear from you.
           </p>
           <a
             href="tel:7074601154"
-            className="inline-block px-8 py-4 border border-[#BFA060]/60 hover:border-[#BFA060] text-[#BFA060] font-black text-sm tracking-widest uppercase transition-colors"
+            className="inline-block px-8 py-4 border border-[#BFA060]/60 hover:border-[#BFA060] text-[#BFA060] font-black text-sm tracking-widest uppercase transition-colors mb-10"
           >
             707-460-1154
           </a>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="border-t border-[#BFA060]/20 py-16 px-4 bg-[#080d08] text-center">
-        <div className="max-w-xl mx-auto">
-          <p className="text-[#DDD8CC]/40 text-xs tracking-widest uppercase mb-6">
+          <p className="text-[#DDD8CC]/25 text-xs tracking-widest uppercase mb-4">
             1215 Northcrest Dr &nbsp;·&nbsp; Crescent City, CA
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              href="/menu"
-              className="px-7 py-3 border border-[#BFA060]/60 hover:border-[#BFA060] text-[#BFA060] font-bold text-sm tracking-widest uppercase transition-colors"
-            >
+            <Link href="/menu" className="px-7 py-3 border border-[#BFA060]/60 hover:border-[#BFA060] text-[#BFA060] font-bold text-sm tracking-widest uppercase transition-colors">
               Beer &amp; Food Menu
             </Link>
-            <Link
-              href="/visit"
-              className="px-7 py-3 border border-[#DDD8CC]/20 hover:border-[#DDD8CC]/50 text-[#DDD8CC]/70 font-bold text-sm tracking-widests uppercase transition-colors"
-            >
+            <Link href="/visit" className="px-7 py-3 border border-[#DDD8CC]/20 hover:border-[#DDD8CC]/50 text-[#DDD8CC]/70 font-bold text-sm tracking-widest uppercase transition-colors">
               Hours &amp; Directions
             </Link>
           </div>
