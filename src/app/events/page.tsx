@@ -5,7 +5,7 @@ import { getShows } from "@/lib/calendar";
 export const metadata: Metadata = {
   title: "Live Music & Events",
   description:
-    "Check out the live music schedule at Port O&apos; Pints in Crescent City. Two stages, local artists, and harbor views every week.",
+    "Check out the live music schedule at Port O' Pints in Crescent City. Local artists, harbor views, and good brews every week.",
 };
 
 const fallbackShows = [
@@ -15,18 +15,6 @@ const fallbackShows = [
   { date: "Sat, May 31", artist: "Live Music — TBA", genre: "", time: "8pm", stage: "Harbor Stage", cover: "Free" },
 ];
 
-const stages = [
-  {
-    name: "Indoor Stage",
-    desc: "Main room stage with full PA, lights, and climate control. Rain or shine, the show goes on.",
-    capacity: "~150",
-  },
-  {
-    name: "Harbor Stage",
-    desc: "Open-air stage on the harbor side. No better view in Crescent City when the sky's clear.",
-    capacity: "~250",
-  },
-];
 
 export default async function EventsPage() {
   const liveShows = await getShows(20);
@@ -41,7 +29,7 @@ export default async function EventsPage() {
             Live Music &amp; Events
           </h1>
           <p className="text-[#DDD8CC]/40 text-sm tracking-widest uppercase">
-            Two stages &nbsp;·&nbsp; Local artists &nbsp;·&nbsp; Harbor views
+            Local artists &nbsp;·&nbsp; Good Brews
           </p>
         </div>
       </section>
@@ -80,40 +68,20 @@ export default async function EventsPage() {
         </div>
       </section>
 
-      {/* STAGES */}
-      <section className="grain py-20 px-4 bg-[#0a100a]">
-        <div className="max-w-4xl mx-auto">
-
-          <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-10">
-            The Stages
-          </h2>
-
-          <div className="divide-y divide-[#BFA060]/10">
-            {stages.map((stage) => (
-              <div key={stage.name} className="py-6 flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8">
-                <div className="sm:w-48 shrink-0">
-                  <p className="text-[#DDD8CC] font-semibold">{stage.name}</p>
-                  <p className="text-[#BFA060] text-xs tracking-widest uppercase mt-0.5">Cap. {stage.capacity}</p>
-                </div>
-                <p className="text-[#DDD8CC]/40 text-sm leading-relaxed">{stage.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* BOOKING */}
-      <section className="grain py-20 px-4 bg-[#0f170f]">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-3">
+      <section className="grain py-24 px-4 overflow-hidden border-t-2 border-[#BFA060]/30" style={{ background: "radial-gradient(ellipse 80% 100% at center, #1a3a1a 0%, #1a3a1a 35%, #080d08 100%)" }}>
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-[#BFA060]/50 text-xs tracking-[0.35em] uppercase mb-4">Booking</p>
+          <h2 className="text-4xl sm:text-6xl font-black text-[#DDD8CC] tracking-wide uppercase mb-4">
             Play Port O&apos; Pints
           </h2>
-          <p className="text-[#DDD8CC]/40 text-sm leading-relaxed max-w-xl mb-8">
+          <div className="h-px bg-[#BFA060]/30 max-w-xs mx-auto mb-6" />
+          <p className="text-[#DDD8CC]/45 text-sm leading-relaxed max-w-xl mx-auto mb-10">
             We book local first. If you or your band is based in Del Norte County or the surrounding area, we want to hear from you.
           </p>
           <a
             href="tel:7074601154"
-            className="inline-block px-7 py-3 border border-[#BFA060]/60 hover:border-[#BFA060] text-[#BFA060] font-bold text-sm tracking-widest uppercase transition-colors"
+            className="inline-block px-8 py-4 border border-[#BFA060]/60 hover:border-[#BFA060] text-[#BFA060] font-black text-sm tracking-widest uppercase transition-colors"
           >
             707-460-1154
           </a>
