@@ -68,20 +68,21 @@ html {
 
 @keyframes gold-fleck {
   from { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0; }
-  to   { background-position: 45px 30px, -35px 45px, 40px -28px, -45px 35px, 30px 50px, 0 0; }
+  to   { background-position: 30px 20px, -20px 30px, 25px -15px, -30px 25px, 20px 35px, 0 0; }
 }
 
 .gold-fleck {
   background-image:
-    radial-gradient(circle 2.5px at center, rgba(191,160,96,0.90) 0%, transparent 100%),
-    radial-gradient(circle 2px   at center, rgba(191,160,96,0.70) 0%, transparent 100%),
-    radial-gradient(circle 3px   at center, rgba(191,160,96,0.85) 0%, transparent 100%),
-    radial-gradient(circle 2px   at center, rgba(191,160,96,0.60) 0%, transparent 100%),
-    radial-gradient(circle 2.5px at center, rgba(191,160,96,0.80) 0%, transparent 100%),
+    radial-gradient(circle 5px at center, rgba(191,160,96,1.0) 0%, rgba(191,160,96,0.4) 60%, transparent 100%),
+    radial-gradient(circle 4px at center, rgba(191,160,96,0.8) 0%, transparent 100%),
+    radial-gradient(circle 6px at center, rgba(191,160,96,0.6) 0%, rgba(191,160,96,0.1) 50%, transparent 100%),
+    radial-gradient(circle 4px at center, rgba(191,160,96,1.0) 0%, transparent 100%),
+    radial-gradient(circle 5px at center, rgba(191,160,96,0.7) 0%, transparent 100%),
     linear-gradient(#DDD8CC, #DDD8CC);
-  background-size: 28px 22px, 38px 20px, 22px 32px, 42px 28px, 32px 38px, 100% 100%;
+  background-size: 18px 18px, 24px 16px, 20px 26px, 30px 20px, 26px 24px, 100% 100%;
   background-clip: text;
   -webkit-background-clip: text;
+  color: transparent;
   -webkit-text-fill-color: transparent;
-  animation: gold-fleck 14s linear infinite alternate;
+  animation: gold-fleck 12s linear infinite alternate;
 }
