@@ -201,26 +201,32 @@ export default async function Home() {
       <section className="grain relative py-10 sm:py-14 px-4 border-t-2 border-[#BFA060]/30 overflow-hidden" style={{ background: "#130e06" }}>
 
         <div className="relative z-10 max-w-4xl mx-auto">
-          <div className="flex items-center justify-between gap-4 mb-8">
-            <div>
-              <h2 className="text-xl sm:text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-1">
-                On Tap
-              </h2>
-              <p className="text-[#DDD8CC]/40 text-[10px] sm:text-sm mb-2">Hand-crafted in Crescent City by Devin Beach</p>
-              <Link
-                href="/menu"
-                className="text-[#BFA060]/70 hover:text-[#BFA060] text-[10px] sm:text-xs tracking-widest uppercase transition-colors"
-              >
-                Full Menu →
-              </Link>
+          <div className="mb-8">
+            <h2
+              className="text-5xl sm:text-7xl font-black text-[#BFA060] tracking-wider uppercase leading-none mb-3"
+              style={{ textShadow: "0 0 60px rgba(191,160,96,0.30), 0 0 20px rgba(191,160,96,0.15)" }}
+            >
+              On Tap
+            </h2>
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <p className="text-[#DDD8CC]/40 text-[10px] sm:text-sm mb-1">Hand-crafted in Crescent City by Devin Beach</p>
+                <Link
+                  href="/menu"
+                  className="text-[#BFA060]/70 hover:text-[#BFA060] text-[10px] sm:text-xs tracking-widest uppercase transition-colors"
+                >
+                  Full Menu →
+                </Link>
+              </div>
+              <Image
+                src="/images/award.png"
+                alt="Award-winning"
+                width={52}
+                height={52}
+                className="object-contain opacity-80 shrink-0"
+              />
             </div>
-            <Image
-              src="/images/award.png"
-              alt="Award-winning"
-              width={52}
-              height={52}
-              className="object-contain opacity-80 shrink-0"
-            />
+            <div className="h-px bg-[#BFA060]/20 mt-6" />
           </div>
 
           <div className="divide-y divide-[#BFA060]/15">
