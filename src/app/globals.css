@@ -84,5 +84,7 @@ html {
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0.6px rgba(191, 160, 96, 0.75);
+  paint-order: stroke fill;
   animation: gold-fleck 12s linear infinite alternate;
 }
