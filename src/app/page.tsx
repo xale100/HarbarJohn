@@ -198,7 +198,7 @@ export default async function Home() {
       </section>
 
       {/* BEER */}
-      <section className="grain relative py-10 sm:py-14 px-4 border-t-2 border-[#BFA060]/30 overflow-hidden" style={{ background: "#130e06" }}>
+      <section className="grain relative py-10 sm:py-14 px-4 border-t-2 border-[#BFA060]/30 overflow-hidden" style={{ background: "radial-gradient(ellipse 45% 40% at 15% 20%, rgba(180,148,85,0.055) 0%, transparent 100%), #130e06" }}>
 
         <div className="relative z-10 max-w-4xl mx-auto">
           <div className="mb-8">
