@@ -3,9 +3,9 @@ import Link from "next/link";
 import { getShows } from "@/lib/calendar";
 
 export const metadata: Metadata = {
-  title: "Live Music & Events",
+  title: "Live Music & Events in Crescent City",
   description:
-    "Check out the live music schedule at Port O' Pints in Crescent City. Local artists, harbor views, and good brews every week.",
+    "Live music schedule at Port O' Pints in Crescent City, CA. Local artists, good brews, and harbor views every week. The best nightlife near Redwood National Park.",
 };
 
 const fallbackShows = [

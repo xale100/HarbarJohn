@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import MerchStore from "@/components/MerchStore";
 
 export const metadata: Metadata = {
-  title: "Merch",
-  description: "Port O' Pints merchandise — tees, growlers, and more.",
+  title: "Merch — Port O' Pints Brewing Co.",
+  description: "Official Port O' Pints merchandise. Tees, hats, glassware, and more from Crescent City's award-winning brewery.",
 };
 
 async function getProducts() {

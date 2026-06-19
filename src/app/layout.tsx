@@ -13,28 +13,96 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://portopints.com"),
   title: {
-    default: "Port O' Pints | Live Music & Entertainment · Crescent City, CA",
-    template: "%s | Port O' Pints",
+    default: "Port O' Pints Brewing Co. | Brewery, Live Music & Food · Crescent City, CA",
+    template: "%s | Port O' Pints · Crescent City, CA",
   },
   description:
-    "Port O' Pints is Crescent City's harbor-side BrewCade. Award-winning craft beer, live music, axe throwing, darts, arcade, pool, and outdoor stages with a harbor view.",
+    "Award-winning craft brewery near Redwood National Park. Live music, pub food, and harbor views in Crescent City, CA. 80+ beer awards. Open daily 12–9pm.",
   keywords: [
     "Port O' Pints",
-    "PortoPints",
-    "Crescent City bar",
-    "live music Crescent City",
-    "harbor bar",
-    "axe throwing Crescent City",
-    "entertainment venue",
+    "brewery crescent city",
+    "craft beer crescent city",
+    "live music crescent city",
+    "things to do crescent city",
+    "bars crescent city",
+    "restaurant crescent city",
+    "brewery near redwood national park",
+    "crescent city nightlife",
+    "del norte county brewery",
+    "north coast california brewery",
+    "harbor bar crescent city",
   ],
   openGraph: {
-    title: "Port O' Pints | Live Music & Entertainment · Crescent City, CA",
+    title: "Port O' Pints Brewing Co. | Brewery & Live Music · Crescent City, CA",
     description:
-      "Live music, harbor views, and good people — right in the heart of Crescent City.",
+      "Award-winning craft beer, live music, and pub food on the harbor in Crescent City, CA. Near Redwood National Park.",
     type: "website",
     locale: "en_US",
+    siteName: "Port O' Pints Brewing Co.",
+    url: "https://portopints.com",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Port O' Pints Brewing Co. · Crescent City, CA",
+    description:
+      "Award-winning craft brewery near Redwood National Park. Live music, pub food, and harbor views.",
+  },
+  alternates: {
+    canonical: "https://portopints.com",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": ["Brewery", "Restaurant", "BarOrPub"],
+  name: "Port O' Pints Brewing Co.",
+  alternateName: ["Port O Pints", "Porto Pints"],
+  url: "https://portopints.com",
+  telephone: "+1-707-460-1154",
+  email: "",
+  foundingDate: "2014",
+  description:
+    "Award-winning craft brewery in Crescent City, CA. 80+ beer awards, live music, pub food, and harbor views near Redwood National Park.",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "1215 Northcrest Dr",
+    addressLocality: "Crescent City",
+    addressRegion: "CA",
+    postalCode: "95531",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 41.7658,
+    longitude: -124.2026,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      opens: "12:00",
+      closes: "21:00",
+    },
+  ],
+  servesCuisine: ["American", "Pub Food", "Craft Beer"],
+  priceRange: "$$",
+  hasMenu: "https://portopints.com/menu",
+  acceptsReservations: true,
+  areaServed: {
+    "@type": "GeoCircle",
+    geoMidpoint: { "@type": "GeoCoordinates", latitude: 41.7658, longitude: -124.2026 },
+    geoRadius: "160000",
+  },
+  sameAs: [
+    "https://www.instagram.com/portopintsbrewingco/",
+    "https://www.facebook.com/portopintssouthbeach/",
+    "https://untappd.com/PortOPints",
+    "https://www.beeradvocate.com/beer/profile/45990/",
+    "https://www.yelp.com/biz/port-o-pints-brewing-crescent-city",
+    "https://www.tripadvisor.com/Attraction_Review-g60944-d10200221-Reviews-Port_O_Pints_Brewing_Co-Crescent_City_California.html",
+  ],
 };
 
 export default function RootLayout({
@@ -42,6 +110,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="antialiased">
         <a
           href="#main-content"

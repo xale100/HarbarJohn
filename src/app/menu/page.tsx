@@ -3,9 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Beer & Food Menu",
+  title: "Craft Beer & Food Menu — Brewery in Crescent City",
   description:
-    "Award-winning craft beer brewed on-site and a full pub food menu at Port O' Pints in Crescent City, CA.",
+    "80+ award-winning craft beers brewed on-site. Full pub food menu with pizza, subs, nachos, and more. Port O' Pints, Crescent City, CA — near Redwood National Park.",
 };
 
 const beers = [

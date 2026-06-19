@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Visit Us",
+  title: "Hours, Location & Directions — Brewery in Crescent City",
   description:
-    "Hours, location, and directions to Port O' Pints — 1215 Northcrest Dr, Crescent City, CA 95531.",
+    "Visit Port O' Pints Brewing Co. at 1215 Northcrest Dr, Crescent City, CA 95531. Open daily 12–9pm. Directions, parking, and FAQs. Near Redwood National Park.",
 };
 
 const hours = [

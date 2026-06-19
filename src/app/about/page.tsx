@@ -3,9 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Port O' Pints — Crescent City's Award-Winning Brewery",
   description:
-    "Port O' Pints is Crescent City's original harbor-side BrewCade. Award-winning craft beer, live music, and good people since 2014.",
+    "Port O' Pints Brewing Co. — Crescent City's original harbor-side brewery. 80+ craft beer awards, live music, and good people since 2014. Del Norte County's most awarded brewery.",
 };
 
 const team = [
