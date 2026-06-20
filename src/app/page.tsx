@@ -232,7 +232,7 @@ export default async function Home() {
           <div className="divide-y divide-[#BFA060]/15">
             {beers.map((beer) => (
               <div key={beer.name} className="flex items-center justify-between py-4 gap-4">
-                <p className="text-[#DDD8CC] font-black text-sm sm:text-lg tracking-wide">{beer.name}</p>
+                <p className="text-[#9aaa94] font-black text-sm sm:text-lg tracking-wide">{beer.name}</p>
                 <div className="flex items-center gap-3 shrink-0">
                   <p className="text-[#DDD8CC]/35 text-[10px] sm:text-sm hidden sm:block">{beer.style}</p>
                   <span className="border border-[#BFA060]/50 text-[#BFA060] text-[9px] sm:text-[10px] font-black tracking-widest px-1.5 py-0.5 leading-none">{beer.abv}</span>
