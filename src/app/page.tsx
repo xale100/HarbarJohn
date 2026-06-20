@@ -33,7 +33,7 @@ export default async function Home() {
           <div className="mb-8 flex justify-center">
             <Image
               src="/images/logo-2.png"
-              alt="Port O'Pints"
+              alt="Port O' Pints Brewing Co."
               width={120}
               height={120}
               className="object-contain"
@@ -163,6 +163,7 @@ export default async function Home() {
             <h2 className="text-xl sm:text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-2">
               This Week&apos;s Events
             </h2>
+            <p className="text-[#DDD8CC]/40 text-[10px] sm:text-sm mb-2">Live music every week in Crescent City</p>
             <Link href="/events" className="text-[#BFA060]/70 hover:text-[#BFA060] text-[10px] sm:text-xs tracking-widest uppercase transition-colors">
               Full Schedule →
             </Link>
