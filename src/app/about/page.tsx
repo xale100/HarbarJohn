@@ -92,14 +92,15 @@ export default function AboutPage() {
           <div className="divide-y divide-[#BFA060]/10">
             {team.map((p) => (
               <div key={p.name} className="py-6 flex flex-col sm:flex-row gap-4 sm:gap-6">
-                <div className="shrink-0">
-                  <p className="text-[#DDD8CC] font-semibold">{p.name}</p>
-                  <p className="text-[#BFA060] text-xs tracking-widest uppercase mt-0.5 mb-3">{p.title}</p>
-                  <div className="relative w-40 h-52 rounded-sm overflow-hidden">
-                    <Image src={p.src} alt={p.name} fill className="object-cover object-top" />
+                <div className="relative w-40 h-52 rounded-sm overflow-hidden shrink-0">
+                  <Image src={p.src} alt={p.name} fill className="object-cover object-top" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-3">
+                    <p className="text-[#DDD8CC] font-semibold text-sm leading-tight">{p.name}</p>
+                    <p className="text-[#BFA060] text-[10px] tracking-widest uppercase mt-0.5">{p.title}</p>
                   </div>
                 </div>
-                <p className="text-[#DDD8CC]/40 text-sm leading-relaxed sm:pt-8">{p.desc}</p>
+                <p className="text-[#DDD8CC]/40 text-sm leading-relaxed sm:self-center">{p.desc}</p>
               </div>
             ))}
           </div>
