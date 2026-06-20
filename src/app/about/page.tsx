@@ -11,9 +11,7 @@ export const metadata: Metadata = {
 const team = [
   { src: "/images/team-devin.jpg",   name: "Devin Beach",       title: "Owner / Brewmaster",
     desc: "Devin built the recipes, built the brewery, and keeps the taps flowing. His award-winning craft beers are the backbone of everything we do." },
-  { src: "/images/team-spinner.jpg", name: "Spinner Spencer",   title: "General Manager",
-    desc: "Spinner keeps the floor running and the energy right. The face you'll see most nights behind the bar." },
-  { src: "/images/team-john.jpg",    name: "Dr. John Kirk",     title: "Owner",
+{ src: "/images/team-john.jpg",    name: "Dr. John Kirk",     title: "Owner",
     desc: "A Crescent City OBGYN who put his roots where his heart is. John's love of craft beer and good food drove the 2023 purchase." },
   { src: "/images/team-cynthia.jpg", name: "Cynthia Parenteau", title: "Owner",
     desc: "Retired trauma nurse turned hospitality veteran. Cynthia runs the day-to-day and makes sure every guest feels taken care of." },
