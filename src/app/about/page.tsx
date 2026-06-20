@@ -100,7 +100,9 @@ export default function AboutPage() {
                     <p className="text-[#BFA060] text-[10px] tracking-widest uppercase mt-0.5">{p.title}</p>
                   </div>
                 </div>
-                <p className="text-[#DDD8CC]/40 text-sm leading-relaxed sm:self-center">{p.desc}</p>
+                <div className="flex-1 sm:self-center border-l border-[#BFA060]/20 pl-5">
+                  <p className="text-[#DDD8CC]/40 text-sm leading-relaxed">{p.desc}</p>
+                </div>
               </div>
             ))}
           </div>
