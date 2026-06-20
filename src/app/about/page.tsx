@@ -81,21 +81,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* TEAM PHOTO GRID */}
-      <section className="grid grid-cols-3 md:grid-cols-6">
-        {team.map((p) => (
-          <div key={p.name} className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
-            <Image src={p.src} alt={p.name} fill className="object-cover object-top brightness-60" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-1.5 md:p-3">
-              <p className="text-[#DDD8CC] font-bold text-[10px] md:text-xs leading-tight truncate">{p.name}</p>
-              <p className="text-[#BFA060] text-[9px] md:text-[10px] tracking-wide truncate">{p.title}</p>
-            </div>
-          </div>
-        ))}
-      </section>
-
-      {/* TEAM BIOS */}
+      {/* THE TEAM */}
       <section className="grain py-20 px-4 bg-[#0a100a]">
         <div className="max-w-4xl mx-auto">
 
@@ -105,12 +91,15 @@ export default function AboutPage() {
 
           <div className="divide-y divide-[#BFA060]/10">
             {team.map((p) => (
-              <div key={p.name} className="py-5 flex flex-col sm:flex-row gap-2 sm:gap-8">
-                <div className="sm:w-52 shrink-0">
+              <div key={p.name} className="py-6 flex flex-col sm:flex-row gap-4 sm:gap-6">
+                <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-sm overflow-hidden shrink-0">
+                  <Image src={p.src} alt={p.name} fill className="object-cover object-top" />
+                </div>
+                <div className="flex-1 min-w-0">
                   <p className="text-[#DDD8CC] font-semibold">{p.name}</p>
                   <p className="text-[#BFA060] text-xs tracking-widest uppercase mt-0.5">{p.title}</p>
+                  <p className="text-[#DDD8CC]/40 text-sm leading-relaxed mt-2">{p.desc}</p>
                 </div>
-                <p className="text-[#DDD8CC]/40 text-sm leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
