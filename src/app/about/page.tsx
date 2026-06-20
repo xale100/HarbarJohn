@@ -24,8 +24,8 @@ const team = [
 const values = [
   { title: "Local Music First", desc: "We book Del Norte County artists first, every time. Our stage exists to amplify local talent." },
   { title: "Community Over Everything", desc: "Port O&apos; Pints promotes and partners with Crescent City businesses. A stronger community means a better night out for everyone." },
-  { title: "Award-Winning Beer", desc: "Hand-crafted on-site by Brewmaster Devin Beach since 2014. From easy-drinking cream ales to bold Belgian Tripels." },
-  { title: "Harbor Roots", desc: "1215 Northcrest Dr. Our spot in Crescent City isn't just scenery — it's our identity." },
+  { title: "Award-Winning Beer", desc: "Hand-crafted on-site by Brewmaster Devin Beach. Brewing on the Redwood Coast since 2014 — from easy-drinking cream ales to bold Belgian Tripels." },
+  { title: "Crescent City Roots", desc: "1215 Northcrest Dr, one minute off Highway 101. Right in the heart of Crescent City, near Redwood National Park." },
 ];
 
 export default function AboutPage() {

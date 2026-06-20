@@ -32,7 +32,11 @@ const faqs = [
   },
   {
     q: "Is there parking?",
-    a: "Street parking and a public lot are available at the harbor. Arrive early on weekend evenings.",
+    a: "Street parking and a public lot are available nearby. Just one minute off Highway 101 — easy to find whether you're coming from Eureka or Brookings.",
+  },
+  {
+    q: "Are dogs allowed?",
+    a: "Yes — Port O' Pints is dog friendly. Well-behaved pups are welcome.",
   },
   {
     q: "Do you have food?",

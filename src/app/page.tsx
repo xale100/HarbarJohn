@@ -50,7 +50,7 @@ export default async function Home() {
           </p>
 
           <p className="text-[#DDD8CC]/30 text-[10px] tracking-[0.2em] sm:tracking-[0.4em] uppercase mb-2 whitespace-nowrap">
-            1215 Northcrest Dr &nbsp;·&nbsp; Crescent City, CA
+            1215 Northcrest Dr &nbsp;·&nbsp; Crescent City, CA &nbsp;·&nbsp; Near Redwood National Park
           </p>
           <a
             href="tel:7074601154"
