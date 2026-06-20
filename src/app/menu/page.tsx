@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { getMenu } from "@/lib/toast";
+import type { BeerCategory, FoodCategory } from "@/lib/toast";
 
 export const metadata: Metadata = {
   title: "Craft Beer & Food Menu — Brewery in Crescent City",
@@ -8,7 +10,7 @@ export const metadata: Metadata = {
     "80+ award-winning craft beers brewed on-site. Full pub food menu with pizza, subs, nachos, and more. Port O' Pints, Crescent City, CA — near Redwood National Park.",
 };
 
-const beers = [
+const staticBeers: BeerCategory[] = [
   { category: "Cream Ales", items: [
     { name: "Agate Ale", abv: "4.8%", ibu: "32", desc: "Pale gold, light-bodied and easy drinking. Our best seller.", badge: "Best Seller" },
   ]},
@@ -48,7 +50,7 @@ const beers = [
   ]},
 ];
 
-const food = [
+const staticFood: FoodCategory[] = [
   { category: "Starters", items: [
     { name: "Celtic Garlic Knots (8)", price: "$12", desc: "Fresh dough twisted into knots with garlic, parmesan, and parsley." },
     { name: "Hot Pretzel", price: "", desc: "Oven-baked, coated in garlic butter and sea salt. Served with stone ground mustard or house beer cheese." },
@@ -79,13 +81,17 @@ const food = [
   ]},
 ];
 
-const sauces = [
+const staticSauces = [
   "Marinara", "Beer Cheese", "Ranch", "Jalapeño Ranch",
   "Thousand Island", "BBQ", "Buffalo", "Stone Ground Mustard",
   "Sweet Heat Mustard", "Sweet Chili",
 ];
 
-export default function MenuPage() {
+export default async function MenuPage() {
+  const toastMenu = await getMenu();
+  const beers = toastMenu?.beers?.length ? toastMenu.beers : staticBeers;
+  const food = toastMenu?.food?.length ? toastMenu.food : staticFood;
+  const sauces = toastMenu?.sauces?.length ? toastMenu.sauces : staticSauces;
   return (
     <div className="bg-[#080d08] text-[#DDD8CC]">
 
