@@ -45,7 +45,11 @@ export default async function Home() {
             PORT<span className="text-[#DDD8CC]/40"> O&apos; </span>PINTS
           </h1>
 
-          <p className="text-[#DDD8CC]/50 text-[10px] tracking-[0.2em] sm:tracking-[0.4em] uppercase mb-2 whitespace-nowrap">
+          <p className="text-[#DDD8CC]/50 text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-3">
+            Brewery &amp; Live Music &nbsp;·&nbsp; Est. 2014
+          </p>
+
+          <p className="text-[#DDD8CC]/30 text-[10px] tracking-[0.2em] sm:tracking-[0.4em] uppercase mb-2 whitespace-nowrap">
             1215 Northcrest Dr &nbsp;·&nbsp; Crescent City, CA
           </p>
           <a
