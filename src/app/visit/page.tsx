@@ -23,16 +23,8 @@ const faqs = [
     a: "Most nights are free. Occasional ticketed shows are listed on the events page with cover info.",
   },
   {
-    q: "What's the age requirement for axe throwing?",
-    a: "Axe throwing is 18+. Pool and darts are also 18+. All other areas of the venue are all-ages during family hours.",
-  },
-  {
-    q: "Can I reserve axe throwing lanes or pool tables?",
-    a: "Yes — call us at 707-460-1154 or walk in. Reservations recommended for groups of 6+.",
-  },
-  {
     q: "Do you host private events?",
-    a: "Absolutely. Birthdays, team outings, company events — call us at 707-460-1154 and we'll build a package.",
+    a: "Absolutely. Birthdays, team outings, company events — give us a call and we'll build a package.",
   },
   {
     q: "Is there outdoor seating?",
@@ -44,7 +36,7 @@ const faqs = [
   },
   {
     q: "Do you have food?",
-    a: "Yes — pub food including pizza, subs, nachos, salads, and more. See the full menu on the Beer & Food page.",
+    a: "Yes — award-winning craft beer brewed on-site plus a full pub food menu including pizza, subs, nachos, salads, and more. See the full menu on the Beer & Food page.",
   },
 ];
 
