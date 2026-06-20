@@ -66,10 +66,6 @@ html {
 }
 .scrollbar-none::-webkit-scrollbar { display: none; }
 
-.gold-fleck {
-  color: #DDD8CC;
-  -webkit-text-stroke: 0.6px rgba(191, 160, 96, 0.75);
-}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
