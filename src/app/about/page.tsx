@@ -5,7 +5,7 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "About Port O' Pints — Crescent City's Award-Winning Brewery",
   description:
-    "Port O' Pints Brewing Co. — Crescent City's original harbor-side brewery. 80+ craft beer awards, live music, and good people since 2014. Del Norte County's most awarded brewery.",
+    "Port O' Pints Brewing Co. — Crescent City's original craft brewery. 80+ beer awards, live music, and good people since 2014. Del Norte County's most awarded brewery near Redwood National Park.",
 };
 
 const team = [
@@ -36,10 +36,10 @@ export default function AboutPage() {
       <section className="grain py-24 px-4 bg-[#080d08]">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl sm:text-7xl font-black text-[#DDD8CC] mb-4 tracking-wide uppercase">
-            About Port O&apos; Pints
+            About Port O&apos; Pints Brewing Co.
           </h1>
           <p className="text-[#DDD8CC]/40 text-sm tracking-widest uppercase">
-            Built on the harbor &nbsp;·&nbsp; Built for the community &nbsp;·&nbsp; Built to stay
+            Crescent City&apos;s craft brewery &nbsp;·&nbsp; Built for the community &nbsp;·&nbsp; Est. 2014
           </p>
         </div>
       </section>
@@ -55,9 +55,9 @@ export default function AboutPage() {
           <div className="space-y-4 text-[#DDD8CC]/55 leading-relaxed mb-10">
             <p>
               Port O&apos; Pints Brewing Co. was founded in 2014 — one of the first craft
-              breweries to plant a flag in Crescent City. The South Beach location became
+              breweries on the Redwood Coast. What started as a small taproom became
               something special: a BrewCade, an entertainment venue, a live music spot,
-              all wrapped into one harbor-side address.
+              and Crescent City&apos;s go-to gathering place.
             </p>
             <p>
               In 2023, Cynthia Parenteau, Dr. John Kirk, and Brewmaster Devin Beach

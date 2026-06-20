@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | Port O' Pints · Crescent City, CA",
   },
   description:
-    "Award-winning craft brewery near Redwood National Park. Live music, pub food, and harbor views in Crescent City, CA. 80+ beer awards. Open daily 12–9pm.",
+    "Award-winning craft brewery near Redwood National Park. Live music, pub food, and craft beer in Crescent City, CA. 80+ beer awards. Open daily 12–9pm.",
   keywords: [
     "Port O' Pints",
     "brewery crescent city",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Port O' Pints Brewing Co. | Brewery & Live Music · Crescent City, CA",
     description:
-      "Award-winning craft beer, live music, and pub food on the harbor in Crescent City, CA. Near Redwood National Park.",
+      "Award-winning craft beer, live music, and pub food in Crescent City, CA. Near Redwood National Park.",
     type: "website",
     locale: "en_US",
     siteName: "Port O' Pints Brewing Co.",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Port O' Pints Brewing Co. · Crescent City, CA",
     description:
-      "Award-winning craft brewery near Redwood National Park. Live music, pub food, and harbor views.",
+      "Award-winning craft brewery near Redwood National Park. Live music, pub food, and craft beer in Crescent City, CA.",
   },
   alternates: {
     canonical: "https://portopints.com",

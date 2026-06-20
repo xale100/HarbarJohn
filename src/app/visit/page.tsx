@@ -52,7 +52,7 @@ export default function VisitPage() {
       <section className="grain py-24 px-4 bg-[#080d08]">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl sm:text-7xl font-black text-[#DDD8CC] mb-4 tracking-wide uppercase">
-            Visit Port O' Pints
+            Visit Port O' Pints Brewing Co.
           </h1>
           <p className="text-[#DDD8CC]/40 text-sm tracking-widest uppercase">
             1215 Northcrest Dr &nbsp;·&nbsp; Crescent City, CA 95531
@@ -113,7 +113,7 @@ export default function VisitPage() {
                 </div>
                 <div className="py-4 flex justify-between items-baseline">
                   <p className="text-[#DDD8CC]/40 text-sm">Neighborhood</p>
-                  <p className="text-[#DDD8CC] text-sm">Crescent City Harbor District</p>
+                  <p className="text-[#DDD8CC] text-sm">Northcrest · Off Highway 101</p>
                 </div>
               </div>
               <a
