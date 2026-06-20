@@ -36,7 +36,7 @@ const faqs = [
   },
   {
     q: "Are dogs allowed?",
-    a: "Yes — Port O' Pints is dog friendly. Well-behaved pups are welcome.",
+    a: "Yes — Port O' Pints is dog friendly. Well-behaved pups are always welcome.",
   },
   {
     q: "Do you have food?",
