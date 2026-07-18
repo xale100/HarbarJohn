@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { getShows } from "@/lib/calendar";
 
 export const metadata: Metadata = {
@@ -9,10 +10,10 @@ export const metadata: Metadata = {
 };
 
 const fallbackShows = [
-  { date: "Fri, May 23", artist: "Open Mic Night", genre: "", time: "7pm", cover: "Free" },
-  { date: "Sat, May 24", artist: "Live Band — TBA", genre: "", time: "8pm", cover: "Free" },
-  { date: "Fri, May 30", artist: "Live Music — TBA", genre: "", time: "8pm", cover: "Free" },
-  { date: "Sat, May 31", artist: "Live Music — TBA", genre: "", time: "8pm", cover: "Free" },
+  { date: "Fri, May 23", artist: "Open Mic Night", genre: "", time: "7pm", cover: "Free", photo: "" },
+  { date: "Sat, May 24", artist: "Live Band — TBA", genre: "", time: "8pm", cover: "Free", photo: "" },
+  { date: "Fri, May 30", artist: "Live Music — TBA", genre: "", time: "8pm", cover: "Free", photo: "" },
+  { date: "Sat, May 31", artist: "Live Music — TBA", genre: "", time: "8pm", cover: "Free", photo: "" },
 ];
 
 
@@ -46,18 +47,25 @@ export default async function EventsPage() {
 
           <div className="divide-y divide-[#BFA060]/10">
             {shows.map((show, i) => (
-              <div key={i} className="py-5 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
-                <p className="text-[#BFA060] text-xs tracking-widest uppercase sm:w-32 shrink-0">{show.date}</p>
-                <div className="flex-1">
-                  <p className="text-[#DDD8CC] font-semibold">{show.artist}</p>
-                  <p className="text-[#DDD8CC]/35 text-xs mt-0.5">{show.genre}</p>
+              <div key={i} className="py-5 flex gap-4 items-center">
+                {show.photo && (
+                  <div className="relative w-16 h-16 rounded-sm overflow-hidden shrink-0">
+                    <Image src={show.photo} alt={show.artist} fill className="object-cover" unoptimized />
+                  </div>
+                )}
+                <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 flex-1 min-w-0">
+                  <p className="text-[#BFA060] text-xs tracking-widest uppercase sm:w-32 shrink-0">{show.date}</p>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[#DDD8CC] font-semibold">{show.artist}</p>
+                    <p className="text-[#DDD8CC]/35 text-xs mt-0.5">{show.genre}</p>
+                  </div>
+                  <p className="text-[#DDD8CC]/40 text-xs tracking-wide sm:text-right shrink-0">
+                    {show.time}
+                    {show.cover !== "Free" && show.cover !== "TBA" && (
+                      <span className="text-[#BFA060]"> &nbsp;·&nbsp; Cover {show.cover}</span>
+                    )}
+                  </p>
                 </div>
-                <p className="text-[#DDD8CC]/40 text-xs tracking-wide sm:text-right shrink-0">
-                  {show.time}
-                  {show.cover !== "Free" && show.cover !== "TBA" && (
-                    <span className="text-[#BFA060]"> &nbsp;·&nbsp; Cover {show.cover}</span>
-                  )}
-                </p>
               </div>
             ))}
           </div>

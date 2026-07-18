@@ -4,6 +4,7 @@ export type Show = {
   genre: string;
   time: string;
   cover: string;
+  photo: string;
 };
 
 function parseField(description: string | undefined, field: string): string {
@@ -16,20 +17,26 @@ function formatShow(event: Record<string, any>): Show {
   const start = new Date(event.start?.dateTime || event.start?.date);
   const end = event.end?.dateTime ? new Date(event.end.dateTime) : null;
 
+  const tz = "America/Los_Angeles";
+
   const date = start.toLocaleDateString("en-US", {
     weekday: "short",
     month: "short",
     day: "numeric",
+    timeZone: tz,
   });
 
-  const time = start.toLocaleTimeString("en-US", {
+  const isAllDay = !event.start?.dateTime;
+
+  const time = isAllDay ? "All Day" : start.toLocaleTimeString("en-US", {
     hour: "numeric",
     minute: "2-digit",
     hour12: true,
+    timeZone: tz,
   });
 
-  const endTime = end
-    ? end.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true })
+  const endTime = (!isAllDay && end)
+    ? end.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true, timeZone: tz })
     : "";
 
   return {
@@ -38,6 +45,7 @@ function formatShow(event: Record<string, any>): Show {
     genre: parseField(event.description, "Genre"),
     time: endTime ? `${time} – ${endTime}` : time,
     cover: parseField(event.description, "Cover") || "Free",
+    photo: parseField(event.description, "Photo"),
   };
 }
 

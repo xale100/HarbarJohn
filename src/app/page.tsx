@@ -3,10 +3,10 @@ import Image from "next/image";
 import { getShows } from "@/lib/calendar";
 
 const fallbackShows = [
-  { date: "Fri May 23", artist: "Open Mic Night", time: "7pm" },
-  { date: "Sat May 24", artist: "Live Band — TBA", time: "8pm" },
-  { date: "Fri May 30", artist: "Live Music — TBA", time: "8pm" },
-  { date: "Sat May 31", artist: "Live Music — TBA", time: "8pm" },
+  { date: "Fri May 23", artist: "Open Mic Night", time: "7pm", genre: "", cover: "Free", photo: "" },
+  { date: "Sat May 24", artist: "Live Band — TBA", time: "8pm", genre: "", cover: "Free", photo: "" },
+  { date: "Fri May 30", artist: "Live Music — TBA", time: "8pm", genre: "", cover: "Free", photo: "" },
+  { date: "Sat May 31", artist: "Live Music — TBA", time: "8pm", genre: "", cover: "Free", photo: "" },
 ];
 
 const beers = [
@@ -21,7 +21,7 @@ const beers = [
 export default async function Home() {
   const liveShows = await getShows(4);
   const shows = liveShows.length > 0
-    ? liveShows.map(s => ({ date: s.date, artist: s.artist, time: s.time }))
+    ? liveShows.map(s => ({ date: s.date, artist: s.artist, time: s.time, genre: s.genre, cover: s.cover, photo: s.photo }))
     : fallbackShows;
   return (
     <div className="bg-[#080d08] text-[#DDD8CC]">
