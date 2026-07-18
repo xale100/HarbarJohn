@@ -3,10 +3,10 @@ import Image from "next/image";
 import { getShows } from "@/lib/calendar";
 
 const fallbackShows = [
-  { date: "Fri May 23", artist: "Open Mic Night", time: "7pm", stage: "Indoor" },
-  { date: "Sat May 24", artist: "Live Band — TBA", time: "8pm", stage: "Harbor Stage" },
-  { date: "Fri May 30", artist: "Live Music — TBA", time: "8pm", stage: "Indoor" },
-  { date: "Sat May 31", artist: "Live Music — TBA", time: "8pm", stage: "Harbor Stage" },
+  { date: "Fri May 23", artist: "Open Mic Night", time: "7pm" },
+  { date: "Sat May 24", artist: "Live Band — TBA", time: "8pm" },
+  { date: "Fri May 30", artist: "Live Music — TBA", time: "8pm" },
+  { date: "Sat May 31", artist: "Live Music — TBA", time: "8pm" },
 ];
 
 const beers = [
@@ -21,7 +21,7 @@ const beers = [
 export default async function Home() {
   const liveShows = await getShows(4);
   const shows = liveShows.length > 0
-    ? liveShows.map(s => ({ date: s.date, artist: s.artist, time: s.time, stage: s.stage }))
+    ? liveShows.map(s => ({ date: s.date, artist: s.artist, time: s.time }))
     : fallbackShows;
   return (
     <div className="bg-[#080d08] text-[#DDD8CC]">
@@ -194,7 +194,7 @@ export default async function Home() {
                   {show.artist}
                 </p>
                 <p className={`text-[10px] sm:text-xs tracking-wide text-right shrink-0 ${i === 0 ? "text-[#DDD8CC]/70" : "text-[#DDD8CC]/25"}`}>
-                  {show.time} &nbsp;·&nbsp; {show.stage}
+                  {show.time}
                 </p>
               </div>
             ))}
