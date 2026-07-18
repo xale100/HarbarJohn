@@ -39,13 +39,25 @@ function formatShow(event: Record<string, any>): Show {
     ? end.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true, timeZone: tz })
     : "";
 
+  // Pull photo from Drive attachment or fallback to Photo: field in description
+  let photo = parseField(event.description, "Photo");
+  if (!photo && event.attachments?.length) {
+    const attachment = event.attachments.find((a: any) =>
+      a.mimeType?.startsWith("image/") || a.title?.match(/\.(png|jpg|jpeg|webp|gif)$/i)
+    );
+    if (attachment?.fileUrl) {
+      const idMatch = attachment.fileUrl.match(/[-\w]{25,}/);
+      if (idMatch) photo = `https://drive.google.com/uc?export=view&id=${idMatch[0]}`;
+    }
+  }
+
   return {
     date,
     artist: event.summary || "TBA",
     genre: parseField(event.description, "Genre"),
     time: endTime ? `${time} – ${endTime}` : time,
     cover: parseField(event.description, "Cover") || "Free",
-    photo: parseField(event.description, "Photo"),
+    photo,
   };
 }
 
@@ -57,7 +69,7 @@ export async function getShows(maxResults = 20): Promise<Show[]> {
 
   try {
     const now = new Date().toISOString();
-    const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?key=${apiKey}&timeMin=${now}&orderBy=startTime&singleEvents=true&maxResults=${maxResults}`;
+    const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?key=${apiKey}&timeMin=${now}&orderBy=startTime&singleEvents=true&maxResults=${maxResults}&supportsAttachments=true`;
 
     const res = await fetch(url, { next: { revalidate: 3600 } });
     if (!res.ok) return [];
