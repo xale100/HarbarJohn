@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 };
 
 const fallbackShows = [
-  { date: "Fri, May 23", artist: "Open Mic Night", genre: "", time: "7pm", stage: "Indoor Stage", cover: "Free" },
-  { date: "Sat, May 24", artist: "Live Band — TBA", genre: "", time: "8pm", stage: "Harbor Stage", cover: "Free" },
-  { date: "Fri, May 30", artist: "Live Music — TBA", genre: "", time: "8pm", stage: "Indoor Stage", cover: "Free" },
-  { date: "Sat, May 31", artist: "Live Music — TBA", genre: "", time: "8pm", stage: "Harbor Stage", cover: "Free" },
+  { date: "Fri, May 23", artist: "Open Mic Night", genre: "", time: "7pm", cover: "Free" },
+  { date: "Sat, May 24", artist: "Live Band — TBA", genre: "", time: "8pm", cover: "Free" },
+  { date: "Fri, May 30", artist: "Live Music — TBA", genre: "", time: "8pm", cover: "Free" },
+  { date: "Sat, May 31", artist: "Live Music — TBA", genre: "", time: "8pm", cover: "Free" },
 ];
 
 
@@ -53,7 +53,7 @@ export default async function EventsPage() {
                   <p className="text-[#DDD8CC]/35 text-xs mt-0.5">{show.genre}</p>
                 </div>
                 <p className="text-[#DDD8CC]/40 text-xs tracking-wide sm:text-right shrink-0">
-                  {show.time} &nbsp;·&nbsp; {show.stage}
+                  {show.time}
                   {show.cover !== "Free" && show.cover !== "TBA" && (
                     <span className="text-[#BFA060]"> &nbsp;·&nbsp; Cover {show.cover}</span>
                   )}

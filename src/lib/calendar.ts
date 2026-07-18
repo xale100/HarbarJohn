@@ -3,7 +3,6 @@ export type Show = {
   artist: string;
   genre: string;
   time: string;
-  stage: string;
   cover: string;
 };
 
@@ -38,7 +37,6 @@ function formatShow(event: Record<string, any>): Show {
     artist: event.summary || "TBA",
     genre: parseField(event.description, "Genre"),
     time: endTime ? `${time} – ${endTime}` : time,
-    stage: event.location || parseField(event.description, "Stage") || "Indoor Stage",
     cover: parseField(event.description, "Cover") || "Free",
   };
 }
