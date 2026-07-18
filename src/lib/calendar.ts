@@ -47,7 +47,7 @@ function formatShow(event: Record<string, any>): Show {
     );
     if (attachment?.fileUrl) {
       const idMatch = attachment.fileUrl.match(/[-\w]{25,}/);
-      if (idMatch) photo = `https://drive.google.com/uc?export=view&id=${idMatch[0]}`;
+      if (idMatch) photo = `https://lh3.googleusercontent.com/d/${idMatch[0]}`;
     }
   }
 
