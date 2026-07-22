@@ -29,14 +29,15 @@ export type ToastMenu = {
 };
 
 async function fetchToastMenu(): Promise<ToastMenu | null> {
+  const baseUrl = process.env.TOAST_API_URL;
   const restaurantGuid = process.env.TOAST_RESTAURANT_GUID;
   const apiKey = process.env.TOAST_API_KEY;
   const apiSecret = process.env.TOAST_API_SECRET;
 
-  if (!restaurantGuid || !apiKey || !apiSecret) return null;
+  if (!baseUrl || !restaurantGuid || !apiKey || !apiSecret) return null;
 
   try {
-    const tokenRes = await fetch("https://toast-api-server/authentication/v1/authentication/login", {
+    const tokenRes = await fetch(`${baseUrl}/authentication/v1/authentication/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ clientId: apiKey, clientSecret: apiSecret, userAccessType: "TOAST_MACHINE_CLIENT" }),
@@ -45,7 +46,7 @@ async function fetchToastMenu(): Promise<ToastMenu | null> {
     const { token } = await tokenRes.json();
 
     const menuRes = await fetch(
-      `https://toast-api-server/menus/v2/menus?restaurantGuid=${restaurantGuid}`,
+      `${baseUrl}/menus/v2/menus?restaurantGuid=${restaurantGuid}`,
       {
         headers: {
           Authorization: `Bearer ${token.accessToken}`,
