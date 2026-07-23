@@ -64,29 +64,63 @@ async function fetchToastMenu(): Promise<ToastMenu | null> {
   }
 }
 
+function parseBeerDesc(raw: string): { desc: string; abv: string; ibu: string } {
+  if (!raw) return { desc: "", abv: "", ibu: "" };
+  const lines = raw.replace(/\r\n/g, "\n").split("\n").map((l) => l.trim()).filter(Boolean);
+  const desc = lines[0] ?? "";
+  const abv = lines.find((l) => /abv/i.test(l))?.match(/([\d.]+%)/)?.[1] ?? "";
+  const ibu = lines.find((l) => /ibu/i.test(l))?.match(/(\d+)/)?.[1] ?? "";
+  return { desc, abv, ibu };
+}
+
+function formatPrice(price: number | null | undefined): string {
+  if (price == null) return "";
+  return `$${price.toFixed(2).replace(/\.00$/, "")}`;
+}
+
 function transformToastData(rawMenus: any): ToastMenu {
-  // TODO: Map Toast menu groups/items to our BeerCategory[] and FoodCategory[] shape.
-  // Toast returns menus → groups → items. Each item has name, price, description.
-  // Beer items need ABV/IBU parsed from description or custom fields.
-  // This stub returns empty arrays — fill in once we have API access and can inspect the response shape.
   const beers: BeerCategory[] = [];
   const food: FoodCategory[] = [];
   const sauces: string[] = [];
 
   try {
-    for (const menu of Array.isArray(rawMenus) ? rawMenus : [rawMenus]) {
-      for (const group of menu.groups || []) {
-        const items = (group.items || []).map((item: any) => ({
-          name: item.name || "",
-          price: item.price ? `$${(item.price / 100).toFixed(2).replace(/\.00$/, "")}` : "",
-          desc: item.description || "",
-        }));
+    const menus = Array.isArray(rawMenus) ? rawMenus : [rawMenus];
 
-        food.push({ category: group.name || "Other", items });
+    const beerMenu = menus.find((m: any) => m.name === "Beer Menu");
+    const foodMenu = menus.find((m: any) => m.name === "Food Menu");
+
+    if (beerMenu) {
+      for (const group of beerMenu.menuGroups ?? []) {
+        const items: BeerItem[] = (group.menuItems ?? [])
+          .map((item: any) => {
+            const { desc, abv, ibu } = parseBeerDesc(item.description ?? "");
+            return { name: item.posName || item.name, abv, ibu, desc };
+          })
+          .filter((item: BeerItem) => item.name);
+        if (items.length > 0) beers.push({ category: group.name || "Beers", items });
+      }
+    }
+
+    if (foodMenu) {
+      for (const group of foodMenu.menuGroups ?? []) {
+        if (/sauce/i.test(group.name ?? "")) {
+          for (const item of group.menuItems ?? []) {
+            if (item.name) sauces.push(item.name);
+          }
+          continue;
+        }
+        const items: FoodItem[] = (group.menuItems ?? [])
+          .filter((item: any) => item.name && item.description)
+          .map((item: any) => ({
+            name: item.name,
+            price: formatPrice(item.price),
+            desc: item.description,
+          }));
+        if (items.length > 0) food.push({ category: group.name || "Food", items });
       }
     }
   } catch {
-    // Fall through — return empty, caller uses static fallback
+    // Fall through — caller uses static fallback
   }
 
   return { beers, food, sauces };
