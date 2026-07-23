@@ -1,10 +1,11 @@
 export async function GET() {
   const baseUrl = process.env.TOAST_API_URL;
+  const restaurantGuid = process.env.TOAST_RESTAURANT_GUID;
   const apiKey = process.env.TOAST_API_KEY;
   const apiSecret = process.env.TOAST_API_SECRET;
 
-  if (!baseUrl || !apiKey || !apiSecret) {
-    return Response.json({ error: "Missing env vars", baseUrl: !!baseUrl, apiKey: !!apiKey, apiSecret: !!apiSecret });
+  if (!baseUrl || !restaurantGuid || !apiKey || !apiSecret) {
+    return Response.json({ error: "Missing env vars", baseUrl: !!baseUrl, restaurantGuid: !!restaurantGuid, apiKey: !!apiKey, apiSecret: !!apiSecret });
   }
 
   try {
@@ -19,23 +20,20 @@ export async function GET() {
     }
     const authData = await tokenRes.json();
     const token = authData.token?.accessToken;
-    const restaurantGuid = authData.token?.restaurantGuid ?? authData.restaurantGuid ?? null;
 
-    // Try to list restaurants to find the GUID
-    const listRes = await fetch(`${baseUrl}/restaurants/v1/restaurants`, {
+    const menuRes = await fetch(`${baseUrl}/menus/v2/menus?restaurantGuid=${restaurantGuid}`, {
       headers: {
         Authorization: `Bearer ${token}`,
+        "Toast-Restaurant-External-ID": restaurantGuid,
       },
     });
-    const listData = listRes.ok ? await listRes.json() : { status: listRes.status, body: await listRes.text() };
+    if (!menuRes.ok) {
+      const err = await menuRes.text();
+      return Response.json({ error: "Menu fetch failed", status: menuRes.status, body: err });
+    }
 
-    return Response.json({
-      success: true,
-      restaurantGuidFromToken: restaurantGuid,
-      restaurantsList: listData,
-      authDataKeys: Object.keys(authData),
-      tokenKeys: authData.token ? Object.keys(authData.token) : null,
-    });
+    const menus = await menuRes.json();
+    return Response.json({ success: true, menus });
   } catch (e) {
     return Response.json({ error: String(e) });
   }
