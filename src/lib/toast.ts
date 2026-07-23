@@ -88,9 +88,13 @@ function transformToastData(rawMenus: any): ToastMenu {
 
     const beerMenu = menus.find((m: any) => m.name === "Beer Menu");
     const foodMenu = menus.find((m: any) => m.name === "Food Menu");
+    const ciderMenu = menus.find((m: any) => m.name === "Cider Etc.");
+    const wineMenu = menus.find((m: any) => m.name === "Wine");
 
-    if (beerMenu) {
-      for (const group of beerMenu.menuGroups ?? []) {
+    const beverageMenus = [beerMenu, ciderMenu, wineMenu].filter(Boolean);
+
+    for (const menu of beverageMenus) {
+      for (const group of menu.menuGroups ?? []) {
         const items: BeerItem[] = (group.menuItems ?? [])
           .map((item: any) => {
             const { desc, abv, ibu } = parseBeerDesc(item.description ?? "");
