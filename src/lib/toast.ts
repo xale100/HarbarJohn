@@ -84,7 +84,7 @@ function transformToastData(rawMenus: any): ToastMenu {
   const sauces: string[] = [];
 
   try {
-    const menus = Array.isArray(rawMenus) ? rawMenus : [rawMenus];
+    const menus: any[] = rawMenus.menus ?? (Array.isArray(rawMenus) ? rawMenus : [rawMenus]);
 
     const beerMenu = menus.find((m: any) => m.name === "Beer Menu");
     const foodMenu = menus.find((m: any) => m.name === "Food Menu");
