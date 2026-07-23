@@ -19,7 +19,10 @@ const fallbackShows = [
 
 export default async function EventsPage() {
   const liveShows = await getShows(20);
-  const shows = liveShows.length > 0 ? liveShows : fallbackShows;
+  // null = fetch failed / bad config → use static fallback
+  // []   = valid empty week → show empty state, not stale placeholder data
+  const shows = liveShows ?? fallbackShows;
+  const isEmpty = liveShows !== null && liveShows.length === 0;
   return (
     <div className="bg-[#080d08] text-[#DDD8CC]">
 
@@ -44,6 +47,12 @@ export default async function EventsPage() {
               Upcoming Shows
             </h2>
           </div>
+
+          {isEmpty ? (
+            <p className="text-[#DDD8CC]/30 text-sm tracking-wide py-6">
+              Nothing on the calendar yet — check back soon or follow us on social for updates.
+            </p>
+          ) : null}
 
           <div className="divide-y divide-[#BFA060]/10">
             {shows.map((show, i) => (

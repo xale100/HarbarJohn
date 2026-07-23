@@ -20,7 +20,7 @@ const beers = [
 
 export default async function Home() {
   const liveShows = await getShows(4);
-  const shows = liveShows.length > 0
+  const shows = (liveShows && liveShows.length > 0)
     ? liveShows.map(s => ({ date: s.date, artist: s.artist, time: s.time, genre: s.genre, cover: s.cover, photo: s.photo }))
     : fallbackShows;
   return (
