@@ -24,6 +24,7 @@ export type FoodCategory = {
 
 export type ToastMenu = {
   beers: BeerCategory[];
+  ciderWine: BeerCategory[];
   food: FoodCategory[];
   sauces: string[];
 };
@@ -80,6 +81,7 @@ function formatPrice(price: number | null | undefined): string {
 
 function transformToastData(rawMenus: any): ToastMenu {
   const beers: BeerCategory[] = [];
+  const ciderWine: BeerCategory[] = [];
   const food: FoodCategory[] = [];
   const sauces: string[] = [];
 
@@ -91,19 +93,22 @@ function transformToastData(rawMenus: any): ToastMenu {
     const ciderMenu = menus.find((m: any) => m.name === "Cider Etc.");
     const wineMenu = menus.find((m: any) => m.name === "Wine");
 
-    const beverageMenus = [beerMenu, ciderMenu, wineMenu].filter(Boolean);
-
-    for (const menu of beverageMenus) {
-      for (const group of menu.menuGroups ?? []) {
+    function extractBeverageGroups(menu: any): BeerCategory[] {
+      const out: BeerCategory[] = [];
+      for (const group of menu?.menuGroups ?? []) {
         const items: BeerItem[] = (group.menuItems ?? [])
           .map((item: any) => {
             const { desc, abv, ibu } = parseBeerDesc(item.description ?? "");
             return { name: item.posName || item.name, abv, ibu, desc };
           })
           .filter((item: BeerItem) => item.name);
-        if (items.length > 0) beers.push({ category: group.name || "Beers", items });
+        if (items.length > 0) out.push({ category: group.name || "Beers", items });
       }
+      return out;
     }
+
+    beers.push(...extractBeverageGroups(beerMenu));
+    ciderWine.push(...extractBeverageGroups(ciderMenu), ...extractBeverageGroups(wineMenu));
 
     if (foodMenu) {
       for (const group of foodMenu.menuGroups ?? []) {
@@ -127,7 +132,7 @@ function transformToastData(rawMenus: any): ToastMenu {
     // Fall through — caller uses static fallback
   }
 
-  return { beers, food, sauces };
+  return { beers, ciderWine, food, sauces };
 }
 
 export async function getMenu(): Promise<ToastMenu | null> {

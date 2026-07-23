@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getMenu } from "@/lib/toast";
 import type { BeerCategory, FoodCategory } from "@/lib/toast";
+import MenuTabs from "@/components/MenuTabs";
 
 export const metadata: Metadata = {
   title: "Craft Beer & Food Menu — Brewery in Crescent City",
@@ -90,6 +91,7 @@ const staticSauces = [
 export default async function MenuPage() {
   const toastMenu = await getMenu();
   const beers = toastMenu?.beers?.length ? toastMenu.beers : staticBeers;
+  const ciderWine = toastMenu?.ciderWine ?? [];
   const food = toastMenu?.food?.length ? toastMenu.food : staticFood;
   const sauces = toastMenu?.sauces?.length ? toastMenu.sauces : staticSauces;
   return (
@@ -107,13 +109,15 @@ export default async function MenuPage() {
         </div>
       </section>
 
-      {/* ON TAP */}
-      <section className="grain py-20 px-4 bg-[#0a100a]">
+      <MenuTabs />
+
+      {/* BEER */}
+      <section id="beer" className="grain py-20 px-4 bg-[#0a100a] scroll-mt-28">
         <div className="max-w-4xl mx-auto">
 
           <div className="flex items-start justify-between gap-4 mb-12">
             <div>
-              <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-1">On Tap</h2>
+              <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-1">Beer</h2>
               <p className="text-[#DDD8CC]/40 text-sm">Seasonal availability may vary</p>
             </div>
             <Image
@@ -158,13 +162,50 @@ export default async function MenuPage() {
           </div>
 
           <p className="text-[#DDD8CC]/20 text-xs mt-10 tracking-wide">
-            We reserve the right to alter the tap list at any time. Wine and hard seltzer also available.
+            We reserve the right to alter the tap list at any time.
           </p>
         </div>
       </section>
 
-      {/* FOOD MENU */}
-      <section className="grain py-20 px-4 bg-[#0f170f]">
+      {/* CIDER & WINE */}
+      {ciderWine.length > 0 && (
+        <section id="cider-wine" className="grain py-20 px-4 bg-[#0a100a] scroll-mt-28">
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-12">
+              <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-1">Cider &amp; Wine</h2>
+            </div>
+            <div className="space-y-12">
+              {ciderWine.map((section) => (
+                <div key={section.category}>
+                  <p className="text-[#BFA060] text-xs tracking-[0.3em] uppercase mb-3 border-b border-[#BFA060]/15 pb-2">
+                    {section.category}
+                  </p>
+                  <div className="divide-y divide-[#BFA060]/10">
+                    {section.items.map((item) => (
+                      <div key={item.name} className="py-4 flex items-baseline justify-between gap-4">
+                        <div className="flex-1 min-w-0">
+                          <p className="text-[#DDD8CC] font-semibold">{item.name}</p>
+                          {item.desc && (
+                            <p className="text-[#DDD8CC]/35 text-xs leading-relaxed mt-0.5">{item.desc}</p>
+                          )}
+                        </div>
+                        {(item.abv || item.ibu) && (
+                          <p className="text-[#DDD8CC]/40 text-xs text-right shrink-0 whitespace-nowrap">
+                            {item.abv}{item.abv && item.ibu && " · "}{item.ibu && `IBU ${item.ibu}`}
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* FOOD */}
+      <section id="food" className="grain py-20 px-4 bg-[#0f170f] scroll-mt-28">
         <div className="max-w-4xl mx-auto">
 
           <div className="mb-12">
