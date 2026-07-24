@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { getShows } from "@/lib/calendar";
 
+export const revalidate = 3600;
+
 const fallbackShows = [
   { date: "Fri May 23", artist: "Open Mic Night", time: "7pm", genre: "", cover: "Free", photo: "" },
   { date: "Sat May 24", artist: "Live Band — TBA", time: "8pm", genre: "", cover: "Free", photo: "" },
