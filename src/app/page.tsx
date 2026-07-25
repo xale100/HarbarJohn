@@ -162,7 +162,7 @@ export default async function Home() {
       <section className="grain py-10 sm:py-14 px-4 border-t-2 border-[#BFA060]/50" style={{ background: "radial-gradient(ellipse 48% 35% at 25% 25%, rgba(180,148,85,0.055) 0%, transparent 100%), #0f170f" }}>
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
-            <h2 className="text-xl sm:text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-2">
+            <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-2">
               This Week&apos;s Events
             </h2>
             <p className="text-[#DDD8CC]/40 text-[10px] sm:text-sm mb-2">Live music every week in Crescent City</p>
@@ -210,7 +210,7 @@ export default async function Home() {
         <div className="relative z-10 max-w-4xl mx-auto">
           <div className="mb-8">
             <h2
-              className="text-xl sm:text-2xl font-black text-[#BFA060] tracking-wide uppercase leading-none mb-3"
+              className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase leading-none mb-3"
               style={{ textShadow: "0 0 40px rgba(191,160,96,0.35), 0 0 12px rgba(191,160,96,0.20)" }}
             >
               On Tap

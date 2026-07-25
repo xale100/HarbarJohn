@@ -82,7 +82,7 @@ export default function AboutPage() {
       </section>
 
       {/* THE TEAM */}
-      <section className="grain py-14 px-4 bg-[#0a100a]">
+      <section className="grain py-20 px-4 bg-[#0a100a]">
         <div className="max-w-4xl mx-auto">
 
           <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-8">
