@@ -104,7 +104,7 @@ export default async function MenuPage() {
             Beer &amp; Food
           </h1>
           <p className="text-[#DDD8CC]/40 text-sm tracking-widest uppercase">
-            Hand-crafted in Crescent City &nbsp;·&nbsp; Brewed on-site by Devin Beach
+            Brewed on-site by Devin Beach
           </p>
         </div>
       </section>
