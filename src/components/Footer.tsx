@@ -10,18 +10,15 @@ export default function Footer() {
             <p className="text-[#BFA060] font-black tracking-widest text-base mb-2">
               PORT<span className="text-[#DDD8CC]/20"> O&apos; </span>PINTS
             </p>
-            <p className="text-[#DDD8CC]/50 leading-snug mb-0.5">1215 Northcrest Dr</p>
-            <p className="text-[#DDD8CC]/50 mb-2">Crescent City, CA 95531</p>
+            <p className="text-[#DDD8CC]/50 leading-snug mb-0.5">1215 Northcrest Dr, Crescent City, CA 95531 &nbsp;·&nbsp; Mon–Sun 12pm–9pm</p>
             <a href="tel:7074601154" className="block text-[#DDD8CC]/50 hover:text-[#BFA060] transition-colors mb-3">
               (707) 460-1154
             </a>
             <p className="text-[#DDD8CC]/20 text-xs tracking-widest uppercase">Est. 2014</p>
           </div>
 
-          {/* Hours + Directions */}
-          <div>
-            <p className="text-[#DDD8CC]/20 text-xs tracking-widest uppercase mb-2">Hours</p>
-            <p className="text-[#DDD8CC]/50 mb-4">Mon – Sun &nbsp;&nbsp; 12pm – 9pm</p>
+          {/* Directions */}
+          <div className="flex items-start">
             <a
               href="https://www.google.com/maps/dir/?api=1&destination=Port+O+Pints,+1215+Northcrest+Dr,+Crescent+City,+CA+95531"
               target="_blank"
