@@ -110,10 +110,10 @@ export default function AboutPage() {
       </section>
 
       {/* VALUES */}
-      <section className="grain py-20 px-4 bg-[#0f170f]">
+      <section className="grain py-10 px-4 bg-[#0f170f]">
         <div className="max-w-4xl mx-auto">
 
-          <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-10">
+          <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-6">
             What We Stand For
           </h2>
 
@@ -129,10 +129,10 @@ export default function AboutPage() {
       </section>
 
       {/* REVIEWS */}
-      <section className="grain py-20 px-4 bg-[#0a100a]">
+      <section className="grain py-10 px-4 bg-[#0a100a]">
         <div className="max-w-4xl mx-auto">
 
-          <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-10">
+          <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-6">
             What People Say
           </h2>
 
@@ -144,7 +144,6 @@ export default function AboutPage() {
             ].map((t, i) => (
               <div key={i} className="py-5">
                 <p className="text-[#DDD8CC]/55 text-sm leading-relaxed italic">&ldquo;{t.quote}&rdquo;</p>
-                <p className="text-[#BFA060] text-xs tracking-widest uppercase mt-2">Google Review</p>
               </div>
             ))}
           </div>
