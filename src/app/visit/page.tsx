@@ -40,7 +40,7 @@ const faqs = [
   },
   {
     q: "Do you have food?",
-    a: "Yes — award-winning craft beer brewed on-site plus a full pub food menu including pizza, subs, nachos, salads, and more. See the full menu on the Beer & Food page.",
+    a: <>Yes — award-winning craft beer brewed on-site plus a full pub food menu including pizza, subs, nachos, salads, and more. See the full menu on the <Link href="/menu" className="text-[#BFA060]/70 hover:text-[#BFA060] transition-colors">Beer &amp; Food page</Link>.</>,
   },
 ];
 
