@@ -101,7 +101,7 @@ export default function BookingForm({ slug }: { slug: string }) {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <input name="genre" placeholder="Genre" className={inputClass} />
-        <input name="websiteUrl" type="text" placeholder="Website or Social Link" className={inputClass} />
+        <input name="websiteUrl" placeholder="Website or Social Link" className={inputClass} />
       </div>
 
       <textarea

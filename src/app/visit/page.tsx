@@ -4,17 +4,17 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Hours, Location & Directions — Brewery in Crescent City",
   description:
-    "Visit Port O' Pints Brewing Co. at 1215 Northcrest Dr, Crescent City, CA 95531. Open daily 12–9pm. Directions, parking, and FAQs. Near Redwood National Park.",
+    "Visit Port O' Pints Brewing Co. at 1215 Northcrest Dr, Crescent City, CA 95531. Open daily 12–10pm. Directions, parking, and FAQs. Near Redwood National Park.",
 };
 
 const hours = [
-  { day: "Monday",    hours: "12pm – 9pm" },
-  { day: "Tuesday",   hours: "12pm – 9pm" },
-  { day: "Wednesday", hours: "12pm – 9pm" },
-  { day: "Thursday",  hours: "12pm – 9pm" },
-  { day: "Friday",    hours: "12pm – 9pm" },
-  { day: "Saturday",  hours: "12pm – 9pm" },
-  { day: "Sunday",    hours: "12pm – 9pm" },
+  { day: "Monday",    hours: "12pm – 10pm" },
+  { day: "Tuesday",   hours: "12pm – 10pm" },
+  { day: "Wednesday", hours: "12pm – 10pm" },
+  { day: "Thursday",  hours: "12pm – 10pm" },
+  { day: "Friday",    hours: "12pm – 10pm" },
+  { day: "Saturday",  hours: "12pm – 10pm" },
+  { day: "Sunday",    hours: "12pm – 10pm" },
 ];
 
 const faqs = [

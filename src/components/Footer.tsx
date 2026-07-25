@@ -32,7 +32,7 @@ export default function Footer() {
             <div className="text-center">
               <p className="text-[#BFA060] font-black tracking-widest text-base mb-2">Hours</p>
               <p className="text-[#DDD8CC]/50 leading-snug">Monday–Sunday</p>
-              <p className="text-[#DDD8CC]/50">12:00pm–9:00pm</p>
+              <p className="text-[#DDD8CC]/50">12:00pm–10:00pm</p>
             </div>
 
           </div>

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | Port O' Pints · Crescent City, CA",
   },
   description:
-    "Award-winning craft brewery near Redwood National Park. Live music, pub food, and craft beer in Crescent City, CA. 80+ beer awards. Open daily 12–9pm.",
+    "Award-winning craft brewery near Redwood National Park. Live music, pub food, and craft beer in Crescent City, CA. 80+ beer awards. Open daily 12–10pm.",
   keywords: [
     "Port O' Pints",
     "brewery crescent city",
@@ -83,7 +83,7 @@ const jsonLd = {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
       opens: "12:00",
-      closes: "21:00",
+      closes: "22:00",
     },
   ],
   servesCuisine: ["American", "Pub Food", "Craft Beer"],
