@@ -5,20 +5,16 @@ export default function Footer() {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-4 text-sm">
 
-          {/* Brand + Contact */}
+          {/* Address + Contact */}
           <div>
             <p className="text-[#BFA060] font-black tracking-widest text-base mb-2">
               PORT<span className="text-[#DDD8CC]/20"> O&apos; </span>PINTS
             </p>
-            <p className="text-[#DDD8CC]/50 leading-snug mb-0.5">1215 Northcrest Dr, Crescent City, CA 95531 &nbsp;·&nbsp; Mon–Sun 12pm–9pm</p>
+            <p className="text-[#DDD8CC]/50 leading-snug">1215 Northcrest Dr</p>
+            <p className="text-[#DDD8CC]/50 mb-2">Crescent City, CA 95531</p>
             <a href="tel:7074601154" className="block text-[#DDD8CC]/50 hover:text-[#BFA060] transition-colors mb-3">
               (707) 460-1154
             </a>
-            <p className="text-[#DDD8CC]/20 text-xs tracking-widest uppercase">Est. 2014</p>
-          </div>
-
-          {/* Directions */}
-          <div className="flex items-start">
             <a
               href="https://www.google.com/maps/dir/?api=1&destination=Port+O+Pints,+1215+Northcrest+Dr,+Crescent+City,+CA+95531"
               target="_blank"
@@ -27,6 +23,13 @@ export default function Footer() {
             >
               Get Directions →
             </a>
+          </div>
+
+          {/* Hours */}
+          <div>
+            <p className="text-[#DDD8CC]/20 text-xs tracking-widest uppercase mb-2">Hours</p>
+            <p className="text-[#DDD8CC]/50 leading-snug">Monday–Sunday</p>
+            <p className="text-[#DDD8CC]/50">12:00pm–9:00pm</p>
           </div>
 
           {/* Google Map */}
