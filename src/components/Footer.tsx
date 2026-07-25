@@ -3,37 +3,42 @@ export default function Footer() {
     <footer className="bg-[#080d08] text-[#DDD8CC]/30 border-t border-[#BFA060]/10">
       <div className="max-w-6xl mx-auto px-4 py-6">
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-4 text-sm">
+        <div className="flex flex-col sm:flex-row gap-6 mb-4 text-sm">
 
-          {/* Address + Contact */}
-          <div>
-            <p className="text-[#BFA060] font-black tracking-widest text-base mb-2">
-              PORT<span className="text-[#DDD8CC]/20"> O&apos; </span>PINTS
-            </p>
-            <p className="text-[#DDD8CC]/50 leading-snug">1215 Northcrest Dr</p>
-            <p className="text-[#DDD8CC]/50 mb-2">Crescent City, CA 95531</p>
-            <a href="tel:7074601154" className="block text-[#DDD8CC]/50 hover:text-[#BFA060] transition-colors mb-3">
-              (707) 460-1154
-            </a>
-            <a
-              href="https://www.google.com/maps/dir/?api=1&destination=Port+O+Pints,+1215+Northcrest+Dr,+Crescent+City,+CA+95531"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-5 py-2 border border-[#BFA060]/50 hover:border-[#BFA060] text-[#BFA060] text-xs font-bold tracking-widest uppercase transition-colors"
-            >
-              Get Directions →
-            </a>
-          </div>
+          {/* Address + Hours — always side by side */}
+          <div className="flex gap-8 shrink-0">
 
-          {/* Hours */}
-          <div>
-            <p className="text-[#DDD8CC]/20 text-xs tracking-widest uppercase mb-2">Hours</p>
-            <p className="text-[#DDD8CC]/50 leading-snug">Monday–Sunday</p>
-            <p className="text-[#DDD8CC]/50">12:00pm–9:00pm</p>
+            {/* Address + Contact */}
+            <div>
+              <p className="text-[#BFA060] font-black tracking-widest text-base mb-2">
+                PORT<span className="text-[#DDD8CC]/20"> O&apos; </span>PINTS
+              </p>
+              <p className="text-[#DDD8CC]/50 leading-snug">1215 Northcrest Dr</p>
+              <p className="text-[#DDD8CC]/50 mb-2">Crescent City, CA 95531</p>
+              <a href="tel:7074601154" className="block text-[#DDD8CC]/50 hover:text-[#BFA060] transition-colors mb-3">
+                (707) 460-1154
+              </a>
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=Port+O+Pints,+1215+Northcrest+Dr,+Crescent+City,+CA+95531"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-5 py-2 border border-[#BFA060]/50 hover:border-[#BFA060] text-[#BFA060] text-xs font-bold tracking-widest uppercase transition-colors"
+              >
+                Get Directions →
+              </a>
+            </div>
+
+            {/* Hours */}
+            <div>
+              <p className="text-[#DDD8CC]/20 text-xs tracking-widest uppercase mb-2">Hours</p>
+              <p className="text-[#DDD8CC]/50 leading-snug">Monday–Sunday</p>
+              <p className="text-[#DDD8CC]/50">12:00pm–9:00pm</p>
+            </div>
+
           </div>
 
           {/* Google Map */}
-          <div>
+          <div className="flex-1">
             <div className="overflow-hidden rounded-sm border border-[#BFA060]/15">
               <iframe
                 src="https://maps.google.com/maps?q=Port+O+Pints,+1215+Northcrest+Dr,+Crescent+City,+CA+95531&z=17&output=embed&t=k"
