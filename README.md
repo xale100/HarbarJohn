@@ -34,3 +34,36 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+---
+
+## TODO — Future Projects
+
+### Loyalty Analytics Engine (separate project / microservice)
+
+**Goal:** Quantify loyalty program ROI without paying for Toast Loyalty or API integrations.
+
+**Approach:** Pull the daily Toast export and loyalty DB export, then auto-match transactions using a confidence-tiered matching algorithm:
+
+- **Direct match** — customer name on transaction + loyalty button used
+- **Time-window match** — QR scan timestamp within N minutes of transaction timestamp
+- **Fallback match** — payment/card data correlation
+
+**Target:** ~90–95% attribution confidence across all transactions.
+
+**Desired daily outputs:**
+- Loyalty Visits
+- Loyalty Revenue
+- % of Total Transactions Using Loyalty
+- Loyalty vs Non-Loyalty Average Check
+- Estimated Revenue Attributed to Loyalty
+- Retail Value of Size Upgrades Given
+- Repeat Visit Trends
+
+**Reports generated:**
+- Daily loyalty performance dashboard (loyalty-driven sales vs. benefit cost)
+- Exception report for unmatched records (surfaces process gaps)
+
+**From this end (portopints site):** May be able to set up the automated DB/Toast export trigger from here. TBD once loyalty microservice project is scoped.
+
+**Success metric:** Leadership has a clean daily view of loyalty program ROI, no manual reconciliation needed.
