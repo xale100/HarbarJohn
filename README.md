@@ -70,6 +70,36 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ---
 
+### Photo Pipeline App (separate project)
+
+**Goal:** Take a raw photo in, output 3 production-ready WebP files + an auto-updated asset manifest. Drag-and-drop into R2, reference from the site.
+
+**Per photo inputs:**
+- Raw image file
+- Category (free-text: `hero`, `team`, `events`, `menu`, etc.)
+- Filename slug (e.g. `bar-interior`, `devin-beach`)
+
+**Per photo outputs:**
+```
+portopints-assets/{category}/{slug}-2400w.webp   ← full-bleed desktop
+portopints-assets/{category}/{slug}-1200w.webp   ← tablet / cards
+portopints-assets/{category}/{slug}-800w.webp    ← mobile
+```
+
+**Also outputs per batch run:** an auto-updated `manifest.md` showing the full R2 folder tree — appends each run so the map stays current. Lives alongside the WebP files and gets committed here so the dev side always knows what's available.
+
+**R2 setup:**
+- Single public bucket (`portopints-assets`)
+- One `next.config.ts` `remotePatterns` entry for the bucket domain
+- `next/image` handles responsive delivery via `sizes` prop — no Cloudflare Image Resizing needed
+
+**In code:**
+```tsx
+<Image src="…/portopints-assets/hero/bar-interior-2400w.webp" fill sizes="100vw" quality={85} priority />
+```
+
+---
+
 ## TODO — Launch Checklist (portopints.com)
 
 ### Blocking — must be done before go-live
