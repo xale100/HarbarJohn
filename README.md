@@ -67,3 +67,29 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 **From this end (portopints site):** May be able to set up the automated DB/Toast export trigger from here. TBD once loyalty microservice project is scoped.
 
 **Success metric:** Leadership has a clean daily view of loyalty program ROI, no manual reconciliation needed.
+
+---
+
+## TODO — Launch Checklist (portopints.com)
+
+### Blocking — must be done before go-live
+
+- [ ] **Har Bar extraction** — Har Bar content is currently nested inside portopints.com. Rip it out, stand it up at `portopints.com/[path]`, add a link on the Port O' Pints landing page. Sever fully once the dedicated Har Bar site is built.
+- [ ] **Photos** — Assets in hand. Pick hero shot(s), integrate into homepage hero + about page team section.
+- [ ] **Merch** — Russell adding inventory tomorrow. Verify it auto-populates on `/merch`, spot-check rendering, confirm with him when done.
+- [ ] **Devin's brewmaster quote** — Real text needed. Currently a placeholder on the homepage.
+- [ ] **VenueFlow slug** — Confirm `VENUEFLOW_SLUG` is set in Vercel env vars and the calendar is loading live shows.
+- [ ] **DNS cutover** — Point portopints.com away from Wix. Credentials in hand.
+
+### Cleanup — before or same day as cutover
+
+- [ ] Remove old Google Calendar env vars from Vercel (`GOOGLE_CALENDAR_ID`, `GOOGLE_CALENDAR_API_KEY`)
+- [ ] Add `robots.txt` and `sitemap.ts`
+- [ ] Confirm "Play Port O' Pints" contact email is correct in events page copy
+
+### Post-launch — first week
+
+- [ ] Submit sitemap to Google Search Console
+- [ ] Submit sitemap to Bing Webmaster Tools
+- [ ] Monitor VenueFlow booking exception reports once first submissions come in
+- [ ] Cut Har Bar loose fully once its own standalone site is built
