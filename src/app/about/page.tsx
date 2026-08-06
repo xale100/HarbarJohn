@@ -108,7 +108,7 @@ export default function AboutPage() {
               src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/beer/full-beer-front-of-bar-looking-up-at-the-top-of-the-glass-800w.webp`}
               alt=""
               fill
-              className="object-cover object-center scale-110 brightness-125"
+              className="object-cover object-center scale-[1.7] brightness-125"
             />
             <div className="absolute inset-0 bg-[#080d08]/65" />
           </>
