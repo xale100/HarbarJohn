@@ -170,22 +170,22 @@ export default async function Home() {
               className="object-cover object-center"
               quality={85}
             />
-            <div className="absolute inset-0 bg-[#080d08]/80" />
+            <div className="absolute inset-0 bg-[#080d08]/70" />
           </>
         )}
         <div className="relative z-10 max-w-4xl mx-auto">
           <div className="mb-8">
-            <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-2">
+            <h2 className="text-2xl font-black text-white tracking-wide uppercase mb-2" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
               This Week&apos;s Events
             </h2>
-            <p className="text-[#DDD8CC]/40 text-[10px] sm:text-sm mb-2">Live music every week in Crescent City</p>
-            <Link href="/events" className="text-[#BFA060]/70 hover:text-[#BFA060] text-[10px] sm:text-xs tracking-widest uppercase transition-colors">
+            <p className="text-white/70 text-[10px] sm:text-sm mb-2" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9)" }}>Live music every week in Crescent City</p>
+            <Link href="/events" className="text-[#BFA060]/90 hover:text-[#BFA060] text-[10px] sm:text-xs tracking-widest uppercase transition-colors" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9)" }}>
               Full Schedule →
             </Link>
           </div>
 
           {shows.length === 0 && (
-            <p className="text-[#DDD8CC]/40 text-sm tracking-wide py-4">
+            <p className="text-white/50 text-sm tracking-wide py-4" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9)" }}>
               The stage is quiet right now — check back soon for upcoming shows.
             </p>
           )}
@@ -210,10 +210,10 @@ export default async function Home() {
                     </span>
                   )}
                 </div>
-                <p className={`font-semibold flex-1 ${i === 0 ? "text-[#DDD8CC] text-sm sm:text-xl" : "text-[#DDD8CC]/50 text-xs sm:text-base"}`}>
+                <p className={`font-semibold flex-1 ${i === 0 ? "text-white text-sm sm:text-xl" : "text-white/60 text-xs sm:text-base"}`} style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9)" }}>
                   {show.artist}
                 </p>
-                <p className={`text-[10px] sm:text-xs tracking-wide text-right shrink-0 ${i === 0 ? "text-[#DDD8CC]/70" : "text-[#DDD8CC]/25"}`}>
+                <p className={`text-[10px] sm:text-xs tracking-wide text-right shrink-0 ${i === 0 ? "text-white/80" : "text-white/30"}`} style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9)" }}>
                   {show.time}
                 </p>
               </div>
