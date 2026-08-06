@@ -37,10 +37,10 @@ export default function AboutPage() {
         {process.env.NEXT_PUBLIC_ASSETS_URL && (
           <>
             <Image
-              src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/brewing/SLUG_PLACEHOLDER`}
+              src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/brewing/grayscale-porto-pints-brew-kettles-1200w.webp`}
               alt=""
               fill
-              className="object-cover object-center grayscale"
+              className="object-cover object-center"
               priority
               quality={85}
             />
