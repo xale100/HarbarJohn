@@ -114,7 +114,6 @@ export default function AboutPage() {
           </>
         )}
         {/* Section blending gradients */}
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#0f170f] to-transparent pointer-events-none z-10" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0a100a] to-transparent pointer-events-none z-10" />
         {/* Rising bubbles */}
         {[
