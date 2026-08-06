@@ -11,6 +11,7 @@ const links = [
   { href: "/merch", label: "Merch" },
   { href: "/about", label: "About" },
   { href: "/visit", label: "Visit Us" },
+  { href: "/south-beach", label: "South Beach" },
 ];
 
 export default function Nav() {
