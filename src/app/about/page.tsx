@@ -101,7 +101,7 @@ export default function AboutPage() {
       </section>
 
       {/* BREWING PHOTOS */}
-      <section className="relative py-8 px-4 overflow-hidden">
+      <section className="relative py-24 px-4 overflow-hidden">
         {process.env.NEXT_PUBLIC_ASSETS_URL && (
           <>
             <Image
@@ -113,6 +113,9 @@ export default function AboutPage() {
             <div className="absolute inset-0 bg-[#080d08]/55" />
           </>
         )}
+        {/* Section blending gradients */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#0f170f] to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0a100a] to-transparent pointer-events-none z-10" />
         {/* Rising bubbles */}
         {[
           { left: '2%',  bottom: '8%',  size: 5,  delay: '0s',   dur: '5s'   },
