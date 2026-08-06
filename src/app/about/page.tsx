@@ -105,7 +105,7 @@ export default function AboutPage() {
         {process.env.NEXT_PUBLIC_ASSETS_URL && (
           <>
             <Image
-              src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/beer/full-beer-front-of-bar-looking-up-at-the-top-of-the-glass-1200w.webp`}
+              src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/beer/full-beer-front-of-bar-looking-up-at-the-top-of-the-glass-800w.webp`}
               alt=""
               fill
               className="object-cover object-center scale-110 brightness-125"
