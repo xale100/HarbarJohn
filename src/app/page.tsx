@@ -106,25 +106,19 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* TEAM */}
-      <section className="grid grid-cols-5 h-[40vw]">
-        {[
-          { src: "/images/team-devin.jpg",   name: "Devin Beach",       title: "Owner / Brewmaster" },
-          { src: "/images/team-john.jpg",     name: "John Kirk",         title: "Owner" },
-          { src: "/images/team-cynthia.jpg",  name: "Cynthia Parenteau", title: "Owner" },
-          { src: "/images/team-cameron.jpg",  name: "Cameron Cook",      title: "Production" },
-          { src: "/images/team-russell.jpg",  name: "Russell Smithson",  title: "Marketing" },
-        ].map((p) => (
-          <div key={p.name} className="relative overflow-hidden">
-            <Image src={p.src} alt={p.name} fill className="object-cover object-top brightness-75" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-1.5 md:p-3">
-              <p className="text-[#DDD8CC] font-bold text-[10px] md:text-xs leading-tight truncate">{p.name}</p>
-              <p className="text-[#BFA060] text-[9px] md:text-[10px] tracking-wide truncate">{p.title}</p>
-            </div>
-          </div>
-        ))}
-      </section>
+      {/* BAR SHOT */}
+      {process.env.NEXT_PUBLIC_ASSETS_URL && (
+        <section className="relative h-[50vw] max-h-[480px] min-h-[220px] overflow-hidden">
+          <Image
+            src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/hero/busy-front-of-bar-1200w.webp`}
+            alt="Port O' Pints — the bar"
+            fill
+            className="object-cover object-center"
+            quality={85}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#080d08]/60 via-transparent to-[#080d08]/30" />
+        </section>
+      )}
 
       {/* BREWMASTER QUOTE */}
       <section className="relative px-6 sm:px-16 py-4 sm:py-5 bg-[#080d08] overflow-hidden border-t border-[#BFA060]/30">
