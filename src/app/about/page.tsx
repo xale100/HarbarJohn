@@ -101,7 +101,8 @@ export default function AboutPage() {
       </section>
 
       {/* BREWING PHOTOS */}
-      <section className="relative py-8 px-4 bg-[#080d08]">
+      <section className="relative py-8 px-4 overflow-hidden" style={{ background: 'linear-gradient(to bottom, #0f170f 0%, #080d08 20%, #080d08 80%, #0a100a 100%)' }}>
+        {/* Top wave */}
         <svg className="absolute top-0 left-0 w-full pointer-events-none z-10" height="110" viewBox="0 0 1440 110" preserveAspectRatio="none">
           <defs>
             <linearGradient id="topWaveGrad" x1="0" y1="0" x2="0" y2="1">
@@ -111,6 +112,7 @@ export default function AboutPage() {
           </defs>
           <path d="M0,0 L1440,0 L1440,60 C1200,100 960,20 720,70 C480,115 240,30 0,75 Z" fill="url(#topWaveGrad)" />
         </svg>
+        {/* Bottom wave */}
         <svg className="absolute bottom-0 left-0 w-full pointer-events-none z-10" height="110" viewBox="0 0 1440 110" preserveAspectRatio="none">
           <defs>
             <linearGradient id="botWaveGrad" x1="0" y1="1" x2="0" y2="0">
@@ -120,7 +122,30 @@ export default function AboutPage() {
           </defs>
           <path d="M0,110 L1440,110 L1440,50 C1200,10 960,90 720,40 C480,0 240,80 0,35 Z" fill="url(#botWaveGrad)" />
         </svg>
-        <div className="max-w-4xl mx-auto">
+        {/* Rising bubbles */}
+        {[
+          { left: '4%',  bottom: '12%', size: 7,  delay: '0s',   dur: '5s'   },
+          { left: '13%', bottom: '6%',  size: 4,  delay: '1.8s', dur: '4.5s' },
+          { left: '23%', bottom: '18%', size: 11, delay: '0.6s', dur: '6s'   },
+          { left: '36%', bottom: '8%',  size: 5,  delay: '2.4s', dur: '4.2s' },
+          { left: '48%', bottom: '22%', size: 8,  delay: '1.1s', dur: '5.5s' },
+          { left: '59%', bottom: '10%', size: 4,  delay: '3.0s', dur: '4s'   },
+          { left: '70%', bottom: '15%', size: 9,  delay: '0.4s', dur: '6.5s' },
+          { left: '80%', bottom: '5%',  size: 5,  delay: '1.6s', dur: '5s'   },
+          { left: '90%', bottom: '20%', size: 7,  delay: '2.1s', dur: '4.8s' },
+          { left: '96%', bottom: '9%',  size: 4,  delay: '0.9s', dur: '5.2s' },
+        ].map((b, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full border border-[#BFA060] pointer-events-none"
+            style={{
+              left: b.left, bottom: b.bottom,
+              width: b.size, height: b.size,
+              animation: `rise ${b.dur} ease-in ${b.delay} infinite`,
+            }}
+          />
+        ))}
+        <div className="relative z-20 max-w-4xl mx-auto">
           <div className="grid grid-cols-2 gap-3 sm:gap-5">
 
             {/* Left column — flush top */}
