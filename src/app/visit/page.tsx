@@ -50,7 +50,7 @@ export default function VisitPage() {
     <div className="bg-[#080d08] text-[#DDD8CC]">
 
       {/* HERO */}
-      <section className="grain relative min-h-[50vh] flex flex-col items-center justify-center px-4 bg-[#080d08] overflow-hidden">
+      <section className="grain relative min-h-[75vh] flex flex-col items-center justify-center px-4 bg-[#080d08] overflow-hidden">
         {process.env.NEXT_PUBLIC_ASSETS_URL && (
           <>
             <Image
@@ -61,20 +61,23 @@ export default function VisitPage() {
               priority
               quality={85}
             />
-            <div className="absolute inset-0 bg-[#080d08]/55" />
+            <div className="absolute inset-0 bg-[#080d08]/35" />
           </>
         )}
-        <div className="relative z-10 text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl sm:text-7xl font-black text-[#BFA060] mb-4 tracking-widest uppercase leading-none" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
-            Visit Us
+        <div className="relative z-10 text-center max-w-3xl mx-auto">
+          <h1 className="text-5xl sm:text-8xl font-black tracking-widest text-[#BFA060] leading-none mb-6 sm:mb-8" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
+            Visit<span className="text-[#DDD8CC]/40"> Us</span>
           </h1>
-          <p className="text-white/90 text-sm tracking-widest uppercase mb-2" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9)" }}>
-            1215 Northcrest Dr &nbsp;·&nbsp; Crescent City, CA 95531
+          <p className="text-white/90 text-sm sm:text-base tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-1" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9), 0 2px 24px rgba(0,0,0,0.7)" }}>
+            Port O&apos; Pints Brewing Co.
+          </p>
+          <p className="text-white/90 text-xs tracking-[0.2em] sm:tracking-[0.4em] uppercase mb-1 whitespace-nowrap" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9), 0 2px 24px rgba(0,0,0,0.7)" }}>
+            1215 Northcrest Dr &nbsp;·&nbsp; Crescent City, CA
           </p>
           <a
             href="tel:7074601154"
-            className="inline-block text-white/90 hover:text-[#BFA060] text-sm tracking-widest uppercase transition-colors"
-            style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9)" }}
+            className="block text-white/90 hover:text-[#BFA060] text-xs tracking-[0.2em] sm:tracking-[0.3em] uppercase transition-colors"
+            style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9), 0 2px 24px rgba(0,0,0,0.7)" }}
           >
             707-460-1154
           </a>
