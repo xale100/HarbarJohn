@@ -101,27 +101,18 @@ export default function AboutPage() {
       </section>
 
       {/* BREWING PHOTOS */}
-      <section className="relative py-8 px-4 overflow-hidden" style={{ background: 'linear-gradient(to bottom, #0f170f 0%, #080d08 20%, #080d08 80%, #0a100a 100%)' }}>
-        {/* Top wave */}
-        <svg className="absolute top-0 left-0 w-full pointer-events-none z-10" height="110" viewBox="0 0 1440 110" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="topWaveGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#BFA060" stopOpacity="0.45" />
-              <stop offset="100%" stopColor="#BFA060" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-          <path d="M0,0 L1440,0 L1440,60 C1200,100 960,20 720,70 C480,115 240,30 0,75 Z" fill="url(#topWaveGrad)" />
-        </svg>
-        {/* Bottom wave */}
-        <svg className="absolute bottom-0 left-0 w-full pointer-events-none z-10" height="110" viewBox="0 0 1440 110" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="botWaveGrad" x1="0" y1="1" x2="0" y2="0">
-              <stop offset="0%" stopColor="#BFA060" stopOpacity="0.35" />
-              <stop offset="100%" stopColor="#BFA060" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-          <path d="M0,110 L1440,110 L1440,50 C1200,10 960,90 720,40 C480,0 240,80 0,35 Z" fill="url(#botWaveGrad)" />
-        </svg>
+      <section className="relative py-8 px-4 overflow-hidden">
+        {process.env.NEXT_PUBLIC_ASSETS_URL && (
+          <>
+            <Image
+              src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/beer/full-beer-front-of-bar-looking-up-at-the-top-of-the-glass-1200w.webp`}
+              alt=""
+              fill
+              className="object-cover object-center scale-110 brightness-125"
+            />
+            <div className="absolute inset-0 bg-[#080d08]/65" />
+          </>
+        )}
         {/* Rising bubbles */}
         {[
           { left: '4%',  bottom: '12%', size: 7,  delay: '0s',   dur: '5s'   },
