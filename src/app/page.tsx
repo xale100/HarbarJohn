@@ -51,7 +51,7 @@ export default async function Home() {
             />
           </div>
 
-          <h1 className="text-5xl sm:text-8xl font-black tracking-widest text-[#BFA060] leading-none mb-2 sm:mb-3">
+          <h1 className="text-5xl sm:text-8xl font-black tracking-widest text-[#BFA060] leading-none mb-2 sm:mb-3" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
             PORT<span className="text-[#DDD8CC]/40"> O&apos; </span>PINTS
           </h1>
 
@@ -77,15 +77,15 @@ export default async function Home() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/events"
-              className="px-7 py-3 border border-[#BFA060]/60 hover:border-[#BFA060] text-[#BFA060] font-bold text-xs sm:text-sm tracking-widest uppercase transition-colors"
-              style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9)" }}
+              className="px-7 py-3 border-2 border-[#BFA060] hover:border-[#BFA060] text-[#BFA060] font-bold text-xs sm:text-sm tracking-widest uppercase transition-colors"
+              style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9)", boxShadow: "0 0 12px rgba(191,160,96,0.25)" }}
             >
               See Events
             </Link>
             <Link
               href="/visit"
-              className="px-7 py-3 border border-[#DDD8CC]/40 hover:border-[#DDD8CC]/70 text-white/90 font-bold text-xs sm:text-sm tracking-widest uppercase transition-colors"
-              style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9)" }}
+              className="px-7 py-3 border-2 border-white/60 hover:border-white/90 text-white/90 font-bold text-xs sm:text-sm tracking-widest uppercase transition-colors"
+              style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9)", boxShadow: "0 0 12px rgba(255,255,255,0.1)" }}
             >
               Find Us
             </Link>
