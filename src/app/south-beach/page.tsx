@@ -22,48 +22,6 @@ export default function SouthBeachPage() {
         </div>
       </section>
 
-      {/* INFO */}
-      <section className="border-t border-[#BFA060]/20 py-16 px-4 bg-[#0a100a]">
-        <div className="max-w-4xl mx-auto grid sm:grid-cols-2 gap-12">
-
-          <div>
-            <p className="text-[#BFA060] text-xs tracking-[0.3em] uppercase mb-4 border-b border-[#BFA060]/15 pb-2">Location</p>
-            <p className="text-[#DDD8CC]/70 leading-relaxed">201 Citizens Dock Road</p>
-            <p className="text-[#DDD8CC]/70 mb-4">Crescent City, CA 95531</p>
-            <a href="tel:7074601331" className="block text-[#DDD8CC]/60 hover:text-[#BFA060] transition-colors mb-2">
-              (707) 460-1331
-            </a>
-            <a href="mailto:portopints@gmail.com" className="block text-[#DDD8CC]/60 hover:text-[#BFA060] transition-colors">
-              portopints@gmail.com
-            </a>
-          </div>
-
-          <div>
-            <p className="text-[#BFA060] text-xs tracking-[0.3em] uppercase mb-4 border-b border-[#BFA060]/15 pb-2">Hours</p>
-            <div className="space-y-1 text-sm">
-              <div className="flex justify-between gap-4">
-                <span className="text-[#DDD8CC]/50">Monday – Tuesday</span>
-                <span className="text-[#DDD8CC]/40">Closed</span>
-              </div>
-              <div className="flex justify-between gap-4">
-                <span className="text-[#DDD8CC]/50">Wednesday – Thursday</span>
-                <span className="text-[#DDD8CC]/70">3pm – 10pm</span>
-              </div>
-              <div className="flex justify-between gap-4">
-                <span className="text-[#DDD8CC]/50">Friday – Saturday</span>
-                <span className="text-[#DDD8CC]/70">12pm – 12am</span>
-              </div>
-              <div className="flex justify-between gap-4">
-                <span className="text-[#DDD8CC]/50">Sunday</span>
-                <span className="text-[#DDD8CC]/70">12pm – 10pm</span>
-              </div>
-            </div>
-            <p className="text-[#DDD8CC]/20 text-xs mt-4">Hours subject to change.</p>
-          </div>
-
-        </div>
-      </section>
-
       {/* ACTIVITIES */}
       <section className="grain py-16 px-4 bg-[#0f170f]">
         <div className="max-w-4xl mx-auto">
@@ -110,6 +68,40 @@ export default function SouthBeachPage() {
           </Link>
         </div>
       </section>
+
+      {/* FOOTER */}
+      <footer className="bg-[#080d08] text-[#DDD8CC]/30 border-t border-[#BFA060]/10">
+        <div className="max-w-6xl mx-auto px-4 py-6">
+          <div className="flex gap-8 mb-4 text-sm">
+
+            <div>
+              <p className="text-[#BFA060] font-black tracking-widest text-base mb-2">South Beach</p>
+              <p className="text-[#DDD8CC]/50 leading-snug">201 Citizens Dock Road</p>
+              <p className="text-[#DDD8CC]/50 mb-2">Crescent City, CA 95531</p>
+              <a href="tel:7074601331" className="block text-[#DDD8CC]/50 hover:text-[#BFA060] transition-colors mb-1">
+                (707) 460-1331
+              </a>
+              <a href="mailto:portopints@gmail.com" className="block text-[#DDD8CC]/50 hover:text-[#BFA060] transition-colors">
+                portopints@gmail.com
+              </a>
+            </div>
+
+            <div className="text-center">
+              <p className="text-[#BFA060] font-black tracking-widest text-base mb-2">Hours</p>
+              <p className="text-[#DDD8CC]/50 leading-snug">Mon – Tue &nbsp; Closed</p>
+              <p className="text-[#DDD8CC]/50 leading-snug">Wed – Thu &nbsp; 3pm – 10pm</p>
+              <p className="text-[#DDD8CC]/50 leading-snug">Fri – Sat &nbsp;&nbsp;&nbsp;&nbsp; 12pm – 12am</p>
+              <p className="text-[#DDD8CC]/50">Sun &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12pm – 10pm</p>
+            </div>
+
+          </div>
+
+          <div className="border-t border-[#BFA060]/10 pt-4 flex flex-col sm:flex-row justify-between gap-1 text-xs">
+            <span>© {new Date().getFullYear()} Port O&apos; Pints South Beach · Crescent City, CA</span>
+            <span className="text-[#DDD8CC]/30">Crescent City Harbor · 201 Citizens Dock Rd</span>
+          </div>
+        </div>
+      </footer>
 
     </div>
   );
