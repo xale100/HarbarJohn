@@ -101,7 +101,9 @@ export default function AboutPage() {
       </section>
 
       {/* BREWING PHOTOS */}
-      <section className="py-8 px-4 bg-[#080d08]">
+      <section className="relative py-8 px-4 bg-[#080d08]">
+        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#BFA060]/15 to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#BFA060]/10 to-transparent pointer-events-none z-10" />
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-2 gap-3 sm:gap-5">
 
