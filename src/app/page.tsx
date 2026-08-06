@@ -160,8 +160,20 @@ export default async function Home() {
       </section>
 
       {/* UPCOMING SHOWS */}
-      <section className="grain py-10 sm:py-14 px-4 border-t-2 border-[#BFA060]/50" style={{ background: "radial-gradient(ellipse 48% 35% at 25% 25%, rgba(180,148,85,0.055) 0%, transparent 100%), #0f170f" }}>
-        <div className="max-w-4xl mx-auto">
+      <section className="grain relative py-10 sm:py-14 px-4 border-t-2 border-[#BFA060]/50 overflow-hidden">
+        {process.env.NEXT_PUBLIC_ASSETS_URL && (
+          <>
+            <Image
+              src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/live-music/7-person-band-playing-live-1200w.webp`}
+              alt=""
+              fill
+              className="object-cover object-center"
+              quality={85}
+            />
+            <div className="absolute inset-0 bg-[#080d08]/80" />
+          </>
+        )}
+        <div className="relative z-10 max-w-4xl mx-auto">
           <div className="mb-8">
             <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-2">
               This Week&apos;s Events
