@@ -108,23 +108,33 @@ export default function AboutPage() {
               src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/beer/full-beer-front-of-bar-looking-up-at-the-top-of-the-glass-800w.webp`}
               alt=""
               fill
-              className="object-cover object-top -translate-y-1/2 scale-[2.3] origin-top brightness-125"
+              className="object-cover object-top -translate-y-1/2 scale-[2.3] origin-top brightness-150"
             />
-            <div className="absolute inset-0 bg-[#080d08]/65" />
+            <div className="absolute inset-0 bg-[#080d08]/55" />
           </>
         )}
         {/* Rising bubbles */}
         {[
-          { left: '4%',  bottom: '12%', size: 7,  delay: '0s',   dur: '5s'   },
-          { left: '13%', bottom: '6%',  size: 4,  delay: '1.8s', dur: '4.5s' },
-          { left: '23%', bottom: '18%', size: 11, delay: '0.6s', dur: '6s'   },
-          { left: '36%', bottom: '8%',  size: 5,  delay: '2.4s', dur: '4.2s' },
-          { left: '48%', bottom: '22%', size: 8,  delay: '1.1s', dur: '5.5s' },
-          { left: '59%', bottom: '10%', size: 4,  delay: '3.0s', dur: '4s'   },
-          { left: '70%', bottom: '15%', size: 9,  delay: '0.4s', dur: '6.5s' },
-          { left: '80%', bottom: '5%',  size: 5,  delay: '1.6s', dur: '5s'   },
-          { left: '90%', bottom: '20%', size: 7,  delay: '2.1s', dur: '4.8s' },
-          { left: '96%', bottom: '9%',  size: 4,  delay: '0.9s', dur: '5.2s' },
+          { left: '2%',  bottom: '8%',  size: 5,  delay: '0s',   dur: '5s'   },
+          { left: '7%',  bottom: '20%', size: 9,  delay: '2.3s', dur: '6.5s' },
+          { left: '12%', bottom: '5%',  size: 4,  delay: '1.1s', dur: '4.5s' },
+          { left: '17%', bottom: '30%', size: 6,  delay: '3.5s', dur: '5.5s' },
+          { left: '22%', bottom: '12%', size: 11, delay: '0.6s', dur: '6s'   },
+          { left: '27%', bottom: '22%', size: 4,  delay: '2.8s', dur: '4.2s' },
+          { left: '32%', bottom: '6%',  size: 7,  delay: '1.4s', dur: '5.2s' },
+          { left: '38%', bottom: '18%', size: 5,  delay: '0.3s', dur: '4.8s' },
+          { left: '43%', bottom: '35%', size: 8,  delay: '3.1s', dur: '5.8s' },
+          { left: '48%', bottom: '10%', size: 4,  delay: '1.9s', dur: '4s'   },
+          { left: '53%', bottom: '25%', size: 10, delay: '0.7s', dur: '6.2s' },
+          { left: '58%', bottom: '8%',  size: 5,  delay: '2.5s', dur: '5s'   },
+          { left: '63%', bottom: '18%', size: 4,  delay: '1.2s', dur: '4.6s' },
+          { left: '68%', bottom: '32%', size: 7,  delay: '3.8s', dur: '5.4s' },
+          { left: '73%', bottom: '12%', size: 9,  delay: '0.4s', dur: '6.5s' },
+          { left: '78%', bottom: '5%',  size: 4,  delay: '2.0s', dur: '4.3s' },
+          { left: '83%', bottom: '22%', size: 6,  delay: '1.5s', dur: '5.7s' },
+          { left: '88%', bottom: '10%', size: 5,  delay: '3.3s', dur: '4.9s' },
+          { left: '93%', bottom: '28%', size: 8,  delay: '0.8s', dur: '6s'   },
+          { left: '97%', bottom: '6%',  size: 4,  delay: '2.6s', dur: '5.1s' },
         ].map((b, i) => (
           <div
             key={i}
