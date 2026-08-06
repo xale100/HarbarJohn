@@ -28,6 +28,17 @@ const values = [
   { title: "Crescent City Roots", desc: "1215 Northcrest Dr, one minute off Highway 101. Right in the heart of Crescent City, near Redwood National Park." },
 ];
 
+function CornerFrame() {
+  return (
+    <>
+      <span className="absolute top-2 left-2 w-6 h-6 border-t-2 border-l-2 border-[#BFA060]/80 pointer-events-none z-10" />
+      <span className="absolute top-2 right-2 w-6 h-6 border-t-2 border-r-2 border-[#BFA060]/80 pointer-events-none z-10" />
+      <span className="absolute bottom-2 left-2 w-6 h-6 border-b-2 border-l-2 border-[#BFA060]/80 pointer-events-none z-10" />
+      <span className="absolute bottom-2 right-2 w-6 h-6 border-b-2 border-r-2 border-[#BFA060]/80 pointer-events-none z-10" />
+    </>
+  );
+}
+
 export default function AboutPage() {
   return (
     <div className="bg-[#080d08] text-[#DDD8CC]">
@@ -107,7 +118,8 @@ export default function AboutPage() {
 
             {/* Left column — flush top */}
             <div className="flex flex-col gap-3 sm:gap-5">
-              <div className="relative h-64 sm:h-80 overflow-hidden border border-[#BFA060]/30">
+              <div className="relative h-64 sm:h-80 overflow-hidden">
+                <CornerFrame />
                 {process.env.NEXT_PUBLIC_ASSETS_URL && (
                   <Image
                     src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/brewing/3-guys-filling-a-fresh-keg-1200w.webp`}
@@ -117,7 +129,8 @@ export default function AboutPage() {
                   />
                 )}
               </div>
-              <div className="relative h-56 sm:h-72 overflow-hidden border border-[#BFA060]/30">
+              <div className="relative h-56 sm:h-72 overflow-hidden">
+                <CornerFrame />
                 {process.env.NEXT_PUBLIC_ASSETS_URL && (
                   <Image
                     src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/hero/busy-front-of-bar-1200w.webp`}
@@ -131,7 +144,8 @@ export default function AboutPage() {
 
             {/* Right column — offset down */}
             <div className="flex flex-col gap-3 sm:gap-5 mt-12 sm:mt-20">
-              <div className="relative h-56 sm:h-72 overflow-hidden border border-[#BFA060]/30">
+              <div className="relative h-56 sm:h-72 overflow-hidden">
+                <CornerFrame />
                 {process.env.NEXT_PUBLIC_ASSETS_URL && (
                   <Image
                     src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/brewing/grayscale-porto-pints-brew-kettles-1200w.webp`}
@@ -141,7 +155,8 @@ export default function AboutPage() {
                   />
                 )}
               </div>
-              <div className="relative h-64 sm:h-80 overflow-hidden border border-[#BFA060]/30">
+              <div className="relative h-64 sm:h-80 overflow-hidden">
+                <CornerFrame />
                 {process.env.NEXT_PUBLIC_ASSETS_URL && (
                   <Image
                     src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/beer/full-beer-in-fancy-flute-with-brew-kettles-in-the-background-729w.webp`}
