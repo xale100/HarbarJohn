@@ -87,13 +87,14 @@ export default async function Home() {
       </section>
 
       {/* QUICK FACTS */}
-      <section className="border-t border-[#BFA060]/70 border-b border-[#BFA060]/70 py-8 px-4" style={{ background: "radial-gradient(ellipse 60% 100% at center, #1a3a1a 0%, #1a3a1a 55%, #080d08 100%)" }}>
-        <div className="relative flex items-center justify-center max-w-sm mx-auto">
-          <Image src="/images/award.png" alt="Award-winning" width={52} height={52} className="object-contain absolute left-0 top-1/2 -translate-y-1/2 opacity-90" />
-          <div className="text-center">
-            <p className="text-[#BFA060] text-base sm:text-xl font-black tracking-widest uppercase">Award-Winning</p>
-            <p className="text-[#DDD8CC]/50 text-sm sm:text-base">Craft Beer &amp; Root Beer</p>
-            <p className="text-[#DDD8CC]/70 text-sm sm:text-base tracking-widest whitespace-nowrap mt-1">Mon–Sun &nbsp;·&nbsp; 12–10pm</p>
+      <section className="border-t border-[#BFA060]/70 border-b border-[#BFA060]/70 py-5 px-4" style={{ background: "radial-gradient(ellipse 60% 100% at center, #1a3a1a 0%, #1a3a1a 55%, #080d08 100%)" }}>
+        <div className="max-w-5xl mx-auto flex items-center justify-center">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <Image src="/images/award.png" alt="Award-winning" width={56} height={56} className="object-contain w-8 h-8 sm:w-14 sm:h-14" />
+            <div>
+              <p className="text-[#BFA060] text-[11px] sm:text-sm font-black tracking-widest uppercase">Award-Winning</p>
+              <p className="text-[#DDD8CC]/40 text-[10px] sm:text-xs">Craft Beer &amp; Root Beer</p>
+            </div>
           </div>
         </div>
       </section>
