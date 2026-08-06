@@ -97,7 +97,7 @@ export default function VisitPage() {
             ))}
           </div>
 
-          <p className="text-[#DDD8CC]/20 text-xs mt-8 tracking-wide">
+          <p className="text-[#DDD8CC]/40 text-xs mt-8 tracking-wide">
             Kitchen hours may vary. Event nights may have extended hours. Check social media for holiday schedules.
           </p>
         </div>
