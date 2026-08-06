@@ -65,6 +65,9 @@ export default async function Home() {
           <p className="text-white/90 text-xs tracking-[0.2em] sm:tracking-[0.4em] uppercase mb-2 whitespace-nowrap">
             1215 Northcrest Dr &nbsp;·&nbsp; Crescent City, CA
           </p>
+          <p className="text-white/90 text-xs tracking-[0.2em] sm:tracking-[0.4em] uppercase mb-2">
+            Mon–Sun &nbsp;·&nbsp; 12–10pm
+          </p>
           <a
             href="tel:7074601154"
             className="block text-white/90 hover:text-[#BFA060] text-xs tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-7 sm:mb-10 transition-colors"
@@ -89,20 +92,12 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* QUICK FACTS */}
-      <section className="border-t border-[#BFA060]/70 border-b border-[#BFA060]/70 py-5 px-4" style={{ background: "radial-gradient(ellipse 60% 100% at center, #1a3a1a 0%, #1a3a1a 55%, #080d08 100%)" }}>
-        <div className="max-w-5xl mx-auto flex items-center justify-center divide-x divide-[#BFA060]/20">
-          <div className="px-6 sm:px-16 py-1 flex items-center gap-3 sm:gap-4 shrink-0">
-            <Image src="/images/award.png" alt="Award-winning" width={56} height={56} className="object-contain w-10 h-10 sm:w-16 sm:h-16" />
-            <div>
-              <p className="text-[#BFA060] text-sm sm:text-lg font-black tracking-widest uppercase">Award-Winning</p>
-              <p className="text-[#DDD8CC]/50 text-xs sm:text-sm">Craft Beer &amp; Root Beer</p>
-            </div>
-          </div>
-          <div className="px-6 sm:px-16 py-1 text-center shrink-0">
-            <p className="text-[#DDD8CC]/80 text-sm sm:text-lg font-semibold">Mon–Sun</p>
-            <p className="text-[#DDD8CC]/50 text-xs sm:text-sm">12–10pm</p>
-          </div>
+      {/* AWARD BADGE */}
+      <section className="border-t border-[#BFA060]/30 border-b border-[#BFA060]/30 py-10 px-4 bg-[#080d08] text-center">
+        <div className="flex flex-col items-center gap-3">
+          <Image src="/images/award.png" alt="Award-winning" width={72} height={72} className="object-contain opacity-90" />
+          <p className="text-[#BFA060] text-lg sm:text-2xl font-black tracking-[0.3em] uppercase">Award-Winning</p>
+          <p className="text-[#DDD8CC]/50 text-xs sm:text-sm tracking-widest uppercase">Craft Beer &amp; Root Beer</p>
         </div>
       </section>
 
