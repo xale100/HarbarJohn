@@ -9,7 +9,7 @@ const links = [
   { href: "/events", label: "Live Music & Events" },
   { href: "/menu", label: "Beer & Food" },
   { href: "/merch", label: "Merch" },
-  { href: "/about", label: "About" },
+  { href: "/about", label: "The Brewery" },
   { href: "/visit", label: "Visit Us" },
   { href: "/south-beach", label: "South Beach" },
 ];

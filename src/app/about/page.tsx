@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "About Port O' Pints — Crescent City's Award-Winning Brewery",
+  title: "The Brewery — Port O' Pints Crescent City",
   description:
     "Port O' Pints Brewing Co. — Crescent City's original craft brewery. 80+ beer awards, live music, and good people since 2014. Del Norte County's most awarded brewery near Redwood National Park.",
 };
@@ -50,7 +50,7 @@ export default function AboutPage() {
         )}
         <div className="relative z-10 text-center max-w-3xl mx-auto">
           <p className="text-white/90 text-5xl sm:text-8xl font-black tracking-widest leading-none" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
-            ABOUT
+            THE BREWERY
           </p>
         </div>
         <div className="relative z-10 text-center max-w-3xl mx-auto flex-1 flex flex-col items-center justify-center">
@@ -97,6 +97,63 @@ export default function AboutPage() {
             </p>
             <p className="text-[#BFA060] text-xs tracking-widest uppercase mt-3">— John Kirk, Owner</p>
           </blockquote>
+        </div>
+      </section>
+
+      {/* BREWING PHOTOS */}
+      <section className="py-16 px-4 bg-[#080d08]">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 gap-3 sm:gap-5">
+
+            {/* Left column — flush top */}
+            <div className="flex flex-col gap-3 sm:gap-5">
+              <div className="relative h-64 sm:h-80 overflow-hidden">
+                {process.env.NEXT_PUBLIC_ASSETS_URL && (
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/brewing/3-guys-filling-a-fresh-keg-1200w.webp`}
+                    alt="Filling a fresh keg at Port O' Pints"
+                    fill
+                    className="object-cover object-center"
+                  />
+                )}
+              </div>
+              <div className="relative h-56 sm:h-72 overflow-hidden">
+                {process.env.NEXT_PUBLIC_ASSETS_URL && (
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/hero/busy-front-of-bar-1200w.webp`}
+                    alt="Port O' Pints bar"
+                    fill
+                    className="object-cover object-center"
+                  />
+                )}
+              </div>
+            </div>
+
+            {/* Right column — offset down */}
+            <div className="flex flex-col gap-3 sm:gap-5 mt-12 sm:mt-20">
+              <div className="relative h-56 sm:h-72 overflow-hidden">
+                {process.env.NEXT_PUBLIC_ASSETS_URL && (
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/brewing/grayscale-porto-pints-brew-kettles-1200w.webp`}
+                    alt="Port O' Pints brew kettles"
+                    fill
+                    className="object-cover object-center"
+                  />
+                )}
+              </div>
+              <div className="relative h-64 sm:h-80 overflow-hidden">
+                {process.env.NEXT_PUBLIC_ASSETS_URL && (
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/beer/full-beer-in-fancy-flute-with-brew-kettles-in-the-background-729w.webp`}
+                    alt="Port O' Pints craft beer"
+                    fill
+                    className="object-cover object-center"
+                  />
+                )}
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
