@@ -5,10 +5,8 @@ import { getShows } from "@/lib/calendar";
 export const revalidate = 3600;
 
 const fallbackShows = [
-  { date: "Fri May 23", artist: "Open Mic Night", time: "7pm", genre: "", cover: "Free", photo: "" },
-  { date: "Sat May 24", artist: "Live Band — TBA", time: "8pm", genre: "", cover: "Free", photo: "" },
-  { date: "Fri May 30", artist: "Live Music — TBA", time: "8pm", genre: "", cover: "Free", photo: "" },
-  { date: "Sat May 31", artist: "Live Music — TBA", time: "8pm", genre: "", cover: "Free", photo: "" },
+  { date: "Every Friday", artist: "Live Music", time: "8pm", genre: "", cover: "Free", photo: "" },
+  { date: "Every Saturday", artist: "Live Music", time: "8pm", genre: "", cover: "Free", photo: "" },
 ];
 
 const beers = [
@@ -40,7 +38,7 @@ export default async function Home() {
               priority
               quality={85}
             />
-            <div className="absolute inset-0 bg-[#080d08]/75" />
+            <div className="absolute inset-0 bg-[#080d08]/55" />
           </>
         )}
         <div className="relative z-10 text-center max-w-3xl mx-auto">
