@@ -102,12 +102,12 @@ export default function AboutPage() {
 
       {/* BREWING PHOTOS */}
       <section className="py-8 px-4 bg-[#080d08]">
-        <div className="max-w-4xl mx-auto border border-[#BFA060]/30 p-4 sm:p-6">
+        <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-2 gap-3 sm:gap-5">
 
             {/* Left column — flush top */}
             <div className="flex flex-col gap-3 sm:gap-5">
-              <div className="relative h-64 sm:h-80 overflow-hidden">
+              <div className="relative h-64 sm:h-80 overflow-hidden border border-[#BFA060]/30">
                 {process.env.NEXT_PUBLIC_ASSETS_URL && (
                   <Image
                     src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/brewing/3-guys-filling-a-fresh-keg-1200w.webp`}
@@ -117,7 +117,7 @@ export default function AboutPage() {
                   />
                 )}
               </div>
-              <div className="relative h-56 sm:h-72 overflow-hidden">
+              <div className="relative h-56 sm:h-72 overflow-hidden border border-[#BFA060]/30">
                 {process.env.NEXT_PUBLIC_ASSETS_URL && (
                   <Image
                     src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/hero/busy-front-of-bar-1200w.webp`}
@@ -131,7 +131,7 @@ export default function AboutPage() {
 
             {/* Right column — offset down */}
             <div className="flex flex-col gap-3 sm:gap-5 mt-12 sm:mt-20">
-              <div className="relative h-56 sm:h-72 overflow-hidden">
+              <div className="relative h-56 sm:h-72 overflow-hidden border border-[#BFA060]/30">
                 {process.env.NEXT_PUBLIC_ASSETS_URL && (
                   <Image
                     src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/brewing/grayscale-porto-pints-brew-kettles-1200w.webp`}
@@ -141,7 +141,7 @@ export default function AboutPage() {
                   />
                 )}
               </div>
-              <div className="relative h-64 sm:h-80 overflow-hidden">
+              <div className="relative h-64 sm:h-80 overflow-hidden border border-[#BFA060]/30">
                 {process.env.NEXT_PUBLIC_ASSETS_URL && (
                   <Image
                     src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/beer/full-beer-in-fancy-flute-with-brew-kettles-in-the-background-729w.webp`}
