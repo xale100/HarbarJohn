@@ -125,7 +125,7 @@ export default function RootLayout({
         </a>
         <div className="fixed top-0 right-0 bottom-0 w-1 bg-[#BFA060] z-40 pointer-events-none" />
         <Nav />
-        <main id="main-content" className="min-h-screen pt-[57px]">{children}</main>
+        <main id="main-content" className="min-h-screen pt-[61px]">{children}</main>
         <Footer />
       </body>
     </html>
