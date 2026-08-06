@@ -38,9 +38,9 @@ export default async function Home() {
             <div className="absolute inset-0 bg-[#080d08]/40" />
           </>
         )}
-        <div className="relative z-10 text-center max-w-3xl mx-auto">
+        <div className="relative z-10 text-center max-w-3xl mx-auto -mt-8 sm:-mt-12">
 
-          <div className="mb-8 flex justify-center">
+          <div className="mb-5 flex justify-center">
             <Image
               src="/images/logo-2.png"
               alt="Port O' Pints Brewing Co."
@@ -55,8 +55,12 @@ export default async function Home() {
             PORT<span className="text-[#DDD8CC]/40"> O&apos; </span>PINTS
           </h1>
 
-          <p className="text-white/90 text-sm sm:text-base tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-3">
+          <p className="text-white/90 text-sm sm:text-base tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-2">
             Brewery &amp; Live Music &nbsp;·&nbsp; Est. 2014
+          </p>
+
+          <p className="text-white/90 text-xs tracking-[0.2em] sm:tracking-[0.4em] uppercase mb-2 whitespace-nowrap">
+            Mon–Sun &nbsp;·&nbsp; 12–10pm
           </p>
 
           <p className="text-white/90 text-xs tracking-[0.2em] sm:tracking-[0.4em] uppercase mb-2 whitespace-nowrap">
