@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Hours, Location & Directions — Brewery in Crescent City",
@@ -49,17 +50,31 @@ export default function VisitPage() {
     <div className="bg-[#080d08] text-[#DDD8CC]">
 
       {/* HERO */}
-      <section className="grain py-24 px-4 bg-[#080d08]">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl sm:text-7xl font-black text-[#DDD8CC] mb-4 tracking-wide uppercase">
-            Visit Port O' Pints Brewing Co.
+      <section className="grain relative min-h-[50vh] flex flex-col items-center justify-center px-4 bg-[#080d08] overflow-hidden">
+        {process.env.NEXT_PUBLIC_ASSETS_URL && (
+          <>
+            <Image
+              src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/beer/2-beers-at-the-beach-on-a-rock-succulants-looking-at-the-ocean-768w.webp`}
+              alt=""
+              fill
+              className="object-cover object-center"
+              priority
+              quality={85}
+            />
+            <div className="absolute inset-0 bg-[#080d08]/55" />
+          </>
+        )}
+        <div className="relative z-10 text-center max-w-4xl mx-auto">
+          <h1 className="text-5xl sm:text-7xl font-black text-[#BFA060] mb-4 tracking-widest uppercase leading-none" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
+            Visit Us
           </h1>
-          <p className="text-[#DDD8CC]/40 text-sm tracking-widest uppercase">
+          <p className="text-white/90 text-sm tracking-widest uppercase mb-2" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9)" }}>
             1215 Northcrest Dr &nbsp;·&nbsp; Crescent City, CA 95531
           </p>
           <a
             href="tel:7074601154"
-            className="inline-block mt-3 text-[#BFA060]/70 hover:text-[#BFA060] text-sm tracking-widest uppercase transition-colors"
+            className="inline-block text-white/90 hover:text-[#BFA060] text-sm tracking-widest uppercase transition-colors"
+            style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9)" }}
           >
             707-460-1154
           </a>
