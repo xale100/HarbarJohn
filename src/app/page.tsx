@@ -58,16 +58,16 @@ export default async function Home() {
             PORT<span className="text-[#DDD8CC]/40"> O&apos; </span>PINTS
           </h1>
 
-          <p className="text-[#DDD8CC]/80 text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-3">
+          <p className="text-[#DDD8CC]/90 text-sm sm:text-base tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-3">
             Brewery &amp; Live Music &nbsp;·&nbsp; Est. 2014
           </p>
 
-          <p className="text-[#DDD8CC]/70 text-[10px] tracking-[0.2em] sm:tracking-[0.4em] uppercase mb-2 whitespace-nowrap">
+          <p className="text-[#DDD8CC]/90 text-xs tracking-[0.2em] sm:tracking-[0.4em] uppercase mb-2 whitespace-nowrap">
             1215 Northcrest Dr &nbsp;·&nbsp; Crescent City, CA
           </p>
           <a
             href="tel:7074601154"
-            className="block text-[#DDD8CC]/70 hover:text-[#BFA060] text-[10px] tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-7 sm:mb-10 transition-colors"
+            className="block text-[#DDD8CC]/90 hover:text-[#BFA060] text-xs tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-7 sm:mb-10 transition-colors"
           >
             707-460-1154
           </a>
@@ -75,13 +75,13 @@ export default async function Home() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/events"
-              className="px-7 py-3 border border-[#BFA060]/60 hover:border-[#BFA060] text-[#BFA060] font-bold text-[10px] sm:text-sm tracking-widest uppercase transition-colors"
+              className="px-7 py-3 border border-[#BFA060]/60 hover:border-[#BFA060] text-[#BFA060] font-bold text-xs sm:text-sm tracking-widest uppercase transition-colors"
             >
               See Events
             </Link>
             <Link
               href="/visit"
-              className="px-7 py-3 border border-[#DDD8CC]/40 hover:border-[#DDD8CC]/70 text-[#DDD8CC]/90 font-bold text-[10px] sm:text-sm tracking-widest uppercase transition-colors"
+              className="px-7 py-3 border border-[#DDD8CC]/40 hover:border-[#DDD8CC]/70 text-[#DDD8CC]/90 font-bold text-xs sm:text-sm tracking-widest uppercase transition-colors"
             >
               Find Us
             </Link>
