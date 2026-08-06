@@ -30,6 +30,19 @@ export default async function Home() {
 
       {/* HERO */}
       <section className="grain relative min-h-[75vh] flex flex-col items-center justify-center px-4 bg-[#080d08]">
+        {process.env.NEXT_PUBLIC_ASSETS_URL && (
+          <>
+            <Image
+              src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/beer/full-beer-in-fancy-flute-with-brew-kettles-in-the-background-729w.webp`}
+              alt=""
+              fill
+              className="object-cover object-center"
+              priority
+              quality={85}
+            />
+            <div className="absolute inset-0 bg-[#080d08]/75" />
+          </>
+        )}
         <div className="relative z-10 text-center max-w-3xl mx-auto">
 
           <div className="mb-8 flex justify-center">
