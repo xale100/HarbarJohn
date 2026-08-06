@@ -55,20 +55,21 @@ export default async function Home() {
             PORT<span className="text-[#DDD8CC]/40"> O&apos; </span>PINTS
           </h1>
 
-          <p className="text-white/90 text-sm sm:text-base tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-2">
+          <p className="text-white/90 text-sm sm:text-base tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-2" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9), 0 2px 24px rgba(0,0,0,0.7)" }}>
             Brewery &amp; Live Music &nbsp;·&nbsp; Est. 2014
           </p>
 
-          <p className="text-white/90 text-xs tracking-[0.2em] sm:tracking-[0.4em] uppercase mb-2 whitespace-nowrap">
+          <p className="text-white/90 text-xs tracking-[0.2em] sm:tracking-[0.4em] uppercase mb-2 whitespace-nowrap" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9), 0 2px 24px rgba(0,0,0,0.7)" }}>
             Mon–Sun &nbsp;·&nbsp; 12–10pm
           </p>
 
-          <p className="text-white/90 text-xs tracking-[0.2em] sm:tracking-[0.4em] uppercase mb-2 whitespace-nowrap">
+          <p className="text-white/90 text-xs tracking-[0.2em] sm:tracking-[0.4em] uppercase mb-2 whitespace-nowrap" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9), 0 2px 24px rgba(0,0,0,0.7)" }}>
             1215 Northcrest Dr &nbsp;·&nbsp; Crescent City, CA
           </p>
           <a
             href="tel:7074601154"
             className="block text-white/90 hover:text-[#BFA060] text-xs tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-7 sm:mb-10 transition-colors"
+            style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9), 0 2px 24px rgba(0,0,0,0.7)" }}
           >
             707-460-1154
           </a>
@@ -77,12 +78,14 @@ export default async function Home() {
             <Link
               href="/events"
               className="px-7 py-3 border border-[#BFA060]/60 hover:border-[#BFA060] text-[#BFA060] font-bold text-xs sm:text-sm tracking-widest uppercase transition-colors"
+              style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9)" }}
             >
               See Events
             </Link>
             <Link
               href="/visit"
               className="px-7 py-3 border border-[#DDD8CC]/40 hover:border-[#DDD8CC]/70 text-white/90 font-bold text-xs sm:text-sm tracking-widest uppercase transition-colors"
+              style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9)" }}
             >
               Find Us
             </Link>
