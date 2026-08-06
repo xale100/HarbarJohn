@@ -102,8 +102,24 @@ export default function AboutPage() {
 
       {/* BREWING PHOTOS */}
       <section className="relative py-8 px-4 bg-[#080d08]">
-        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#BFA060]/15 to-transparent pointer-events-none z-10" />
-        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#BFA060]/10 to-transparent pointer-events-none z-10" />
+        <svg className="absolute top-0 left-0 w-full pointer-events-none z-10" height="110" viewBox="0 0 1440 110" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="topWaveGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#BFA060" stopOpacity="0.45" />
+              <stop offset="100%" stopColor="#BFA060" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <path d="M0,0 L1440,0 L1440,60 C1200,100 960,20 720,70 C480,115 240,30 0,75 Z" fill="url(#topWaveGrad)" />
+        </svg>
+        <svg className="absolute bottom-0 left-0 w-full pointer-events-none z-10" height="110" viewBox="0 0 1440 110" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="botWaveGrad" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%" stopColor="#BFA060" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#BFA060" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <path d="M0,110 L1440,110 L1440,50 C1200,10 960,90 720,40 C480,0 240,80 0,35 Z" fill="url(#botWaveGrad)" />
+        </svg>
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-2 gap-3 sm:gap-5">
 
