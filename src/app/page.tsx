@@ -91,17 +91,15 @@ export default async function Home() {
 
       {/* QUICK FACTS */}
       <section className="border-t border-[#BFA060]/70 border-b border-[#BFA060]/70 py-8 px-4" style={{ background: "radial-gradient(ellipse 60% 100% at center, #1a3a1a 0%, #1a3a1a 55%, #080d08 100%)" }}>
-        <div className="max-w-5xl mx-auto flex items-center justify-center divide-x divide-[#BFA060]/20">
-          <div className="px-6 sm:px-16 py-1 flex items-center gap-3 sm:gap-4 shrink-0">
-            <Image src="/images/award.png" alt="Award-winning" width={56} height={56} className="object-contain w-10 h-10 sm:w-16 sm:h-16" />
-            <div>
+        <div className="flex flex-col items-center gap-2 text-center">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <Image src="/images/award.png" alt="Award-winning" width={56} height={56} className="object-contain w-10 h-10 sm:w-14 sm:h-14" />
+            <div className="text-left">
               <p className="text-[#BFA060] text-base sm:text-xl font-black tracking-widest uppercase">Award-Winning</p>
               <p className="text-[#DDD8CC]/50 text-sm sm:text-base">Craft Beer &amp; Root Beer</p>
             </div>
           </div>
-          <div className="px-6 sm:px-16 py-1 text-center shrink-0">
-            <p className="text-[#DDD8CC]/80 text-base sm:text-xl font-semibold whitespace-nowrap">Mon–Sun &nbsp;·&nbsp; 12–10pm</p>
-          </div>
+          <p className="text-[#DDD8CC]/70 text-sm sm:text-base tracking-widest whitespace-nowrap">Mon–Sun &nbsp;·&nbsp; 12–10pm</p>
         </div>
       </section>
 
