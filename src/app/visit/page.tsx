@@ -62,6 +62,7 @@ export default function VisitPage() {
               quality={85}
             />
             <div className="absolute inset-0 bg-[#080d08]/35" />
+            <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#0f170f] to-transparent" />
           </>
         )}
         <div className="relative z-10 text-center">
