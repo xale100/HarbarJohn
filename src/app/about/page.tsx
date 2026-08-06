@@ -101,8 +101,8 @@ export default function AboutPage() {
       </section>
 
       {/* BREWING PHOTOS */}
-      <section className="py-16 px-4 bg-[#080d08] border-t border-b border-[#BFA060]/20">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-8 px-4 bg-[#080d08]">
+        <div className="max-w-4xl mx-auto border border-[#BFA060]/30 p-4 sm:p-6">
           <div className="grid grid-cols-2 gap-3 sm:gap-5">
 
             {/* Left column — flush top */}
