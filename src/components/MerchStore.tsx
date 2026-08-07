@@ -228,8 +228,8 @@ export default function MerchStore({ products, squareAppId, squareLocationId, sq
               ) : (
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                   {products.map(p => {
-                    const enabledPrices = p.sync_variants.filter(v => v.is_enabled).map(v => parseFloat(v.retail_price));
-                    const minPrice = enabledPrices.length > 0 ? Math.min(...enabledPrices) : 0;
+                    const enabledPrices = p.sync_variants.filter(v => v.is_enabled).map(v => parseFloat(v.retail_price)).filter(n => n > 0);
+                    const minPrice = enabledPrices.length > 0 ? Math.min(...enabledPrices) : null;
                     return (
                       <button
                         key={p.sync_product.id}
@@ -240,17 +240,24 @@ export default function MerchStore({ products, squareAppId, squareLocationId, sq
                         }}
                         className="group text-left border border-[#BFA060]/10 hover:border-[#BFA060]/40 transition-colors bg-[#080d08]"
                       >
-                        <div className="relative aspect-square overflow-hidden">
-                          <Image
-                            src={p.sync_product.thumbnail_url}
-                            alt={p.sync_product.name}
-                            fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-500"
-                          />
+                        <div className="relative aspect-square overflow-hidden bg-[#0a100a]">
+                          {p.sync_product.thumbnail_url ? (
+                            <Image
+                              src={p.sync_product.thumbnail_url}
+                              alt={p.sync_product.name}
+                              fill
+                              className="object-cover group-hover:scale-105 transition-transform duration-500"
+                              unoptimized
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center">
+                              <span className="text-[#DDD8CC]/20 text-xs tracking-widest uppercase">No image</span>
+                            </div>
+                          )}
                         </div>
                         <div className="p-3">
                           <p className="text-[#DDD8CC]/80 text-xs font-semibold truncate">{p.sync_product.name}</p>
-                          <p className="text-[#BFA060] text-xs mt-0.5">from ${minPrice.toFixed(2)}</p>
+                          {minPrice !== null && <p className="text-[#BFA060] text-xs mt-0.5">from ${minPrice.toFixed(2)}</p>}
                         </div>
                       </button>
                     );
@@ -267,13 +274,20 @@ export default function MerchStore({ products, squareAppId, squareLocationId, sq
             <div className="max-w-3xl mx-auto">
               {backBtn("grid")}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-                <div className="relative aspect-square border border-[#BFA060]/10 overflow-hidden">
-                  <Image
-                    src={variant.product.image || product.sync_product.thumbnail_url}
-                    alt={product.sync_product.name}
-                    fill
-                    className="object-cover"
-                  />
+                <div className="relative aspect-square border border-[#BFA060]/10 overflow-hidden bg-[#0a100a]">
+                  {(variant.product.image || product.sync_product.thumbnail_url) ? (
+                    <Image
+                      src={variant.product.image || product.sync_product.thumbnail_url}
+                      alt={product.sync_product.name}
+                      fill
+                      className="object-cover"
+                      unoptimized
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <span className="text-[#DDD8CC]/20 text-xs tracking-widest uppercase">No image yet</span>
+                    </div>
+                  )}
                 </div>
 
                 <div>
