@@ -98,13 +98,32 @@ export default async function MenuPage() {
     <div className="bg-[#080d08] text-[#DDD8CC]">
 
       {/* HERO */}
-      <section className="grain py-24 px-4 bg-[#080d08]">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl sm:text-7xl font-black text-[#DDD8CC] mb-4 tracking-wide uppercase">
-            Beer &amp; Food
+      <section className="grain relative min-h-[75vh] flex flex-col items-center px-4 py-12 bg-[#080d08] overflow-hidden">
+        {process.env.NEXT_PUBLIC_ASSETS_URL && (
+          <>
+            <Image
+              src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/beer/2-four-packs-of-canned-porto-pints-beer-1200w.webp`}
+              alt=""
+              fill
+              className="object-cover object-center"
+              priority
+              quality={85}
+            />
+            <div className="absolute inset-0 bg-[#080d08]/50" />
+            <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#080d08] to-transparent" />
+          </>
+        )}
+        <div className="relative z-10 text-center">
+          <p className="text-white/90 text-5xl sm:text-8xl font-black tracking-widest leading-none" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
+            BEER<span className="text-white/30"> &amp; </span>FOOD
+          </p>
+        </div>
+        <div className="relative z-10 text-center max-w-3xl mx-auto flex-1 flex flex-col items-center justify-center">
+          <h1 className="text-5xl sm:text-8xl font-black tracking-widest text-[#BFA060] leading-none mb-2 sm:mb-3" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
+            PORT<span className="text-[#DDD8CC]/40"> O&apos; </span>PINTS
           </h1>
-          <p className="text-[#DDD8CC]/40 text-sm tracking-widest uppercase">
-            Brewed on-site by Devin Beach
+          <p className="text-white/90 text-sm sm:text-base tracking-[0.2em] sm:tracking-[0.3em] uppercase" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
+            Crafted on-site by Devin Beach
           </p>
         </div>
       </section>
