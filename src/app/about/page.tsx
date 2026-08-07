@@ -188,7 +188,7 @@ export default function AboutPage() {
                 <div className="border border-[#BFA060]/55 p-[3px]">
                   <div className="relative h-[300px] sm:h-[440px] overflow-hidden border border-[#BFA060]/85">
                     {process.env.NEXT_PUBLIC_ASSETS_URL && (
-                      <Image src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/brewing/devin-showing-off-his-international-beer-award-of-excellence-2025-around-his-neck-800w.webp`} alt="Devin Beach — International Beer Award of Excellence 2025" fill className="object-cover object-center" />
+                      <Image src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/beer/full-beer-in-fancy-flute-with-brew-kettles-in-the-background-729w.webp`} alt="Port O' Pints craft beer" fill className="object-cover object-center" />
                     )}
                   </div>
                 </div>
