@@ -237,7 +237,7 @@ export default function MerchStore({ products, initialProductId, squareAppId, sq
       <div className="bg-[#080d08] text-[#DDD8CC]" aria-live="polite" aria-atomic="false">
 
         {/* HERO — grid only */}
-        <section className={`grain relative min-h-[75vh] flex flex-col items-center px-4 py-12 bg-[#080d08] overflow-hidden border-b border-[#BFA060]/10 ${step !== "grid" ? "hidden" : ""}`}>
+        <section className={`grain relative min-h-[75vh] flex flex-col items-center px-4 pt-12 pb-56 bg-[#080d08] overflow-hidden ${step !== "grid" ? "hidden" : ""}`}>
           {process.env.NEXT_PUBLIC_ASSETS_URL && (
             <>
               <Image
@@ -249,7 +249,7 @@ export default function MerchStore({ products, initialProductId, squareAppId, sq
                 unoptimized
               />
               <div className="absolute inset-0 bg-[#080d08]/45" />
-              <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#0f170f] to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-72 bg-gradient-to-t from-[#0f170f] to-transparent" />
             </>
           )}
           <div className="relative z-10 text-center">
@@ -269,7 +269,7 @@ export default function MerchStore({ products, initialProductId, squareAppId, sq
 
         {/* GRID */}
         {step === "grid" && (
-          <section className="grain py-16 px-4 bg-[#0f170f]">
+          <section className="grain -mt-48 pb-16 px-4 bg-transparent">
             <div className="max-w-5xl mx-auto">
               {products.length === 0 ? (
                 <p className="text-[#DDD8CC]/30 text-center text-sm tracking-widest uppercase py-20">
