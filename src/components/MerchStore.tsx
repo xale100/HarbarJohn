@@ -231,8 +231,8 @@ export default function MerchStore({ products, initialProductId, squareAppId, sq
 
       <div className="bg-[#080d08] text-[#DDD8CC]" aria-live="polite" aria-atomic="false">
 
-        {/* HERO */}
-        <section className="grain relative min-h-[75vh] flex flex-col items-center px-4 py-12 bg-[#080d08] overflow-hidden border-b border-[#BFA060]/10">
+        {/* HERO — grid only */}
+        <section className={`grain relative min-h-[75vh] flex flex-col items-center px-4 py-12 bg-[#080d08] overflow-hidden border-b border-[#BFA060]/10 ${step !== "grid" ? "hidden" : ""}`}>
           {process.env.NEXT_PUBLIC_ASSETS_URL && (
             <>
               <Image
