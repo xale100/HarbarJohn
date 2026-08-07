@@ -414,31 +414,32 @@ export default function MerchStore({ products, initialProductId, squareAppId, sq
           const others = products.filter(p => p.sync_product.id !== product.sync_product.id);
           if (others.length === 0) return null;
           return (
-            <section className="grain py-12 px-4 bg-[#080d08] border-t border-[#BFA060]/10">
-              <div className="max-w-5xl mx-auto">
-                <p className="text-[#BFA060] text-xs tracking-[0.3em] uppercase mb-6">More Merch</p>
-                <div className="flex gap-4 overflow-x-auto scrollbar-none pb-2">
-                  {others.map(p => (
-                    <button
-                      key={p.sync_product.id}
-                      onClick={() => {
-                        setProduct(p);
-                        setVariant(p.sync_variants.find(v => v.is_enabled) ?? p.sync_variants[0] ?? null);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                      className="shrink-0 w-36 sm:w-44 text-left group border border-[#BFA060]/10 hover:border-[#BFA060]/40 bg-[#080d08] transition-colors"
-                    >
-                      <div className="relative aspect-square overflow-hidden bg-[#0a0a0a]">
-                        {p.sync_product.thumbnail_url && (
-                          <Image src={p.sync_product.thumbnail_url} alt={p.sync_product.name} fill className="object-contain brightness-75 group-hover:brightness-90 transition-all duration-300" unoptimized />
-                        )}
-                      </div>
-                      <div className="p-3">
-                        <p className="text-[#DDD8CC]/80 text-xs font-semibold leading-tight">{p.sync_product.name}</p>
-                      </div>
-                    </button>
-                  ))}
-                </div>
+            <section className="grain py-12 bg-[#080d08] border-t border-[#BFA060]/10 overflow-hidden">
+              <p className="text-[#BFA060] text-xs tracking-[0.3em] uppercase mb-6 px-4">More Merch</p>
+              <div
+                className="flex gap-4"
+                style={{ animation: "marquee 28s linear infinite", width: "max-content", willChange: "transform" }}
+              >
+                {[...others, ...others].map((p, i) => (
+                  <button
+                    key={`${p.sync_product.id}-${i}`}
+                    onClick={() => {
+                      setProduct(p);
+                      setVariant(p.sync_variants.find(v => v.is_enabled) ?? p.sync_variants[0] ?? null);
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                    className="shrink-0 w-36 sm:w-44 text-left group border border-[#BFA060]/10 hover:border-[#BFA060]/40 bg-[#080d08] transition-colors"
+                  >
+                    <div className="relative aspect-square overflow-hidden bg-[#0a0a0a]">
+                      {p.sync_product.thumbnail_url && (
+                        <Image src={p.sync_product.thumbnail_url} alt={p.sync_product.name} fill className="object-contain brightness-75 group-hover:brightness-90 transition-all duration-300" unoptimized />
+                      )}
+                    </div>
+                    <div className="p-3">
+                      <p className="text-[#DDD8CC]/80 text-xs font-semibold leading-tight">{p.sync_product.name}</p>
+                    </div>
+                  </button>
+                ))}
               </div>
             </section>
           );
