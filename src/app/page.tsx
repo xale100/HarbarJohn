@@ -147,8 +147,8 @@ export default async function Home() {
         <div className="relative z-10 max-w-2xl mx-auto">
           <div className="h-px bg-[#BFA060]/25 mb-6" />
           <p className="text-[#DDD8CC]/75 italic leading-relaxed text-base sm:text-xl">
-            <span className="text-[#BFA060] text-6xl sm:text-7xl font-black not-italic leading-[0.75] float-left mr-3 mt-1">P</span>
-            laceholder for we make beer
+            <span className="text-[#BFA060] text-6xl sm:text-7xl font-black not-italic leading-[0.75] float-left mr-3 mt-1">A</span>
+            ward winning craft beers… brewed in house... carefully tended on our 7 barrel direct-fire system.
           </p>
           <div className="clear-both" />
           <div className="mt-6 flex items-center gap-4">
