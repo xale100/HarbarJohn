@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getShows } from "@/lib/calendar";
+import { getProducts } from "@/lib/printful";
 
 export const revalidate = 3600;
 
@@ -16,7 +17,7 @@ const beers = [
 ];
 
 export default async function Home() {
-  const liveShows = await getShows(4);
+  const [liveShows, products] = await Promise.all([getShows(4), getProducts(3600)]);
   const shows = (liveShows && liveShows.length > 0)
     ? liveShows.map(s => ({ date: s.date, artist: s.artist, time: s.time, genre: s.genre, cover: s.cover, photo: s.photo }))
     : fallbackShows;
@@ -274,48 +275,50 @@ export default async function Home() {
           className="flex gap-4"
           style={{ animation: "marquee 32s linear infinite", width: "max-content", willChange: "transform" }}
         >
-          {[
-            { name: "Port O&apos; Pints Tee",   anim: null },
-            { name: "Sweatshirt",    anim: "breathe 3s ease-in-out infinite" },
-            { name: "Snapback",      anim: null },
-            { name: "Pint Glass",    anim: null },
-            { name: "Growler",       anim: "pour 3.5s ease-in-out infinite" },
-            { name: "Koozie",        anim: null },
-            { name: "Sticker Pack",  anim: null },
-            { name: "Tote Bag",      anim: null },
-            { name: "Button-Down",   anim: null },
-            { name: "Work Hat",      anim: null },
-            { name: "Port O&apos; Pints Tee",   anim: null },
-            { name: "Sweatshirt",    anim: "breathe 3s ease-in-out infinite" },
-            { name: "Snapback",      anim: null },
-            { name: "Pint Glass",    anim: null },
-            { name: "Growler",       anim: "pour 3.5s ease-in-out infinite" },
-            { name: "Koozie",        anim: null },
-            { name: "Sticker Pack",  anim: null },
-            { name: "Tote Bag",      anim: null },
-            { name: "Button-Down",   anim: null },
-            { name: "Work Hat",      anim: null },
-          ].map(({ name, anim }, i) => (
-            <Link
-              key={`${name}-${i}`}
-              href="/merch"
-              className="group border border-[#BFA060]/10 hover:border-[#BFA060]/60 bg-[#080d08] hover:bg-[#1a3a1a] transition-all duration-300 p-5 flex flex-col items-center gap-4 w-36 sm:w-44 shrink-0"
-            >
-              <div className="w-full aspect-square flex items-center justify-center overflow-hidden">
-                <Image
-                  src="/images/logo-2.png"
-                  alt={name}
-                  width={64}
-                  height={64}
-                  className="opacity-20 group-hover:opacity-60 transition-opacity duration-300 object-contain"
-                  style={anim ? { animation: anim } : {}}
-                />
-              </div>
-              <p className="text-[#DDD8CC]/40 group-hover:text-[#DDD8CC]/80 text-[9px] tracking-widest uppercase font-bold transition-colors text-center">
-                {name}
-              </p>
-            </Link>
-          ))}
+          {(products.length > 0 ? [...products, ...products] : [
+            { name: "Port O' Pints Tee" }, { name: "Sweatshirt" }, { name: "Snapback" },
+            { name: "Pint Glass" }, { name: "Growler" }, { name: "Koozie" },
+            { name: "Sticker Pack" }, { name: "Tote Bag" }, { name: "Button-Down" },
+            { name: "Port O' Pints Tee" }, { name: "Sweatshirt" }, { name: "Snapback" },
+            { name: "Pint Glass" }, { name: "Growler" }, { name: "Koozie" },
+            { name: "Sticker Pack" }, { name: "Tote Bag" }, { name: "Button-Down" },
+          ]).map((item, i) => {
+            const isReal = "sync_product" in item;
+            const name = isReal ? item.sync_product.name : (item as { name: string }).name;
+            const thumb = isReal ? item.sync_product.thumbnail_url : null;
+            return (
+              <Link
+                key={i}
+                href="/merch"
+                className="group border border-[#BFA060]/10 hover:border-[#BFA060]/60 bg-[#080d08] hover:bg-[#1a3a1a] transition-all duration-300 p-3 flex flex-col items-center gap-3 w-36 sm:w-44 shrink-0"
+              >
+                <div className="w-full aspect-square overflow-hidden bg-[#0a0a0a] relative">
+                  {thumb ? (
+                    <Image
+                      src={thumb}
+                      alt={name}
+                      fill
+                      className="object-contain brightness-[0.6] group-hover:brightness-75 transition-all duration-300"
+                      unoptimized
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <Image
+                        src="/images/logo-2.png"
+                        alt={name}
+                        width={48}
+                        height={48}
+                        className="opacity-20 group-hover:opacity-50 transition-opacity duration-300 object-contain"
+                      />
+                    </div>
+                  )}
+                </div>
+                <p className="text-[#DDD8CC]/40 group-hover:text-[#DDD8CC]/80 text-[9px] tracking-widest uppercase font-bold transition-colors text-center leading-tight">
+                  {name}
+                </p>
+              </Link>
+            );
+          })}
         </div>
       </section>
 

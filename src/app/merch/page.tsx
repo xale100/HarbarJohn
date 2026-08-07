@@ -1,35 +1,6 @@
 import type { Metadata } from "next";
 import MerchStore from "@/components/MerchStore";
-
-export const metadata: Metadata = {
-  title: "Merch — Port O' Pints Brewing Co.",
-  description: "Official Port O' Pints merchandise. Tees, hats, glassware, and more from Crescent City's award-winning brewery.",
-};
-
-async function getProducts() {
-  try {
-    const listRes = await fetch("https://api.printful.com/store/products?limit=100", {
-      headers: { Authorization: `Bearer ${process.env.PRINTFUL_API_KEY}` },
-      next: { revalidate: 300 },
-    });
-    if (!listRes.ok) return [];
-    const list = await listRes.json();
-
-    const detailed = await Promise.all(
-      (list.result ?? []).map(async (p: { id: number }) => {
-        const r = await fetch(`https://api.printful.com/store/products/${p.id}`, {
-          headers: { Authorization: `Bearer ${process.env.PRINTFUL_API_KEY}` },
-          next: { revalidate: 300 },
-        });
-        const d = await r.json();
-        return d.result ?? null;
-      })
-    );
-    return detailed.filter(Boolean);
-  } catch {
-    return [];
-  }
-}
+import { getProducts } from "@/lib/printful";
 
 const isSandbox = process.env.SQUARE_ENVIRONMENT === "sandbox";
 
