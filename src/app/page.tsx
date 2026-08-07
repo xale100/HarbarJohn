@@ -100,7 +100,7 @@ export default async function Home() {
             <Image src="/images/award.png" alt="Award-winning" width={56} height={56} className="object-contain w-10 h-10 sm:w-14 sm:h-14" />
             <div>
               <p className="text-[#BFA060] text-base sm:text-lg font-black tracking-widest uppercase">Award-Winning</p>
-              <p className="text-[#DDD8CC]/40 text-xs sm:text-sm">Craft Beer &amp; Root Beer</p>
+              <p className="text-white/60 text-xs sm:text-sm" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>Craft Beer &amp; Root Beer</p>
             </div>
           </div>
         </div>
@@ -235,7 +235,7 @@ export default async function Home() {
             </h2>
             <div className="flex items-center justify-between gap-4">
               <div>
-                <p className="text-[#DDD8CC]/40 text-[10px] sm:text-sm mb-1">Hand-crafted in Crescent City by Devin Beach</p>
+                <p className="text-white/60 text-[10px] sm:text-sm mb-1" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>Hand-crafted in Crescent City by Devin Beach</p>
                 <Link
                   href="/menu"
                   className="text-[#BFA060]/70 hover:text-[#BFA060] text-[10px] sm:text-xs tracking-widest uppercase transition-colors"
@@ -259,7 +259,7 @@ export default async function Home() {
               <div key={beer.name} className="flex items-center justify-between py-4 gap-4">
                 <p className="text-[#BFA060] font-black text-sm sm:text-lg tracking-wide">{beer.name}</p>
                 <div className="flex items-center gap-3 shrink-0">
-                  <p className="text-[#DDD8CC]/35 text-[10px] sm:text-sm hidden sm:block">{beer.style}</p>
+                  <p className="text-white/65 text-[10px] sm:text-sm hidden sm:block" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>{beer.style}</p>
                   <span className="border border-[#BFA060]/50 text-[#BFA060] text-[9px] sm:text-[10px] font-black tracking-widest px-1.5 py-0.5 leading-none">{beer.abv}</span>
                 </div>
               </div>

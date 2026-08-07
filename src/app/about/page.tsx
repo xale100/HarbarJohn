@@ -219,7 +219,7 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="flex-1 sm:self-center border-l border-[#BFA060]/20 pl-5">
-                  <p className="text-[#DDD8CC]/40 text-sm leading-relaxed">{p.desc}</p>
+                  <p className="text-white/65 text-sm leading-relaxed" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>{p.desc}</p>
                 </div>
               </div>
             ))}
@@ -239,7 +239,7 @@ export default function AboutPage() {
             {values.map((v) => (
               <div key={v.title} className="py-5 flex flex-col sm:flex-row gap-2 sm:gap-8">
                 <p className="text-[#DDD8CC] font-semibold sm:w-52 shrink-0">{v.title}</p>
-                <p className="text-[#DDD8CC]/40 text-sm leading-relaxed">{v.desc}</p>
+                <p className="text-white/65 text-sm leading-relaxed" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>{v.desc}</p>
               </div>
             ))}
           </div>
@@ -271,7 +271,7 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="border-t border-[#BFA060]/20 py-16 px-4 bg-[#080d08] text-center">
         <div className="max-w-xl mx-auto">
-          <p className="text-[#DDD8CC]/40 text-xs tracking-widest uppercase mb-6">
+          <p className="text-white/55 text-xs tracking-widest uppercase mb-6" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
             1215 Northcrest Dr &nbsp;·&nbsp; Crescent City, CA
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">

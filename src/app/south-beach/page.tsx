@@ -18,7 +18,7 @@ export default function SouthBeachPage() {
           <h1 className="text-5xl sm:text-7xl font-black text-[#DDD8CC] mb-4 tracking-wide uppercase">
             South Beach
           </h1>
-          <p className="text-[#DDD8CC]/40 text-sm tracking-widest uppercase">BrewCade &amp; Entertainment · Crescent City Harbor</p>
+          <p className="text-white/60 text-sm tracking-widest uppercase" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>BrewCade &amp; Entertainment · Crescent City Harbor</p>
         </div>
       </section>
 
@@ -36,7 +36,7 @@ export default function SouthBeachPage() {
             ].map((a) => (
               <div key={a.name} className="flex items-baseline justify-between py-3 border-b border-[#BFA060]/10">
                 <p className="text-[#DDD8CC] font-semibold">{a.name}</p>
-                {a.note && <p className="text-[#DDD8CC]/35 text-xs">{a.note}</p>}
+                {a.note && <p className="text-white/65 text-xs" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>{a.note}</p>}
               </div>
             ))}
           </div>

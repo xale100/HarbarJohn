@@ -33,10 +33,10 @@ export default function ActivitiesPage() {
           <h1 className="text-5xl sm:text-7xl font-black text-[#DDD8CC] mb-4 tracking-wide uppercase">
             Activities
           </h1>
-          <p className="text-[#DDD8CC]/40 text-sm tracking-widest uppercase">
+          <p className="text-white/60 text-sm tracking-widest uppercase" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
             Axe Throwing &nbsp;·&nbsp; Darts &nbsp;·&nbsp; Pool
           </p>
-          <p className="text-[#DDD8CC]/40 text-sm tracking-widest uppercase mt-1">
+          <p className="text-white/60 text-sm tracking-widest uppercase mt-1" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
             Arcade &nbsp;·&nbsp; Shuffleboard &nbsp;·&nbsp; Foosball
           </p>
         </div>
@@ -54,7 +54,7 @@ export default function ActivitiesPage() {
           <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-1">
             Group Packages
           </h2>
-          <p className="text-[#DDD8CC]/40 text-sm mb-6">
+          <p className="text-white/60 text-sm mb-6" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
             Birthdays, team outings, company events — call us and we&apos;ll put something together.
           </p>
 
@@ -62,7 +62,7 @@ export default function ActivitiesPage() {
             {packages.map((pkg) => (
               <div key={pkg.name} className="py-4 flex flex-col sm:flex-row gap-1 sm:gap-8">
                 <p className="text-[#DDD8CC] font-semibold sm:w-52 shrink-0">{pkg.name}</p>
-                <p className="text-[#DDD8CC]/40 text-sm leading-relaxed">{pkg.desc}</p>
+                <p className="text-white/65 text-sm leading-relaxed" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>{pkg.desc}</p>
               </div>
             ))}
           </div>
@@ -72,7 +72,7 @@ export default function ActivitiesPage() {
       {/* RESERVE CTA */}
       <section className="grain py-6 px-4 bg-[#0f170f]">
         <div className="max-w-4xl mx-auto">
-          <p className="text-[#DDD8CC]/40 text-xs tracking-widest uppercase mb-2">
+          <p className="text-white/55 text-xs tracking-widest uppercase mb-2" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
             Axe throwing reservations &amp; group bookings
           </p>
           <a
@@ -90,7 +90,7 @@ export default function ActivitiesPage() {
       {/* CTA */}
       <section className="border-t border-[#BFA060]/20 py-16 px-4 bg-[#080d08] text-center">
         <div className="max-w-xl mx-auto">
-          <p className="text-[#DDD8CC]/40 text-xs tracking-widest uppercase mb-6">
+          <p className="text-white/55 text-xs tracking-widest uppercase mb-6" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
             1215 Northcrest Dr &nbsp;·&nbsp; Crescent City, CA
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">

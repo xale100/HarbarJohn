@@ -97,7 +97,7 @@ export default function VisitPage() {
             ))}
           </div>
 
-          <p className="text-[#DDD8CC]/40 text-xs mt-8 tracking-wide">
+          <p className="text-white/40 text-xs mt-8 tracking-wide" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
             Kitchen hours may vary. Event nights may have extended hours. Check social media for holiday schedules.
           </p>
         </div>
@@ -115,18 +115,18 @@ export default function VisitPage() {
             <div>
               <div className="divide-y divide-[#BFA060]/10">
                 <div className="py-4 flex justify-between">
-                  <p className="text-[#DDD8CC]/40 text-sm">Address</p>
+                  <p className="text-white/60 text-sm" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>Address</p>
                   <div className="text-right">
                     <p className="text-[#DDD8CC] text-sm">1215 Northcrest Dr</p>
                     <p className="text-[#DDD8CC] text-sm">Crescent City, CA 95531</p>
                   </div>
                 </div>
                 <div className="py-4 flex justify-between items-baseline">
-                  <p className="text-[#DDD8CC]/40 text-sm">Phone</p>
+                  <p className="text-white/60 text-sm" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>Phone</p>
                   <a href="tel:7074601154" className="text-[#DDD8CC] text-sm hover:text-[#BFA060] transition-colors">707-460-1154</a>
                 </div>
                 <div className="py-4 flex justify-between items-baseline">
-                  <p className="text-[#DDD8CC]/40 text-sm">Neighborhood</p>
+                  <p className="text-white/60 text-sm" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>Neighborhood</p>
                   <p className="text-[#DDD8CC] text-sm">Northcrest · Off Highway 101</p>
                 </div>
               </div>
@@ -168,7 +168,7 @@ export default function VisitPage() {
             {faqs.map((faq) => (
               <div key={faq.q} className="py-5 flex flex-col sm:flex-row gap-2 sm:gap-8">
                 <p className="text-[#DDD8CC] font-semibold sm:w-64 shrink-0 text-sm">{faq.q}</p>
-                <p className="text-[#DDD8CC]/40 text-sm leading-relaxed">{faq.a}</p>
+                <p className="text-white/65 text-sm leading-relaxed" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>{faq.a}</p>
               </div>
             ))}
           </div>
@@ -178,7 +178,7 @@ export default function VisitPage() {
       {/* CTA */}
       <section className="border-t border-[#BFA060]/20 py-16 px-4 bg-[#080d08] text-center">
         <div className="max-w-xl mx-auto">
-          <p className="text-[#DDD8CC]/40 text-xs tracking-widest uppercase mb-3">
+          <p className="text-white/55 text-xs tracking-widest uppercase mb-3" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
             Reservations &amp; private events
           </p>
           <a

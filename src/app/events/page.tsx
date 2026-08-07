@@ -65,7 +65,7 @@ export default async function EventsPage() {
           </div>
 
           {isEmpty ? (
-            <p className="text-[#DDD8CC]/30 text-sm tracking-wide py-6">
+            <p className="text-white/50 text-sm tracking-wide py-6" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
               Nothing on the calendar yet — check back soon or follow us on social for updates.
             </p>
           ) : null}
@@ -82,9 +82,9 @@ export default async function EventsPage() {
                   <p className="text-[#BFA060] text-xs tracking-widest uppercase sm:w-32 shrink-0">{show.date}</p>
                   <div className="flex-1 min-w-0">
                     <p className="text-[#DDD8CC] font-semibold">{show.artist}</p>
-                    <p className="text-[#DDD8CC]/35 text-xs mt-0.5">{show.genre}</p>
+                    <p className="text-white/65 text-xs mt-0.5" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>{show.genre}</p>
                   </div>
-                  <p className="text-[#DDD8CC]/40 text-xs tracking-wide sm:text-right shrink-0">
+                  <p className="text-white/60 text-xs tracking-wide sm:text-right shrink-0" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
                     {show.time}
                     {show.cover !== "Free" && show.cover !== "TBA" && (
                       <span className="text-[#BFA060]"> &nbsp;·&nbsp; Cover {show.cover}</span>
@@ -95,7 +95,7 @@ export default async function EventsPage() {
             ))}
           </div>
 
-          <p className="text-[#DDD8CC]/20 text-xs mt-10 tracking-wide">
+          <p className="text-white/40 text-xs mt-10 tracking-wide" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
             Schedule subject to change. Follow us on social for last-minute updates.
           </p>
         </div>
