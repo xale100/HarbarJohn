@@ -120,6 +120,10 @@ export default function MerchStore({ products, initialProductId, squareAppId, sq
 
   async function fetchRates() {
     if (!variant) return;
+    if (!variant.id) {
+      setError("This item isn't fully set up in our store yet — please try another.");
+      return;
+    }
     setLoadingRates(true);
     setError(null);
     try {

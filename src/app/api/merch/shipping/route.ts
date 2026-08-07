@@ -10,6 +10,8 @@ export async function POST(req: NextRequest) {
     locale: "en_US",
   };
 
+  console.log("Printful shipping payload:", JSON.stringify(payload));
+
   const res = await fetch("https://api.printful.com/shipping/rates", {
     method: "POST",
     headers: {
