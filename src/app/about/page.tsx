@@ -157,7 +157,7 @@ export default function AboutPage() {
                 <div className="border border-[#BFA060]/55 p-[3px]">
                   <div className="relative h-64 sm:h-80 overflow-hidden border border-[#BFA060]/85">
                     {process.env.NEXT_PUBLIC_ASSETS_URL && (
-                      <Image src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/brewing/3-guys-filling-a-fresh-keg-1200w.webp`} alt="Filling a fresh keg at Port O' Pints" fill className="object-cover object-center" />
+                      <Image src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/brewing/3-guys-filling-porto-pints-brew-kettles-using-ladders-1200w.webp`} alt="Filling the brew kettles at Port O' Pints" fill className="object-cover object-center" />
                     )}
                   </div>
                 </div>
@@ -166,7 +166,7 @@ export default function AboutPage() {
                 <div className="border border-[#BFA060]/55 p-[3px]">
                   <div className="relative h-56 sm:h-72 overflow-hidden border border-[#BFA060]/85">
                     {process.env.NEXT_PUBLIC_ASSETS_URL && (
-                      <Image src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/hero/busy-front-of-bar-1200w.webp`} alt="Port O' Pints bar" fill className="object-cover object-center" />
+                      <Image src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/brewing/open-brew-kettle-showing-the-contents-inside-768w.webp`} alt="Inside the brew kettle at Port O' Pints" fill className="object-cover object-center" />
                     )}
                   </div>
                 </div>
@@ -179,7 +179,7 @@ export default function AboutPage() {
                 <div className="border border-[#BFA060]/55 p-[3px]">
                   <div className="relative h-56 sm:h-72 overflow-hidden border border-[#BFA060]/85">
                     {process.env.NEXT_PUBLIC_ASSETS_URL && (
-                      <Image src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/brewing/grayscale-porto-pints-brew-kettles-1200w.webp`} alt="Port O' Pints brew kettles" fill className="object-cover object-center" />
+                      <Image src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/brewing/3-guys-filling-a-fresh-keg-1200w.webp`} alt="Filling a fresh keg at Port O' Pints" fill className="object-cover object-center" />
                     )}
                   </div>
                 </div>
@@ -188,7 +188,7 @@ export default function AboutPage() {
                 <div className="border border-[#BFA060]/55 p-[3px]">
                   <div className="relative h-64 sm:h-80 overflow-hidden border border-[#BFA060]/85">
                     {process.env.NEXT_PUBLIC_ASSETS_URL && (
-                      <Image src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/beer/full-beer-in-fancy-flute-with-brew-kettles-in-the-background-729w.webp`} alt="Port O' Pints craft beer" fill className="object-cover object-center" />
+                      <Image src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/brewing/devin-showing-off-his-international-beer-award-of-excellence-2025-around-his-neck-800w.webp`} alt="Devin Beach — International Beer Award of Excellence 2025" fill className="object-cover object-center" />
                     )}
                   </div>
                 </div>
