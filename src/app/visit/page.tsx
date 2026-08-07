@@ -57,7 +57,7 @@ export default function VisitPage() {
               src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/beer/2-beers-at-the-beach-on-a-rock-succulants-looking-at-the-ocean-768w.webp`}
               alt=""
               fill
-              className="object-cover object-center -rotate-[4deg] scale-110"
+              className="object-cover object-center -rotate-[8deg] scale-125"
               priority
               quality={85}
             />
