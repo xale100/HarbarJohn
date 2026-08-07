@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Keep admin and API routes private
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: https://portopints.com/sitemap.xml
