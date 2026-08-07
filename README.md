@@ -66,8 +66,7 @@
 
 - [x] ~~Devin's brewmaster quote~~ — added to homepage + about page
 - [ ] **DNS cutover** — move domain from Wix → Cloudflare (where R2 lives), then point to Vercel. Waiting on John's green light.
-- [ ] **VenueFlow slug** — confirm `VENUEFLOW_SLUG` set in Vercel env vars
-- [ ] **Confirm contact email** — "Play Port O' Pints" booking email on `/events`
+- [ ] **VenueFlow slug** — confirm `VENUEFLOW_SLUG` set in Vercel env vars (booking form on `/events` routes through VenueFlow, no separate email needed)
 
 ### Same day as cutover
 
