@@ -289,7 +289,7 @@ export default async function Home() {
             return (
               <Link
                 key={i}
-                href="/merch"
+                href={isReal ? `/merch?product=${item.sync_product.id}` : "/merch"}
                 className="group border border-[#BFA060]/10 hover:border-[#BFA060]/60 bg-[#080d08] hover:bg-[#1a3a1a] transition-all duration-300 p-3 flex flex-col items-center gap-3 w-36 sm:w-44 shrink-0"
               >
                 <div className="w-full aspect-square overflow-hidden bg-[#0a0a0a] relative">
