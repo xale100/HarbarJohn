@@ -114,15 +114,14 @@ export default async function MenuPage() {
           </>
         )}
         <div className="relative z-10 text-center">
-          <h1 className="text-5xl sm:text-8xl font-black tracking-widest text-[#BFA060] leading-none" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
+          <h1 className="text-5xl sm:text-8xl font-black tracking-widest text-[#BFA060] leading-none mb-2 sm:mb-3" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
             BEER<span className="text-[#DDD8CC]/40"> &amp; </span>FOOD
           </h1>
-        </div>
-        <div className="relative z-10 text-center max-w-3xl mx-auto flex-1 flex flex-col items-center justify-center">
           <p className="text-white/90 text-sm sm:text-base tracking-[0.2em] sm:tracking-[0.3em] uppercase" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
             Crafted on-site by Devin Beach
           </p>
         </div>
+        <div className="flex-1" />
       </section>
 
       <MenuTabs />
@@ -134,7 +133,7 @@ export default async function MenuPage() {
           <div className="flex items-start justify-between gap-4 mb-12">
             <div>
               <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-1">Beer</h2>
-              <p className="text-[#DDD8CC]/40 text-sm">Seasonal availability may vary</p>
+              <p className="text-white/60 text-sm" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>Seasonal availability may vary</p>
             </div>
             <Image
               src="/images/award.png"
@@ -162,11 +161,11 @@ export default async function MenuPage() {
                           )}
                         </div>
                         {beer.desc && (
-                          <p className="text-[#DDD8CC]/35 text-xs leading-relaxed mt-0.5">{beer.desc}</p>
+                          <p className="text-white/65 text-xs leading-relaxed mt-0.5" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>{beer.desc}</p>
                         )}
                       </div>
                       {(beer.abv || beer.ibu) && (
-                        <p className="text-[#DDD8CC]/40 text-xs text-right shrink-0 whitespace-nowrap">
+                        <p className="text-white/55 text-xs text-right shrink-0 whitespace-nowrap" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
                           {beer.abv && `${beer.abv}`}{beer.abv && beer.ibu && " · "}{beer.ibu && `IBU ${beer.ibu}`}
                         </p>
                       )}
@@ -177,7 +176,7 @@ export default async function MenuPage() {
             ))}
           </div>
 
-          <p className="text-[#DDD8CC]/20 text-xs mt-10 tracking-wide">
+          <p className="text-white/40 text-xs mt-10 tracking-wide" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
             We reserve the right to alter the tap list at any time.
           </p>
         </div>
@@ -202,11 +201,11 @@ export default async function MenuPage() {
                         <div className="flex-1 min-w-0">
                           <p className="text-[#DDD8CC] font-semibold">{item.name}</p>
                           {item.desc && (
-                            <p className="text-[#DDD8CC]/35 text-xs leading-relaxed mt-0.5">{item.desc}</p>
+                            <p className="text-white/65 text-xs leading-relaxed mt-0.5" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>{item.desc}</p>
                           )}
                         </div>
                         {(item.abv || item.ibu) && (
-                          <p className="text-[#DDD8CC]/40 text-xs text-right shrink-0 whitespace-nowrap">
+                          <p className="text-white/55 text-xs text-right shrink-0 whitespace-nowrap" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
                             {item.abv}{item.abv && item.ibu && " · "}{item.ibu && `IBU ${item.ibu}`}
                           </p>
                         )}
@@ -226,7 +225,7 @@ export default async function MenuPage() {
 
           <div className="mb-12">
             <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-1">Food Menu</h2>
-            <p className="text-[#DDD8CC]/40 text-sm">Pub kitchen · Add meat +$2 · Add cheese +$2</p>
+            <p className="text-white/60 text-sm" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>Pub kitchen · Add meat +$2 · Add cheese +$2</p>
           </div>
 
           <div className="space-y-12">
@@ -241,11 +240,11 @@ export default async function MenuPage() {
                       <div className="flex-1 min-w-0">
                         <p className="text-[#DDD8CC] font-semibold">{item.name}</p>
                         {item.desc && (
-                          <p className="text-[#DDD8CC]/35 text-xs leading-relaxed mt-0.5">{item.desc}</p>
+                          <p className="text-white/65 text-xs leading-relaxed mt-0.5" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>{item.desc}</p>
                         )}
                       </div>
                       {item.price && (
-                        <p className="text-[#DDD8CC]/40 text-xs text-right shrink-0">{item.price}</p>
+                        <p className="text-white/55 text-xs text-right shrink-0" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>{item.price}</p>
                       )}
                     </div>
                   ))}
@@ -259,12 +258,12 @@ export default async function MenuPage() {
             <p className="text-[#BFA060] text-xs tracking-[0.3em] uppercase mb-4 border-b border-[#BFA060]/15 pb-2">
               Dipping Sauces
             </p>
-            <p className="text-[#DDD8CC]/40 text-sm leading-relaxed">
+            <p className="text-white/60 text-sm leading-relaxed" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
               {sauces.join(" · ")}
             </p>
           </div>
 
-          <p className="text-[#DDD8CC]/20 text-xs mt-10 tracking-wide">
+          <p className="text-white/40 text-xs mt-10 tracking-wide" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
             Menu subject to change. Ask your server about daily specials.
           </p>
         </div>
@@ -273,7 +272,7 @@ export default async function MenuPage() {
       {/* CTA */}
       <section className="border-t border-[#BFA060]/20 py-16 px-4 bg-[#080d08] text-center">
         <div className="max-w-xl mx-auto">
-          <p className="text-[#DDD8CC]/40 text-xs tracking-widest uppercase mb-6">
+          <p className="text-white/55 text-xs tracking-widest uppercase mb-6" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
             1215 Northcrest Dr &nbsp;·&nbsp; Crescent City, CA
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
