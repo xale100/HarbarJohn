@@ -127,7 +127,13 @@ export default function MerchStore({ products, initialProductId, squareAppId, sq
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          recipient: address,
+          recipient: {
+            address1: address.address1,
+            city: address.city,
+            state_code: address.state_code,
+            zip: address.zip,
+            country_code: address.country_code,
+          },
           items: [{ sync_variant_id: variant.id, quantity: 1 }],
         }),
       });
