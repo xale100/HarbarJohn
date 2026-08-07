@@ -274,7 +274,7 @@ export default function MerchStore({ products, squareAppId, squareLocationId, sq
                               src={p.sync_product.thumbnail_url}
                               alt={p.sync_product.name}
                               fill
-                              className="object-contain brightness-[0.6] group-hover:scale-105 transition-transform duration-500"
+                              className="object-contain brightness-75 group-hover:scale-105 transition-transform duration-500"
                               unoptimized
                             />
                           ) : (
@@ -308,7 +308,7 @@ export default function MerchStore({ products, squareAppId, squareLocationId, sq
                       src={variant.product.image || product.sync_product.thumbnail_url}
                       alt={product.sync_product.name}
                       fill
-                      className="object-contain brightness-[0.6]"
+                      className="object-contain brightness-75"
                       unoptimized
                     />
                   ) : (

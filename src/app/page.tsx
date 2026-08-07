@@ -298,7 +298,7 @@ export default async function Home() {
                       src={thumb}
                       alt={name}
                       fill
-                      className="object-contain brightness-[0.6] group-hover:brightness-75 transition-all duration-300"
+                      className="object-contain brightness-75 group-hover:brightness-90 transition-all duration-300"
                       unoptimized
                     />
                   ) : (
