@@ -287,6 +287,7 @@ export default function MerchStore({ products, initialProductId, squareAppId, sq
                           setProduct(p);
                           setVariant(p.sync_variants.find(v => v.is_enabled) ?? p.sync_variants[0] ?? null);
                           setStep("detail");
+                          window.scrollTo({ top: 0, behavior: "smooth" });
                         }}
                         className="group text-left border border-[#BFA060]/10 hover:border-[#BFA060]/40 transition-colors bg-[#080d08]"
                       >
