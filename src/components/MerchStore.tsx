@@ -268,13 +268,13 @@ export default function MerchStore({ products, squareAppId, squareLocationId, sq
                         }}
                         className="group text-left border border-[#BFA060]/10 hover:border-[#BFA060]/40 transition-colors bg-[#080d08]"
                       >
-                        <div className="relative aspect-square overflow-hidden bg-[#1a1a1a]">
+                        <div className="relative aspect-square overflow-hidden bg-[#0a0a0a]">
                           {p.sync_product.thumbnail_url ? (
                             <Image
                               src={p.sync_product.thumbnail_url}
                               alt={p.sync_product.name}
                               fill
-                              className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+                              className="object-contain brightness-75 group-hover:scale-105 transition-transform duration-500"
                               unoptimized
                             />
                           ) : (
@@ -302,13 +302,13 @@ export default function MerchStore({ products, squareAppId, squareLocationId, sq
             <div className="max-w-3xl mx-auto">
               {backBtn("grid")}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-                <div className="relative aspect-square border border-[#BFA060]/10 overflow-hidden bg-[#1a1a1a]">
+                <div className="relative aspect-square border border-[#BFA060]/10 overflow-hidden bg-[#0a0a0a]">
                   {(variant.product.image || product.sync_product.thumbnail_url) ? (
                     <Image
                       src={variant.product.image || product.sync_product.thumbnail_url}
                       alt={product.sync_product.name}
                       fill
-                      className="object-contain p-2"
+                      className="object-contain brightness-75"
                       unoptimized
                     />
                   ) : (
