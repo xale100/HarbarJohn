@@ -6,6 +6,7 @@ import Image from "next/image";
 
 type SyncVariant = {
   id: number;
+  variant_id: number;
   name: string;
   retail_price: string;
   is_enabled: boolean;
@@ -120,7 +121,7 @@ export default function MerchStore({ products, initialProductId, squareAppId, sq
 
   async function fetchRates() {
     if (!variant) return;
-    if (!variant.id) {
+    if (!variant.id || !variant.variant_id) {
       setError("This item isn't fully set up in our store yet — please try another.");
       return;
     }
@@ -138,7 +139,7 @@ export default function MerchStore({ products, initialProductId, squareAppId, sq
             zip: address.zip,
             country_code: address.country_code,
           },
-          items: [{ sync_variant_id: variant.id, quantity: 1 }],
+          items: [{ variant_id: String(variant.variant_id), quantity: 1 }],
         }),
       });
       const data = await res.json();

@@ -24,11 +24,11 @@ export async function GET() {
         name: result?.sync_product?.name,
         thumbnail_url: result?.sync_product?.thumbnail_url,
         variants: (result?.sync_variants ?? []).map((v: any) => ({
-          id: v.id,
+          sync_variant_id: v.id,
+          variant_id: v.variant_id,
           name: v.name,
           retail_price: v.retail_price,
           is_enabled: v.is_enabled,
-          variant_id: v.variant_id,
         })),
       };
     })
@@ -36,7 +36,7 @@ export async function GET() {
 
   // Also test a shipping request with the first enabled variant we find
   let shippingTest: any = null;
-  const firstVariant = detailed.flatMap(p => p.variants).find(v => v.is_enabled && v.id);
+  const firstVariant = detailed.flatMap(p => p.variants).find(v => v.is_enabled && v.variant_id);
   if (firstVariant) {
     const shipRes = await fetch("https://api.printful.com/shipping/rates", {
       method: "POST",
@@ -44,7 +44,7 @@ export async function GET() {
       cache: "no-store",
       body: JSON.stringify({
         recipient: { address1: "1 Test St", city: "Los Angeles", state_code: "CA", zip: "90001", country_code: "US" },
-        items: [{ sync_variant_id: firstVariant.id, quantity: 1 }],
+        items: [{ variant_id: String(firstVariant.variant_id), quantity: 1 }],
         currency: "USD",
         locale: "en_US",
       }),

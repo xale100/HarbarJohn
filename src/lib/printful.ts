@@ -1,5 +1,6 @@
 export type SyncVariant = {
   id: number;
+  variant_id: number;
   name: string;
   retail_price: string;
   is_enabled: boolean;
