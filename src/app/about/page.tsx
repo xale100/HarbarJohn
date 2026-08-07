@@ -199,6 +199,24 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* BREWMASTER QUOTE */}
+      <section className="grain py-16 px-6 sm:px-16 bg-[#0a100a] border-t border-[#BFA060]/10">
+        <div className="max-w-2xl mx-auto">
+          <div className="h-px bg-[#BFA060]/25 mb-8" />
+          <blockquote>
+            <p className="text-[#DDD8CC]/75 italic leading-relaxed text-base sm:text-xl">
+              &ldquo;Craft beers traditionally inspired&hellip; Our rotating selection is created with quality ingredients, local water&hellip; carefully tended on our 7 barrel direct-fire system. We pride ourselves on offering award winning brews.&rdquo;
+            </p>
+            <div className="mt-6 flex items-center gap-4">
+              <div className="h-px flex-1 bg-[#BFA060]/25" />
+              <p className="text-[#BFA060] text-[10px] tracking-[0.35em] uppercase shrink-0">Devin Beach · Brewmaster</p>
+              <div className="h-px flex-1 bg-[#BFA060]/25" />
+            </div>
+          </blockquote>
+          <div className="h-px bg-[#BFA060]/25 mt-8" />
+        </div>
+      </section>
+
       {/* THE TEAM */}
       <section className="grain py-20 px-4 bg-[#0a100a]">
         <div className="max-w-4xl mx-auto">
