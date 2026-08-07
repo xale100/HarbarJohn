@@ -268,13 +268,13 @@ export default function MerchStore({ products, squareAppId, squareLocationId, sq
                         }}
                         className="group text-left border border-[#BFA060]/10 hover:border-[#BFA060]/40 transition-colors bg-[#080d08]"
                       >
-                        <div className="relative aspect-square overflow-hidden bg-[#0a100a]">
+                        <div className="relative aspect-square overflow-hidden bg-[#1a1a1a]">
                           {p.sync_product.thumbnail_url ? (
                             <Image
                               src={p.sync_product.thumbnail_url}
                               alt={p.sync_product.name}
                               fill
-                              className="object-cover group-hover:scale-105 transition-transform duration-500"
+                              className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
                               unoptimized
                             />
                           ) : (
@@ -302,13 +302,13 @@ export default function MerchStore({ products, squareAppId, squareLocationId, sq
             <div className="max-w-3xl mx-auto">
               {backBtn("grid")}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-                <div className="relative aspect-square border border-[#BFA060]/10 overflow-hidden bg-[#0a100a]">
+                <div className="relative aspect-square border border-[#BFA060]/10 overflow-hidden bg-[#1a1a1a]">
                   {(variant.product.image || product.sync_product.thumbnail_url) ? (
                     <Image
                       src={variant.product.image || product.sync_product.thumbnail_url}
                       alt={product.sync_product.name}
                       fill
-                      className="object-cover"
+                      className="object-contain p-2"
                       unoptimized
                     />
                   ) : (
