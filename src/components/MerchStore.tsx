@@ -94,7 +94,10 @@ export default function MerchStore({ products, squareAppId, squareLocationId, sq
     }
   }, [step]);
 
-  const enabledVariants = product?.sync_variants.filter(v => v.is_enabled) ?? [];
+  const allVariants = product?.sync_variants ?? [];
+  const enabledVariants = allVariants.filter(v => v.is_enabled).length > 0
+    ? allVariants.filter(v => v.is_enabled)
+    : allVariants;
   const selectedSize = variant ? parseVariant(variant.name).size : "";
   const sizes = [...new Set(enabledVariants.map(v => parseVariant(v.name).size))];
   const colors = [...new Set(
@@ -235,7 +238,7 @@ export default function MerchStore({ products, squareAppId, squareLocationId, sq
                         key={p.sync_product.id}
                         onClick={() => {
                           setProduct(p);
-                          setVariant(p.sync_variants.find(v => v.is_enabled) ?? null);
+                          setVariant(p.sync_variants.find(v => v.is_enabled) ?? p.sync_variants[0] ?? null);
                           setStep("detail");
                         }}
                         className="group text-left border border-[#BFA060]/10 hover:border-[#BFA060]/40 transition-colors bg-[#080d08]"
