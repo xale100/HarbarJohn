@@ -64,8 +64,8 @@
 
 ### Blocking
 
-- [ ] **Devin's brewmaster quote** — placeholder in `src/app/page.tsx` ~line 150
-- [ ] **DNS cutover** — point portopints.com from Wix → Vercel
+- [x] ~~Devin's brewmaster quote~~ — added to homepage + about page
+- [ ] **DNS cutover** — move domain from Wix → Cloudflare (where R2 lives), then point to Vercel. Waiting on John's green light.
 - [ ] **VenueFlow slug** — confirm `VENUEFLOW_SLUG` set in Vercel env vars
 - [ ] **Confirm contact email** — "Play Port O' Pints" booking email on `/events`
 
