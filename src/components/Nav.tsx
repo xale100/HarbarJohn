@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
 const links = [
@@ -17,9 +17,31 @@ const links = [
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const headerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    function onScroll() {
+      if (window.scrollY > 60) setOpen(false);
+    }
+
+    function onClickOutside(e: MouseEvent) {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    document.addEventListener("mousedown", onClickOutside);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      document.removeEventListener("mousedown", onClickOutside);
+    };
+  }, [open]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#080d08]/95 backdrop-blur-sm border-b border-[#BFA060]/15">
+    <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50 bg-[#080d08]/95 backdrop-blur-sm border-b border-[#BFA060]/15">
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#BFA060] focus-visible:outline-offset-2 rounded-sm">
           <Image
