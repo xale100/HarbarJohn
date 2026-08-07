@@ -1,95 +1,128 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Port O' Pints Brewing Co. — Site Reference
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Live domain:** portopints.com  
+**Stack:** Next.js (App Router) · TypeScript · Tailwind CSS v4 · Vercel  
+**Repo:** xale100/HarbarJohn → deploys `main` to Vercel automatically
 
 ---
 
-## TODO — Future Projects
+## Design System
 
-### Loyalty Analytics Engine (separate project / microservice)
+| Token | Value | Used for |
+|---|---|---|
+| Background | `#080d08` | Page base |
+| Section alt | `#0a100a` / `#0f170f` | Alternating sections |
+| Text | `#DDD8CC` | Body copy |
+| Gold | `#BFA060` | Headings, accents, CTAs |
 
-**Goal:** Quantify loyalty program ROI without paying for Toast Loyalty or API integrations.
+**Dim text:** `text-white/60–65` + `textShadow: "0 1px 6px rgba(0,0,0,0.9)"` for readability over photos.  
+**Grain overlay:** `.grain` class on hero sections.
 
-**Approach:** Pull the daily Toast export and loyalty DB export, then auto-match transactions using a confidence-tiered matching algorithm:
+---
 
+## Key Integrations
+
+| Service | Env var(s) | Notes |
+|---|---|---|
+| Cloudflare R2 | `NEXT_PUBLIC_ASSETS_URL` | Public bucket `porto-pints-public-images-assets`. Asset slug: `{category}/{slug}-{width}w.webp` |
+| Printful | `PRINTFUL_API_KEY` | Sync products/variants. Uses `variant_id` (catalog) for shipping rates, `sync_variant_id` for orders |
+| VenueFlow | `VENUEFLOW_SLUG` | Live music calendar on `/events` |
+| Square | `SQUARE_APPLICATION_ID` `SQUARE_LOCATION_ID` `SQUARE_ACCESS_TOKEN` `SQUARE_ENVIRONMENT` | Merch checkout. Set `SQUARE_ENVIRONMENT=production` for live charges |
+| Supabase | `SUPABASE_URL` `SUPABASE_SERVICE_ROLE_KEY` | Mug Club member data + photos |
+
+---
+
+## Pages & Routes
+
+| Path | File | Notes |
+|---|---|---|
+| `/` | `src/app/page.tsx` | Homepage — hero, beer list, shows carousel, merch carousel, brewmaster quote |
+| `/menu` | `src/app/menu/page.tsx` | Beer & Food |
+| `/events` | `src/app/events/page.tsx` | Music & Events, VenueFlow calendar |
+| `/visit` | `src/app/visit/page.tsx` | Hours, location, FAQ |
+| `/merch` | `src/app/merch/page.tsx` | Printful store — grid → detail → shipping → Square payment |
+| `/about` | `src/app/about/page.tsx` | Team, values |
+| `/activities` | `src/app/activities/page.tsx` | Outdoor activities / area guide |
+| `/south-beach` | `src/app/south-beach/page.tsx` | **Har Bar info — remove once harbar.com goes live** |
+| `/admin/hb-ubersecret-internal` | `src/app/admin/…` | Mug Club admin — not indexed |
+
+**API routes:**
+- `POST /api/merch/shipping` — proxies to Printful `/shipping/rates`
+- `POST /api/merch/checkout` — Square charge → Printful order → confirm fulfillment
+- `/api/mugclub/*` — Mug Club CRUD + photo upload
+
+---
+
+## Sitemap & Robots
+
+- `src/app/sitemap.ts` — auto-served at `/sitemap.xml` by Next.js
+- `public/robots.txt` — allows all bots, blocks `/admin/` and `/api/`
+
+---
+
+## Launch Checklist
+
+### Blocking
+
+- [ ] **Devin's brewmaster quote** — placeholder in `src/app/page.tsx` ~line 150
+- [ ] **DNS cutover** — point portopints.com from Wix → Vercel
+- [ ] **VenueFlow slug** — confirm `VENUEFLOW_SLUG` set in Vercel env vars
+- [ ] **Confirm contact email** — "Play Port O' Pints" booking email on `/events`
+
+### Same day as cutover
+
+- [ ] Remove old Google Calendar env vars from Vercel (`GOOGLE_CALENDAR_ID`, `GOOGLE_CALENDAR_API_KEY`)
+
+### Post-launch — first week
+
+- [ ] Submit sitemap to Google Search Console (`https://portopints.com/sitemap.xml`)
+- [ ] Submit sitemap to Bing Webmaster Tools
+- [ ] Monitor VenueFlow booking exception reports once first submissions come in
+
+### When Har Bar site goes live
+
+- [ ] Remove `src/app/south-beach/page.tsx`
+- [ ] Remove south-beach link from `src/components/Nav.tsx`
+- [ ] Remove south-beach entry from `src/app/sitemap.ts`
+
+### External (Russell / Printful)
+
+- [ ] Switch Printful mockup styles to lifestyle photos — improves merch on dark background
+
+---
+
+## Future Projects
+
+### Loyalty Analytics Engine *(separate microservice)*
+
+**Goal:** Quantify loyalty program ROI without Toast Loyalty or API integrations.
+
+Pull the daily Toast export + loyalty DB export, auto-match transactions via confidence-tiered algorithm:
 - **Direct match** — customer name on transaction + loyalty button used
 - **Time-window match** — QR scan timestamp within N minutes of transaction timestamp
 - **Fallback match** — payment/card data correlation
 
-**Target:** ~90–95% attribution confidence across all transactions.
+**Target:** ~90–95% attribution confidence.
 
-**Desired daily outputs:**
-- Loyalty Visits
-- Loyalty Revenue
-- % of Total Transactions Using Loyalty
-- Loyalty vs Non-Loyalty Average Check
-- Estimated Revenue Attributed to Loyalty
-- Retail Value of Size Upgrades Given
-- Repeat Visit Trends
+**Daily outputs:** Loyalty Visits · Loyalty Revenue · % Transactions Using Loyalty · Loyalty vs Non-Loyalty Avg Check · Estimated Revenue Attributed to Loyalty · Retail Value of Size Upgrades · Repeat Visit Trends
 
-**Reports generated:**
-- Daily loyalty performance dashboard (loyalty-driven sales vs. benefit cost)
-- Exception report for unmatched records (surfaces process gaps)
+**Reports:** daily performance dashboard + exception report for unmatched records.
 
-**From this end (portopints site):** May be able to set up the automated DB/Toast export trigger from here. TBD once loyalty microservice project is scoped.
-
-**Success metric:** Leadership has a clean daily view of loyalty program ROI, no manual reconciliation needed.
+**From this site:** may set up automated DB/Toast export trigger once microservice is scoped.
 
 ---
 
-## TODO — Launch Checklist (portopints.com)
+### Photo Pipeline App *(separate tool)*
 
-### Blocking — must be done before go-live
+**Goal:** Drag in a raw photo → output 3 production-ready WebP files + updated asset manifest.
 
-- [ ] **Har Bar extraction** — Har Bar content is currently nested inside portopints.com. Rip it out, stand it up at `portopints.com/[path]`, add a link on the Port O' Pints landing page. Sever fully once the dedicated Har Bar site is built.
-- [ ] **Photos** — Assets in hand. Pick hero shot(s), integrate into homepage hero + about page team section.
-- [ ] **Merch** — Russell adding inventory tomorrow. Verify it auto-populates on `/merch`, spot-check rendering, confirm with him when done.
-- [ ] **Devin's brewmaster quote** — Real text needed. Currently a placeholder on the homepage.
-- [ ] **VenueFlow slug** — Confirm `VENUEFLOW_SLUG` is set in Vercel env vars and the calendar is loading live shows.
-- [ ] **DNS cutover** — Point portopints.com away from Wix. Credentials in hand.
+**Inputs:** raw image file · category (`hero`, `team`, `events`, `menu`, etc.) · filename slug
 
-### Cleanup — before or same day as cutover
+**Outputs per photo:**
+```
+{category}/{slug}-2400w.webp   ← full-bleed desktop
+{category}/{slug}-1200w.webp   ← tablet / cards
+{category}/{slug}-800w.webp    ← mobile
+```
 
-- [ ] Remove old Google Calendar env vars from Vercel (`GOOGLE_CALENDAR_ID`, `GOOGLE_CALENDAR_API_KEY`)
-- [ ] Add `robots.txt` and `sitemap.ts`
-- [ ] Confirm "Play Port O' Pints" contact email is correct in events page copy
-
-### Post-launch — first week
-
-- [ ] Submit sitemap to Google Search Console
-- [ ] Submit sitemap to Bing Webmaster Tools
-- [ ] Monitor VenueFlow booking exception reports once first submissions come in
-- [ ] Cut Har Bar loose fully once its own standalone site is built
+Auto-updates `manifest.md` listing the full R2 folder tree so dev always knows what assets are available.
