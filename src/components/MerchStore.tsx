@@ -215,9 +215,34 @@ export default function MerchStore({ products, squareAppId, squareLocationId, sq
       <div className="bg-[#080d08] text-[#DDD8CC]" aria-live="polite" aria-atomic="false">
 
         {/* HERO */}
-        <section className="grain py-20 px-4 bg-[#080d08] text-center border-b border-[#BFA060]/10">
-          <h1 className="text-5xl sm:text-7xl font-black tracking-widest text-[#BFA060] uppercase mb-2">Merch</h1>
-          <p className="text-[#DDD8CC]/30 text-[10px] tracking-[0.4em] uppercase">Port O&apos; Pints</p>
+        <section className="grain relative min-h-[75vh] flex flex-col items-center px-4 py-12 bg-[#080d08] overflow-hidden border-b border-[#BFA060]/10">
+          {process.env.NEXT_PUBLIC_ASSETS_URL && (
+            <>
+              <Image
+                src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/beer/full-beer-in-hand-held-in-front-of-the-chalk-beer-list-sign-768w.webp`}
+                alt=""
+                fill
+                className="object-cover object-center"
+                priority
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-[#080d08]/45" />
+              <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#0f170f] to-transparent" />
+            </>
+          )}
+          <div className="relative z-10 text-center">
+            <p className="text-white/90 text-5xl sm:text-8xl font-black tracking-widest leading-none" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
+              MERCH
+            </p>
+          </div>
+          <div className="relative z-10 text-center max-w-3xl mx-auto flex-1 flex flex-col items-center justify-center">
+            <h1 className="text-5xl sm:text-8xl font-black tracking-widest text-[#BFA060] leading-none mb-2 sm:mb-3" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
+              PORT<span className="text-[#DDD8CC]/40"> O&apos; </span>PINTS
+            </h1>
+            <p className="text-white/90 text-sm sm:text-base tracking-[0.2em] sm:tracking-[0.3em] uppercase" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
+              Wear the Brew
+            </p>
+          </div>
         </section>
 
         {/* GRID */}
