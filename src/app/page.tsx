@@ -24,16 +24,6 @@ export default async function Home() {
   return (
     <div className="bg-[#080d08] text-[#DDD8CC]">
 
-      {/* TEMP COLOR PICK — remove once O color is chosen */}
-      <section className="bg-[#080d08] pt-24 pb-8 px-8 flex flex-col gap-4 items-start">
-        {[["A", "#2d6b1f"], ["B", "#3a7a27"], ["C", "#4a8f30"]].map(([label, color]) => (
-          <p key={label} className="text-4xl sm:text-7xl font-black tracking-widest text-[#BFA060]">
-            <span className="text-[#DDD8CC]/40 text-2xl sm:text-4xl mr-3">{label}</span>
-            PORT <span style={{ color }}>&nbsp;O&nbsp;</span><span className="text-[#DDD8CC]/40">&apos;</span> PINTS
-          </p>
-        ))}
-      </section>
-
       {/* HERO */}
       <section className="grain relative min-h-[75vh] flex flex-col items-center justify-center px-4 bg-[#080d08]">
         {process.env.NEXT_PUBLIC_ASSETS_URL && (
@@ -63,7 +53,7 @@ export default async function Home() {
           </div>
 
           <h1 className="text-5xl sm:text-8xl font-black tracking-widest text-[#BFA060] leading-none mb-6 sm:mb-8" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
-            PORT <span style={{ color: "#5aab34" }}>O</span><span className="text-[#DDD8CC]/40">&apos;</span> PINTS
+            PORT <span style={{ color: "#2d6b1f" }}>O</span><span className="text-[#DDD8CC]/40">&apos;</span> PINTS
           </h1>
 
           <p className="text-white/90 text-sm sm:text-base tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-1" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9), 0 2px 24px rgba(0,0,0,0.7)" }}>
