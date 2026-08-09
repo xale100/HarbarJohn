@@ -109,7 +109,7 @@ export default async function EventsPage() {
           </h2>
           <div className="h-px bg-[#BFA060]/30 max-w-xs mb-6" />
           <p className="text-[#DDD8CC]/45 text-sm leading-relaxed mb-8">
-            We book local first. If you or your band is based in Del Norte County or the surrounding area, we want to hear from you.
+            We&apos;re excited to hear from you. Drop a link to your music and let&apos;s talk.
           </p>
           <BookingForm slug={process.env.VENUEFLOW_SLUG ?? ""} />
         </div>
