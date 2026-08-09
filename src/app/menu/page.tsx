@@ -130,10 +130,12 @@ export default async function MenuPage() {
       <section id="beer" className="grain py-20 px-4 bg-[#0a100a] scroll-mt-28">
         <div className="max-w-4xl mx-auto">
 
-          <div className="flex items-start justify-between gap-4 mb-12">
+          <div className="flex items-start justify-between gap-4 mb-4">
             <div>
               <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-1">Beer</h2>
-              <p className="text-white/60 text-sm" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>Seasonal availability may vary</p>
+              <p className="text-white/60 text-sm" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
+                Pints &nbsp;·&nbsp; Half Pints &nbsp;·&nbsp; Growlers &nbsp;·&nbsp; and for the chosen few, the Mug Club
+              </p>
             </div>
             <Image
               src="/images/award.png"
@@ -144,14 +146,13 @@ export default async function MenuPage() {
             />
           </div>
 
-          <div className="space-y-12">
-            {beers.map((section) => (
-              <div key={section.category}>
-                <p className="text-[#BFA060] text-xs tracking-[0.3em] uppercase mb-3 border-b border-[#BFA060]/15 pb-2">
-                  {section.category}
-                </p>
-                <div className="divide-y divide-[#BFA060]/10">
-                  {section.items.map((beer) => (
+          {(() => {
+            const flightSections = beers.filter((s) => /flight/i.test(s.category));
+            const allItems = beers.filter((s) => !/flight/i.test(s.category)).flatMap((s) => s.items);
+            return (
+              <>
+                <div className="divide-y divide-[#BFA060]/10 mb-12">
+                  {allItems.map((beer) => (
                     <div key={beer.name} className={`py-4 flex items-baseline justify-between gap-4 ${beer.outOfStock ? "opacity-50" : ""}`}>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-baseline gap-3 flex-wrap">
@@ -169,15 +170,44 @@ export default async function MenuPage() {
                       </div>
                       {(beer.abv || beer.ibu) && (
                         <p className="text-white/55 text-xs text-right shrink-0 whitespace-nowrap" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
-                          {beer.abv && `${beer.abv}`}{beer.abv && beer.ibu && " · "}{beer.ibu && `IBU ${beer.ibu}`}
+                          {beer.abv}{beer.abv && beer.ibu && " · "}{beer.ibu && `IBU ${beer.ibu}`}
                         </p>
                       )}
                     </div>
                   ))}
                 </div>
-              </div>
-            ))}
-          </div>
+                {flightSections.map((section) => (
+                  <div key={section.category} className="mb-12">
+                    <p className="text-[#BFA060] text-xs tracking-[0.3em] uppercase mb-3 border-b border-[#BFA060]/15 pb-2">
+                      {section.category}
+                    </p>
+                    <div className="divide-y divide-[#BFA060]/10">
+                      {section.items.map((beer) => (
+                        <div key={beer.name} className={`py-4 flex items-baseline justify-between gap-4 ${beer.outOfStock ? "opacity-50" : ""}`}>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-baseline gap-3 flex-wrap">
+                              <p className="text-[#DDD8CC] font-semibold">{beer.name}</p>
+                              {beer.outOfStock && (
+                                <span className="text-[#BFA060]/60 text-[10px] tracking-widest uppercase">Out of Stock</span>
+                              )}
+                            </div>
+                            {beer.desc && (
+                              <p className="text-white/65 text-xs leading-relaxed mt-0.5" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>{beer.desc}</p>
+                            )}
+                          </div>
+                          {(beer.abv || beer.ibu) && (
+                            <p className="text-white/55 text-xs text-right shrink-0 whitespace-nowrap" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
+                              {beer.abv}{beer.abv && beer.ibu && " · "}{beer.ibu && `IBU ${beer.ibu}`}
+                            </p>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </>
+            );
+          })()}
 
           <p className="text-white/40 text-xs mt-10 tracking-wide" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
             We reserve the right to alter the tap list at any time.
