@@ -52,7 +52,7 @@ export default async function Home() {
             />
           </div>
 
-          <h1 className="text-5xl sm:text-8xl font-black tracking-widest text-[#BFA060] leading-none mb-6 sm:mb-8" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
+          <h1 className="text-5xl sm:text-8xl font-black tracking-widest text-[#BFA060] leading-none mb-6 sm:mb-8 whitespace-nowrap" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
             PORT <span style={{ color: "#2d6b1f" }}>O</span><img src="/images/hops-apostrophe.png" alt="" aria-hidden="true" className="inline-block align-middle" style={{ height: "0.38em", width: "auto", marginBottom: "0.45em", transform: "rotate(20deg)" }} /> PINTS
           </h1>
 
