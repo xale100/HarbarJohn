@@ -210,7 +210,7 @@ export default async function MenuPage() {
           })()}
 
           <p className="text-white/40 text-xs mt-10 tracking-wide" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
-            We reserve the right to alter the tap list at any time.
+            Our tap list is always rotating — check back often.
           </p>
         </div>
       </section>
