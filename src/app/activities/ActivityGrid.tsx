@@ -20,8 +20,8 @@ const activities = [
   {
     name: "Pool",
     age: "18+",
-    desc: "Full-size pool tables for open play. Hourly rental, house cues available.",
-    details: ["Full-size tables", "Hourly rental", "House cues available", "Tournament nights — check schedule"],
+    desc: "Competition pool tables for open play. Hourly rental, house cues available.",
+    details: ["Competition pool tables", "Hourly rental", "House cues available", "Tournament nights — check schedule"],
     photo: "/images/pool.jpg",
   },
   {
