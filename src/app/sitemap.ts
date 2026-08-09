@@ -11,8 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/visit`,             lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/merch`,             lastModified: now, changeFrequency: "weekly",  priority: 0.7 },
     { url: `${BASE}/about`,             lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${BASE}/activities`,        lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     // TODO: remove south-beach once Har Bar site goes live
-    { url: `${BASE}/south-beach`,       lastModified: now, changeFrequency: "monthly", priority: 0.4 },
+    { url: `${BASE}/south-beach`,       lastModified: now, changeFrequency: "monthly", priority: 0.5 },
   ];
 }
