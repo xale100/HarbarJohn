@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     q: "Is there parking?",
-    a: "Street parking and a public lot are available nearby. Just one minute off Highway 101 — easy to find whether you're coming from Eureka or Brookings.",
+    a: "There are 2 parking lots — one in front and one in the back. Just one minute off Highway 101.",
   },
   {
     q: "Are dogs allowed?",

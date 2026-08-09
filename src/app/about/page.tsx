@@ -5,24 +5,24 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "The Brewery — Port O' Pints Crescent City",
   description:
-    "Port O' Pints Brewing Co. — Crescent City's original craft brewery. 80+ beer awards, live music, and good people since 2015. Del Norte County's most awarded brewery near Redwood National Park.",
+    "Port O' Pints Brewing Co. — Crescent City's original craft brewery. Approaching 150 beer awards, live music, and good people since 2015. Del Norte County's most awarded brewery near Redwood National Park.",
 };
 
 const team = [
   { src: "/images/team-devin.jpg",   name: "Devin Beach",       title: "Owner / Brewmaster",
-    desc: "Devin built the recipes, built the brewery, and keeps the taps flowing. His award-winning craft beers are the backbone of everything we do." },
+    desc: "Brewmaster to the gods. Devin keeps the taps flowing and the quality dialed — he's the backbone of everything we pour." },
 { src: "/images/team-john.jpg",    name: "Dr. John Kirk",     title: "Owner",
     desc: "A Crescent City OBGYN who put his roots where his heart is. John's love of craft beer and good food drove the 2023 purchase." },
   { src: "/images/team-cynthia.jpg", name: "Cynthia Parenteau", title: "Owner",
     desc: "Retired trauma nurse turned hospitality veteran. Cynthia runs the day-to-day and makes sure every guest feels taken care of." },
-  { src: "/images/team-cameron.jpg", name: "Cameron Cook",      title: "Production",
-    desc: "Cameron keeps production dialed in — from the brewery floor to the back of house." },
-  { src: "/images/team-russell.jpg", name: "Russell Smithson",  title: "Marketing",
-    desc: "Russell handles the brand, the socials, and getting the word out about what's happening on the harbor." },
+  { src: "/images/team-cameron.jpg", name: "Cameron Cook",      title: "Brewer Extraordinaire",
+    desc: "From the brewery floor to the beautiful beers in their bellies." },
+  { src: "/images/team-russell.jpg", name: "Russell Smithson",  title: "Brand Manager",
+    desc: "What's happening at the pub and who you'll be listening to." },
 ];
 
 const values = [
-  { title: "Local Music First", desc: "We book Del Norte County artists first, every time. Our stage exists to amplify local talent." },
+  { title: "Live Music", desc: "We love live music and we want everyone on our stage. Local acts, touring artists — if you've got something to play, we want to hear it." },
   { title: "Community Over Everything", desc: "Port O' Pints promotes and partners with Crescent City businesses. A stronger community means a better night out for everyone." },
   { title: "Award-Winning Beer", desc: "Hand-crafted on-site by Brewmaster Devin Beach. Brewing on the Redwood Coast since 2015 — from easy-drinking cream ales to bold Belgian Tripels." },
   { title: "Crescent City Roots", desc: "1215 Northcrest Dr, one minute off Highway 101. Right in the heart of Crescent City, near Redwood National Park." },
@@ -72,7 +72,7 @@ export default function AboutPage() {
               Port O&apos; Pints Brewing Co. was founded in 2015 — one of the first craft
               breweries on the Redwood Coast. What started as a small taproom became
               something special: an entertainment venue, a live music spot,
-              and Crescent City&apos;s go-to gathering place.
+              a place for friends and locals to hang out — home away from home.
             </p>
             <p>
               In 2023, Cynthia Parenteau, Dr. John Kirk, and Brewmaster Devin Beach
