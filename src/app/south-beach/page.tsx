@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import ActivityGrid from "../activities/ActivityGrid";
 
 export const metadata: Metadata = {
   title: "South Beach BrewCade — Port O' Pints at the Harbor",
@@ -43,9 +42,26 @@ export default function SouthBeachPage() {
         </div>
       </section>
 
-      {/* ACTIVITY PHOTO GRID */}
-      <section className="bg-[#080d08]">
-        <ActivityGrid />
+      {/* ACTIVITIES */}
+      <section className="grain py-16 px-4 bg-[#0f170f]">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-[#BFA060] text-xs tracking-[0.3em] uppercase mb-8 border-b border-[#BFA060]/15 pb-2">Now Offering</p>
+          <div className="grid grid-cols-1 gap-0">
+            {[
+              { name: "Axe Throwing", note: "2 lanes · 18+" },
+              { name: "Competition Pool Tables", note: "18+" },
+              { name: "Darts", note: "18+" },
+              { name: "Shuffleboard", note: "" },
+              { name: "Foosball", note: "" },
+              { name: "Arcade & Pinball", note: "Classic games" },
+            ].map((a) => (
+              <div key={a.name} className="flex items-baseline justify-between py-3 border-b border-[#BFA060]/10">
+                <p className="text-[#DDD8CC] font-semibold">{a.name}</p>
+                {a.note && <p className="text-white/55 text-xs" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>{a.note}</p>}
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* GROUP PACKAGES */}
