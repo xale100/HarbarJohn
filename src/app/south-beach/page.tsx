@@ -26,7 +26,7 @@ export default function SouthBeachPage() {
       <section className="grain py-16 px-4 bg-[#0f170f]">
         <div className="max-w-4xl mx-auto">
           <p className="text-[#BFA060] text-xs tracking-[0.3em] uppercase mb-8 border-b border-[#BFA060]/15 pb-2">Now Offering</p>
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4">
             {[
               { name: "Axe Throwing", note: "2 lanes · 18+" },
               { name: "Pool & Darts", note: "18+" },

@@ -11,7 +11,7 @@ const links = [
   { href: "/merch", label: "Merch" },
   { href: "/about", label: "The Brewery" },
   { href: "/visit", label: "Visit Us" },
-  { href: "/south-beach", label: "South Beach" },
+  { href: "/south-beach", label: "South Beach", pair: { href: "/activities", label: "Activities" } },
 ];
 
 export default function Nav() {
@@ -60,17 +60,33 @@ export default function Nav() {
         <nav aria-label="Main navigation" className="hidden md:flex items-center gap-6">
           {links.map((l) => {
             const active = pathname === l.href;
+            const pairActive = l.pair && pathname === l.pair.href;
             return (
-              <Link
-                key={l.href}
-                href={l.href}
-                aria-current={active ? "page" : undefined}
-                className={`text-xs font-medium transition-colors tracking-widest uppercase focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#BFA060] focus-visible:outline-offset-2 rounded-sm ${
-                  active ? "text-[#DDD8CC]" : "text-[#DDD8CC]/50 hover:text-[#DDD8CC]"
-                }`}
-              >
-                {l.label}
-              </Link>
+              <span key={l.href} className="flex items-center gap-2">
+                <Link
+                  href={l.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`text-xs font-medium transition-colors tracking-widest uppercase focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#BFA060] focus-visible:outline-offset-2 rounded-sm ${
+                    active ? "text-[#DDD8CC]" : "text-[#DDD8CC]/50 hover:text-[#DDD8CC]"
+                  }`}
+                >
+                  {l.label}
+                </Link>
+                {l.pair && (
+                  <>
+                    <span className="text-[#BFA060]/30 text-xs">·</span>
+                    <Link
+                      href={l.pair.href}
+                      aria-current={pairActive ? "page" : undefined}
+                      className={`text-xs font-medium transition-colors tracking-widest uppercase focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#BFA060] focus-visible:outline-offset-2 rounded-sm ${
+                        pairActive ? "text-[#DDD8CC]" : "text-[#DDD8CC]/50 hover:text-[#DDD8CC]"
+                      }`}
+                    >
+                      {l.pair.label}
+                    </Link>
+                  </>
+                )}
+              </span>
             );
           })}
         </nav>
@@ -93,18 +109,35 @@ export default function Nav() {
         <nav id="mobile-nav" aria-label="Mobile navigation" className="md:hidden bg-[#080d08] border-t border-[#BFA060]/10 px-4 py-4 flex flex-col gap-4">
           {links.map((l) => {
             const active = pathname === l.href;
+            const pairActive = l.pair && pathname === l.pair.href;
             return (
-              <Link
-                key={l.href}
-                href={l.href}
-                aria-current={active ? "page" : undefined}
-                onClick={() => setOpen(false)}
-                className={`text-xs font-medium transition-colors tracking-widest uppercase focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#BFA060] focus-visible:outline-offset-2 rounded-sm ${
-                  active ? "text-[#DDD8CC]" : "text-[#DDD8CC]/50 hover:text-[#DDD8CC]"
-                }`}
-              >
-                {l.label}
-              </Link>
+              <span key={l.href} className={l.pair ? "flex items-center gap-3" : ""}>
+                <Link
+                  href={l.href}
+                  aria-current={active ? "page" : undefined}
+                  onClick={() => setOpen(false)}
+                  className={`text-xs font-medium transition-colors tracking-widest uppercase focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#BFA060] focus-visible:outline-offset-2 rounded-sm ${
+                    active ? "text-[#DDD8CC]" : "text-[#DDD8CC]/50 hover:text-[#DDD8CC]"
+                  }`}
+                >
+                  {l.label}
+                </Link>
+                {l.pair && (
+                  <>
+                    <span className="text-[#BFA060]/30 text-xs">·</span>
+                    <Link
+                      href={l.pair.href}
+                      aria-current={pairActive ? "page" : undefined}
+                      onClick={() => setOpen(false)}
+                      className={`text-xs font-medium transition-colors tracking-widest uppercase focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#BFA060] focus-visible:outline-offset-2 rounded-sm ${
+                        pairActive ? "text-[#DDD8CC]" : "text-[#DDD8CC]/50 hover:text-[#DDD8CC]"
+                      }`}
+                    >
+                      {l.pair.label}
+                    </Link>
+                  </>
+                )}
+              </span>
             );
           })}
         </nav>

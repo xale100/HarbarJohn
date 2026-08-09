@@ -328,7 +328,7 @@ export default function MerchStore({ products, initialProductId, squareAppId, sq
                 <div className="relative aspect-square border border-[#BFA060]/10 overflow-hidden bg-transparent">
                   {(variant.product.image || product.sync_product.thumbnail_url) ? (
                     <Image
-                      src={variant.product.image || product.sync_product.thumbnail_url}
+                      src={product.sync_product.thumbnail_url || variant.product.image}
                       alt={product.sync_product.name}
                       fill
                       className="object-contain brightness-75"

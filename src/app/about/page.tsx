@@ -5,7 +5,7 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "The Brewery — Port O' Pints Crescent City",
   description:
-    "Port O' Pints Brewing Co. — Crescent City's original craft brewery. 80+ beer awards, live music, and good people since 2014. Del Norte County's most awarded brewery near Redwood National Park.",
+    "Port O' Pints Brewing Co. — Crescent City's original craft brewery. 80+ beer awards, live music, and good people since 2015. Del Norte County's most awarded brewery near Redwood National Park.",
 };
 
 const team = [
@@ -24,7 +24,7 @@ const team = [
 const values = [
   { title: "Local Music First", desc: "We book Del Norte County artists first, every time. Our stage exists to amplify local talent." },
   { title: "Community Over Everything", desc: "Port O' Pints promotes and partners with Crescent City businesses. A stronger community means a better night out for everyone." },
-  { title: "Award-Winning Beer", desc: "Hand-crafted on-site by Brewmaster Devin Beach. Brewing on the Redwood Coast since 2014 — from easy-drinking cream ales to bold Belgian Tripels." },
+  { title: "Award-Winning Beer", desc: "Hand-crafted on-site by Brewmaster Devin Beach. Brewing on the Redwood Coast since 2015 — from easy-drinking cream ales to bold Belgian Tripels." },
   { title: "Crescent City Roots", desc: "1215 Northcrest Dr, one minute off Highway 101. Right in the heart of Crescent City, near Redwood National Park." },
 ];
 
@@ -58,7 +58,7 @@ export default function AboutPage() {
             PORT<span className="text-[#DDD8CC]/40"> O&apos; </span>PINTS
           </h1>
           <p className="text-white/90 text-sm sm:text-base tracking-[0.2em] sm:tracking-[0.3em] uppercase" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9), 0 2px 24px rgba(0,0,0,0.7)" }}>
-            Crescent City&apos;s craft brewery &nbsp;·&nbsp; Est. 2014
+            Crescent City&apos;s craft brewery &nbsp;·&nbsp; Est. 2015
           </p>
         </div>
       </section>
@@ -73,7 +73,7 @@ export default function AboutPage() {
 
           <div className="space-y-4 text-[#DDD8CC]/55 leading-relaxed mb-10">
             <p>
-              Port O&apos; Pints Brewing Co. was founded in 2014 — one of the first craft
+              Port O&apos; Pints Brewing Co. was founded in 2015 — one of the first craft
               breweries on the Redwood Coast. What started as a small taproom became
               something special: a BrewCade, an entertainment venue, a live music spot,
               and Crescent City&apos;s go-to gathering place.

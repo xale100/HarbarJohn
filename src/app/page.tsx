@@ -57,7 +57,7 @@ export default async function Home() {
           </h1>
 
           <p className="text-white/90 text-sm sm:text-base tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-1" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9), 0 2px 24px rgba(0,0,0,0.7)" }}>
-            Brewery &amp; Live Music &nbsp;·&nbsp; Est. 2014
+            Brewery &amp; Live Music &nbsp;·&nbsp; Est. 2015
           </p>
 
           <p className="text-white/90 text-xs tracking-[0.2em] sm:tracking-[0.4em] uppercase mb-1 whitespace-nowrap" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9), 0 2px 24px rgba(0,0,0,0.7)" }}>

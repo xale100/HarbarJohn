@@ -62,7 +62,7 @@ const jsonLd = {
   url: "https://portopints.com",
   telephone: "+1-707-460-1154",
   email: "",
-  foundingDate: "2014",
+  foundingDate: "2015",
   description:
     "Award-winning craft brewery in Crescent City, CA. 80+ beer awards, live music, pub food, and harbor views near Redwood National Park.",
   address: {

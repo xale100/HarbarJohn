@@ -64,7 +64,7 @@ export default function Footer() {
 
         <div className="border-t border-[#BFA060]/10 pt-4 flex flex-col sm:flex-row justify-between gap-1 text-xs">
           <span>© {new Date().getFullYear()} Port O&apos; Pints · Crescent City, CA</span>
-          <span className="text-[#DDD8CC]/30">Est. 2014 · Crescent City, CA</span>
+          <span className="text-[#DDD8CC]/30">Est. 2015 · Crescent City, CA</span>
         </div>
       </div>
     </footer>
