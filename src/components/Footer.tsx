@@ -1,6 +1,5 @@
 "use client";
 import { usePathname } from "next/navigation";
-import HopsO from "@/components/HopsO";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -18,7 +17,7 @@ export default function Footer() {
             {/* Address + Contact */}
             <div>
               <p className="text-[#BFA060] font-black tracking-widest text-base mb-2 whitespace-nowrap">
-                PORT <HopsO className="h-[0.75em] w-auto" /> PINTS
+                PORT <span style={{ color: "#5aab34" }}>O</span><span className="text-[#DDD8CC]/20">&apos;</span> PINTS
               </p>
               <p className="text-[#DDD8CC]/50 leading-snug">1215 Northcrest Dr</p>
               <p className="text-[#DDD8CC]/50 mb-2">Crescent City, CA 95531</p>

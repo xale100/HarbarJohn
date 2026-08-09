@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import HopsO from "@/components/HopsO";
 import { getShows } from "@/lib/calendar";
 import { getProducts } from "@/lib/printful";
 
@@ -54,7 +53,7 @@ export default async function Home() {
           </div>
 
           <h1 className="text-5xl sm:text-8xl font-black tracking-widest text-[#BFA060] leading-none mb-6 sm:mb-8" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
-            PORT <HopsO className="h-[0.7em] w-auto" /> PINTS
+            PORT <span style={{ color: "#5aab34" }}>O</span><span className="text-[#DDD8CC]/40">&apos;</span> PINTS
           </h1>
 
           <p className="text-white/90 text-sm sm:text-base tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-1" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9), 0 2px 24px rgba(0,0,0,0.7)" }}>

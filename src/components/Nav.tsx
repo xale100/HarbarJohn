@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import HopsO from "@/components/HopsO";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
@@ -53,7 +52,7 @@ export default function Nav() {
             className="object-contain"
           />
           <span className="text-xl font-black tracking-widest text-[#BFA060] group-hover:text-[#DDD8CC] transition-colors whitespace-nowrap">
-            PORT <HopsO className="h-[0.75em] w-auto" /> PINTS
+            PORT <span style={{ color: "#5aab34" }}>O</span><span className="text-[#DDD8CC]/30">&apos;</span> PINTS
           </span>
         </Link>
 
