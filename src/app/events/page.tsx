@@ -45,7 +45,7 @@ export default async function EventsPage() {
         )}
         <div className="relative z-10 text-center">
           <h1 className="text-5xl sm:text-8xl font-black tracking-widest text-[#BFA060] leading-none mb-2 sm:mb-3" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
-            MUSIC<span className="text-[#DDD8CC]/40"> &amp; </span>EVENTS
+            MUSIC<span style={{ color: "#2d6b1f" }}> &amp; </span>EVENTS
           </h1>
           <p className="text-white/90 text-sm sm:text-base tracking-[0.2em] sm:tracking-[0.3em] uppercase" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
             Local artists &nbsp;·&nbsp; Good Brews
