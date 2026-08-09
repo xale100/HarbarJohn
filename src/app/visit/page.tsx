@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: "Is there outdoor seating?",
-    a: "Yes. The Harbor Stage area has outdoor seating with views of the Crescent City Marina. Weather dependent.",
+    a: "Yes — we have outdoor seating on site. Weather dependent.",
   },
   {
     q: "Is there parking?",

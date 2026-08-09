@@ -224,6 +224,9 @@ export default async function MenuPage() {
               <p className="text-white/60 text-sm leading-relaxed mt-2" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
                 We have some remarkable options for those of you who love the glorious grape juice. Local, Napa and other worldly options.
               </p>
+              <p className="text-white/35 text-xs mt-2 tracking-wide" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
+                No growlers on cider.
+              </p>
             </div>
             <div className="space-y-12">
               {ciderWine.map((section) => (

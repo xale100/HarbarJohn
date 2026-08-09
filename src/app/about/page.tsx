@@ -71,7 +71,7 @@ export default function AboutPage() {
             <p>
               Port O&apos; Pints Brewing Co. was founded in 2015 — one of the first craft
               breweries on the Redwood Coast. What started as a small taproom became
-              something special: a BrewCade, an entertainment venue, a live music spot,
+              something special: an entertainment venue, a live music spot,
               and Crescent City&apos;s go-to gathering place.
             </p>
             <p>
