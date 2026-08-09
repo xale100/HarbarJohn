@@ -48,7 +48,7 @@ export default function AboutPage() {
             <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#0f170f] to-transparent" />
           </>
         )}
-        <div className="relative z-10 text-center max-w-3xl mx-auto flex-1 flex flex-col items-center justify-center">
+        <div className="relative z-10 text-center max-w-3xl mx-auto">
           <h1 className="text-5xl sm:text-8xl font-black tracking-widest text-[#BFA060] leading-none mb-2 sm:mb-3 whitespace-nowrap" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
             THE BREWERY
           </h1>
@@ -56,6 +56,7 @@ export default function AboutPage() {
             Crescent City&apos;s craft brewery &nbsp;·&nbsp; Est. 2015
           </p>
         </div>
+        <div className="flex-1" />
       </section>
 
       {/* STORY */}

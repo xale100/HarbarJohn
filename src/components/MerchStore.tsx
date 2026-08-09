@@ -252,7 +252,7 @@ export default function MerchStore({ products, initialProductId, squareAppId, sq
               <div className="absolute inset-x-0 bottom-0 h-72 bg-gradient-to-t from-[#0f170f] to-transparent" />
             </>
           )}
-          <div className="relative z-10 text-center max-w-3xl mx-auto flex-1 flex flex-col items-center justify-center">
+          <div className="relative z-10 text-center max-w-3xl mx-auto">
             <h1 className="text-5xl sm:text-8xl font-black tracking-widest text-[#BFA060] leading-none mb-2 sm:mb-3" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
               MERCH
             </h1>
