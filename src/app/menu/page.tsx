@@ -221,9 +221,6 @@ export default async function MenuPage() {
           <div className="max-w-4xl mx-auto">
             <div className="mb-12">
               <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-1">Cider &amp; Wine</h2>
-              <p className="text-white/60 text-sm leading-relaxed mt-2" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
-                We have some remarkable options for those of you who love the glorious grape juice. Local, Napa and other worldly options.
-              </p>
               <p className="text-white/35 text-xs mt-2 tracking-wide" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
                 No growlers on cider.
               </p>
@@ -234,6 +231,11 @@ export default async function MenuPage() {
                   <p className="text-[#BFA060] text-xs tracking-[0.3em] uppercase mb-3 border-b border-[#BFA060]/15 pb-2">
                     {section.category}
                   </p>
+                  {/wine/i.test(section.category) && (
+                    <p className="text-white/60 text-sm leading-relaxed mb-4" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
+                      We have some remarkable options for those of you who love the glorious grape juice. Local, Napa and other worldly options.
+                    </p>
+                  )}
                   <div className="divide-y divide-[#BFA060]/10">
                     {section.items.map((item) => (
                       <div key={item.name} className="py-4 flex items-baseline justify-between gap-4">
