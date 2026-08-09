@@ -106,6 +106,7 @@ function transformToastData(rawMenus: any): ToastMenu {
     function extractBeverageGroups(menu: any): BeerCategory[] {
       const out: BeerCategory[] = [];
       for (const group of menu?.menuGroups ?? []) {
+        if (/growler|grumbler/i.test(group.name ?? "")) continue;
         const items: BeerItem[] = (group.menuItems ?? [])
           .filter((item: any) => isVisible(item))
           .map((item: any) => {
