@@ -119,10 +119,12 @@ export default function SouthBeachPage() {
 
             <div>
               <p className="text-[#BFA060] font-black tracking-widest text-base mb-2">Hours</p>
-              <p className="text-[#DDD8CC]/50 leading-snug">Mon – Tue &nbsp; Closed</p>
-              <p className="text-[#DDD8CC]/50 leading-snug">Wed – Thu &nbsp; 3pm – 10pm</p>
-              <p className="text-[#DDD8CC]/50 leading-snug">Fri – Sat &nbsp;&nbsp;&nbsp;&nbsp; 12pm – 12am</p>
-              <p className="text-[#DDD8CC]/50">Sun &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12pm – 10pm</p>
+              <div className="grid gap-y-0.5 text-[#DDD8CC]/50 text-sm" style={{ gridTemplateColumns: "max-content 1fr" }}>
+                <span className="pr-4">Mon – Tue</span><span>Closed</span>
+                <span className="pr-4">Wed – Thu</span><span>3pm – 10pm</span>
+                <span className="pr-4">Fri – Sat</span><span>12pm – 12am</span>
+                <span className="pr-4">Sun</span><span>12pm – 10pm</span>
+              </div>
             </div>
 
           </div>

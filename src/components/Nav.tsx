@@ -11,8 +11,14 @@ const links = [
   { href: "/merch", label: "Merch" },
   { href: "/about", label: "The Brewery" },
   { href: "/visit", label: "Visit Us" },
-  { href: "/south-beach", label: "South Beach", pair: { href: "/activities", label: "Activities" } },
+  { href: "/south-beach", label: "South Beach" },
 ];
+
+function NavLabel({ text }: { text: string }) {
+  const parts = text.split("&");
+  if (parts.length === 1) return <>{text}</>;
+  return <>{parts[0]}<span style={{ color: "#2d6b1f" }}>&amp;</span>{parts[1]}</>;
+}
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
@@ -70,7 +76,7 @@ export default function Nav() {
                     active ? "text-[#DDD8CC]" : "text-[#DDD8CC]/50 hover:text-[#DDD8CC]"
                   }`}
                 >
-                  {l.label}
+                  <NavLabel text={l.label} />
                 </Link>
                 {l.pair && (
                   <>
@@ -82,7 +88,7 @@ export default function Nav() {
                         pairActive ? "text-[#DDD8CC]" : "text-[#DDD8CC]/50 hover:text-[#DDD8CC]"
                       }`}
                     >
-                      {l.pair.label}
+                      <NavLabel text={l.pair.label} />
                     </Link>
                   </>
                 )}
@@ -120,7 +126,7 @@ export default function Nav() {
                     active ? "text-[#DDD8CC]" : "text-[#DDD8CC]/50 hover:text-[#DDD8CC]"
                   }`}
                 >
-                  {l.label}
+                  <NavLabel text={l.label} />
                 </Link>
                 {l.pair && (
                   <>
@@ -133,7 +139,7 @@ export default function Nav() {
                         pairActive ? "text-[#DDD8CC]" : "text-[#DDD8CC]/50 hover:text-[#DDD8CC]"
                       }`}
                     >
-                      {l.pair.label}
+                      <NavLabel text={l.pair.label} />
                     </Link>
                   </>
                 )}
