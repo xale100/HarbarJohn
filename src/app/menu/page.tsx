@@ -152,11 +152,14 @@ export default async function MenuPage() {
                 </p>
                 <div className="divide-y divide-[#BFA060]/10">
                   {section.items.map((beer) => (
-                    <div key={beer.name} className="py-4 flex items-baseline justify-between gap-4">
+                    <div key={beer.name} className={`py-4 flex items-baseline justify-between gap-4 ${beer.outOfStock ? "opacity-50" : ""}`}>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-baseline gap-3 flex-wrap">
                           <p className="text-[#DDD8CC] font-semibold">{beer.name}</p>
-                          {"badge" in beer && beer.badge && (
+                          {beer.outOfStock && (
+                            <span className="text-[#BFA060]/60 text-[10px] tracking-widest uppercase">Out of Stock</span>
+                          )}
+                          {"badge" in beer && beer.badge && !beer.outOfStock && (
                             <span className="text-[#BFA060] text-[10px] tracking-widest uppercase">{beer.badge}</span>
                           )}
                         </div>
@@ -236,9 +239,14 @@ export default async function MenuPage() {
                 </p>
                 <div className="divide-y divide-[#BFA060]/10">
                   {section.items.map((item) => (
-                    <div key={item.name} className="py-4 flex items-baseline justify-between gap-4">
+                    <div key={item.name} className={`py-4 flex items-baseline justify-between gap-4 ${item.outOfStock ? "opacity-50" : ""}`}>
                       <div className="flex-1 min-w-0">
-                        <p className="text-[#DDD8CC] font-semibold">{item.name}</p>
+                        <div className="flex items-baseline gap-3 flex-wrap">
+                          <p className="text-[#DDD8CC] font-semibold">{item.name}</p>
+                          {item.outOfStock && (
+                            <span className="text-[#BFA060]/60 text-[10px] tracking-widest uppercase">Out of Stock</span>
+                          )}
+                        </div>
                         {item.desc && (
                           <p className="text-white/65 text-xs leading-relaxed mt-0.5" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>{item.desc}</p>
                         )}

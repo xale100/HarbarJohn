@@ -4,6 +4,7 @@ export type BeerItem = {
   ibu: string;
   desc: string;
   badge?: string;
+  outOfStock?: boolean;
 };
 
 export type BeerCategory = {
@@ -15,6 +16,7 @@ export type FoodItem = {
   name: string;
   price: string;
   desc: string;
+  outOfStock?: boolean;
 };
 
 export type FoodCategory = {
@@ -93,13 +95,28 @@ function transformToastData(rawMenus: any): ToastMenu {
     const ciderMenu = menus.find((m: any) => m.name === "Cider Etc.");
     const wineMenu = menus.find((m: any) => m.name === "Wine");
 
+    function isVisible(item: any): boolean {
+      // Toast marks unavailable items with an empty visibility array or visibility: ["NONE"]
+      if (!item.visibility) return true;
+      if (Array.isArray(item.visibility) && item.visibility.length === 0) return false;
+      if (Array.isArray(item.visibility) && item.visibility.every((v: string) => v === "NONE")) return false;
+      return true;
+    }
+
     function extractBeverageGroups(menu: any): BeerCategory[] {
       const out: BeerCategory[] = [];
       for (const group of menu?.menuGroups ?? []) {
         const items: BeerItem[] = (group.menuItems ?? [])
+          .filter((item: any) => isVisible(item))
           .map((item: any) => {
             const { desc, abv, ibu } = parseBeerDesc(item.description ?? "");
-            return { name: item.posName || item.name, abv, ibu, desc };
+            return {
+              name: item.posName || item.name,
+              abv,
+              ibu,
+              desc,
+              outOfStock: item.outOfStock === true,
+            };
           })
           .filter((item: BeerItem) => item.name);
         if (items.length > 0) out.push({ category: group.name || "Beers", items });
@@ -114,16 +131,17 @@ function transformToastData(rawMenus: any): ToastMenu {
       for (const group of foodMenu.menuGroups ?? []) {
         if (/sauce/i.test(group.name ?? "")) {
           for (const item of group.menuItems ?? []) {
-            if (item.name) sauces.push(item.name);
+            if (item.name && isVisible(item)) sauces.push(item.name);
           }
           continue;
         }
         const items: FoodItem[] = (group.menuItems ?? [])
-          .filter((item: any) => item.name && item.description)
+          .filter((item: any) => isVisible(item) && item.name && item.description)
           .map((item: any) => ({
             name: item.name,
             price: formatPrice(item.price),
             desc: item.description,
+            outOfStock: item.outOfStock === true,
           }));
         if (items.length > 0) food.push({ category: group.name || "Food", items });
       }
