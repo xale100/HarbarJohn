@@ -17,7 +17,7 @@ export default function Footer() {
             {/* Address + Contact */}
             <div>
               <p className="text-[#BFA060] font-black tracking-widest text-base mb-2 whitespace-nowrap">
-                PORT <span style={{ color: "#2d6b1f" }}>O</span><span className="text-[#DDD8CC]/20">&apos;</span> PINTS
+                PORT <span style={{ color: "#2d6b1f" }}>O</span><img src="/images/hops-apostrophe.png" alt="" aria-hidden="true" className="inline-block align-middle" style={{ height: "0.7em", width: "auto", marginBottom: "0.2em" }} /> PINTS
               </p>
               <p className="text-[#DDD8CC]/50 leading-snug">1215 Northcrest Dr</p>
               <p className="text-[#DDD8CC]/50 mb-2">Crescent City, CA 95531</p>
