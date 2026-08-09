@@ -71,7 +71,7 @@ export default function Nav() {
                 key={l.href}
                 href={l.href}
                 aria-current={active ? "page" : undefined}
-                className={`text-xs font-medium transition-colors tracking-widest uppercase focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#BFA060] focus-visible:outline-offset-2 rounded-sm ${
+                className={`whitespace-nowrap text-xs font-medium transition-colors tracking-widest uppercase focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#BFA060] focus-visible:outline-offset-2 rounded-sm ${
                   active ? "text-[#DDD8CC]" : "text-[#DDD8CC]/50 hover:text-[#DDD8CC]"
                 }`}
               >
@@ -105,7 +105,7 @@ export default function Nav() {
                 href={l.href}
                 aria-current={active ? "page" : undefined}
                 onClick={() => setOpen(false)}
-                className={`text-xs font-medium transition-colors tracking-widest uppercase focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#BFA060] focus-visible:outline-offset-2 rounded-sm ${
+                className={`whitespace-nowrap text-xs font-medium transition-colors tracking-widest uppercase focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#BFA060] focus-visible:outline-offset-2 rounded-sm ${
                   active ? "text-[#DDD8CC]" : "text-[#DDD8CC]/50 hover:text-[#DDD8CC]"
                 }`}
               >
