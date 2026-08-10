@@ -53,7 +53,8 @@ export default function SouthBeachPage() {
               { name: "Darts", note: "18+" },
               { name: "Shuffleboard", note: "" },
               { name: "Foosball", note: "" },
-              { name: "Arcade & Pinball", note: "Classic games" },
+              { name: "Arcade", note: "Classic games" },
+              { name: "Pinball", note: "" },
             ].map((a) => (
               <div key={a.name} className="flex items-baseline justify-between py-3 border-b border-[#BFA060]/10">
                 <p className="text-[#DDD8CC] font-semibold">{a.name}</p>
