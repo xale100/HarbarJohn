@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "South Beach BrewCade — Port O' Pints at the Harbor",
@@ -27,16 +28,27 @@ export default function SouthBeachPage() {
     <div className="bg-[#080d08] text-[#DDD8CC]">
 
       {/* HERO */}
-      <section className="grain py-24 px-4 bg-[#080d08]">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="grain relative min-h-[75vh] flex flex-col items-center px-4 py-12 bg-[#080d08] overflow-hidden">
+        <Image
+          src="/images/southbeach.png"
+          alt=""
+          fill
+          className="object-cover object-center"
+          priority
+          quality={85}
+        />
+        <div className="absolute inset-0 bg-[#080d08]/50" />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#080d08] to-transparent" />
+        <div className="relative z-10 text-center">
           <p className="text-[#BFA060] text-xs tracking-[0.3em] uppercase mb-4">Port O&apos; Pints · Second Location</p>
-          <h1 className="text-5xl sm:text-7xl font-black text-[#DDD8CC] mb-4 tracking-wide uppercase">
+          <h1 className="text-5xl sm:text-7xl font-black text-[#DDD8CC] mb-4 tracking-wide uppercase whitespace-nowrap">
             South Beach
           </h1>
           <p className="text-white/60 text-sm tracking-widest uppercase" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
             BrewCade &amp; Entertainment · Crescent City Harbor
           </p>
         </div>
+        <div className="flex-1" />
       </section>
 
       {/* ACTIVITIES */}
