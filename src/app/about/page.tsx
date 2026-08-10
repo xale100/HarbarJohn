@@ -14,7 +14,7 @@ const team = [
 { src: "/images/team-john.jpg",    name: "Dr. John Kirk",     title: "Owner",
     desc: "A Crescent City OBGYN who put his roots where his heart is. John's love of craft beer and good food drove the 2023 purchase." },
   { src: "/images/team-cynthia.jpg", name: "Cynthia Parenteau", title: "Owner",
-    desc: "Retired trauma nurse turned hospitality veteran. Cynthia runs the day-to-day and makes sure every guest feels taken care of." },
+    desc: "Proud part of the family that makes Port O' Pints possible." },
   { src: "/images/team-cameron.jpg", name: "Cameron Cook",      title: "Brewer Extraordinaire",
     desc: "From the brewery floor to the beautiful beers in their bellies." },
   { src: "/images/team-russell.jpg", name: "Russell Smithson",  title: "Brand Manager",
