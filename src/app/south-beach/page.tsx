@@ -38,7 +38,7 @@ export default function SouthBeachPage() {
           quality={85}
         />
         <div className="absolute inset-0 bg-[#080d08]/50" />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#080d08] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#080d08]/70 to-transparent" />
         <div className="relative z-10 text-center">
           <p className="text-[#BFA060] text-xs tracking-[0.3em] uppercase mb-4">Port O&apos; Pints · Second Location</p>
           <h1 className="text-5xl sm:text-7xl font-black text-[#DDD8CC] mb-4 tracking-wide uppercase whitespace-nowrap">
