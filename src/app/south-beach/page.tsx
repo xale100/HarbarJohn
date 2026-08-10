@@ -36,9 +36,6 @@ export default function SouthBeachPage() {
           <p className="text-white/60 text-sm tracking-widest uppercase" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
             BrewCade &amp; Entertainment · Crescent City Harbor
           </p>
-          <p className="text-white/40 text-xs tracking-widest uppercase mt-2" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
-            Axe Throwing &nbsp;·&nbsp; Pool &amp; Darts &nbsp;·&nbsp; Arcade &nbsp;·&nbsp; Shuffleboard &nbsp;·&nbsp; Foosball
-          </p>
         </div>
       </section>
 
