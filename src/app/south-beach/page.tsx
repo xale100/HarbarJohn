@@ -28,7 +28,7 @@ export default function SouthBeachPage() {
     <div className="bg-[#080d08] text-[#DDD8CC]">
 
       {/* HERO */}
-      <section className="grain relative min-h-[75vh] flex flex-col items-center px-4 py-12 bg-[#080d08] overflow-hidden">
+      <section className="grain relative min-h-[40vh] sm:min-h-[75vh] flex flex-col items-center px-4 py-12 bg-[#080d08] overflow-hidden">
         <Image
           src="/images/southbeach.png"
           alt=""
