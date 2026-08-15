@@ -1,11 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getShows } from "@/lib/calendar";
 import { getProducts } from "@/lib/printful";
+import VenueFlowWidget from "@/components/VenueFlowWidget";
 
 export const revalidate = 3600;
-
-const fallbackShows = [] as { date: string; artist: string; time: string; genre: string; cover: string; photo: string }[];
 
 const beers = [
   { name: "Agate Ale", style: "Cream Ale", abv: "4.8%" },
@@ -17,10 +15,7 @@ const beers = [
 ];
 
 export default async function Home() {
-  const [liveShows, products] = await Promise.all([getShows(4), getProducts(3600)]);
-  const shows = (liveShows && liveShows.length > 0)
-    ? liveShows.map(s => ({ date: s.date, artist: s.artist, time: s.time, genre: s.genre, cover: s.cover, photo: s.photo }))
-    : fallbackShows;
+  const products = await getProducts(3600);
   return (
     <div className="bg-[#080d08] text-[#DDD8CC]">
 
@@ -161,65 +156,17 @@ export default async function Home() {
       </section>
 
       {/* UPCOMING SHOWS */}
-      <section className="grain relative py-10 sm:py-14 px-4 border-t-2 border-[#BFA060]/50 overflow-hidden">
-        {process.env.NEXT_PUBLIC_ASSETS_URL && (
-          <>
-            <Image
-              src={`${process.env.NEXT_PUBLIC_ASSETS_URL}/live-music/7-person-band-playing-live-1200w.webp`}
-              alt=""
-              fill
-              className="object-cover object-center"
-              quality={85}
-            />
-            <div className="absolute inset-0 bg-[#080d08]/70" />
-          </>
-        )}
-        <div className="relative z-10 max-w-4xl mx-auto">
-          <div className="mb-8">
-            <h2 className="text-2xl font-black text-white tracking-wide uppercase mb-2" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)" }}>
+      <section className="grain py-10 sm:py-14 px-4 border-t-2 border-[#BFA060]/50 bg-[#0f170f]">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-6">
+            <h2 className="text-2xl font-black text-white tracking-wide uppercase mb-1">
               This Week&apos;s Events
             </h2>
-            <p className="text-white/70 text-[10px] sm:text-sm mb-2" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9)" }}>Live music every week in Crescent City</p>
-            <Link href="/events" className="text-[#BFA060]/90 hover:text-[#BFA060] text-[10px] sm:text-xs tracking-widest uppercase transition-colors" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9)" }}>
+            <Link href="/events" className="text-[#BFA060]/70 hover:text-[#BFA060] text-xs tracking-widest uppercase transition-colors">
               Full Schedule →
             </Link>
           </div>
-
-          {shows.length === 0 && (
-            <p className="text-white/50 text-sm tracking-wide py-4" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9)" }}>
-              The stage is quiet right now — check back soon for upcoming shows.
-            </p>
-          )}
-          <div className="divide-y divide-[#BFA060]/10">
-            {shows.map((show, i) => (
-              <div
-                key={i}
-                className="flex items-center justify-between gap-4 relative"
-                style={i === 0 ? {
-                  padding: "20px 16px",
-                  margin: "0 -16px",
-                  background: "radial-gradient(ellipse 70% 100% at center, rgba(26,58,26,0.9) 0%, rgba(26,58,26,0.9) 40%, transparent 100%)",
-                } : { padding: "16px 0" }}
-              >
-                <div className="flex items-center gap-2 w-36 shrink-0">
-                  <p className={`text-[10px] sm:text-xs tracking-widest uppercase ${i === 0 ? "text-[#BFA060]" : "text-[#BFA060]/50"}`}>
-                    {show.date}
-                  </p>
-                  {i === 0 && (
-                    <span className="hidden sm:inline-block bg-[#BFA060] text-[#080d08] text-[8px] font-black tracking-widest uppercase px-1.5 py-0.5 leading-none">
-                      Next Up
-                    </span>
-                  )}
-                </div>
-                <p className={`font-semibold flex-1 ${i === 0 ? "text-white text-sm sm:text-xl" : "text-white/60 text-xs sm:text-base"}`} style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9)" }}>
-                  {show.artist}
-                </p>
-                <p className={`text-[10px] sm:text-xs tracking-wide text-right shrink-0 ${i === 0 ? "text-white/80" : "text-white/30"}`} style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9)" }}>
-                  {show.time}
-                </p>
-              </div>
-            ))}
-          </div>
+          <VenueFlowWidget layout="list" />
         </div>
       </section>
 
