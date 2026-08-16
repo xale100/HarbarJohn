@@ -160,7 +160,7 @@ export default async function Home() {
         <div className="max-w-4xl mx-auto">
           <div className="mb-6">
             <h2 className="text-2xl font-black text-white tracking-wide uppercase mb-1">
-              Coming Up
+              Music <span style={{ color: "#2d6b1f" }}>&amp;</span> Events
             </h2>
             <Link href="/events" className="text-[#BFA060]/70 hover:text-[#BFA060] text-xs tracking-widest uppercase transition-colors">
               Full Schedule →
