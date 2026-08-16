@@ -3,10 +3,10 @@ import { useEffect, useId } from "react";
 
 type Props = {
   layout?: "list" | "card" | "calendar";
-  hideForm?: boolean;
+  parts?: "shows" | "form";
 };
 
-export default function VenueFlowWidget({ layout, hideForm }: Props) {
+export default function VenueFlowWidget({ layout, parts }: Props) {
   const uid = useId().replace(/:/g, "-");
 
   useEffect(() => {
@@ -21,20 +21,12 @@ export default function VenueFlowWidget({ layout, hideForm }: Props) {
     script.setAttribute("data-bg", "transparent");
     script.setAttribute("data-scheme", "dark");
     if (layout) script.setAttribute("data-layout", layout);
+    if (parts) script.setAttribute("data-parts", parts);
     script.async = true;
     document.body.appendChild(script);
 
-    return () => {
-      script.remove();
-    };
-  }, [uid, layout]);
+    return () => { script.remove(); };
+  }, [uid, layout, parts]);
 
-  return (
-    <>
-      {hideForm && (
-        <style>{`#${uid} iframe { display: none !important; }`}</style>
-      )}
-      <div id={uid} />
-    </>
-  );
+  return <div id={uid} />;
 }
