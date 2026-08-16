@@ -14,6 +14,10 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://portopints.com"),
+  icons: {
+    icon: "/images/logo-2.png",
+    apple: "/apple-touch-icon.png",
+  },
   title: {
     default: "Port O' Pints Brewing Co. | Brewery, Live Music & Food · Crescent City, CA",
     template: "%s | Port O' Pints · Crescent City, CA",
