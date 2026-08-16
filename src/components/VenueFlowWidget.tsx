@@ -3,9 +3,10 @@ import { useEffect, useId } from "react";
 
 type Props = {
   layout?: "list" | "card" | "calendar";
+  hideForm?: boolean;
 };
 
-export default function VenueFlowWidget({ layout }: Props) {
+export default function VenueFlowWidget({ layout, hideForm }: Props) {
   const uid = useId().replace(/:/g, "-");
 
   useEffect(() => {
@@ -28,5 +29,12 @@ export default function VenueFlowWidget({ layout }: Props) {
     };
   }, [uid, layout]);
 
-  return <div id={uid} />;
+  return (
+    <>
+      {hideForm && (
+        <style>{`#${uid} iframe { display: none !important; }`}</style>
+      )}
+      <div id={uid} />
+    </>
+  );
 }

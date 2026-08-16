@@ -166,7 +166,7 @@ export default async function Home() {
               Full Schedule →
             </Link>
           </div>
-          <VenueFlowWidget layout="list" />
+          <VenueFlowWidget layout="list" hideForm />
         </div>
       </section>
 
