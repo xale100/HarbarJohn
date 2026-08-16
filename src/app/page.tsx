@@ -159,9 +159,9 @@ export default async function Home() {
       <section className="grain py-10 sm:py-14 px-4 border-t-2 border-[#BFA060]/50 bg-[#0f170f]">
         <div className="max-w-4xl mx-auto">
           <div className="mb-6">
-            <h2 className="text-2xl font-black text-white tracking-wide uppercase mb-1">
+            <p className="text-[#BFA060] text-xs tracking-[0.3em] uppercase mb-2 border-b border-[#BFA060]/15 pb-2">
               Music <span style={{ color: "#2d6b1f" }}>&amp;</span> Events
-            </h2>
+            </p>
             <Link href="/events" className="text-[#BFA060]/70 hover:text-[#BFA060] text-xs tracking-widest uppercase transition-colors">
               Full Schedule →
             </Link>

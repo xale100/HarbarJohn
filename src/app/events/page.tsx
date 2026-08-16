@@ -42,9 +42,9 @@ export default function EventsPage() {
       {/* SCHEDULE + BOOKING — VenueFlow widget */}
       <section className="grain py-20 px-4 bg-[#0f170f]">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-black text-[#DDD8CC] tracking-wide uppercase mb-10">
+          <p className="text-[#BFA060] text-xs tracking-[0.3em] uppercase mb-8 border-b border-[#BFA060]/15 pb-2">
             Upcoming Shows
-          </h2>
+          </p>
           <VenueFlowWidget layout="list" />
         </div>
       </section>
