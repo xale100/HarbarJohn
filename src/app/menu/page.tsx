@@ -13,41 +13,41 @@ export const metadata: Metadata = {
 
 const staticBeers: BeerCategory[] = [
   { category: "Cream Ales", items: [
-    { name: "Agate Ale", abv: "4.8%", ibu: "32", desc: "Pale gold, light-bodied and easy drinking. Our best seller.", badge: "Best Seller" },
+    { name: "Agate Ale", price: "", abv: "4.8%", ibu: "32", desc: "Pale gold, light-bodied and easy drinking. Our best seller.", badge: "Best Seller" },
   ]},
   { category: "Lagers", items: [
-    { name: "Amber Lager", abv: "5%", ibu: "42", desc: "Light-bodied amber lager. Slight malty flavor, low hop bitterness." },
-    { name: "California Common", abv: "", ibu: "", desc: "Bright amber, moderately malty with moderate hop bitterness." },
+    { name: "Amber Lager", price: "", abv: "5%", ibu: "42", desc: "Light-bodied amber lager. Slight malty flavor, low hop bitterness." },
+    { name: "California Common", price: "", abv: "", ibu: "", desc: "Bright amber, moderately malty with moderate hop bitterness." },
   ]},
   { category: "IPAs & Pale Ales", items: [
-    { name: "11 Bravo IPA", abv: "6.5%", ibu: "65", desc: "American IPA brewed with Bravo hops, in honor of the US Army Infantry. Balanced hops and malt.", badge: "Fan Favorite" },
-    { name: "Slant Bridge IPA", abv: "5%", ibu: "42", desc: "Light golden American IPA with aromatic hop notes and a dry finish." },
-    { name: "Fog Bank Hazy IPA", abv: "5.9%", ibu: "34", desc: "Grapefruit, citrus, and pineapple — served unfiltered." },
-    { name: "El Juicy Pants NEIPA", abv: "", ibu: "", desc: "New England IPA. Hazy golden, citrusy hop aroma, passion fruit notes. Clean refreshing finish." },
-    { name: "Warrior Pale Ale", abv: "", ibu: "", desc: "Single-hopped pale ale brewed in honor of the Del Norte Warriors." },
+    { name: "11 Bravo IPA", price: "", abv: "6.5%", ibu: "65", desc: "American IPA brewed with Bravo hops, in honor of the US Army Infantry. Balanced hops and malt.", badge: "Fan Favorite" },
+    { name: "Slant Bridge IPA", price: "", abv: "5%", ibu: "42", desc: "Light golden American IPA with aromatic hop notes and a dry finish." },
+    { name: "Fog Bank Hazy IPA", price: "", abv: "5.9%", ibu: "34", desc: "Grapefruit, citrus, and pineapple — served unfiltered." },
+    { name: "El Juicy Pants NEIPA", price: "", abv: "", ibu: "", desc: "New England IPA. Hazy golden, citrusy hop aroma, passion fruit notes. Clean refreshing finish." },
+    { name: "Warrior Pale Ale", price: "", abv: "", ibu: "", desc: "Single-hopped pale ale brewed in honor of the Del Norte Warriors." },
   ]},
   { category: "Brown Ales & Porters", items: [
-    { name: "My Honey's Brown Ale", abv: "5.7%", ibu: "", desc: "Nutty caramel toffee and biscuity notes. Low bitterness, crisp finish." },
-    { name: "English Brown Porter", abv: "6.0%", ibu: "12", desc: "Dark with ruby highlights. Chocolate and coffee notes without heavy roast." },
-    { name: "Del Norter Porter", abv: "", ibu: "", desc: "A local classic." },
+    { name: "My Honey's Brown Ale", price: "", abv: "5.7%", ibu: "", desc: "Nutty caramel toffee and biscuity notes. Low bitterness, crisp finish." },
+    { name: "English Brown Porter", price: "", abv: "6.0%", ibu: "12", desc: "Dark with ruby highlights. Chocolate and coffee notes without heavy roast." },
+    { name: "Del Norter Porter", price: "", abv: "", ibu: "", desc: "A local classic." },
   ]},
   { category: "Stouts", items: [
-    { name: "Irish Dry Stout", abv: "", ibu: "", desc: "Light-bodied, roasty. Typically served on nitrogen for a creamy, smooth finish." },
+    { name: "Irish Dry Stout", price: "", abv: "", ibu: "", desc: "Light-bodied, roasty. Typically served on nitrogen for a creamy, smooth finish." },
   ]},
   { category: "Belgian Styles", items: [
-    { name: "Belgian Tripel", abv: "9.1%", ibu: "32", desc: "Bright gold, rich full head. Grainy sweet with light spicy and fruity character." },
-    { name: "Belgian Dark Strong", abv: "9.4%", ibu: "32", desc: "Dark red, very complex. Mildly sweet start, warm full body, clean crisp finish." },
-    { name: "Wit-Ness Perfection", abv: "", ibu: "", desc: "Belgian wheat beer. Crisp citrus and coriander with mild body." },
+    { name: "Belgian Tripel", price: "", abv: "9.1%", ibu: "32", desc: "Bright gold, rich full head. Grainy sweet with light spicy and fruity character." },
+    { name: "Belgian Dark Strong", price: "", abv: "9.4%", ibu: "32", desc: "Dark red, very complex. Mildly sweet start, warm full body, clean crisp finish." },
+    { name: "Wit-Ness Perfection", price: "", abv: "", ibu: "", desc: "Belgian wheat beer. Crisp citrus and coriander with mild body." },
   ]},
   { category: "Red Ales", items: [
-    { name: "3 Sisters Irish Red", abv: "6.3%", ibu: "42", desc: "Copper red, easy-drinking. Hints of fresh-cut grass and caramel, low hop presence." },
+    { name: "3 Sisters Irish Red", price: "", abv: "6.3%", ibu: "42", desc: "Copper red, easy-drinking. Hints of fresh-cut grass and caramel, low hop presence." },
   ]},
   { category: "Seasonal & Specialty", items: [
-    { name: "Cherry Chocolate Sour", abv: "", ibu: "", desc: "Experimental sour with dark cherry and chocolate." },
-    { name: "Sneaker Wave", abv: "", ibu: "", desc: "Fruited wheat beer — Paddy Wheat Series." },
+    { name: "Cherry Chocolate Sour", price: "", abv: "", ibu: "", desc: "Experimental sour with dark cherry and chocolate." },
+    { name: "Sneaker Wave", price: "", abv: "", ibu: "", desc: "Fruited wheat beer — Paddy Wheat Series." },
   ]},
   { category: "Non-Alcoholic", items: [
-    { name: "House-Brewed Root Beer", abv: "0%", ibu: "", desc: "Award-winning. Made in-house. A Port O' Pints staple.", badge: "Award-Winning" },
+    { name: "House-Brewed Root Beer", price: "", abv: "0%", ibu: "", desc: "Award-winning. Made in-house. A Port O' Pints staple.", badge: "Award-Winning" },
   ]},
 ];
 
@@ -167,11 +167,14 @@ export default async function MenuPage() {
                         {beer.desc && (
                           <p className="text-white/65 text-xs leading-relaxed mt-0.5" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>{beer.desc}</p>
                         )}
+                        {(beer.abv || beer.ibu) && (
+                          <p className="text-white/45 text-xs mt-0.5" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
+                            {beer.abv}{beer.abv && beer.ibu && " · "}{beer.ibu && `IBU ${beer.ibu}`}
+                          </p>
+                        )}
                       </div>
-                      {(beer.abv || beer.ibu) && (
-                        <p className="text-white/55 text-xs text-right shrink-0 whitespace-nowrap" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
-                          {beer.abv}{beer.abv && beer.ibu && " · "}{beer.ibu && `IBU ${beer.ibu}`}
-                        </p>
+                      {beer.price && (
+                        <p className="text-white/55 text-xs text-right shrink-0" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>{beer.price}</p>
                       )}
                     </div>
                   ))}
@@ -194,11 +197,14 @@ export default async function MenuPage() {
                             {beer.desc && (
                               <p className="text-white/65 text-xs leading-relaxed mt-0.5" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>{beer.desc}</p>
                             )}
+                            {(beer.abv || beer.ibu) && (
+                              <p className="text-white/45 text-xs mt-0.5" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
+                                {beer.abv}{beer.abv && beer.ibu && " · "}{beer.ibu && `IBU ${beer.ibu}`}
+                              </p>
+                            )}
                           </div>
-                          {(beer.abv || beer.ibu) && (
-                            <p className="text-white/55 text-xs text-right shrink-0 whitespace-nowrap" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
-                              {beer.abv}{beer.abv && beer.ibu && " · "}{beer.ibu && `IBU ${beer.ibu}`}
-                            </p>
+                          {beer.price && (
+                            <p className="text-white/55 text-xs text-right shrink-0" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>{beer.price}</p>
                           )}
                         </div>
                       ))}

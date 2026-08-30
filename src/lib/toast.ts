@@ -1,5 +1,6 @@
 export type BeerItem = {
   name: string;
+  price: string;
   abv: string;
   ibu: string;
   desc: string;
@@ -113,6 +114,7 @@ function transformToastData(rawMenus: any): ToastMenu {
             const { desc, abv, ibu } = parseBeerDesc(item.description ?? "");
             return {
               name: item.posName || item.name,
+              price: formatPrice(item.price),
               abv,
               ibu,
               desc,
