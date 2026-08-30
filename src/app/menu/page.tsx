@@ -250,11 +250,14 @@ export default async function MenuPage() {
                           {item.desc && (
                             <p className="text-white/65 text-xs leading-relaxed mt-0.5" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>{item.desc}</p>
                           )}
+                          {(item.abv || item.ibu) && (
+                            <p className="text-white/45 text-xs mt-0.5" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
+                              {item.abv}{item.abv && item.ibu && " · "}{item.ibu && `IBU ${item.ibu}`}
+                            </p>
+                          )}
                         </div>
-                        {(item.abv || item.ibu) && (
-                          <p className="text-white/55 text-xs text-right shrink-0 whitespace-nowrap" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
-                            {item.abv}{item.abv && item.ibu && " · "}{item.ibu && `IBU ${item.ibu}`}
-                          </p>
+                        {item.price && (
+                          <p className="text-white/55 text-xs text-right shrink-0" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>{item.price}</p>
                         )}
                       </div>
                     ))}
