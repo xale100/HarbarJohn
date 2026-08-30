@@ -78,7 +78,7 @@ function parseBeerDesc(raw: string): { desc: string; abv: string; ibu: string } 
 
 function formatPrice(price: number | null | undefined): string {
   if (price == null) return "";
-  return `$${price.toFixed(2).replace(/\.00$/, "")}`;
+  return `$${price.toFixed(2)}`;
 }
 
 function transformToastData(rawMenus: any): ToastMenu {
