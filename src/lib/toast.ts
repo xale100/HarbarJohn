@@ -106,7 +106,7 @@ function transformToastData(rawMenus: any): ToastMenu {
     function extractBeverageGroups(menu: any): BeerCategory[] {
       const out: BeerCategory[] = [];
       for (const group of menu?.menuGroups ?? []) {
-        if (/growler|grumbler/i.test(group.name ?? "")) continue;
+        if (/growler|grumbler|half.?pint|taste|taster/i.test(group.name ?? "")) continue;
         const items: BeerItem[] = (group.menuItems ?? [])
           .filter((item: any) => isVisible(item))
           .map((item: any) => {
@@ -119,7 +119,7 @@ function transformToastData(rawMenus: any): ToastMenu {
               outOfStock: item.outOfStock === true,
             };
           })
-          .filter((item: BeerItem) => item.name);
+          .filter((item: BeerItem) => item.name && !/half.?pint|taste|taster/i.test(item.name));
         if (items.length > 0) out.push({ category: group.name || "Beers", items });
       }
       return out;
